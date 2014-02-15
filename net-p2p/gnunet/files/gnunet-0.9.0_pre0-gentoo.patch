@@ -1,0 +1,13 @@
+--- Makefile.am.anc	2010-04-16 20:34:28.804859312 +0200
++++ src/transport/Makefile.am	2010-04-16 20:35:21.351042832 +0200
+@@ -13,8 +13,8 @@
+ if LINUX
+ NATBIN = gnunet-nat-server gnunet-nat-client
+ install-exec-hook:
+-	chown root $(bindir)/gnunet-nat-server $(bindir)/gnunet-nat-client || true
+-	chmod u+s $(bindir)/gnunet-nat-server $(bindir)/gnunet-nat-client || true
++	chown root $(DESTDIR)$(bindir)/gnunet-nat-server $(DESTDIR)$(bindir)/gnunet-nat-client || true
++	chmod u+s $(DESTDIR)$(bindir)/gnunet-nat-server $(DESTDIR)$(bindir)/gnunet-nat-client || true
+ else
+ install-exec-hook:
+ endif

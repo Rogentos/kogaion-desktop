@@ -1,0 +1,22 @@
+[org.gnome.desktop.background]
+picture-uri='file:///usr/share/backgrounds/kogaionlinux.png'
+show-desktop-icons=true
+
+[org.gnome.desktop.interface]
+clock-show-date=true
+document-font-name='Sans 10'
+font-name='Bitstream Vera Sans 10'
+icon-theme='Faenza-Kupertino-Light'
+
+[org.gnome.desktop.wm.preferences]
+theme='Kogaion-light'
+titlebar-font='Bitstream Vera Sans Bold 10'
+
+[org.gnome.shell.calendar]
+show-weekdate=true
+
+org.gnome.shell.overrides]
+button-layout=':minimize,maximize,close'
+
+[org.gnome.SessionManager]
+show-fallback-warning=false

@@ -1,0 +1,32 @@
+--- orig/data/lxdm.conf.in	2013-07-01 01:20:22.289454072 +0300
++++ data/lxdm.conf.in	2013-07-01 01:19:34.353452789 +0300
+@@ -1,6 +1,6 @@
+ [base]
+ ## uncomment and set autologin username to enable autologin
+-# autologin=dgod
++# autologin=rogentosuser
+ 
+ ## uncomment and set timeout to enable timeout autologin,
+ ## the value should >=5
+@@ -24,10 +24,10 @@
+ 
+ [display]
+ ## gtk theme used by greeter
+-gtk_theme=Clearlooks
++gtk_theme=Kogaion-light
+ 
+ ## background of the greeter
+-bg=/usr/share/backgrounds/default.png
++bg=/usr/share/lxdm/themes/Kogaion/kogaion.png
+ 
+ ## if show bottom pane
+ bottom_pane=1
+@@ -39,7 +39,7 @@
+ keyboard=0
+ 
+ ## the theme of greeter
+-theme=Industrial
++theme=Kogaion
+ 
+ [input]
+ 

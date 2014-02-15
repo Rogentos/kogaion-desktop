@@ -1,0 +1,14 @@
+# ChangeLog for net-p2p/gnunet-qt
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gnunet-qt-0.8.1a (23 Feb 2010)
+
+  23 Feb 2010; Ycarus <ycarus@zugaina.org> +gnunet-qt-0.8.1a.ebuild:
+  Bump to 0.8.1a
+
+*gnunet-qt-0.8.1 (01 Jan 2010)
+
+  01 Jan 2010; Ycarus <ycarus@zugaina.org> +gnunet-qt-0.8.1.ebuild:
+  Add gnunet-qt 0.8.1
+

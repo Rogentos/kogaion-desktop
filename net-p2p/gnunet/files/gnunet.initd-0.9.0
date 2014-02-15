@@ -1,0 +1,38 @@
+#!/sbin/runscript
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+depend() {
+	need net
+}
+
+start() {
+	if ! test -f "/etc/gnunet.conf"; then
+		eerror "You must create /etc/gnunet.conf file first"
+		return 1
+	fi
+	if ! test -f "/var/lib/gnunet/hostlist/learned.data"; then
+		mkdir -p /var/lib/gnunet/hostlist/
+		wget -q http://v9.gnunet.org:58080/ -O /var/lib/gnunet/hostlist/learned.data
+		chown -R gnunetd:gnunetd /var/lib/gnunet/hostlist
+	fi
+
+	ebegin "Starting GNUnet"
+	# -u username, -c path to gnunet.conf file
+	sudo -u gnunetd /usr/bin/gnunet-arm -s -i fs -i statistics -c /etc/gnunet.conf
+#	sudo -u gnunetd /usr/bin/gnunet-services-fs -d -s -c /etc/gnunet.conf
+#	sudo -u gnunetd /usr/bin/gnunet-statistics -d -s -c /etc/gnunet.conf
+	eend $? "Failed to start GNUnet"
+}
+
+stop() {
+	ebegin "Stopping GNUnet"
+	sudo -u gnunetd /usr/bin/gnunet-arm -e
+	eend $? "Failed to stop GNUnet"
+}
+
+restart() {
+        svc_stop
+        sleep 3
+        svc_start
+}

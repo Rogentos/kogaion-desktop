@@ -1,0 +1,10 @@
+--- grub-2.00.orig/util/grub.d/10_linux.in	2012-09-09 23:41:17.299578772 +0000
++++ grub-2.00/util/grub.d/10_linux.in	2012-09-09 23:40:11.014407451 +0000
+@@ -25,6 +25,7 @@ datarootdir="@datarootdir@"
+ 
+ export TEXTDOMAIN=@PACKAGE@
+ export TEXTDOMAINDIR="@localedir@"
++export GRUB_DISTRIBUTOR=Rogentos
+ 
+ CLASS="--class gnu-linux --class gnu --class os"
+ 

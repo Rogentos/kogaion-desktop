@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=RoSeInstaller
+Type=Application
+Comment=RogentOS GUI Installer for Servers
+Exec=/usr/bin/RoSeInstaller
+Icon=/opt/RoSeInstaller/rose-installer.png
+Categories=System;Development;

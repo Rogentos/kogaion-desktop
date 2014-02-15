@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+
+	<wallpaper deleted="false">
+		<name>Circles</name>
+		<filename>/usr/share/backgrounds/Circles_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Blue fuzzy lines</name>
+		<filename>/usr/share/backgrounds/Fuzzy_lines_blue_1.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Fuzzy lines blue</name>
+		<filename>/usr/share/backgrounds/Fuzzy_lines_blue_2.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Fuzzy lines purple</name>
+		<filename>/usr/share/backgrounds/Fuzzy_lines_purple.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Fuzzy lines rainbow</name>
+		<filename>/usr/share/backgrounds/Fuzzy_lines_rainbow.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Blue flame</name>
+		<filename>/usr/share/backgrounds/Kogaion_blue_flame_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Kogaion blue</name>
+		<filename>/usr/share/backgrounds/Kogaion_blue_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Kogaion dark</name>
+		<filename>/usr/share/backgrounds/Kogaion_dark_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Kogaion flame</name>
+		<filename>/usr/share/backgrounds/Kogaion_flame_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Kogaion light 1</name>
+		<filename>/usr/share/backgrounds/Kogaion_light_1.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Kogaion light 2</name>
+		<filename>/usr/share/backgrounds/Kogaion_light_2.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Pacman</name>
+		<filename>/usr/share/backgrounds/Kogaion_pacman_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Stars</name>
+		<filename>/usr/share/backgrounds/Kogaion_stars_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Tricolor flame</name>
+		<filename>/usr/share/backgrounds/Kogaion_tri_flame_wide.png</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Rainbow</name>
+		<filename>/usr/share/backgrounds/Rainbow.jpg</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Sea</name>
+		<filename>/usr/share/backgrounds/Sea.jpg</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Sunset 1</name>
+		<filename>/usr/share/backgrounds/Sunset1.jpg</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Sunset 2</name>
+		<filename>/usr/share/backgrounds/Sunset2.jpg</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		<name>Water</name>
+		<filename>/usr/share/backgrounds/Water.jpg</filename>
+		<options>stretched</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		
+		<name>Blinds</name>
+		<name xml:lang="af">Blindings</name>
+		<name xml:lang="ar">معتم</name>
+		<name xml:lang="bg">Зелен параван</name>
+		<name xml:lang="bn">খড়খড়ি</name>
+		<name xml:lang="ca">Persiana</name>
+		<name xml:lang="cs">Zástěna</name>
+		<name xml:lang="cy">Llen werdd</name>
+		<name xml:lang="da">Persienner</name>
+		<name xml:lang="de">Grüner Fächer</name>
+		<name xml:lang="el">Περσίδες</name>
+		<name xml:lang="en_GB">Blinds</name>
+		<name xml:lang="eo">Verda ventumilo</name>
+		<name xml:lang="es">Persianas</name>
+		<name xml:lang="et">Kardin</name>
+		<name xml:lang="eu">Hosto-pertsianak</name>
+		<name xml:lang="fa">مخفیگاه</name>
+		<name xml:lang="fi">Kaihtimet</name>
+		<name xml:lang="fr">Stores</name>
+		<name xml:lang="fy">Latsjeblinen</name>
+		<name xml:lang="ga">Dallóga</name>
+		<name xml:lang="gl">Persianas</name>
+		<name xml:lang="gu">આંધળાઓ</name>
+		<name xml:lang="he">וילון</name>
+		<name xml:lang="hi">सूरदास</name>
+		<name xml:lang="hu">Lamellák</name>
+		<name xml:lang="it">Solchi</name>
+		<name xml:lang="ja">ブラインド</name>
+		<name xml:lang="kk">Жалюзи</name>
+		<name xml:lang="km">ងងឹត</name>
+		<name xml:lang="ko">블라인드</name>
+		<name xml:lang="lt">Žaliuzės</name>
+		<name xml:lang="lv">Saulainā lapa</name>
+		<name xml:lang="mk">Завеси</name>
+		<name xml:lang="mn">Халхавч</name>
+		<name xml:lang="ms">Buta</name>
+		<name xml:lang="nb">Blendere</name>
+		<name xml:lang="nds">Blind</name>
+		<name xml:lang="nl">Jaloezieën</name>
+		<name xml:lang="nn">Persienner</name>
+		<name xml:lang="pa">ਹਰੀਆਂ ਲਹਿਰਾਂ</name>
+		<name xml:lang="pl">Żaluzje</name>
+		<name xml:lang="pt">Persianas</name>
+		<name xml:lang="pt_BR">Persianas</name>
+		<name xml:lang="ro">Jaluzele</name>
+		<name xml:lang="ru">Жалюзи</name>
+		<name xml:lang="sk">Rolety</name>
+		<name xml:lang="sl">Zavese</name>
+		<name xml:lang="sr">Зелени застор</name>
+		<name xml:lang="sv">Persienner</name>
+		<name xml:lang="ta">பிளிண்ட்ஸ்</name>
+		<name xml:lang="tr">Panjur</name>
+		<name xml:lang="uk">Жалюзі</name>
+		<name xml:lang="vi">Vân</name>
+		<name xml:lang="zh_CN">绿帘</name>
+		<name xml:lang="zh_TW">窗簾</name>
+		<filename>/usr/share/backgrounds/gnome/Blinds.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Blue Marble</name>
+		<name xml:lang="af">Blou albaster</name>
+		<name xml:lang="bg">Синьото кълбо</name>
+		<name xml:lang="bn">নীল মার্বেল</name>
+		<name xml:lang="ca">Marbre blau</name>
+		<name xml:lang="cs">Modrá, nikoliv zelená, koule</name>
+		<name xml:lang="da">Blå marmor</name>
+		<name xml:lang="de">Blauer Planet</name>
+		<name xml:lang="el">Μπλε μάρμαρο</name>
+		<name xml:lang="en_GB">Blue Marble</name>
+		<name xml:lang="eo">Blua planedo</name>
+		<name xml:lang="es">Planeta Tierra</name>
+		<name xml:lang="et">Sinine marmor</name>
+		<name xml:lang="eu">Marmol urdina</name>
+		<name xml:lang="fa">گوی آبی</name>
+		<name xml:lang="fi">Sininen marmorikuula</name>
+		<name xml:lang="fr">La grande bleue</name>
+		<name xml:lang="gl">Bola azul</name>
+		<name xml:lang="gu">વાદળી માર્બલ</name>
+		<name xml:lang="he">גוּלה כחולה</name>
+		<name xml:lang="hi">नीला संगमरमर</name>
+		<name xml:lang="hu">Kék üveggolyó</name>
+		<name xml:lang="it">Terra</name>
+		<name xml:lang="ja">ブルーマーブル</name>
+		<name xml:lang="km">ថ្មម៉ាប​ខៀវ</name>
+		<name xml:lang="ko">푸른 구슬</name>
+		<name xml:lang="lt">Mėlynoji sfera</name>
+		<name xml:lang="lv">Zilā pērle</name>
+		<name xml:lang="nb">Blå marmor</name>
+		<name xml:lang="nl">Blauwe knikker</name>
+		<name xml:lang="pa">ਨੀਲਾ ਸੰਗਮਰਮਰ</name>
+		<name xml:lang="pl">Błękitny glob</name>
+		<name xml:lang="pt">Mármore Azul</name>
+		<name xml:lang="pt_BR">Mármore azul</name>
+		<name xml:lang="ru">Синий мрамор</name>
+		<name xml:lang="sk">Zemeguľa</name>
+		<name xml:lang="sl">Modra frnikola</name>
+		<name xml:lang="sr">Хладно плаветнило</name>
+		<name xml:lang="sv">Blå marmor</name>
+		<name xml:lang="ta">நீல சலவைக்கல்</name>
+		<name xml:lang="tr">Mavi Mermer</name>
+		<name xml:lang="uk">Блакитний мармур</name>
+		<name xml:lang="vi">Trái đất xanh</name>
+		<name xml:lang="zh_CN">蓝色星球</name>
+		<name xml:lang="zh_TW">藍色大理石</name>
+		<filename>/usr/share/backgrounds/gnome/BlueMarbleWest.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Dandelion</name>
+		<name xml:lang="bg">Глухарче</name>
+		<name xml:lang="ca">Dent de lleó</name>
+		<name xml:lang="cs">Chmíří</name>
+		<name xml:lang="da">Mælkebøtte</name>
+		<name xml:lang="de">Löwenzahn</name>
+		<name xml:lang="el">Πικραλίδα</name>
+		<name xml:lang="en_GB">Dandelion</name>
+		<name xml:lang="es">Dandelion</name>
+		<name xml:lang="et">Võilill</name>
+		<name xml:lang="eu">Txikoria-belarra</name>
+		<name xml:lang="fa">قاصدک</name>
+		<name xml:lang="fi">Voikukka</name>
+		<name xml:lang="fr">Pissenlit</name>
+		<name xml:lang="gl">Dente de can</name>
+		<name xml:lang="gu">ડૅન્ડિલિઅન</name>
+		<name xml:lang="he">סביון</name>
+		<name xml:lang="hi">सिंहपर्णी</name>
+		<name xml:lang="hu">Pitypang</name>
+		<name xml:lang="it">Dente di leone</name>
+		<name xml:lang="ja">タンポポ</name>
+		<name xml:lang="ko">민들레</name>
+		<name xml:lang="lt">Pienė</name>
+		<name xml:lang="lv">Pienene</name>
+		<name xml:lang="nb">Dandelion</name>
+		<name xml:lang="pa">ਚਿੱਟੀਆਂ ਤਾਰਾਂ</name>
+		<name xml:lang="pl">Jaskier</name>
+		<name xml:lang="pt">Dente de Leão</name>
+		<name xml:lang="pt_BR">Dente-de-leão</name>
+		<name xml:lang="ru">Одуванчик</name>
+		<name xml:lang="sk">Púpava</name>
+		<name xml:lang="sl">Regratova lučka</name>
+		<name xml:lang="sr">Маслачак</name>
+		<name xml:lang="ta">டேன்டெலியான்</name>
+		<name xml:lang="tr">Karahindiba</name>
+		<name xml:lang="uk">Кульбаба</name>
+		<name xml:lang="vi">Hoa bồ công anh</name>
+		<name xml:lang="zh_CN">蒲公英</name>
+		<name xml:lang="zh_TW">蒲公英</name>
+		<filename>/usr/share/backgrounds/gnome/Chmiri.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Pink Fabric</name>
+		<name xml:lang="bg">Розов плат</name>
+		<name xml:lang="ca">Tela rosa</name>
+		<name xml:lang="cs">Růžová tkanina</name>
+		<name xml:lang="da">Lyserødt stof</name>
+		<name xml:lang="de">Rosafarbener Stoff</name>
+		<name xml:lang="el">Ροζ ύφασμα</name>
+		<name xml:lang="en_GB">Pink Fabric</name>
+		<name xml:lang="es">Tela rosa</name>
+		<name xml:lang="et">Lilla kangas</name>
+		<name xml:lang="eu">Ehun arrosa</name>
+		<name xml:lang="fa">تار و پود صورتی</name>
+		<name xml:lang="fi">Vaaleanpunaista kangasta</name>
+		<name xml:lang="fr">Tissu rose</name>
+		<name xml:lang="gl">Tecido rosa</name>
+		<name xml:lang="gu">ગુલાબી ફેબ્રીક</name>
+		<name xml:lang="he">בד ורוד</name>
+		<name xml:lang="hi">गुलाबी फैब्रिक</name>
+		<name xml:lang="hu">Rózsaszín szövet</name>
+		<name xml:lang="it">Stoffa rosa</name>
+		<name xml:lang="ja">ピンクの布</name>
+		<name xml:lang="ko">분홍빛 천</name>
+		<name xml:lang="lt">Rožinis fabrikas</name>
+		<name xml:lang="lv">Rozā audums</name>
+		<name xml:lang="nb">Rosa stoff</name>
+		<name xml:lang="pa">ਗੁਲਾਬੀ ਮੋੜ</name>
+		<name xml:lang="pl">Różowy materiał</name>
+		<name xml:lang="pt">Tecido Rosa</name>
+		<name xml:lang="pt_BR">Tecido rosa</name>
+		<name xml:lang="ru">Розовая ткань</name>
+		<name xml:lang="sk">Ružová látka</name>
+		<name xml:lang="sl">Rožnato blago</name>
+		<name xml:lang="sr">Ружичаста тканина</name>
+		<name xml:lang="ta">பிங்க் ஃபேப்ரிக்</name>
+		<name xml:lang="tr">Pembe Kumaş</name>
+		<name xml:lang="uk">Рожева тканина</name>
+		<name xml:lang="vi">Vải hồng</name>
+		<name xml:lang="zh_CN">粉色面料</name>
+		<name xml:lang="zh_TW">粉紅織布</name>
+		<filename>/usr/share/backgrounds/gnome/Fabric.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Foot Fall</name>
+		<name xml:lang="af">Voet val</name>
+		<name xml:lang="bg">Сиви стъпки</name>
+		<name xml:lang="bn">পদধ্বনি</name>
+		<name xml:lang="ca">Peus d'aigua</name>
+		<name xml:lang="cs">Dešťové stopy</name>
+		<name xml:lang="da">Våde fodspor</name>
+		<name xml:lang="de">Wassertatzen</name>
+		<name xml:lang="el">Πατημασιές</name>
+		<name xml:lang="en_GB">Foot Fall</name>
+		<name xml:lang="eo">Piedaj ŝpuroj</name>
+		<name xml:lang="es">Gotas de pies</name>
+		<name xml:lang="et">Jalad seinal</name>
+		<name xml:lang="eu">Oinatza</name>
+		<name xml:lang="fa">سقوط</name>
+		<name xml:lang="fi">Jalanpohja pisaroista</name>
+		<name xml:lang="fr">Empreinte de pieds</name>
+		<name xml:lang="gl">Gotas de pes</name>
+		<name xml:lang="gu">ફુટબોલ</name>
+		<name xml:lang="he">טיפות טביעות רגליים</name>
+		<name xml:lang="hi">फुट पतन</name>
+		<name xml:lang="hu">Csepptappancs</name>
+		<name xml:lang="it">Tracce</name>
+		<name xml:lang="ja">足音</name>
+		<name xml:lang="km">Foot Fall</name>
+		<name xml:lang="ko">발바닥 방울</name>
+		<name xml:lang="lt">Vandens pėdos</name>
+		<name xml:lang="lv">Lietus pēdas</name>
+		<name xml:lang="nb">Fotfall</name>
+		<name xml:lang="nl">Druppels</name>
+		<name xml:lang="pa">ਪੈਰਾਂ ਦੇ ਨਿਸ਼ਾਨ</name>
+		<name xml:lang="pl">Krople wody</name>
+		<name xml:lang="pt">Pegadas de Chuva</name>
+		<name xml:lang="pt_BR">Passos</name>
+		<name xml:lang="ru">Шаги</name>
+		<name xml:lang="sk">Chodidlá z kvapiek</name>
+		<name xml:lang="sl">Kapljične stopinje</name>
+		<name xml:lang="sr">Стопе</name>
+		<name xml:lang="sv">Fotavtryck</name>
+		<name xml:lang="ta">அடி சின்னம்</name>
+		<name xml:lang="tr">Ayak İzi</name>
+		<name xml:lang="uk">Падіння ноги</name>
+		<name xml:lang="vi">Giọt nước dấu chân</name>
+		<name xml:lang="zh_CN">脚步</name>
+		<name xml:lang="zh_TW">腳步聲</name>
+		<filename>/usr/share/backgrounds/gnome/FootFall.png</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+		<wallpaper deleted="false">
+		
+		<name>Mirror</name>
+		<name xml:lang="bg">Водно огледало</name>
+		<name xml:lang="ca">Mirall</name>
+		<name xml:lang="cs">Zrcadlení</name>
+		<name xml:lang="da">Spejl</name>
+		<name xml:lang="de">Spiegelbild</name>
+		<name xml:lang="el">Θάλασσα </name>
+		<name xml:lang="en_GB">Mirror</name>
+		<name xml:lang="es">Espejo</name>
+		<name xml:lang="et">Peegel</name>
+		<name xml:lang="eu">Ispilua</name>
+		<name xml:lang="fa">آینه</name>
+		<name xml:lang="fi">Peili</name>
+		<name xml:lang="fr">Miroir</name>
+		<name xml:lang="gl">Espello</name>
+		<name xml:lang="gu">મિરર</name>
+		<name xml:lang="he">מראה</name>
+		<name xml:lang="hi">मिरर</name>
+		<name xml:lang="hu">Tükröződés</name>
+		<name xml:lang="it">Riflesso</name>
+		<name xml:lang="ja">鏡</name>
+		<name xml:lang="ko">거울</name>
+		<name xml:lang="lt">Veidrodis</name>
+		<name xml:lang="lv">Spogulis</name>
+		<name xml:lang="nb">Speil</name>
+		<name xml:lang="pa">ਪਰਛਾਵੇਂ</name>
+		<name xml:lang="pl">Lustro</name>
+		<name xml:lang="pt">Reflexo</name>
+		<name xml:lang="pt_BR">Espelho</name>
+		<name xml:lang="ru">Зеркало</name>
+		<name xml:lang="sk">Odraz</name>
+		<name xml:lang="sl">Zrcalna podoba</name>
+		<name xml:lang="sr">Огледало</name>
+		<name xml:lang="ta">கண்ணாடி</name>
+		<name xml:lang="tg">Оина</name>
+		<name xml:lang="tr">Ayna</name>
+		<name xml:lang="uk">Дзеркало</name>
+		<name xml:lang="zh_CN">天光水色</name>
+		<name xml:lang="zh_TW">鏡像</name>
+		<filename>/usr/share/backgrounds/gnome/Mirror.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Road</name>
+		<name xml:lang="bg">Път</name>
+		<name xml:lang="ca">Carretera</name>
+		<name xml:lang="cs">Cesta</name>
+		<name xml:lang="da">Vej</name>
+		<name xml:lang="de">Straße</name>
+		<name xml:lang="el">Δρόμος</name>
+		<name xml:lang="en_GB">Road</name>
+		<name xml:lang="es">Carretera</name>
+		<name xml:lang="et">Maantee</name>
+		<name xml:lang="eu">Bidea</name>
+		<name xml:lang="fa">جاده</name>
+		<name xml:lang="fi">Tie</name>
+		<name xml:lang="fr">Route</name>
+		<name xml:lang="gl">Carretera</name>
+		<name xml:lang="gu">રસ્તો</name>
+		<name xml:lang="he">דרך</name>
+		<name xml:lang="hi">रोड</name>
+		<name xml:lang="hu">Út</name>
+		<name xml:lang="it">Strada</name>
+		<name xml:lang="ja">道</name>
+		<name xml:lang="ko">도로</name>
+		<name xml:lang="lt">Kelias</name>
+		<name xml:lang="lv">Ceļš</name>
+		<name xml:lang="nb">Vei</name>
+		<name xml:lang="pa">ਵਿਰਾਨ ਰਾਹ</name>
+		<name xml:lang="pl">Droga</name>
+		<name xml:lang="pt">Estrada</name>
+		<name xml:lang="pt_BR">Estrada</name>
+		<name xml:lang="ru">Дорога</name>
+		<name xml:lang="sk">Cesta</name>
+		<name xml:lang="sl">Cesta</name>
+		<name xml:lang="sr">Пут кроз пустињу</name>
+		<name xml:lang="ta">ரோட்</name>
+		<name xml:lang="tg">Роҳ</name>
+		<name xml:lang="tr">Yol</name>
+		<name xml:lang="uk">Дорога</name>
+		<name xml:lang="vi">Đường</name>
+		<name xml:lang="zh_CN">野阔途远</name>
+		<name xml:lang="zh_TW">道路</name>
+		<filename>/usr/share/backgrounds/gnome/Road.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Sandstone</name>
+		<name xml:lang="bg">Каньон</name>
+		<name xml:lang="ca">Pedres de terra</name>
+		<name xml:lang="cs">Pískovce</name>
+		<name xml:lang="da">Sandsten</name>
+		<name xml:lang="de">Sandstein</name>
+		<name xml:lang="el">Ψαμμίτης</name>
+		<name xml:lang="en_GB">Sandstone</name>
+		<name xml:lang="es">Piedra roja</name>
+		<name xml:lang="et">Liivakivi</name>
+		<name xml:lang="eu">Hareharria</name>
+		<name xml:lang="fa">سنگ شن</name>
+		<name xml:lang="fi">Hiekkakiveä</name>
+		<name xml:lang="fr">Grès rouge</name>
+		<name xml:lang="gl">Pedra vermella</name>
+		<name xml:lang="gu">રેતીનાં પત્થર</name>
+		<name xml:lang="he">סלע חול</name>
+		<name xml:lang="hi">बलुआ पत्थर</name>
+		<name xml:lang="hu">Homokkő</name>
+		<name xml:lang="it">Arenaria</name>
+		<name xml:lang="ja">砂岩</name>
+		<name xml:lang="ko">사암</name>
+		<name xml:lang="lt">Smiltainis</name>
+		<name xml:lang="lv">Smilšakmens</name>
+		<name xml:lang="nb">Sandstein</name>
+		<name xml:lang="pa">ਲਾਲ ਖੜ੍ਹੇ ਪੱਥਰ</name>
+		<name xml:lang="pl">Skały</name>
+		<name xml:lang="pt">Arenito</name>
+		<name xml:lang="pt_BR">Arenito</name>
+		<name xml:lang="ru">Песчаник</name>
+		<name xml:lang="sk">Pieskovec</name>
+		<name xml:lang="sl">Peščenjak</name>
+		<name xml:lang="sr">Пешчане стене</name>
+		<name xml:lang="ta">சேன்ட்ஸ்டோன்</name>
+		<name xml:lang="tr">Kum Taşı</name>
+		<name xml:lang="uk">Пісковик</name>
+		<name xml:lang="vi">Đá cát</name>
+		<name xml:lang="zh_CN">赤砂岩壁</name>
+		<name xml:lang="zh_TW">砂岩</name>
+		<filename>/usr/share/backgrounds/gnome/Sandstone.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Spaceflare</name>
+		<name xml:lang="af">Ruimtegloed</name>
+		<name xml:lang="bg">Звезден взрив</name>
+		<name xml:lang="bn">আকাশে দাউদাউ করে জ্বলা</name>
+		<name xml:lang="ca">Flama espacial</name>
+		<name xml:lang="cs">Kosmická záře</name>
+		<name xml:lang="da">Rumglimt</name>
+		<name xml:lang="de">Leuchtsignale im Weltall</name>
+		<name xml:lang="el">Διαστημική φλόγα</name>
+		<name xml:lang="en_GB">Spaceflare</name>
+		<name xml:lang="eo">Kosmaj lumsignaloj</name>
+		<name xml:lang="es">Destello</name>
+		<name xml:lang="et">Kosmosesära</name>
+		<name xml:lang="eu">Espazioko distira</name>
+		<name xml:lang="fa">شعله‌های فضایی</name>
+		<name xml:lang="fi">Avaruusroihu</name>
+		<name xml:lang="fr">Lumière dans l'espace</name>
+		<name xml:lang="gl">Erupción</name>
+		<name xml:lang="gu">સ્પૅસફ્લેર</name>
+		<name xml:lang="he">להבה בחלל</name>
+		<name xml:lang="hi">स्पेस चमक</name>
+		<name xml:lang="hu">Kitörés</name>
+		<name xml:lang="it">Brillamento</name>
+		<name xml:lang="ja">宇宙フレア</name>
+		<name xml:lang="km">Spaceflare</name>
+		<name xml:lang="ko">우주 불꽃</name>
+		<name xml:lang="lt">Kosminis tvykstelėjimas</name>
+		<name xml:lang="lv">Kosmosa uzliesmojums</name>
+		<name xml:lang="nb">Romeksplosjon</name>
+		<name xml:lang="nl">Ruimtegloed</name>
+		<name xml:lang="pa">ਪੁਲਾੜੀ ਨਜ਼ਾਰਾ</name>
+		<name xml:lang="pl">Rozbłysk</name>
+		<name xml:lang="pt">Explosão Solar</name>
+		<name xml:lang="pt_BR">Luz espacial</name>
+		<name xml:lang="ru">Взрыв</name>
+		<name xml:lang="sk">Vesmírna žiara</name>
+		<name xml:lang="sl">Vesolje luči</name>
+		<name xml:lang="sr">Звездана ерупција</name>
+		<name xml:lang="sv">Rymdsken</name>
+		<name xml:lang="ta">வானத்தீ</name>
+		<name xml:lang="tr">Uzay Parıltısı</name>
+		<name xml:lang="uk">Космічний спалах</name>
+		<name xml:lang="vi">Lửa không gian</name>
+		<name xml:lang="zh_CN">星火光影</name>
+		<name xml:lang="zh_TW">太空閃焰</name>
+		<filename>/usr/share/backgrounds/gnome/Spaceflare.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+
+	<wallpaper deleted="false">
+		
+		<name>Sunset</name>
+		<name xml:lang="bg">Залез</name>
+		<name xml:lang="ca">Posta de sol</name>
+		<name xml:lang="cs">Stmívání</name>
+		<name xml:lang="da">Abstrakt solnedgang</name>
+		<name xml:lang="de">Sonnenuntergang</name>
+		<name xml:lang="el">Ηλιοβασίλεμα</name>
+		<name xml:lang="en_GB">Sunset</name>
+		<name xml:lang="es">Ocaso</name>
+		<name xml:lang="et">Tehisloojang</name>
+		<name xml:lang="eu">Ilunabarra</name>
+		<name xml:lang="fa">غروب</name>
+		<name xml:lang="fi">Auringonlasku</name>
+		<name xml:lang="fr">Crépuscule</name>
+		<name xml:lang="gl">Solpor</name>
+		<name xml:lang="gu">સૂર્યાસ્તનો સમય</name>
+		<name xml:lang="he">שקיעה</name>
+		<name xml:lang="hi">सूर्यास्त</name>
+		<name xml:lang="hu">Napnyugta</name>
+		<name xml:lang="it">Tramonto</name>
+		<name xml:lang="ja">日暮れ</name>
+		<name xml:lang="ko">석양</name>
+		<name xml:lang="lt">Saulėydis</name>
+		<name xml:lang="lv">Saulriets</name>
+		<name xml:lang="nb">Solnedgang</name>
+		<name xml:lang="pa">ਡੁੱਬਦਾ ਸੂਰਜ</name>
+		<name xml:lang="pl">Zachód słońca</name>
+		<name xml:lang="pt">pôr do sol</name>
+		<name xml:lang="pt_BR">Pôr do sol</name>
+		<name xml:lang="ru">Закат</name>
+		<name xml:lang="sk">Západ slnka</name>
+		<name xml:lang="sl">Sončni zahod</name>
+		<name xml:lang="sr">Залазак Сунца</name>
+		<name xml:lang="ta">சூரிய அஸ்தமனம்</name>
+		<name xml:lang="tg">Ғуруб</name>
+		<name xml:lang="tr">Günbatımı</name>
+		<name xml:lang="uk">Захід сонця</name>
+		<name xml:lang="vi">Hoàng hôn</name>
+		<name xml:lang="zh_CN">日落紫霞</name>
+		<name xml:lang="zh_TW">日落</name>
+		<filename>/usr/share/backgrounds/gnome/Sunset.png</filename>
+		<options>stretched</options>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Terraform Green</name>
+		<name xml:lang="af">Terravorming groen</name>
+		<name xml:lang="bg">Зелени петна</name>
+		<name xml:lang="bn">পৃথিবীপ্রকৃতি সবুজ</name>
+		<name xml:lang="ca">Terra verd</name>
+		<name xml:lang="cs">Zelený povrch zemský</name>
+		<name xml:lang="da">Grønt landskabsmønster</name>
+		<name xml:lang="de">Grüne Landmasse</name>
+		<name xml:lang="el">Μετασχηματισμός πράσινο</name>
+		<name xml:lang="en_GB">Terraform Green</name>
+		<name xml:lang="eo">Verda lando</name>
+		<name xml:lang="es">Tierra verde</name>
+		<name xml:lang="et">Terra pind, roheline</name>
+		<name xml:lang="eu">Lurraren gainazal berdea</name>
+		<name xml:lang="fa">ترافورم سبز</name>
+		<name xml:lang="fi">Maanmuotoinen vihreä</name>
+		<name xml:lang="fr">Croute terrestre verte</name>
+		<name xml:lang="gl">Terra verde</name>
+		<name xml:lang="gu">ટૅરાફોર્મ લીલુ</name>
+		<name xml:lang="he">פני כוכב ירוק</name>
+		<name xml:lang="hi">Terraform हरा</name>
+		<name xml:lang="hu">Zöld szigetek</name>
+		<name xml:lang="it">Emozioni in verde</name>
+		<name xml:lang="ja">テラフォーム 緑</name>
+		<name xml:lang="km">ទម្រង់​ផែនដីពណ៌​​បៃតង</name>
+		<name xml:lang="ko">테라폼 녹색</name>
+		<name xml:lang="lt">Žemės žalia</name>
+		<name xml:lang="lv">Zaļā zeme</name>
+		<name xml:lang="nb">Terraform grønn</name>
+		<name xml:lang="nl">Terravorming groen</name>
+		<name xml:lang="pa">ਧਰਤ-ਰੂਪੀ ਹਰਾ</name>
+		<name xml:lang="pl">Zielona ziemia</name>
+		<name xml:lang="pt">Paisagem Verde</name>
+		<name xml:lang="pt_BR">Terraformação verde</name>
+		<name xml:lang="ru">Зелёная терраформа</name>
+		<name xml:lang="sk">Zelený terén</name>
+		<name xml:lang="sl">Odtisno zeleno</name>
+		<name xml:lang="sr">Постање зелене планете</name>
+		<name xml:lang="sv">Terraform Grön</name>
+		<name xml:lang="ta">பூமி பச்சை</name>
+		<name xml:lang="tr">Arazi Yeşili</name>
+		<name xml:lang="uk">Зелена Земля</name>
+		<name xml:lang="vi">Terraform xanh</name>
+		<name xml:lang="zh_CN">地貌之绿</name>
+		<name xml:lang="zh_TW">地球化 綠</name>
+		<filename>/usr/share/backgrounds/gnome/Terraform-green.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Tulip</name>
+		<name xml:lang="bg">Лалета</name>
+		<name xml:lang="ca">Tulipa</name>
+		<name xml:lang="cs">Tulipánky</name>
+		<name xml:lang="da">Tulipan</name>
+		<name xml:lang="de">Tulpen</name>
+		<name xml:lang="el">Τουλίπα</name>
+		<name xml:lang="en_GB">Tulip</name>
+		<name xml:lang="es">Tulipanes</name>
+		<name xml:lang="et">Tulbid</name>
+		<name xml:lang="eu">Idi-bihotza</name>
+		<name xml:lang="fa">لاله</name>
+		<name xml:lang="fi">Tulppaani</name>
+		<name xml:lang="fr">Tulipe</name>
+		<name xml:lang="gl">Tulipán</name>
+		<name xml:lang="gu">ટ્યૂલિપ</name>
+		<name xml:lang="he">צבעוני</name>
+		<name xml:lang="hi">टूलिप</name>
+		<name xml:lang="hu">Tulipán</name>
+		<name xml:lang="it">Tulipano</name>
+		<name xml:lang="ja">チューリップ</name>
+		<name xml:lang="ko">튤립</name>
+		<name xml:lang="lt">Tulpė</name>
+		<name xml:lang="lv">Tulpes</name>
+		<name xml:lang="nb">Tullipan</name>
+		<name xml:lang="pa">ਗੁਲਲਾਲਾ</name>
+		<name xml:lang="pl">Tulipany</name>
+		<name xml:lang="pt">Túlipa</name>
+		<name xml:lang="pt_BR">Tulipa</name>
+		<name xml:lang="ru">Тюльпан</name>
+		<name xml:lang="sk">Tulipány</name>
+		<name xml:lang="sl">Tulipan</name>
+		<name xml:lang="sr">Лале</name>
+		<name xml:lang="ta">ட்யுலிப்</name>
+		<name xml:lang="tg">Ҷавғосин</name>
+		<name xml:lang="tr">Laleler</name>
+		<name xml:lang="uk">Тюльпан</name>
+		<name xml:lang="vi">Tulíp</name>
+		<name xml:lang="zh_CN">郁金香</name>
+		<name xml:lang="zh_TW">鬱金香</name>
+		<filename>/usr/share/backgrounds/gnome/Tulip.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Waves</name>
+		<name xml:lang="ar">أمواج</name>
+		<name xml:lang="bg">Бряг</name>
+		<name xml:lang="ca">Ones</name>
+		<name xml:lang="cs">Příboj</name>
+		<name xml:lang="cy">Tonnau</name>
+		<name xml:lang="da">Bølger</name>
+		<name xml:lang="de">Blaue Wellen</name>
+		<name xml:lang="el">Κύματα</name>
+		<name xml:lang="en_GB">Waves</name>
+		<name xml:lang="es">Olas</name>
+		<name xml:lang="et">Lained</name>
+		<name xml:lang="eu">Uhinak</name>
+		<name xml:lang="fa">امواج</name>
+		<name xml:lang="fi">Aallot</name>
+		<name xml:lang="fr">Vagues</name>
+		<name xml:lang="fy">Baren</name>
+		<name xml:lang="ga">Tonnta</name>
+		<name xml:lang="gl">Ondas</name>
+		<name xml:lang="gu">મોજાઓ</name>
+		<name xml:lang="he">גלים</name>
+		<name xml:lang="hi">तरंग</name>
+		<name xml:lang="hu">Hullámok</name>
+		<name xml:lang="it">Onde</name>
+		<name xml:lang="ja">ウェーブ</name>
+		<name xml:lang="kk">Толқындар</name>
+		<name xml:lang="ko">물결</name>
+		<name xml:lang="lt">Bangos</name>
+		<name xml:lang="lv">Viļņi</name>
+		<name xml:lang="mk">Бранови</name>
+		<name xml:lang="mn">Давалгаа</name>
+		<name xml:lang="ms">Ombak</name>
+		<name xml:lang="nb">Bølger</name>
+		<name xml:lang="nds">Wellen</name>
+		<name xml:lang="nn">Bølgjer</name>
+		<name xml:lang="pa">ਲਹਿਰਾਂ</name>
+		<name xml:lang="pl">Fale</name>
+		<name xml:lang="pt">Ondas</name>
+		<name xml:lang="pt_BR">Ondas</name>
+		<name xml:lang="ro">Valuri</name>
+		<name xml:lang="ru">Волны</name>
+		<name xml:lang="sk">Vlny</name>
+		<name xml:lang="sl">Valovanje</name>
+		<name xml:lang="sr">Смирај дана</name>
+		<name xml:lang="ta">வேவ்ஸ்</name>
+		<name xml:lang="tg">Мавҷҳо</name>
+		<name xml:lang="tr">Dalgalar</name>
+		<name xml:lang="uk">Хвилі</name>
+		<name xml:lang="vi">Sóng</name>
+		<name xml:lang="zh_CN">浪涌苍穹</name>
+		<name xml:lang="zh_TW">波浪</name>
+		<filename>/usr/share/backgrounds/gnome/Waves.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>Wood</name>
+		<name xml:lang="af">Grein</name>
+		<name xml:lang="ar">خشب</name>
+		<name xml:lang="bg">Избеляла дървесина</name>
+		<name xml:lang="bn">কাঠ</name>
+		<name xml:lang="ca">Fusta</name>
+		<name xml:lang="cs">Prkna</name>
+		<name xml:lang="cy">Pren</name>
+		<name xml:lang="da">Træ</name>
+		<name xml:lang="de">Holzfasern</name>
+		<name xml:lang="el">Ξύλο</name>
+		<name xml:lang="en_GB">Wood</name>
+		<name xml:lang="eo">Arbaro</name>
+		<name xml:lang="es">Madera</name>
+		<name xml:lang="et">Lauad</name>
+		<name xml:lang="eu">Egurra</name>
+		<name xml:lang="fa">چوب</name>
+		<name xml:lang="fi">Puu</name>
+		<name xml:lang="fr">Bois</name>
+		<name xml:lang="fy">Bosken</name>
+		<name xml:lang="ga">Adhmad</name>
+		<name xml:lang="gl">Madeira</name>
+		<name xml:lang="gu">લાકડુ</name>
+		<name xml:lang="he">עץ</name>
+		<name xml:lang="hi">काष्ठ</name>
+		<name xml:lang="hu">Deszka</name>
+		<name xml:lang="it">Legno</name>
+		<name xml:lang="ja">ウッド</name>
+		<name xml:lang="kk">Ағаш</name>
+		<name xml:lang="km">ឈើ​</name>
+		<name xml:lang="ko">나무결</name>
+		<name xml:lang="lt">Medis</name>
+		<name xml:lang="lv">Dēlis</name>
+		<name xml:lang="mk">Дрво</name>
+		<name xml:lang="mn">Мод</name>
+		<name xml:lang="ms">Kayu</name>
+		<name xml:lang="nb">Tre</name>
+		<name xml:lang="nds">Wald</name>
+		<name xml:lang="nl">Hout</name>
+		<name xml:lang="nn">Tre</name>
+		<name xml:lang="pa">ਲੱਕੜ</name>
+		<name xml:lang="pl">Drewno</name>
+		<name xml:lang="pt">Madeira</name>
+		<name xml:lang="pt_BR">Madeira</name>
+		<name xml:lang="ro">Lemn</name>
+		<name xml:lang="ru">Древесина</name>
+		<name xml:lang="sk">Drevo</name>
+		<name xml:lang="sl">Les</name>
+		<name xml:lang="sr">Дрво</name>
+		<name xml:lang="sv">Trä</name>
+		<name xml:lang="ta">மரம்</name>
+		<name xml:lang="tr">Ahşap</name>
+		<name xml:lang="uk">Деревина</name>
+		<name xml:lang="vi">Gỗ</name>
+		<name xml:lang="zh_CN">木纹</name>
+		<name xml:lang="zh_TW">木頭</name>
+		<filename>/usr/share/backgrounds/gnome/Wood.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+	<wallpaper deleted="false">
+		
+		<name>End Bell</name>
+		<name xml:lang="bg">Камбанка</name>
+		<name xml:lang="ca">Campaneta</name>
+		<name xml:lang="cs">Konec zvonec</name>
+		<name xml:lang="da">Blomst</name>
+		<name xml:lang="de">Glockenblume</name>
+		<name xml:lang="el">Άνθος</name>
+		<name xml:lang="en_GB">End Bell</name>
+		<name xml:lang="es">Campana final</name>
+		<name xml:lang="et">Kellukas</name>
+		<name xml:lang="eu">Muturreko kanpaia</name>
+		<name xml:lang="fa">زنگ پایانی</name>
+		<name xml:lang="fi">Sinertävä kukka</name>
+		<name xml:lang="fr">Campanule</name>
+		<name xml:lang="gl">Campánula</name>
+		<name xml:lang="gu">બેલ અંત</name>
+		<name xml:lang="he">פעמון הסיום</name>
+		<name xml:lang="hi">End Bell</name>
+		<name xml:lang="hu">Harangvirág</name>
+		<name xml:lang="it">Petali</name>
+		<name xml:lang="ja">ベルフラワー</name>
+		<name xml:lang="ko">종다리꽃</name>
+		<name xml:lang="lt">Varpelis</name>
+		<name xml:lang="lv">Zvaniņš</name>
+		<name xml:lang="nb">Sluttklokke</name>
+		<name xml:lang="pa">ਅੰਤਿਮ ਘੰਟੀ</name>
+		<name xml:lang="pl">Dzwonek</name>
+		<name xml:lang="pt">Campainha</name>
+		<name xml:lang="pt_BR">Campânula</name>
+		<name xml:lang="ru">Колокольчик</name>
+		<name xml:lang="sk">Zvonček</name>
+		<name xml:lang="sl">Zvonec</name>
+		<name xml:lang="sr">Звончићи</name>
+		<name xml:lang="ta">என்ட் பெல்</name>
+		<name xml:lang="tr">Çiçek</name>
+		<name xml:lang="uk">Кінець чашечки</name>
+		<name xml:lang="vi">Hoa</name>
+		<name xml:lang="zh_CN">风铃花</name>
+		<name xml:lang="zh_TW">風鈴花</name>
+		<filename>/usr/share/backgrounds/gnome/ZvonecKonec.jpg</filename>
+		<options>zoom</options>
+    <pcolor>#ffffff</pcolor>
+    <scolor>#000000</scolor>
+	</wallpaper>
+</wallpapers>

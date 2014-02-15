@@ -1,0 +1,11 @@
+--- orig/data/lxdm.conf	2013-07-01 01:27:22.793465333 +0300
++++ data/lxdm.conf	2013-07-01 01:27:34.691465652 +0300
+@@ -24,7 +24,7 @@
+ 
+ [display]
+ ## gtk theme used by greeter
+-gtk_theme=Clearlooks
++gtk_theme=Kogaion-light
+ 
+ ## background of the greeter
+ bg=/usr/share/backgrounds/default.png

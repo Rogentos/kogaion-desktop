@@ -1,0 +1,16 @@
+[org.mate.caja.desktop]
+font='Bitstream Vera Sans 10'
+
+[org.mate.background]
+picture-filename='/usr/share/backgrounds/Kogaion_tri_flame_wide.png'
+picture-options='stretched'
+
+[org.mate.interface]
+document-font-name='Bitstream Vera Sans 10'
+font-name='Bitstream Vera Sans 10'
+gtk-theme='Kogaion-light'
+icon-theme='Faenza-Kupertino-Light'
+
+[org.mate.Marco.general]
+theme='Kogaion-light'
+titlebar-font='Bitstream Vera Sans Bold 10'
