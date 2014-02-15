@@ -1,5 +1,5 @@
-Romanian Server-oriented ebuilds. For the moment it's in pre-alpha stage. :)
+Romanian Kogaion desktop-oriented ebuilds. For the moment it's in pre-alpha stage. :)
 
 To install it as an overlay in a Gentoo planet distro, use the command: 
 
-layman -f -a rogento -o https://raw.github.com/BlackNoxis/Rogento/master/overlay.xml
+layman -f -a kogaion-desktop -o https://raw.github.com/Rogentos/kogaion-desktop/master/overlay.xml
