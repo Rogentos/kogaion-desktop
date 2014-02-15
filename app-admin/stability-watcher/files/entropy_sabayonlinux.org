@@ -1,3 +1,0 @@
-repository|rogentoslinux|Rogentos Linux Official Repository|http://pkg.rogentos.ro/~rogentos/entropy/|http://pkg.rogentos.ro/~rogentos/entropy#bz2
-repository|rogentoslinux|Rogentos Linux Official Repository|http://pkg2.rogentos.ro/~noxis/entropy/|
-repository|rogentoslinux|Rogentos Linux Official Repository|http://pkg.rogentos.ro/~rogentos/entropy/|
