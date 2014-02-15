@@ -48,7 +48,7 @@ fi
 
 MY_P=${P/-${AVAHI_MODULE}}
 
-inherit autotools eutils flag-o-matic
+inherit autotools eutils flag-o-matic systemd
 
 DESCRIPTION="avahi ${AVAHI_MODULE} module"
 HOMEPAGE="http://avahi.org/"
@@ -57,7 +57,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
 AVAHI_COMMON_DEPEND=">=dev-util/intltool-0.40.5
 	>=dev-util/pkgconfig-0.9.0"
@@ -69,6 +69,12 @@ avahi_src_prepare() {
 	sed -i\
 		-e "s:\\.\\./\\.\\./\\.\\./doc/avahi-docs/html/:../../../doc/${PF}/html/:" \
 		doxygen_to_devhelp.xsl || die
+
+	# Drop DEPRECATED flags, bug #384743
+	sed -i -e 's:-D[A-Z_]*DISABLE_DEPRECATED=1::g' avahi-ui/Makefile.am || die
+
+	# Prevent .pyc files in DESTDIR
+	>py-compile
 
 	for i in ${!AVAHI_PATCHES[@]}; do
 		epatch "${AVAHI_PATCHES[i]}"
@@ -90,13 +96,14 @@ avahi_src_configure() {
 		--enable-glib
 		--enable-gobject
 		--disable-qt3
-		$@"
+		$(systemd_with_unitdir)
+		${*}"
 	econf ${myconf}
 }
 
 avahi_src_install-cleanup() {
 	# Remove .la files
-	find "${D}" -name '*.la' -exec rm -f {} + || die
+	find "${ED}" -name '*.la' -exec rm -f {} + || die
 }
 
 EXPORT_FUNCTIONS src_prepare src_configure
