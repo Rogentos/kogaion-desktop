@@ -194,13 +194,12 @@ fi
 ## kernel-2 eclass settings
 if [ "${K_ROGKERNEL_PATCH_UPSTREAM_TARBALL}" = "1" ]; then
 	_patch_name="$(get_version_component_range 1-2)-${K_ROGKERNEL_SELF_TARBALL_NAME}-${PVR}.patch.xz"
-	SRC_URI="${KERNEL_URI}
-		mirror://rogentos/${CATEGORY}/${_patch_name}
-	"
+	SRC_URI="${KERNEL_URI}"
 	UNIPATCH_LIST="${UNIPATCH_LIST} ${DISTDIR}/${_patch_name}"
 	unset _patch_name
 elif [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
-	SRC_URI="mirror://rogentos/${CATEGORY}/linux-${PVR}+${K_ROGKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
+	#SRC_URI="mirror://rogentos/${CATEGORY}/linux-${PVR}+${K_ROGKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
+	SRC_URI="http://bpr.bluepink.ro/~rogentos/distro/${CATEGORY}/linux-${PVR}+${K_ROGKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
 else
 	SRC_URI="${KERNEL_URI}"
 fi

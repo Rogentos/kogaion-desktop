@@ -1,0 +1,13 @@
+# Repository configuration file automatically generated
+# by Entropy on your behalf.
+
+[sabayon-weekly]
+desc = Sabayon Linux Official Repository
+repo = http://pkg.sabayon.org#bz2
+enabled = true
+pkg = http://best.sabayon.org/entropy
+pkg = http://dl.sabayon.org/entropy
+pkg = http://redir.sabayon.org/entropy
+pkg = http://na.mirror.garr.it/mirrors/sabayonlinux/entropy
+pkg = http://pkg.sabayon.org
+

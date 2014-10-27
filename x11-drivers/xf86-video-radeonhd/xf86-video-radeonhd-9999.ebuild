@@ -2,8 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-drivers/xf86-video-radeonhd/xf86-video-radeonhd-1.2.1.ebuild,v 1.3 2008/04/15 15:07:12 drac Exp $
 
-XDPVER=-1
-inherit git x-modular
+EAPI="5"
+
+inherit git-r3 x-modular
 
 DESCRIPTION="Experimental Radeon HD video driver."
 HOMEPAGE="http://wiki.x.org/wiki/radeonhd"

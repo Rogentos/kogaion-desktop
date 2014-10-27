@@ -12,13 +12,9 @@ EGIT_REPO_URI="https://github.com/visualfc/liteide.git"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-IUSE="ordered"
+IUSE="ordered release"
 
 DEPEND="dev-lang/go
-	dev-qt/qtgui
-	dev-qt/qtdbus
-	dev-qt/qtwebkit
-	dev-lang/go
 	dev-qt/qtgui
 	dev-qt/qtdbus
 	dev-qt/qtwebkit"
@@ -86,5 +82,7 @@ src_install() {
 	doins /usr/$(get_libdir)/qt4/libQtWebKit.so*
 
 	fperms u+x /opt/${PN}/bin/liteide
-	fperms u+x /opt/${PN}/bin/go*
+	fperms u+x /opt/${PN}/bin/goapi
+	fperms u+x /opt/${PN}/bin/godocview
+	fperms u+x /opt/${PN}/bin/goexec
 }

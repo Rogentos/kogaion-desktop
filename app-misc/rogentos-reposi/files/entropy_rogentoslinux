@@ -1,0 +1,12 @@
+# Repository configuration file automatically generated
+# by Entropy on your behalf.
+
+[rogentoslinux]
+desc = Rogentos Linux Official Repository
+repo = http://pkg.rogentos.ro/~rogentos/entropy#bz2
+enabled = true
+pkg = http://bpr.bluepink.ro/~rogentos/entropy/
+pkg = http://pkg2.rogentos.ro/~noxis/entropy/
+pkg = http://pkg.rogentos.ro/~rogentos/entropy/
+pkg = http://pkg3.rogentos.ro/~noxis/entropy/
+

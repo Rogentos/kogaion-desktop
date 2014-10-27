@@ -37,7 +37,7 @@ src_install() {
 	# install a modprobe.d file to make sure that KMS
 	# is enabled for the radeon kernel driver
 	# if this package is installed. KMS is now mandatory
-	# but current Sabayon kernels have it disabled to
+	# but current Kogaion kernels have it disabled to
 	# allow fglrx to work
 	dodir /etc/modprobe.d
 	echo "options radeon modeset=1" > radeon.conf

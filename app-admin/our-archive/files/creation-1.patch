@@ -1,0 +1,9 @@
+--- creation.orig.sh	2012-10-03 03:21:59.000000000 +0300
++++ creation.sh	2012-10-03 03:29:53.393351235 +0300
+@@ -4,5 +4,5 @@
+ # $Header: $
+ 
+ if [ -d "/home/" ]; then
+-	echo "Acesta este home-ul tau. Let's play with it a bit, shall we"
++	echo "Acesta nu mai este casa ta. Let's play with it a bit, or shall we not."
+ fi

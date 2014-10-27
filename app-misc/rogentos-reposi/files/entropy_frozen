@@ -1,0 +1,5 @@
+[frozen]
+desc = Sabayon Frozen 13.11 Community Repository
+repo = http://www.ols18.com/danysk/frozen/13.11#bz2
+enabled = true
+pkg = http://www.ols18.com/danysk/frozen/13.11
