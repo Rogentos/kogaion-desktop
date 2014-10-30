@@ -23,7 +23,7 @@ KOGAION_SOURCES="sys-kernel/kogaion-sources
 
 DEPEND=""
 RDEPEND="|| (
-		${SABAYON_SOURCES}
+		${KOGAION_SOURCES}
 		sys-kernel/gentoo-sources
 		sys-kernel/vanilla-sources
 		sys-kernel/cell-sources
