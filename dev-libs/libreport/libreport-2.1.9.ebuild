@@ -55,7 +55,6 @@ src_prepare() {
 	# code that requires gentoo infra support.
 	epatch "${FILESDIR}/0001-Add-Kogaion-customizations.patch"
 	epatch "${FILESDIR}/0002-Drop-Fedora-workflows-add-Sabayon-one.patch"
-	epatch "${FILESDIR}/0003-Make-report_Bugzilla-use-Sabayon-s-bugzilla-URL.patch"
 
 	# json-c support
 	epatch "${FILESDIR}/libreport-2.1.9-json-c.patch"
