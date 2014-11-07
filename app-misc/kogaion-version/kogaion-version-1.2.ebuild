@@ -32,13 +32,13 @@ RDEPEND="app-admin/eselect-python
 
 src_unpack () {
 	echo "Kogaion Linux ${ARCH} ${PV}" > "${T}/rogentos-release"
+	echo "Kogaion Linux ${ARCH} ${PV}" > "${T}/kogaion-release"
 	mkdir -p "${S}" || die
 }
 
 src_install () {
 	insinto /etc
 	doins "${T}"/rogentos-release
-	cp "${T}"/rogentos-release "${T}"/kogaion-version || die
 	doins "${T}"/kogaion-release
 	dosym /etc/rogentos-release /etc/system-release
 	dosym /etc/kogaion-release /etc/system-release
