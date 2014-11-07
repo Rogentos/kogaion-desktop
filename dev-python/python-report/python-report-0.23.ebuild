@@ -22,7 +22,7 @@ DEPEND="app-arch/rpm
 RDEPEND="dev-libs/openssl
 	net-misc/curl
 	dev-libs/libxml2
-	>=app-misc/kogaion-version-14.05-r1"
+	>=app-misc/kogaion-version-1.2"
 
 src_prepare() {
 
