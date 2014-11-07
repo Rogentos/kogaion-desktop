@@ -1,7 +1,7 @@
 From bc95f13701e018f4dc07e6c206c8b638acc6113a Mon Sep 17 00:00:00 2001
-From: Fabio Erculiani <lxnay@sabayon.org>
+From: Stefan Cristian B. <stefan.cristian@rogentos.ro>
 Date: Sat, 10 May 2014 18:05:10 +0100
-Subject: [PATCH 2/2] Drop Fedora workflows, add Sabayon one
+Subject: [PATCH 2/2] Drop Fedora workflows, add Kogaion one
 
 ---
  src/workflows/Makefile.am                      | 33 ++++----------------------
