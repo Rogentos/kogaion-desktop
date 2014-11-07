@@ -38,7 +38,10 @@ src_unpack () {
 src_install () {
 	insinto /etc
 	doins "${T}"/rogentos-release
+	cp "${T}"/rogentos-release "${T}"/kogaion-version || die
+	doins "${T}"/kogaion-release
 	dosym /etc/rogentos-release /etc/system-release
+	dosym /etc/kogaion-release /etc/system-release
 	# Bug 3459 - reduce the risk of fork bombs
 	insinto /etc/security/limits.d
 	doins "${FILESDIR}/00-sabayon-anti-fork-bomb.conf"
