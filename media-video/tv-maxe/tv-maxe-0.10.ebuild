@@ -29,10 +29,8 @@ RDEPEND="dev-python/pillow
 	media-tv/sp-auth
 	media-video/rtmpdump
 	gstreamer? ( 
-				>=dev-python/gst-python-0.10.22-r1
-				<dev-python/gst-python-1.2.1
-				>=media-libs/gst-plugins-good-0.10.31-r1
-				<media-libs/gst-plugins-good-1.2.4-r1
+				>=dev-python/gst-python-0.10.22-r1:0.10
+				>=media-libs/gst-plugins-good-0.10.31-r1:0.10
 	)"
 DEPEND=""
 
