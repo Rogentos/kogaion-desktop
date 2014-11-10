@@ -15,24 +15,23 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+sqlite vlc mplayer +gstreamer"
 
-DEPEND="dev-lang/python[sqlite]"
+DEPEND="dev-lang/python:2.7[sqlite]"
 RDEPEND="dev-python/pillow
 	mplayer? ( || (
-				media-video/mplayer2
-				media-video/mplayer
+		media-video/mplayer2
+		media-video/mplayer
 	) )
 	vlc? ( media-video/vlc )
 	virtual/ffmpeg
 	dev-python/python-virtkey
 	dev-python/pygtk
-	dev-lang/python[sqlite]
+	dev-lang/python:2.7[sqlite]
 	media-tv/sp-auth
 	media-video/rtmpdump
 	gstreamer? ( 
-				>=dev-python/gst-python-0.10.22-r1:0.10
-				>=media-libs/gst-plugins-good-0.10.31-r1:0.10
+		>=dev-python/gst-python-0.10.22-r1:0.10
+		>=media-libs/gst-plugins-good-0.10.31-r1:0.10
 	)"
-DEPEND=""
 
 S="${WORKDIR}/${PN}-${PV}"
 
