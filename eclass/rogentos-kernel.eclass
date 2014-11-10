@@ -279,6 +279,8 @@ _is_kernel_lts() {
 	[ "${_ver}" = "3.2" ] && return 0
 	[ "${_ver}" = "3.4" ] && return 0
 	[ "${_ver}" = "3.10" ] && return 0
+	[ "${_ver}" = "3.12" ] && return 0
+	[ "${_ver}" = "3.14" ] && return 0
 	return 1
 }
 
@@ -871,7 +873,7 @@ rogentos-kernel_pkg_postinst() {
 		fi
 
 		# Update kernel initramfs to match user customizations
-		update_rogentos_kernel_initramfs_splash
+		use splash && update_rogentos_kernel_initramfs_splash
 
 		# Add kernel to grub.conf
 		if use amd64 || use x86; then

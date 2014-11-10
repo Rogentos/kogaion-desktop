@@ -18,6 +18,11 @@ KERN_INITRAMFS_SEARCH_NAME="${KERN_INITRAMFS_SEARCH_NAME:-initramfs-genkernel*}"
 # Default splash theme name to use
 GFX_SPLASH_NAME="${GFX_SPLASH_NAME:-rogentos}"
 
+# @ECLASS-VARIABLE: PLYMOUTH_THEME
+# @DESCRIPTION:
+# Default plymouth theme name to use
+PLYMOUTH_THEME="${PLYMOUTH_THEME:-rogentos}"
+
 # @FUNCTION: update_kernel_initramfs_splash
 # @USAGE: update_kernel_initramfs_splash [splash_theme] [splash_file]
 # @RETURN: 1, if something went wrong
