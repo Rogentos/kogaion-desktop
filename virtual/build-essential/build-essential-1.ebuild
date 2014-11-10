@@ -16,5 +16,6 @@ IUSE=""
 DEPEND="sys-devel/automake
 	sys-devel/gcc
 	sys-devel/autoconf
+	sys-devel/make
 	dev-util/pkgconfig"
 RDEPEND="${DEPEND}"
