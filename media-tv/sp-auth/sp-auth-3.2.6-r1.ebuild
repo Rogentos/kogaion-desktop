@@ -18,8 +18,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 RESTRICT="strip"
 
-# All dependencies might not be listed, since the binary blob's homepage only lists libstdc
-RDEPEND="amd64? ( app-emulation/emul-linux-x86-compat )
+# All dependencies might not be listed, since the binary blob's homepage only lists libstdc++
+RDEPEND="amd64? ( sys-libs/libstdc++-v3[multilib] )
 	x86? ( >=virtual/libstdc++-3.3 )"
 
 DEPEND="${RDEPEND}"
