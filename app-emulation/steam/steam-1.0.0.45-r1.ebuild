@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 
@@ -34,10 +34,8 @@ RDEPEND="
 					x11-libs/libX11
 		)"
 
-S=${WORKDIR}/${PN}
-
 src_install() {
 	emake DESTDIR="${D}" install || die "make install failed"
-	rm -rf "${D}"/usr/bin/steamdeps || die # we don't use apt-get
-	dosym /bin/true /usr/bin/steamdeps || die # create blank steamdeps
+	rm -rf "${D}"/usr/bin/steamdeps || die
+	dosym /bin/true /usr/bin/steamdeps || die
 }
