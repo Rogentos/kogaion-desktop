@@ -81,7 +81,7 @@ src_install() {
 	doins /usr/$(get_libdir)/qt4/libQtDBus.so*
 	doins /usr/$(get_libdir)/qt4/libQtWebKit.so*
 
-	fperms u+x /opt/${PN}/bin/liteide
+	fperms +x /opt/${PN}/bin/${PN}
 	fperms u+x /opt/${PN}/bin/goapi
 	fperms u+x /opt/${PN}/bin/godocview
 	fperms u+x /opt/${PN}/bin/goexec
