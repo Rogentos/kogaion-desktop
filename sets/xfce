@@ -1,7 +1,7 @@
 @wireless
 @X
 app-editors/leafpad
-app-misc/rogentos-skel
+app-misc/kogaion-skel
 media-plugins/alsa-plugins
 x11-themes/elementary-icon-theme
 xfce-base/xfce4-meta

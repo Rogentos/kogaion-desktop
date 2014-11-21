@@ -1,0 +1,4 @@
+sys-kernel/ec2-sources:3.14
+sys-kernel/linux-ec2:3.14
+sys-kernel/linux-kogaion:3.14
+sys-kernel/kogaion-sources:3.14
