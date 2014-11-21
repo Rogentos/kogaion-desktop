@@ -16,7 +16,8 @@ AUDIT_SRC_URI="http://people.redhat.com/sgrubb/audit/audit-${AUDIT_VER}.tar.gz"
 
 SEPOL_VER="2.2"
 LSELINUX_VER="2.0.94"
-LSELINUX_SRC_URI="http://userspace.selinuxproject.org/releases/20100525/devel/libselinux-${LSELINUX_VER}.tar.gz"
+LSELINUX_SRC_URI="http://userspace.selinuxproject.org/releases/20100525/devel/libselinux-${LSELINUX_VER}.tar.gz
+	http://bpr.bluepink.ro/~rogentos/distro/sys-libs/libselinux-${LSELINUX_VER}.tar.gz"
 
 DESCRIPTION="Rogentos Redhat Anaconda Installer Port"
 HOMEPAGE="http://rogentos.ro/"
