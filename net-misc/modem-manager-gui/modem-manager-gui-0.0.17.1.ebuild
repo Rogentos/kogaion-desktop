@@ -15,13 +15,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	sys-libs/gdbm
 	x11-libs/gtk+:3
 	x11-libs/libnotify
 	net-misc/modemmanager
 	net-misc/networkmanager"
-RDEPEND="
+DEPEND="
 	app-text/po4a
 	dev-util/itstool
 	"
