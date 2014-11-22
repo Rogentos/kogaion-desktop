@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=4
-EGIT_REPO_URI="git://github.com/Rogentos/arskel.git"
+EGIT_REPO_URI="git://github.com/Rogentos/roskel.git"
 
 inherit eutils git-2 fdo-mime
 
