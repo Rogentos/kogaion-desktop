@@ -13,14 +13,14 @@ SRC_URI="http://download.tuxfamily.org/gsf/source/${PN}-${PV}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+networkmanager"
 
 RDEPEND="
 	sys-libs/gdbm
 	x11-libs/gtk+:3
 	x11-libs/libnotify
 	net-misc/modemmanager
-	net-misc/networkmanager"
+	networkmanager? ( net-misc/networkmanager )"
 DEPEND="
 	app-text/po4a
 	dev-util/itstool
