@@ -13,13 +13,14 @@ SRC_URI="http://download.tuxfamily.org/gsf/source/${PN}-${PV}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+networkmanager -connman"
+IUSE="+networkmanager +ofono -connman"
 
 RDEPEND="
 	sys-libs/gdbm
 	x11-libs/gtk+:3
 	x11-libs/libnotify
 	net-misc/modemmanager
+	ofono? ( net-misc/ofono )
 	networkmanager? ( net-misc/networkmanager )
 	connman? ( net-misc/connman )"
 DEPEND="
