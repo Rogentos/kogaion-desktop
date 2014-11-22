@@ -7,7 +7,7 @@ EGIT_REPO_URI="git://github.com/Rogentos/arskel.git"
 
 inherit eutils git-2 fdo-mime
 
-DESCRIPTION="Rogentos Linux skel tree"
+DESCRIPTION="Kogaion Linux skel tree"
 HOMEPAGE="http://www.rogentos.ro/"
 LICENSE="GPL-2"
 SLOT="0"
