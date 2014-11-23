@@ -15,9 +15,9 @@ SLOT="0"
 IUSE="ordered release"
 
 DEPEND="dev-lang/go
-	dev-qt/qtgui
-	dev-qt/qtdbus
-	dev-qt/qtwebkit"
+	dev-qt/qtgui:4
+	dev-qt/qtdbus:4
+	dev-qt/qtwebkit:4"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/"${PN}"-"${PV}"/
@@ -30,20 +30,20 @@ src_configure() {
 	local conf_release
 	local conf_ordered
 
-	if use ordered ; then
+	if use ordered; then
 		conf_ordered="CONFIG+=ordered"
 		conf_release=""
-		else
+	else
 		conf_release="CONFIG+=release"
 		conf_ordered=""
 	fi
 
-	cd "${S}"/liteidex/
+	cd "${S}"/liteidex/ || die
 	eqmake4 "${S}"/liteidex/liteidex.pro "PREFIX=${EPREFIX}/usr" "LIBDIR=/usr/$(get_libdir)" ${conf_release} ${conf_ordered}
 }
 
 src_install() {
-	cd "${S}"/liteidex/
+	cd "${S}"/liteidex/ || die
 	qt4-r2_src_install DESTDIR="${D}"opt/${PN}/ INSTALL_ROOT="${D}"opt/${PN}/ || die
 	
 	export GOPATH=$(pwd)
@@ -85,4 +85,7 @@ src_install() {
 	fperms u+x /opt/${PN}/bin/goapi
 	fperms u+x /opt/${PN}/bin/godocview
 	fperms u+x /opt/${PN}/bin/goexec
+
+	dodir /usr/bin
+	dosym /opt/${PN}/bin/${PN} /usr/bin/${PN}
 }
