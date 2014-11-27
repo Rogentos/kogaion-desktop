@@ -51,7 +51,7 @@ REQUIRED_USE="grub_platforms_qemu? ( truetype )"
 # os-prober: Used on runtime to detect other OSes
 # xorriso (dev-libs/libisoburn): Used on runtime for mkrescue
 RDEPEND="
-	x11-themes/rogentos-artwork-grub
+	x11-themes/kogaion-artwork-grub
 	app-arch/xz-utils
 	>=sys-libs/ncurses-5.2-r5
 	debug? (

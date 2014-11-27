@@ -40,11 +40,11 @@ GRUB_COLOR_NORMAL="white/black"
 # Boot menu option "highlight" color
 GRUB_COLOR_HIGHLIGHT="magenta/black"
 
-if [ -f "/etc/default/rogentos-grub" ]; then
+if [ -f "/etc/default/kogaion-grub" ]; then
 	# this file is placed by the RogentOS Installer and contains
 	# custom GRUB_CMDLINE_LINUX parameters created at install
 	# time.
-	source /etc/default/rogentos-grub
+	source /etc/default/kogaion-grub
 fi
 
 # DO NOT REMOVE THIS IF YOUR GRUB_CMDLINE_LINUX IS EMPTY (BACKWARD COMPAT)

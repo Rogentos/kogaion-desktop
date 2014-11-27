@@ -46,7 +46,7 @@ unset i
 # os-prober: Used on runtime to detect other OSes
 # xorriso (dev-libs/libisoburn): Used on runtime for mkrescue
 RDEPEND="
-	x11-themes/rogentos-artwork-grub
+	x11-themes/kogaion-artwork-grub
 	dev-libs/libisoburn
 	dev-libs/lzo
 	sys-boot/os-prober

@@ -4,7 +4,7 @@
  
  export TEXTDOMAIN=@PACKAGE@
  export TEXTDOMAINDIR="@localedir@"
-+export GRUB_DISTRIBUTOR=Rogentos
++export GRUB_DISTRIBUTOR=Kogaion
  
  CLASS="--class gnu-linux --class gnu --class os"
  

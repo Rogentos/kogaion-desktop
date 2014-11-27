@@ -14,8 +14,8 @@ SLOT="0"
 DEPEND=""
 RDEPEND="app-admin/system-config-date
 	app-admin/system-config-users
-	>=app-misc/rogentos-live-1
-	>=app-misc/rogentos-version-1
+	>=app-misc/kogaion-live-1
+	>=app-misc/kogaion-version-1
 	app-text/xmlto
 	dev-libs/elfutils
 	dev-libs/libnl

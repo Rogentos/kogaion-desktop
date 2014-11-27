@@ -53,7 +53,7 @@ REQUIRED_USE="grub_platforms_qemu? ( truetype )"
 # sbsigntool is Sabayon and Rogentos specific
 RDEPEND="
 	app-crypt/sbsigntool
-	x11-themes/rogentos-artwork-grub
+	x11-themes/kogaion-artwork-grub
 	app-arch/xz-utils
 	>=sys-libs/ncurses-5.2-r5
 	debug? (
