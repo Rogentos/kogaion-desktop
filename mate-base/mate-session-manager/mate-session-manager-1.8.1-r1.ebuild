@@ -46,7 +46,7 @@ RDEPEND=">=dev-libs/dbus-glib-0.76
 	elibc_FreeBSD? ( dev-libs/libexecinfo )
 	gnome-keyring? ( gnome-base/gnome-keyring )
 	systemd? ( sys-apps/systemd )
-	upower? ( >=sys-power/upower-pm-utils-0.9.23 )"
+	upower? ( >=sys-power/upower-0.9.23 )"
 
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.40:*
@@ -64,6 +64,9 @@ src_prepare() {
 	# Fix race condition in idle monitor, GNOME bug applies to MATE too,
 	# see https://bugzilla.gnome.org/show_bug.cgi?id=627903
 	epatch "${FILESDIR}"/${PN}-1.2.0-idle-transition.patch
+    # allow to build with upower1
+	# cherry picked from http://git.mate-desktop.org/mate-session-manager/commit/?id=80be90bb422ef8cb5a28c7ff3fe2a337dce8c368
+	epatch "${FILESDIR}"/${PN}-upower1.patch
 
 	eautoreconf
 	gnome2_src_prepare
