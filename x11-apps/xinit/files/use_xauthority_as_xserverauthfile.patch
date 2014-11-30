@@ -1,0 +1,12 @@
+diff -Nur a/startx.cpp b/startx.cpp
+--- a/startx.cpp	2013-09-08 19:37:33.000000000 +0300
++++ b/startx.cpp	2014-11-30 00:17:06.090007306 +0200
+@@ -287,7 +287,7 @@
+     dummy=0
+ 
+     XCOMM create a file with auth information for the server. ':0' is a dummy.
+-    xserverauthfile=$HOME/.serverauth.$$
++    xserverauthfile=$XAUTHORITY
+     trap "rm -f '$xserverauthfile'" HUP INT QUIT ILL TRAP KILL BUS TERM
+     xauth -q -f "$xserverauthfile" << EOF
+ add :$dummy . $mcookie
