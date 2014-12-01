@@ -6,7 +6,7 @@ diff -Nurp lsb-release-1.4.orig/lsb_release lsb-release-1.4/lsb_release
  ALTERNATE_DISTRIB_FILE="/etc/debian_version"  # for Debian [based distrib]
  ALTERNATE_DISTRIB_NAME="Debian"               #     "
 -CHECKFIRST="/etc/redhat-release"              # check it before file search
-+CHECKFIRST="/etc/rogentos-release"              # check it before file search
++CHECKFIRST="/etc/kogaion-release"              # check it before file search
  
  # Defines our exit codes
  EXIT_STATUS="0"                           # default = Ok :)
