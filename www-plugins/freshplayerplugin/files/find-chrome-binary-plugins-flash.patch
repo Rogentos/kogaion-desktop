@@ -1,0 +1,12 @@
+diff -Nur a/data/freshwrapper.conf.example b/data/freshwrapper.conf.example
+--- a/data/freshwrapper.conf.example	2014-10-20 00:46:18.000000000 +0300
++++ b/data/freshwrapper.conf.example	2014-12-02 23:00:03.357103281 +0200
+@@ -19,7 +19,7 @@
+ xinerama_screen = 0
+ 
+ # Path to the Pepper Flash plugin
+-pepperflash_path = "/opt/google/chrome/PepperFlash/libpepflashplayer.so"
++pepperflash_path = "/usr/lib/chromium-browser/PepperFlash/libpepflashplayer.so"
+ 
+ # "Command-line" arguments for Flash
+ flash_command_line = "enable_hw_video_decode=1,enable_stagevideo_auto=1"
