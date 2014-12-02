@@ -21,7 +21,7 @@ src_unpack() {
 	unpack ${A}
 
 	cd "${S}"
-	epatch "${FILESDIR}/${PN}-rogentos-version.patch"
+	epatch "${FILESDIR}/${PN}-kogaion-version.patch"
 }
 
 src_install() {
