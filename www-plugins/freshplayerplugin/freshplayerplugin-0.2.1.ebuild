@@ -1,6 +1,5 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/apulse/apulse-0.1.4.ebuild,v 1.1 2014/12/01 15:59:48 jauhien Exp $
 
 EAPI=5
 
