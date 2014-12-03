@@ -21,7 +21,7 @@ DEPEND="
 	>=media-libs/alsa-lib-1.0.28
 	>=x11-libs/pango-1.36.5
 	>=media-libs/mesa-10.0.4
-	>=dev-libs/libevent-2.38.2-r1"
+	>=dev-libs/libevent-2.0.21-r1"
 RDEPEND="
 	www-plugins/chrome-binary-plugins"
 
