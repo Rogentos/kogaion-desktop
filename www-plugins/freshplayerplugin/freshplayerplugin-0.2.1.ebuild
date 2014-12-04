@@ -23,7 +23,7 @@ DEPEND="
 	>=media-libs/alsa-lib-1.0.28
 	>=x11-libs/pango-1.36.5
 	>=x11-libs/libXinerama-1.1.3
-	>=x11-libs/gtk+:2
+	>=x11-libs/gtk+-2.20:2
 	>=media-libs/mesa-10.0.4
 	>=dev-libs/libevent-2.0.21-r1
 	"
