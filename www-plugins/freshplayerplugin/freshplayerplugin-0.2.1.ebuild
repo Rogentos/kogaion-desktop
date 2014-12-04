@@ -17,11 +17,16 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="
 	dev-util/ragel
 	dev-libs/libconfig
+	media-libs/freetype:2
 	>=dev-libs/glib-2.38.2-r1:2
+	>=dev-util/cmake-2.8.8
 	>=media-libs/alsa-lib-1.0.28
 	>=x11-libs/pango-1.36.5
+	>=x11-libs/libXinerama-1.1.3
+	>=x11-libs/gtk+:2
 	>=media-libs/mesa-10.0.4
-	>=dev-libs/libevent-2.0.21-r1"
+	>=dev-libs/libevent-2.0.21-r1
+	"
 RDEPEND="
 	www-plugins/chrome-binary-plugins"
 
