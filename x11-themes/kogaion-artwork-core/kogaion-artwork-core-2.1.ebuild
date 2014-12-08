@@ -21,6 +21,8 @@ RDEPEND="sys-apps/findutils
 	!x11-themes/sabayon-artwork-core
 "
 
+S="${WORKDIR}"/"${PN}"
+
 src_install() {
 	# Fbsplash theme - dropped!!!
 	# insinto "${S}"/fbsplash
