@@ -56,8 +56,8 @@ pkg_postinst() {
 	# mount boot first
 	mount-boot_mount_boot_partition
 
-	# Update Sabayon initramfs images
-	# update_sabayon_kernel_initramfs_splash # Disabled. We DROP fbsplash!!!
+	# Update Kogaion initramfs images
+	# update_kogaion_kernel_initramfs_splash # Disabled. We DROP fbsplash!!!
 
 	einfo "Please report bugs or glitches to"
 	einfo "BlackNoxis"
