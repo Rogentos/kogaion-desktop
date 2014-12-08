@@ -18,6 +18,7 @@ KEYWORDS="~arm ~x86 ~amd64"
 IUSE=""
 RDEPEND="sys-apps/findutils
 	!<sys-boot/grub-0.97-r22
+	!<x11-themes/kogaion-artwork-core-2.1
 	!x11-themes/sabayon-artwork-core
 "
 
@@ -46,7 +47,7 @@ src_install() {
 	doins "${S}"/background/*.jpg
 
 	insinto /usr/share/cursors/xorg-x11
-	dosym RezoBlue default || "RezoBlue not found"
+	dosym RezoBlue /usr/share/cursors/xorg-x11/default || "RezoBlue not found"
 }
 
 pkg_postinst() {
