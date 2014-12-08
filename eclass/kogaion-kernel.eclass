@@ -364,7 +364,7 @@ else
 		arm? ( dev-embedded/u-boot-tools )
 		amd64? ( sys-apps/v86d )
 		x86? ( sys-apps/v86d )
-		splash? ( x11-themes/rogentos-artwork-core )
+		splash? ( x11-themes/kogaion-artwork-core )
 		lvm? ( sys-fs/lvm2 sys-block/thin-provisioning-tools )
 		plymouth? (
 			|| ( >=sys-kernel/genkernel-next-5 >=sys-kernel/genkernel-5 )
@@ -517,8 +517,8 @@ _kernel_src_compile() {
 	cd "${S}" || die
 	local GKARGS=()
 	GKARGS+=( "--no-save-config" "--e2fsprogs" "--udev" )
-	use splash && GKARGS+=( "--splash=rogentos" )
-	use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=rogentos" )
+	# use splash && GKARGS+=( "--splash=kogaion" ) #NO MORE fbsplash!!!
+	use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=${PLYMOUTH_THEME}" ) #reverted to use variable (check the eclass)
 	use dmraid && GKARGS+=( "--dmraid" )
 	use iscsi && GKARGS+=( "--iscsi" )
 	use mdadm && GKARGS+=( "--mdadm" )
