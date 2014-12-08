@@ -13,12 +13,12 @@ KERN_INITRAMFS_SEARCH_NAME="${KERN_INITRAMFS_SEARCH_NAME:-initramfs-genkernel*}"
 # @ECLASS-VARIABLE: GFX_SPLASH_NAME
 # @DESCRIPTION:
 # Default splash theme name to use
-GFX_SPLASH_NAME="${GFX_SPLASH_NAME:-rogentos}"
+GFX_SPLASH_NAME="${GFX_SPLASH_NAME:-kogaion}" #we leave this for the moment, even not used
 
 # @ECLASS-VARIABLE: PLYMOUTH_THEME
 # @DESCRIPTION:
 # Default plymouth theme name to use
-PLYMOUTH_THEME="${PLYMOUTH_THEME:-rogentos}"
+PLYMOUTH_THEME="${PLYMOUTH_THEME:-kogaion}"
 
 # @FUNCTION: update_kernel_initramfs_splash
 # @USAGE: update_kernel_initramfs_splash [splash_theme] [splash_file]
