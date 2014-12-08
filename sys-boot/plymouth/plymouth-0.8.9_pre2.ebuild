@@ -32,7 +32,7 @@ DEPEND="${CDEPEND}
 "
 RDEPEND="${CDEPEND}
 	virtual/udev
-	>=x11-themes/rogentos-artwork-core-1
+	>=x11-themes/kogaion-artwork-core-1
 "
 
 DOC_CONTENTS="
@@ -42,7 +42,7 @@ DOC_CONTENTS="
 
 src_prepare() {
 	# RogentOS: setup our default settings
-	epatch "${FILESDIR}/${PN}-rogentos-defaults.patch"
+	epatch "${FILESDIR}/${PN}-kogaion-defaults.patch"
 
 	epatch_user
 
@@ -67,7 +67,7 @@ src_configure() {
 src_install() {
 	autotools-utils_src_install
 
-	# RogentOS: provided by rogentos-artwork-core
+	# RogentOS: provided by kogaion-artwork-core
 	rm "${D}/usr/share/plymouth/bizcom.png"
 
 	# Install compatibility symlinks as some rdeps hardcode the paths

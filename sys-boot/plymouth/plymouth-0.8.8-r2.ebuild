@@ -30,7 +30,7 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	>=sys-kernel/dracut-008-r1[dracut_modules_plymouth]
 	openrc? ( sys-boot/plymouth-openrc-plugin !sys-apps/systemd )
-	>=x11-themes/rogentos-artwork-core-2
+	>=x11-themes/kogaion-artwork-core-2
 	"
 
 DOCS=(AUTHORS README TODO)

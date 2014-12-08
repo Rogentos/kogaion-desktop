@@ -32,7 +32,7 @@ DEPEND="${CDEPEND}
 # Block due bug #383067
 RDEPEND="${CDEPEND}
 	virtual/udev
-	>=x11-themes/rogentos-artwork-core-1
+	>=x11-themes/kogaion-artwork-core-1
 "
 
 DOC_CONTENTS="
@@ -69,7 +69,7 @@ src_configure() {
 src_install() {
 	autotools-utils_src_install
 
-	# Provided by rogentos-artwork-core
+	# Provided by kogaion-artwork-core
 	rm "${D}/usr/share/plymouth/bizcom.png"
 
 	# Install compatibility symlinks as some rdeps hardcode the paths

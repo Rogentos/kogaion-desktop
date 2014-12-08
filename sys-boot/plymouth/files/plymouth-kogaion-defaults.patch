@@ -6,4 +6,4 @@ diff -Nurp plymouth-0.8.8.orig/src/plymouthd.defaults plymouth-0.8.8/src/plymout
  # upgrades.
  [Daemon]
 -Theme=spinner
-+Theme=rogentos
++Theme=kogaion

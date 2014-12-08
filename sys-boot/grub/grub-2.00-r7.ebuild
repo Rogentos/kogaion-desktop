@@ -22,7 +22,7 @@ if [[ ${PV} != 9999 ]]; then
 		# vga= not yet deprecated for us
 		"${FILESDIR}"/${PN}-2.00-vga-deprecated-not-yet.patch
 		"${FILESDIR}"/${PN}-1.99-disable-floppies.patch
-		# Genkernel doesn't support "single" for rescue mode
+		# Genkernel doesn`t support "single" for rescue mode
 		# but rather init_opts=single
 		"${FILESDIR}"/${PN}-2.00-genkernel-initramfs-single.patch
 		# Down with SecureBoot

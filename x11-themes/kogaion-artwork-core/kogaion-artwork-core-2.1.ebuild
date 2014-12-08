@@ -48,9 +48,9 @@ src_install() {
 
 	# Plymouth theme
 	insinto /usr/share/plymouth
-	doins bizcom.png
-	doins -r themes/kogaion
-
+	doins "${S}"/plymouth/bizcom.png
+	insinto /usr/share/plymouth/themes
+	doins -r "${S}"/plymouth/themes/kogaion
 
 	insinto /usr/share/cursors/xorg-x11
 	dosym RezoBlue /usr/share/cursors/xorg-x11/default || "RezoBlue not found"
