@@ -8,7 +8,7 @@ inherit gnome2-utils
 
 DESCRIPTION="Kogaion Linux Official MATE artwork"
 HOMEPAGE="http://www.rogentos.ro/"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PVR}.tar.gz"
+SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz"
 LICENSE="GPL"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
