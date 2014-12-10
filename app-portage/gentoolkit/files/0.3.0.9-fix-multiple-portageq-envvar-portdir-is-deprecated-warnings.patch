@@ -1,0 +1,12 @@
+diff -Nur a/bin/euse b/bin/euse
+--- a/bin/euse	2014-02-11 20:53:30.000000000 +0200
++++ b/bin/euse	2014-12-10 07:53:36.876716157 +0200
+@@ -720,7 +720,7 @@
+ 	# Use a subshell so we don't have to protect the variables in
+ 	# the current scope
+ 	(
+-		eval $(portageq envvar -v PORTDIR)
++		: ${PORTDIR="$(portageq get_repo_path $(portageq envvar EROOT) gentoo)"}
+ 		echo "${PORTDIR}"
+ 	)
+ } # }}}

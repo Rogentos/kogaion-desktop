@@ -33,6 +33,7 @@ PATCHES=(
 	"${FILESDIR}"/${PV}-equery-508114.patch
 	"${FILESDIR}"/${PV}-equery-strip-XXXFLAGS.patch
 	"${FILESDIR}"/${PV}-revdep-rebuild-526400.patch
+	"${FILESDIR}"/${PV}-fix-multiple-portageq-envvar-portdir-is-deprecated-warnings.patch
 )
 
 python_prepare_all() {
