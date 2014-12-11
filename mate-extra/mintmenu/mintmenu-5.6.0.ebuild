@@ -6,7 +6,7 @@ EAPI=5
 
 inherit eutils gnome2-utils git-2
 
-EGIT_BRANCH=master
+EGIT_BRANCH=kogaion
 EGIT_REPO_URI="https://github.com/Rogentos/mintmenu.git"
 
 DESCRIPTION="Advanced MATE menu"
@@ -37,8 +37,8 @@ src_install() {
 
 	insinto /usr/$(get_libdir) || die
 	doins -r usr/lib/* || die
-	fperms 755 /usr/$(get_libdir)/linuxmint/mintMenu/*.py || die
-	fperms 755 /usr/$(get_libdir)/linuxmint/mintMenu/plugins/*.py || die
+	fperms 755 /usr/$(get_libdir)/linuxmint/mintMenu/mintMenu.py || die
+	fperms 755 /usr/$(get_libdir)/linuxmint/mintMenu/mintMenuConfig.py || die
 	
 	insinto /usr/share || die
 	doins -r usr/share/* || die
