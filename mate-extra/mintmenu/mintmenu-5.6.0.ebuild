@@ -4,11 +4,13 @@
 
 EAPI=5
 
-inherit eutils gnome2-utils
+inherit eutils gnome2-utils git-2
+
+EGIT_BRANCH=master
+EGIT_REPO_URI="https://github.com/Rogentos/mintmenu.git"
 
 DESCRIPTION="Advanced MATE menu"
 HOMEPAGE="http://linuxmint.com"
-SRC_URI="http://packages.linuxmint.com/pool/main/m/mintmenu/${PN}_${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
