@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 RDEPEND=""
-DEPEND="!>app-misc/rogentos-skel-1
+DEPEND="!>=app-misc/rogentos-skel-1
 	!app-misc/sabayon-skel"
 
 src_install () {
