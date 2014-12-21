@@ -12,12 +12,9 @@ EGIT_REPO_URI="https://github.com/visualfc/liteide.git"
 LICENSE="LGPL-2.1"
 KEYWORDS=""
 SLOT="0"
-IUSE="ordered release"
+IUSE="ordered release static shared"
 
-DEPEND="dev-lang/go
-	dev-qt/qtgui:4
-	dev-qt/qtdbus:4
-	dev-qt/qtwebkit:4"
+DEPEND="dev-lang/go"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/"${PN}"-"${PV}"/
@@ -71,15 +68,26 @@ src_install() {
 	doins -r "${S}"/liteidex/deploy/*
 	doins -r "${S}"/liteidex/os_deploy/*
 
+	if use shared ; then
+		DEPEND="${DEPEND}
+		dev-qt/qtgui:4
+		dev-qt/qtdbus:4
+		dev-qt/qtwebkit:4"
+
+		#dosyms on all QT libs
+	fi
+
 	# QT Libraries
-	addread /usr/$(get_libdir)/qt4/
-	insinto /opt/${PN}/lib/${PN}
-	doins /usr/$(get_libdir)/qt4/libQtCore.so*
-	doins /usr/$(get_libdir)/qt4/libQtXml.so*
-	doins /usr/$(get_libdir)/qt4/libQtNetwork.so*
-	doins /usr/$(get_libdir)/qt4/libQtGui.so*
-	doins /usr/$(get_libdir)/qt4/libQtDBus.so*
-	doins /usr/$(get_libdir)/qt4/libQtWebKit.so*
+	if use static ; then
+		addread /usr/$(get_libdir)/qt4/
+		insinto /opt/${PN}/lib/${PN}
+		doins /usr/$(get_libdir)/qt4/libQtCore.so*
+		doins /usr/$(get_libdir)/qt4/libQtXml.so*
+		doins /usr/$(get_libdir)/qt4/libQtNetwork.so*
+		doins /usr/$(get_libdir)/qt4/libQtGui.so*
+		doins /usr/$(get_libdir)/qt4/libQtDBus.so*
+		doins /usr/$(get_libdir)/qt4/libQtWebKit.so*
+	fi
 
 	fperms +x /opt/${PN}/bin/${PN}
 	fperms u+x /opt/${PN}/bin/goapi
