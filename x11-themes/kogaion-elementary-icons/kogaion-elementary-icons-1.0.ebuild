@@ -6,16 +6,15 @@ EAPI=4
 
 DESCRIPTION="Kogaion elementary icons"
 HOMEPAGE="https://github.com/bionel/kogaion-src"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PV}.tar.gz
-	http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/${PN}/${PN}-${PV}.tar.gz"
-LICENSE="GPL"
+SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${P}.tar.gz
+	http://buildserver.rogentos.ro/~kogaion/distro/${CATEGORY}/${PN}/${P}.tar.gz"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~arm ~amd64 ~x86"
 IUSE=""
 
 RDEPEND=""
-
-DEPEND=""
+DEPEND="${RDEPEND}"
 
 DEST="/usr/share/icons"
 S="${WORKDIR}"
