@@ -6,10 +6,10 @@ EAPI=4
 
 DESCRIPTION="Kogaion dark theme"
 HOMEPAGE="http://rogentos.ro"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
-	#https://pk2.rogentos.ro/~noxis/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz :temporary out of duty
+SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz
+	https://buildserver.rogentos.ro/~kogaion/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
 
-LICENSE="GPL"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~arm ~amd64 ~x86"
 IUSE="gtk3 gtk2 gnome-shell unity cinnamon xfwm4"
@@ -19,7 +19,7 @@ RDEPEND="gtk3? ( x11-themes/gtk-engines-unico )
 	x11-themes/gtk-engines-murrine
 	x11-themes/gtk-engines
 	x11-themes/faenza-kupertino-icons"
-DEPEND=""
+DEPEND="${DEPEND}"
 
 Z="Kogaion-dark"
 S="${WORKDIR}"/${Z}/
@@ -66,5 +66,5 @@ src_install() {
 		doins -r "${S}"/xfwm4 || die "Cannot copy xfwm"
 	else
 	ewarn "Xfwm Files were not copied"
-        fi
+	fi
 }

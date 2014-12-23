@@ -7,7 +7,7 @@ EAPI=4
 DESCRIPTION="Kogaion dark theme"
 HOMEPAGE="http://rogentos.ro"
 SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz
-	https://pk2.rogentos.ro/~noxis/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
+	https://buildserver.rogentos.ro/~kogaion/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
@@ -66,5 +66,5 @@ src_install() {
 		doins -r "${S}"/xfwm4 || die "Cannot copy xfwm"
 	else
 	ewarn "Xfwm Files were not copied"
-        fi
+	fi
 }
