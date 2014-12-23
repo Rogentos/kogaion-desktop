@@ -1,4 +1,5 @@
-# Copyright 2004-2013 RogentOS
+# Copyright 2004-2014 Sabayon
+# Copyright 2012-2014 RogentOS
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5

@@ -1,4 +1,5 @@
-# Copyright 2004-2013 RogentOS
+# Copyright 2004-2014 Sabayon
+# Copyright 2014 Kogaion
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -8,7 +9,7 @@ EGIT_REPO_URI="git://github.com/Rogentos/kogaion-live.git"
 
 inherit eutils systemd git-2
 
-DESCRIPTION="Rogentos live image scripts and tools"
+DESCRIPTION="Kogaion live image scripts and tools"
 HOMEPAGE="http://www.rogentos.ro"
 
 SLOT="0"
