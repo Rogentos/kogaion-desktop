@@ -7,9 +7,9 @@ inherit gnome2-utils
 
 DESCRIPTION="Kogaion faenza icons"
 HOMEPAGE="http://rogentos.ro"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PV}.tar.gz
-	http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/${PN}/${PN}-${PV}.tar.gz"
-LICENSE="GPL"
+SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${P}.tar.gz
+	http://buildserver.rogentos.ro/~kogaion/distro/${CATEGORY}/${PN}/${P}.tar.gz"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~arm ~amd64 ~x86"
 IUSE=""
@@ -22,9 +22,9 @@ DEST="/usr/share/icons"
 S="${WORKDIR}"
 
 src_install() {
-	insinto ${DEST} || die
-	doins -r "${S}"/Faenza-Kupertino-Light || die
-	doins -r "${S}"/Faenza-Kupertino-Dark || die
+	insinto ${DEST}
+	doins -r "${S}"/Faenza-Kupertino-Light
+	doins -r "${S}"/Faenza-Kupertino-Dark
 }
 
 pkg_preinst() {
