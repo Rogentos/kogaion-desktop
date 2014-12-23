@@ -57,9 +57,9 @@ src_install() {
 pkg_preinst() {
 	# taken from gnome2_schemas_savelist
 	has ${EAPI:-0} 0 1 2 && ! use prefix && ED="${D}"
-	pushd "${ED}" &>/dev/null
+	pushd "${ED}" &>/dev/null || die
 	export GNOME2_ECLASS_GLIB_SCHEMAS="/usr/share/glib-2.0/schemas/org.kogaion.gschema.override"
-	popd &>/dev/null
+	popd &>/dev/null || die
 }
 
 pkg_postinst() {
