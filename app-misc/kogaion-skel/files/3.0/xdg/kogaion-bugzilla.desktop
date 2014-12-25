@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+
+Exec=xdg-open https://bugs.kogaionlinux.org
+Icon=kogaion-weblink
+
+Name=Report Bugs
+

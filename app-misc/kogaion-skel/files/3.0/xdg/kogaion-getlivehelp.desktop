@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+
+Exec=xdg-open https://www.kogaionlinux.org/chat
+Icon=kogaion-weblink
+
+Name=Get Live Help
+
