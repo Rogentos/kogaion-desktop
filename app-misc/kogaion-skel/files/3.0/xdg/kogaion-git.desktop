@@ -5,5 +5,5 @@ Type=Application
 Exec=xdg-open https://git.kogaionlinux.org
 Icon=kogaion-weblink
 
-Name=Sabayon Git Repos
+Name=Kogaion Git Repos
 

@@ -5,5 +5,5 @@ Type=Application
 Exec=xdg-open https://packages.kogaionlinux.org
 Icon=kogaion-weblink
 
-Name=Sabayon Packages
+Name=Kogaion Packages
 
