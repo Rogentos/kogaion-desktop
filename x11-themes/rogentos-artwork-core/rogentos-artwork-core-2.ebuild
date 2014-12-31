@@ -56,7 +56,7 @@ pkg_postinst() {
 	mount-boot_mount_boot_partition
 
 	# Update Sabayon initramfs images
-	update_sabayon_kernel_initramfs_splash
+	update_kogaion_kernel_initramfs_splash
 
 	einfo "Please report bugs or glitches to"
 	einfo "BlackNoxis"

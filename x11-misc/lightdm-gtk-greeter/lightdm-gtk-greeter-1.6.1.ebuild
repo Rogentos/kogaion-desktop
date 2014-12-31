@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="amd64 ~arm ~ppc x86"
 IUSE=""
 
-# This ebuild needs custom Sabayon themes, thus it must depend on sabayon-artwork-core
+# This ebuild needs custom Sabayon themes, thus it must depend on kogaion-artwork-core
 DEPEND="x11-libs/gtk+:3
 	>=x11-misc/lightdm-1.2.2"
 RDEPEND="app-admin/eselect-lightdm
