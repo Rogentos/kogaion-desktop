@@ -1,9 +1,10 @@
-# Copyright 2009 Sabayon Linux
+# Copyright 2009-2014 Sabayon Linux
+# Copyright 2015 Kogaion Linux
 # Distributed under the terms of the GNU General Public License v2
 
 inherit eutils
 
-DESCRIPTION="Rogentos Linux GRUB utilities"
+DESCRIPTION="Kogaion Linux GRUB utilities"
 HOMEPAGE="http://www.rogentos.ro"
 SRC_URI=""
 LICENSE="GPL-2"

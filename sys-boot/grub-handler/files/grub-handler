@@ -22,7 +22,7 @@ if os.path.ismount(NO_SYS_ROOT_BOOT_DIR):
 SYS_ROOT = os.getenv("ROOT","")
 GRUB_CONF = SYS_ROOT+"/boot/grub/grub.conf"
 FSTAB_CONF = SYS_ROOT+"/etc/fstab"
-DISTRO_NAME = "Rogentos Linux"
+DISTRO_NAME = "Kogaion Linux"
 
 def getstatusoutput(cmd):
     """Return (status, output) of executing cmd in a shell."""
