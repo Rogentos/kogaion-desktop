@@ -1,5 +1,5 @@
 # Copyright 2004-2011 Sabayon Promotion
-# Copyright 2012 Rogentos
+# Copyright 2012 Kogaion
 # Distributed under the terms of the GNU General Public License v2
 # Original Authors Sabayon Team
 #
