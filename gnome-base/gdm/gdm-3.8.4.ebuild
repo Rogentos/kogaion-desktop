@@ -205,7 +205,7 @@ src_install() {
 	emake GDM_WELCOME="gdm-launch-environment" LDAP=${LDAP} EPREFIX="${EPREFIX}" \
 		SYSTEMD_UNITDIR="$(systemd_get_unitdir)" DESTDIR="${D}" install
 
-	# Sabayon: install our own script to set the gdm session via dbus
+	# Kogaion: install our own script to set the gdm session via dbus
 	# AccountServices interface. This is useful for live booting to select
 	# xbmc or fluxbox.
 	exeinto /usr/libexec
