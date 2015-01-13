@@ -1,3 +1,4 @@
+# Copyright 2004-2013 Sabayon Linux
 # Copyright 2004-2014 Kogaion, Argent and ArgOS Linux
 # Distributed under the terms of the GNU General Public License v2
 
