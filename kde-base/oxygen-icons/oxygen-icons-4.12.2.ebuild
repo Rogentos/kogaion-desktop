@@ -17,7 +17,7 @@ HOMEPAGE="http://www.oxygen-icons.org/"
 [[ ${PV} == *9999 ]] || \
 SRC_URI="
 	!bindist? ( http://dev.gentoo.org/~mrueg/distfiles/${P}.repacked.tar.xz )
-	mirror://sabayon/x11-themes/fdo-icons-sabayon${SLREV}.tar.gz
+	mirror://kogaion/x11-themes/fdo-icons-kogaion${SLREV}.tar.gz
 	bindist? ( ${SRC_URI} )
 "
 
@@ -30,5 +30,5 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	kde4-base_src_prepare
-	cp -r "${WORKDIR}"/fdo-icons-sabayon/* "${S}" || die
+	cp -r "${WORKDIR}"/fdo-icons-kogaion/* "${S}" || die
 }
