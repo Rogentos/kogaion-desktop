@@ -464,7 +464,7 @@ src_configure() {
 		--disable-online-update \
 		--disable-systray \
 		--with-alloc=$(use jemalloc && echo "jemalloc" || echo "system") \
-		--with-build-version="Sabayon official package" \
+		--with-build-version="Kogaion official package" \
 		--enable-extension-integration \
 		--with-external-dict-dir="${EPREFIX}/usr/share/myspell" \
 		--with-external-hyph-dir="${EPREFIX}/usr/share/myspell" \
@@ -473,7 +473,7 @@ src_configure() {
 		--with-lang="" \
 		--with-parallelism=${jbs} \
 		--with-system-ucpp \
-		--with-vendor="Sabayon Foundation" \
+		--with-vendor="Kogaion Foundation" \
 		--with-x \
 		--without-afms \
 		--without-fonts \
