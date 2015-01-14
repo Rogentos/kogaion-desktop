@@ -1,0 +1,7 @@
+move sys-fs/zfs-userspace sys-fs/zfs
+move sys-kernel/genkernel sys-kernel/genkernel-next
+move sys-kernel/beagle-sources sys-kernel/kogaion-sources
+move sys-kernel/panda-sources sys-kernel/kogaion-sources
+move sys-kernel/linux-beagle sys-kernel/linux-kogaion
+move sys-kernel/linux-panda sys-kernel/linux-kogaion
+move app-misc/kogaionlive-tools app-misc/kogaion-live
