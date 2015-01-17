@@ -6,8 +6,8 @@ RESTRICT_PYTHON_ABIS="3.*"
 
 inherit python eutils
 
-DESCRIPTION="command line interface to http://pastebin.rogentos.org/"
-HOMEPAGE="http://pastebin.rogentos.org/"
+DESCRIPTION="command line interface to http://pastebin.rogentos.ro/"
+HOMEPAGE="http://pastebin.rogentos.ro/"
 SRC_URI=""
 
 LICENSE="GPL-2"
