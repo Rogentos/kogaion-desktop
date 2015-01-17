@@ -196,8 +196,8 @@ index 0000000..bf27e52
 @@ -0,0 +1,9 @@
 +<?xml version="1.0" encoding="UTF-8" ?>
 +<workflow>
-+    <_name>Report a bug to Sabayon maintainers</_name>
-+    <_description>Process the report using the Sabayon infrastructure</_description>
++    <_name>Report a bug to Kogaion maintainers</_name>
++    <_description>Process the report using the Kogaion infrastructure</_description>
 +
 +    <events>
 +        <event>report_Bugzilla</event>
