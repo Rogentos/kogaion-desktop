@@ -17,8 +17,7 @@ IUSE="kernel_linux static-libs"
 
 RDEPEND=">=app-pda/libplist-1.11:=
 	virtual/libusb:1
-	!=app-pda/usbmuxd-1.0.9
-	!<app-pda/usbmuxd-1.0.8_p1"
+	>=app-pda/usbmuxd-1.1.0"
 DEPEND="${RDEPEND}
 	virtual/os-headers
 	virtual/pkgconfig"

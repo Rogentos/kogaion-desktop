@@ -18,7 +18,7 @@ KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86"
 IUSE="gnutls python static-libs"
 
 RDEPEND=">=app-pda/libplist-1.11:=[python?,${PYTHON_USEDEP}]
-	>=app-pda/libusbmuxd-1.0.9:=
+	>=app-pda/libusbmuxd-1.0.10:=
 	gnutls? (
 		dev-libs/libgcrypt:0
 		>=dev-libs/libtasn1-1.1
