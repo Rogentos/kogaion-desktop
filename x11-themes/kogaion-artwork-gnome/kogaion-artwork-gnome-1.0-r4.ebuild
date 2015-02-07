@@ -1,4 +1,5 @@
 # Copyright 1999-2012 Sabayon
+# Copyright 2015 Kogaion
 # Distributed under the terms of the GNU General Public License v2
 # Header: $
 
