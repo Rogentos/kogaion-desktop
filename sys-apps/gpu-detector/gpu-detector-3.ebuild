@@ -9,7 +9,7 @@ SLOT="0"
 KEYWORDS="x86 amd64 ppc"
 IUSE=""
 
-RDEPEND="app-misc/rogentos-live"
+RDEPEND="app-misc/kogaion-live"
 DEPEND=""
 
 src_unpack () {
