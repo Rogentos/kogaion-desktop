@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,8 @@ EAPI=4
 DESCRIPTION="Kogaion elementary icons"
 HOMEPAGE="https://github.com/bionel/kogaion-src"
 SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${P}.tar.gz
-	http://buildserver.rogentos.ro/~kogaion/distro/${CATEGORY}/${PN}/${P}.tar.gz"
+	https://buildserver.rogentos.ro/~kogaion/distro/${CATEGORY}/${PN}/${P}.tar.gz
+	http://bpr.bluepink.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~arm ~amd64 ~x86"
