@@ -26,4 +26,8 @@ RDEPEND="${DEPEND}
 	!x11-themes/sabayon-artwork-corecd
 	!x11-themes/sabayon-artwork-ooo
 	!x11-themes/sabayon-artwork
-	!app-misc/sabayon-version"
+	!app-misc/sabayon-version
+	!app-misc/sabayon-skel
+	!app-misc/sabayon-live
+	!app-misc/sabayon-mce
+	!app-misc/sabayon-steambox"
