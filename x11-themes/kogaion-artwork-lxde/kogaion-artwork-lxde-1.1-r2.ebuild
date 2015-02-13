@@ -17,8 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 RDEPEND="x11-themes/kogaion-artwork-core
-	!x11-themes/rogentos-artwork-lxde
-	!x11-themes/sabayon-artwork-lxde"
+	!x11-themes/rogentos-artwork-lxde"
 
 S="${WORKDIR}/lxdm"
 
