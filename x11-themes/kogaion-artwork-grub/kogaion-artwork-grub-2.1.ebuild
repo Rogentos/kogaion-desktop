@@ -15,8 +15,7 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-RDEPEND="!x11-themes/sabayon-artwork-grub
-	!x11-themes/rogentos-artwork-grub" #avoid file colision
+RDEPEND="!x11-themes/rogentos-artwork-grub" #avoid file colision
 
 S="${WORKDIR}"
 
