@@ -20,7 +20,7 @@ zvalue=170
 [Containments][1][Applets][31][Configuration]
 animations=true
 droptarget=false
-feeds=http://www.kogaionlinux.org/feeds/news.rss,http://planet.kogaionlinux.org/?feed=rss2
+feeds=http://www.rogentos.ro/feeds/news.rss,http://planet.rogentos.ro/?feed=rss2
 interval=30
 logo=true
 maxAge=0

@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://www.kogaionlinux.org
+Exec=xdg-open https://www.rogentos.ro
 Icon=kogaion-weblink
 
 Name=Kogaion Homepage

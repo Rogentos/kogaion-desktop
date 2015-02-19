@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://git.kogaionlinux.org
+Exec=xdg-open https://git.rogentos.ro
 Icon=kogaion-weblink
 
 Name=Kogaion Git Repos

@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://bugs.kogaionlinux.org
+Exec=xdg-open https://bugs.rogentos.ro
 Icon=kogaion-weblink
 
 Name=Report Bugs

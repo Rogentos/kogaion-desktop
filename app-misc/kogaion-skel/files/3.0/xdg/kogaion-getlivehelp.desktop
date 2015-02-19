@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://www.kogaionlinux.org/chat
+Exec=xdg-open https://www.rogentos.ro/chat
 Icon=kogaion-weblink
 
 Name=Get Live Help
