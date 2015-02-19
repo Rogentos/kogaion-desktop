@@ -27,7 +27,8 @@ RDEPEND="
 	>=mate-base/mate-desktop-1.8.0
 	>=mate-base/mate-panel-1.8.0
 	>=mate-base/mate-menus-1.8.0[python]
-	>=x11-misc/mozo-1.8.0"
+	>=x11-misc/mozo-1.8.0
+	dev-python/python-xlib"
 
 S="${WORKDIR}/${PN}"
 
