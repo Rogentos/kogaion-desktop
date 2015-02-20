@@ -11,7 +11,7 @@ OO_EXTENSIONS=(
 	"b33775feda3bcf823cad7ac361fd49a6-Sun-ODF-Template-Pack-it_1.0.0.oxt"
 )
 
-inherit base rpm multilib versionator office-ext
+inherit base rpm multilib versionator office-ext-r1
 
 MY_LANG=${PN/libreoffice-l10n-/}
 MY_LANG=${MY_LANG/_/-}
