@@ -104,7 +104,7 @@ src_unpack() {
 
 	use vanilla && return 0
 
-	[[ ${CHOST} == ${CTARGET} ]] && epatch "${FILESDIR}"/gcc-spec-env.patch
+	[[ ${CHOST} == ${CTARGET} ]] && epatch "${FILESDIR}"/gcc-${PV}-spec-env.patch
 
 	# Fix http://gcc.gnu.org/bugzilla/show_bug.cgi?id=47719
 }
