@@ -11,8 +11,9 @@ inherit base
 DESCRIPTION="Kogaion Isolinux Image Background"
 HOMEPAGE="http://www.rogentos.ro"
 SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PV}.tar.gz
-	http://bpr.bluepink.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PV}.tar.gz"
-	#http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz temporary out of duty repo
+	http://bpr.bluepink.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PV}.tar.gz
+	mirror://kogaion/${CATEGORY}/"${PN}"/${P}.tar.gz"
+
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
 
