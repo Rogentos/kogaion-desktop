@@ -1,5 +1,5 @@
 # Copyright 1999-2012 Sabayon Promotion
-# Copyright 2012 Kogaion Linux
+# Copyright 2012-2015 Kogaion Linux
 # Distributed under the terms of the GNU General Public License v2
 # Original Authors Sabayon Team
 # Maintainer BlackNoxis <stefan.cristian at rogentos.ro>
@@ -9,8 +9,8 @@ inherit eutils mount-boot kogaion-artwork
 
 DESCRIPTION="Offical Kogaion Linux Core Artwork"
 HOMEPAGE="http://www.rogentos.ro"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/"${PN}"/"${PN}"-${PV}.tar.gz"
-	# http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz # Temporary Suspended repo
+SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/"${PN}"/"${PN}"-${PV}.tar.gz
+	mirror://kogaion/${CATEGORY}/"${PN}"/"${PN}"-${PV}.tar.gz"
 
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
