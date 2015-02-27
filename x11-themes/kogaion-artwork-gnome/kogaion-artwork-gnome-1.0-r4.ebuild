@@ -1,5 +1,5 @@
 # Copyright 1999-2012 Sabayon
-# Copyright 2015 Kogaion
+# Copyright 2012-2015 Kogaion
 # Distributed under the terms of the GNU General Public License v2
 # Header: $
 
@@ -9,7 +9,10 @@ inherit gnome2-utils
 
 DESCRIPTION="Kogaion Linux Official GNOME artwork"
 HOMEPAGE="http://www.rogentos.ro"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz"
+SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz
+	mirror://kogaion/${CATEGORY}/"${PN}"/${P}.tar.gz"
+
+
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
