@@ -1,5 +1,5 @@
 # Copyright 2004-2012 Sabayon
-# Copyright 2012 Kogaion
+# Copyright 2012-2015 Kogaion
 # Distributed under the terms of the GNU General Public License v2
 # Maintainer BlackNoxis <stefan.cristian at rogentos.ro>
 
@@ -9,7 +9,9 @@ inherit base mount-boot
 
 DESCRIPTION="Kogaion-Linux GRUB2 Images"
 HOMEPAGE="http://www.rogentos.ro"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz"
+SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz
+	mirror://kogaion/${CATEGORY}/"${PN}"/${P}.tar.gz"
+
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
 
