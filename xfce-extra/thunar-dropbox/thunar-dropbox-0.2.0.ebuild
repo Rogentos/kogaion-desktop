@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-inherit eutils waf-utils gnome2-utils
+EAPI=5
+inherit eutils  gnome2-utils
 
 DESCRIPTION="Plugin for Thunar that adds context-menu items for Dropbox"
 HOMEPAGE="http://www.softwarebakery.com/maato/thunar-dropbox.html"
@@ -11,7 +11,7 @@ SRC_URI="http://www.softwarebakery.com/maato/files/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 COMMON_DEPEND="dev-libs/glib:2
@@ -26,6 +26,18 @@ RDEPEND="${COMMON_DEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-wscript.patch"
+}
+
+src_configure() {
+	python2 waf configure --prefix=/usr
+}
+
+src_compile() {
+	python2 waf build
+}
+
+src_install() {
+	python2 waf install --destdir="${D}"
 }
 
 pkg_preinst() {
