@@ -12,7 +12,7 @@ SRC_URI="mirror://xfce/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~x86-freebsd ~x86-interix ~amd64-linux ~x86-linux ~x86-solaris"
-IUSE="debug nls systemd upower +xscreensaver"
+IUSE="debug nls polkit upower +xscreensaver"
 
 COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
 	x11-apps/iceauth
@@ -24,11 +24,11 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
 	>=xfce-base/xfconf-4.12.0
 	!xfce-base/xfce-utils
 	upower? ( || ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils ) )
-	systemd? ( >=sys-auth/polkit-0.100 )"
+	polkit? ( >=sys-auth/polkit-0.100 )"
 RDEPEND="${COMMON_DEPEND}
 	x11-apps/xrdb
 	nls? ( x11-misc/xdg-user-dirs )
-	!systemd? ( upower? ( sys-power/pm-utils ) )
+	!polkit? ( upower? ( sys-power/pm-utils ) )
 	xscreensaver? ( || (
 		>=x11-misc/xscreensaver-5.26
 		gnome-extra/gnome-screensaver
@@ -45,7 +45,7 @@ pkg_setup() {
 
 	XFCONF=(
 		--docdir="${EPREFIX}"/usr/share/doc/${PF}
-		$(use_enable systemd)
+		$(use_enable polkit)
 		--with-xsession-prefix="${EPREFIX}"/usr
 		$(xfconf_use_debug)
 		)
