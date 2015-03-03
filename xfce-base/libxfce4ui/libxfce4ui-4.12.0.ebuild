@@ -20,7 +20,7 @@ RDEPEND=">=dev-libs/glib-2.28
 	x11-libs/libICE
 	x11-libs/libSM
 	>=xfce-base/libxfce4util-4.12.1
-	>=xfce-base/xfconf-4.10
+	>=xfce-base/xfconf-4.12.0
 	glade? ( dev-util/glade:3 )
 	startup-notification? ( x11-libs/startup-notification )
 	!xfce-base/xfce-utils"

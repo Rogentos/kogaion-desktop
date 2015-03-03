@@ -15,7 +15,7 @@ IUSE="debug perl"
 
 RDEPEND=">=dev-libs/dbus-glib-0.98
 	>=dev-libs/glib-2.24
-	>=xfce-base/libxfce4util-4.12.1
+	>=xfce-base/libxfce4util-4.10.0
 	perl? ( dev-perl/glib-perl )"
 DEPEND="${RDEPEND}
 	dev-util/intltool

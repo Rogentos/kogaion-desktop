@@ -19,9 +19,9 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.100
 	x11-libs/libSM
 	>=x11-libs/libwnck-2.30:1
 	x11-libs/libX11
-	>=xfce-base/libxfce4util-4.12.1
-	>=xfce-base/libxfce4ui-4.12.0
-	>=xfce-base/xfconf-4.12.0
+	>=xfce-base/libxfce4util-4.10.0
+	>=xfce-base/libxfce4ui-4.10.0
+	>=xfce-base/xfconf-4.10.0
 	!xfce-base/xfce-utils
 	upower? ( || ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils ) )
 	polkit? ( >=sys-auth/polkit-0.100 )"

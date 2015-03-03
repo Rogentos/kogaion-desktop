@@ -22,12 +22,12 @@ COMMON_DEPEND=">=dev-libs/dbus-glib-0.100.2
 	x11-libs/libX11
 	>=x11-libs/libXrandr-1.2
 	x11-libs/libXext
-	>=xfce-base/xfconf-4.12.0
-	>=xfce-base/libxfce4ui-4.12.0
-	>=xfce-base/libxfce4util-4.12.1
+	>=xfce-base/xfconf-4.10.0
+	>=xfce-base/libxfce4ui-4.10.0
+	>=xfce-base/libxfce4util-4.10.0
 	lxpanel? ( lxde-base/lxpanel )
 	policykit? ( >=sys-auth/polkit-0.112 )
-	xfce_plugins_power? ( >=xfce-base/xfce4-panel-4.12.0 )"
+	xfce_plugins_power? ( >=xfce-base/xfce4-panel-4.10.0 )"
 # USE="systemd" is for ensuring hibernate/suspend works by enforcing correct runtime -only dependencies
 RDEPEND="${COMMON_DEPEND}
 	networkmanager? ( net-misc/networkmanager )

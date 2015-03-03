@@ -20,17 +20,17 @@ COMMON_DEPEND=">=dev-lang/perl-5.6
 	>=dev-libs/glib-2.30
 	>=x11-libs/gdk-pixbuf-2.14
 	>=x11-libs/gtk+-2.24:2
-	>=xfce-base/exo-0.10.3
-	>=xfce-base/libxfce4ui-4.12.0
-	>=xfce-base/libxfce4util-4.12.1
-	>=xfce-base/xfconf-4.12.0
+	>=xfce-base/exo-0.10.0
+	>=xfce-base/libxfce4ui-4.10.0
+	>=xfce-base/libxfce4util-4.10.0
+	>=xfce-base/xfconf-4.10.0
 	dbus? ( >=dev-libs/dbus-glib-0.100 )
 	exif? ( >=media-libs/libexif-0.6.19 )
 	libnotify? ( >=x11-libs/libnotify-0.7 )
 	pcre? ( >=dev-libs/libpcre-6 )
 	startup-notification? ( x11-libs/startup-notification )
 	udisks? ( virtual/libgudev:= )
-	xfce_plugins_trash? ( >=xfce-base/xfce4-panel-4.12.0 )"
+	xfce_plugins_trash? ( >=xfce-base/xfce4-panel-4.10.0 )"
 RDEPEND="${COMMON_DEPEND}
 	>=dev-util/desktop-file-utils-0.20-r1
 	x11-misc/shared-mime-info

@@ -17,8 +17,8 @@ RDEPEND=">=dev-lang/perl-5.6
 	>=dev-libs/glib-2.30
 	dev-perl/URI
 	>=x11-libs/gtk+-2.24:2
-	>=xfce-base/libxfce4ui-4.12
-	>=xfce-base/libxfce4util-4.12"
+	>=xfce-base/libxfce4ui-4.10.0
+	>=xfce-base/libxfce4util-4.10.0"
 DEPEND="${RDEPEND}
 	dev-util/intltool
 	sys-devel/gettext

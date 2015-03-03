@@ -21,11 +21,11 @@ RDEPEND=">=dev-libs/dbus-glib-0.100
 	>=x11-libs/libXcursor-1.1
 	>=x11-libs/libXi-1.3
 	>=x11-libs/libXrandr-1.2
-	>=xfce-base/garcon-0.4.0
-	>=xfce-base/exo-0.10.3
-	>=xfce-base/libxfce4ui-4.12.0
-	>=xfce-base/libxfce4util-4.12.1
-	>=xfce-base/xfconf-4.12.0
+	>=xfce-base/garcon-0.2.0
+	>=xfce-base/exo-0.10.0
+	>=xfce-base/libxfce4ui-4.11.0
+	>=xfce-base/libxfce4util-4.10.0
+	>=xfce-base/xfconf-4.10.0
 	libcanberra? ( >=media-libs/libcanberra-0.25[sound] )
 	libnotify? ( >=x11-libs/libnotify-0.7 )
 	upower? ( || ( >=sys-power/upower-0.9.23 sys-power/upower-pm-utils ) )

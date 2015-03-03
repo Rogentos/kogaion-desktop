@@ -16,10 +16,10 @@ IUSE="debug libnotify"
 COMMON_DEPEND=">=dev-libs/glib-2.20
 	virtual/libgudev:=
 	>=x11-libs/gtk+-2.24:2
-	>=xfce-base/exo-0.10.3
-	>=xfce-base/libxfce4ui-4.12.0
-	>=xfce-base/libxfce4util-4.12.1
-	>=xfce-base/xfconf-4.12.0
+	>=xfce-base/exo-0.10.0
+	>=xfce-base/libxfce4ui-4.10.0
+	>=xfce-base/libxfce4util-4.10.1
+	>=xfce-base/xfconf-4.10.0
 	libnotify? ( >=x11-libs/libnotify-0.7 )"
 RDEPEND="${COMMON_DEPEND}
 	virtual/udev

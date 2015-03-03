@@ -16,10 +16,10 @@ IUSE="debug"
 RDEPEND=">=dev-libs/dbus-glib-0.100
 	>=dev-libs/glib-2.30
 	>=x11-libs/gtk+-3.2:3
-	>=xfce-base/garcon-0.4.0
-	>=xfce-base/libxfce4util-4.12.1
-	>=xfce-base/libxfce4ui-4.12.0
-	>=xfce-base/xfconf-4.12.0
+	>=xfce-base/garcon-0.3.0
+	>=xfce-base/libxfce4util-4.10.1
+	>=xfce-base/libxfce4ui-4.10.0
+	>=xfce-base/xfconf-4.10.0
 	!xfce-base/xfce-utils"
 DEPEND="${RDEPEND}
 	dev-util/intltool

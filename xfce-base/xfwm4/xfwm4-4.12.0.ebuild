@@ -23,9 +23,9 @@ RDEPEND=">=dev-libs/glib-2.20
 	x11-libs/libXrender
 	x11-libs/pango
 	>=x11-libs/libwnck-2.30:1
-	>=xfce-base/libxfce4util-4.12.1
-	>=xfce-base/libxfce4ui-4.12.0
-	>=xfce-base/xfconf-4.12.0
+	>=xfce-base/libxfce4util-4.10.0
+	>=xfce-base/libxfce4ui-4.11.0
+	>=xfce-base/xfconf-4.10.0
 	dri? ( >=x11-libs/libdrm-2.4 )
 	startup-notification? ( x11-libs/startup-notification )
 	xcomposite? (
