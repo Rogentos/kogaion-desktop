@@ -1,0 +1,58 @@
+diff -Nur a/gtk-2.0/gtkrc b/gtk-2.0/gtkrc
+--- a/gtk-2.0/gtkrc	2014-05-04 12:48:11.000000000 +0300
++++ b/gtk-2.0/gtkrc	2015-03-15 15:49:42.744944342 +0200
+@@ -1,6 +1,6 @@
+ # Numix GTK Theme
+ 
+-gtk-color-scheme = "bg_color:#dedede\nfg_color:#555555\nbase_color:#f9f9f9\ntext_color:#333333\nselected_bg_color:#d64937\nselected_fg_color:#f9f9f9\ntooltip_bg_color:#2d2d2d\ntooltip_fg_color:#dedede\ntitlebar_bg_color:#2d2d2d\ntitlebar_fg_color:#dcdcdc\nmenubar_bg_color:#2d2d2d\nmenubar_fg_color:#dcdcdc\ntoolbar_bg_color:#dedede\ntoolbar_fg_color:#555555\nmenu_bg_color:#2d2d2d\nmenu_fg_color:#dcdcdc\npanel_bg_color:#2d2d2d\npanel_fg_color:#dcdcdc\nlink_color:#fc6f5d"
++gtk-color-scheme = "bg_color:#2d2d2d\nfg_color:#dedede\nbase_color:#2d2d2d\ntext_color:#dedede\nselected_bg_color:#d64937\nselected_fg_color:#dedede\ntooltip_bg_color:#2d2d2d\ntooltip_fg_color:#dedede\ntitlebar_bg_color:#2d2d2d\ntitlebar_fg_color:#dedede\nmenubar_bg_color:#2d2d2d\nmenubar_fg_color:#dedede\ntoolbar_bg_color:#2d2d2d\ntoolbar_fg_color:#dedede\nmenu_bg_color:#2d2d2d\nmenu_fg_color:#dedede\npanel_bg_color:#2d2d2d\npanel_fg_color:#dedede\nlink_color:#fc6f5d"
+ 
+ # Default Style
+ 
+diff -Nur a/gtk-3.0/gtk.css b/gtk-3.0/gtk.css
+--- a/gtk-3.0/gtk.css	2014-05-04 12:48:11.000000000 +0300
++++ b/gtk-3.0/gtk.css	2015-03-15 15:50:38.198859149 +0200
+@@ -1,16 +1,16 @@
+ /* default color scheme */
+-@define-color bg_color #dedede;
+-@define-color fg_color #555555;
+-@define-color base_color #f9f9f9;
+-@define-color text_color #333333;
++@define-color bg_color #2d2d2d;
++@define-color fg_color #dedede;
++@define-color base_color #2d2d2d;
++@define-color text_color #dedede;
+ @define-color selected_bg_color #d64937;
+-@define-color selected_fg_color #f9f9f9;
++@define-color selected_fg_color #dedede;
+ @define-color tooltip_bg_color #2d2d2d;
+-@define-color tooltip_fg_color #dcdcdc;
++@define-color tooltip_fg_color #dedede;
+ 
+ /* dark color scheme */
+ @define-color dark_bg_color #2d2d2d;
+-@define-color dark_fg_color #dcdcdc;
++@define-color dark_fg_color #dedede;
+ 
+ /* colormap actually used by the theme, to be overridden in other css files */
+ @define-color theme_bg_color @bg_color;
+diff -Nur a/gtk-3.0/gtk-dark.css b/gtk-3.0/gtk-dark.css
+--- a/gtk-3.0/gtk-dark.css	2014-05-04 12:48:11.000000000 +0300
++++ b/gtk-3.0/gtk-dark.css	2015-03-15 15:50:45.192974328 +0200
+@@ -1,12 +1,12 @@
+ /* default color scheme */
+-@define-color base_color #333333;
++@define-color base_color #2d2d2d;
+ @define-color bg_color #2d2d2d;
+ @define-color text_color #dedede;
+-@define-color fg_color #dcdcdc;
++@define-color fg_color #2d2d2d;
+ @define-color selected_bg_color #d64937;
+-@define-color selected_fg_color #f9f9f9;
++@define-color selected_fg_color #dedede;
+ @define-color tooltip_bg_color #2d2d2d;
+-@define-color tooltip_fg_color #dcdcdc;
++@define-color tooltip_fg_color #2d2d2d;
+ 
+ /* dark color scheme */
+ @define-color dark_bg_color #2d2d2d;
