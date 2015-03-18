@@ -157,7 +157,7 @@ src_unpack() {
 
 	cd "${S}"
 	# We are Sabayon!
-	epatch "${FILESDIR}/${PN}-rogentos-os-release.patch"
+	epatch "${FILESDIR}/${PN}-kogaion-os-release.patch"
 }
 
 src_install() {
