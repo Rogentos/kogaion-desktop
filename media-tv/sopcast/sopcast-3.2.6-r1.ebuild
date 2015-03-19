@@ -7,11 +7,12 @@ EAPI=2
 inherit eutils
 
 MY_P="sp-sc-auth"
+MY_PN="sp-auth"
 
 DESCRIPTION="SopCast free P2P Internet TV binary"
 LICENSE="SopCast-unknown-license"
 HOMEPAGE="http://www.sopcast.com/"
-SRC_URI="http://sopcast-player.googlecode.com/files/${PN}-${PV}.tar.gz"
+SRC_URI="http://sopcast-player.googlecode.com/files/${MY_PN}-${PV}.tar.gz"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -24,7 +25,7 @@ RDEPEND="amd64? ( sys-libs/libstdc++-v3[multilib] )
 
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${PN}
+S=${WORKDIR}/${MY_PN}
 
 src_install() {
 	exeinto /usr/bin/
