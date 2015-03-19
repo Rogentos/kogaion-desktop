@@ -26,7 +26,7 @@ RDEPEND="dev-python/pillow
 	dev-python/python-virtkey
 	dev-python/pygtk
 	dev-lang/python:2.7[sqlite]
-	media-tv/sp-auth
+	media-tv/sopcast
 	media-video/rtmpdump
 	gstreamer? ( 
 		>=dev-python/gst-python-0.10.22-r1:0.10

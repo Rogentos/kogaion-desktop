@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="media-video/mplayer
-	 net-p2p/sopcast-bin"
+	 media-tv/sopcast"
 DEPEND=""
 
 S="${WORKDIR}"
