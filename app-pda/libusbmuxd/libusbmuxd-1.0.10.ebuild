@@ -16,8 +16,7 @@ KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86"
 IUSE="kernel_linux static-libs"
 
 RDEPEND=">=app-pda/libplist-1.11:=
-	virtual/libusb:1
-	>=app-pda/usbmuxd-1.1.0"
+	virtual/libusb:1"
 DEPEND="${RDEPEND}
 	virtual/os-headers
 	virtual/pkgconfig"

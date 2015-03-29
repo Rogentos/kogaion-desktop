@@ -1,6 +1,5 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-pda/usbmuxd/usbmuxd-1.0.8_p20140530.ebuild,v 1.2 2014/08/03 12:09:08 ssuominen Exp $
 
 EAPI=5
 AUTOTOOLS_AUTORECONF=1
@@ -17,10 +16,10 @@ SLOT="0"
 KEYWORDS="amd64 ~arm ~ppc ~ppc64 x86"
 IUSE=""
 
-RDEPEND=">=app-pda/libimobiledevice-1.2.0
-	>=app-pda/libplist-1.11
+RDEPEND=">=app-pda/libplist-1.11
 	virtual/libusb:1"
 DEPEND="${RDEPEND}
+	>=app-pda/libimobiledevice-1.2.0
 	virtual/os-headers
 	virtual/pkgconfig"
 
