@@ -16,7 +16,7 @@ IUSE=""
 # This ebuild needs custom Sabayon themes, thus it must depend on kogaion-artwork-core
 DEPEND="x11-libs/gtk+:3
 	>=x11-misc/lightdm-1.2.2"
-RDEPEND="app-admin/eselect-lightdm
+RDEPEND="app-eselect/eselect-lightdm
 	x11-libs/gtk+:3
 	>=x11-misc/lightdm-1.2.2
 	x11-themes/gnome-themes-standard
