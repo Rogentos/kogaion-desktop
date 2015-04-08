@@ -26,7 +26,7 @@ SLOT="1"
 RDEPEND="<=x11-base/xorg-server-1.10.99
 	!x11-drivers/ati-drivers:0
 	!x11-apps/ati-drivers-extra
-	>=app-admin/eselect-opengl-1.0.7
+	>=app-eselect/eselect-opengl-1.0.7
 	x11-apps/xauth
 	x11-libs/libX11
 	x11-libs/libXext

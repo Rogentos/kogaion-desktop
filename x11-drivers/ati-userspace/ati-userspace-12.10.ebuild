@@ -22,7 +22,7 @@ RESTRICT="bindist"
 RDEPEND="<=x11-base/xorg-server-1.12.49[-minimal]
 	!x11-drivers/ati-drivers:0
 	!x11-apps/ati-drivers-extra
-	>=app-admin/eselect-opengl-1.0.7
+	>=app-eselect/eselect-opengl-1.0.7
 	app-eselect/eselect-opencl
 	sys-power/acpid
 	x11-apps/xauth
