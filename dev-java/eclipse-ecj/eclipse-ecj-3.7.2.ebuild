@@ -20,7 +20,7 @@ LICENSE="EPL-1.0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux ~x86-solaris"
 SLOT="3.7"
 
-CDEPEND=">=app-admin/eselect-ecj-0.3"
+CDEPEND=">=app-eselect/eselect-ecj-0.3"
 
 JAVA_PKG_WANT_SOURCE=1.4
 JAVA_PKG_WANT_TARGET=1.4
