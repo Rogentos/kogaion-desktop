@@ -184,7 +184,7 @@ add_boot_init_mit_config() {
 
 pkg_preinst() {
 	local conf_file
-	# Rogentos customization, still protect conf files from being removed
+	# Kogaion customization, still protect conf files from being removed
 	# as no longer owned by package
 	for conf_file in "${EROOT}/etc/conf.d/keymaps" "${EROOT}/etc/conf.d/hwclock"; do
 		if [ -e "${conf_file}" ]; then
