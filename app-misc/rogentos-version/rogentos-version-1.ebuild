@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE=""
 DEPEND=""
-RDEPEND="app-admin/eselect-python
+RDEPEND="app-eselect/eselect-python
 	dev-lang/python:2.7
 	sys-devel/base-gcc:4.6
 	sys-devel/gcc-config"
