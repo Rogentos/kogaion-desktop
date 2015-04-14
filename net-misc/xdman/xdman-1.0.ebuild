@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="app-admin/eselect-java"
+DEPEND="app-eselect/eselect-java"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
