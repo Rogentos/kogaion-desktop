@@ -1,8 +1,8 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc-config/gcc-config-1.7.3.ebuild,v 1.8 2014/01/18 03:08:29 vapier Exp $
+# $Header: $
 
-inherit unpacker toolchain-funcs multilib eutils
+inherit eutils unpacker toolchain-funcs multilib
 
 DESCRIPTION="utility to manage compilers"
 HOMEPAGE="http://git.overlays.gentoo.org/gitweb/?p=proj/gcc-config.git"
@@ -11,11 +11,16 @@ SRC_URI="mirror://gentoo/${P}.tar.xz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 arm arm64 hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
+KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
 IUSE=""
 
+src_unpack() {
+	unpacker_src_unpack
+	cd "${S}" || die
+	epatch "${FILESDIR}/${PN}-kogaion-base-gcc-support.patch"
+}
+
 src_compile() {
-	epatch ${FILESDIR}/${PN}-systemd.patch
 	emake CC="$(tc-getCC)" || die
 }
 
