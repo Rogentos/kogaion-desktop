@@ -38,7 +38,7 @@ src_install() {
 	cd "${S}"/background
 	insinto /usr/share/backgrounds
 	doins *.png *.jpg
-	#newins rogentoslinux.png rogentos-nvidia.png
+	#newins kogaionlinux.png rogentos-nvidia.png
 
 	# Backdrop functionality for Xfce
 	dodir /usr/share/xfce4/backdrops
