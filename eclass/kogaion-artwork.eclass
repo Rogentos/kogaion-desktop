@@ -1,4 +1,5 @@
 # Copyright 2004-2009 Sabayon Project
+# Copyright 2012-2015 Rogentos Project
 # Distributed under the terms of the GNU General Public License v2
 # $
 
