@@ -44,14 +44,14 @@ update_kernel_initramfs_splash() {
 
 }
 
-# @FUNCTION: update_sabayon_kernel_initramfs_splash
-# @USAGE: update_sabayon_kernel_initramfs_splash
+# @FUNCTION: _update_kogaionkernel_initramfs_splash
+# @USAGE: _update_kogaionkernel_initramfs_splash
 #
 # @AUTHOR:
 # Fabio Erculiani
 # @MAINTAINER:
 # Brindusa Stefan Cristian
-update_sabayon_kernel_initramfs_splash() {
+_update_kogaionkernel_initramfs_splash() {
 	local splash_name="${GFX_SPLASH_NAME}"
 	local override_splash_file="${ROOT}etc/${splash_name}"
 	if [ -f "${override_splash_file}" ]; then

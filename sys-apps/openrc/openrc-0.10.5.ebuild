@@ -73,13 +73,13 @@ src_prepare() {
 	# Allow user patches to be applied without modifying the ebuild
 	epatch_user
 
-	# Rogentos custom config
-	epatch "${FILESDIR}/${PN}-sabayon-config-2.patch"
+	# Kogaion custom config
+	epatch "${FILESDIR}/${PN}-kogaion-config-2.patch"
 	epatch "${FILESDIR}"/${PN}-0.5.3-disable_warns_until_migrated.patch
 	epatch "${FILESDIR}/${PN}-netmount-fix.patch"
 	epatch "${FILESDIR}/${PN}-0.6.1-fix-clockskew-error-handling.patch"
 
-	# Rogentos bug fixes
+	# Kogaion bug fixes
 	epatch "${FILESDIR}/${PN}-0.9.9.3-do-not-print-error-if-tmplog-cannot-be-read.patch"
 }
 
@@ -143,7 +143,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/openrc.logrotate openrc
 
-	# Rogentos customization, do not bug user with annoying updates (for now)
+	# Kogaion customization, do not bug user with annoying updates (for now)
 	mv "${D}"/etc/conf.d/keymaps "${D}"/etc/conf.d/keymaps.example || \
 		die "cannot move keymaps"
 	mv "${D}"/etc/conf.d/hwclock "${D}"/etc/conf.d/hwclock.example || \
@@ -183,7 +183,7 @@ add_boot_init_mit_config() {
 
 pkg_preinst() {
 	local conf_file
-	# Rogentos customization, still protect conf files from being removed
+	# Kogaion customization, still protect conf files from being removed
 	# as no longer owned by package
 	for conf_file in "${ROOT}/etc/conf.d/keymaps" "${ROOT}/etc/conf.d/hwclock"; do
 		if [ -e "${conf_file}" ]; then
@@ -369,7 +369,7 @@ migrate_from_baselayout_1() {
 
 pkg_postinst() {
 	local conf_file
-	# Rogentos customization, do not bug user with tedious, useless config file updates
+	# Kogaion customization, do not bug user with tedious, useless config file updates
 	for conf_file in "${ROOT}/etc/conf.d/keymaps" "${ROOT}/etc/conf.d/hwclock"; do
 		if [ -e "${conf_file}.ebuild_preserved" ]; then
 			cp -p "${conf_file}.ebuild_preserved" "${conf_file}" # don't die

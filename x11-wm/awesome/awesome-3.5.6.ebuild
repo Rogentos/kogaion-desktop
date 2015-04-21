@@ -60,7 +60,7 @@ src_prepare() {
 	# bug #509658
 	epatch "${FILESDIR}/${PN}-3.5.5-cflag-cleanup.patch"
 	# Sabayon stuff
-	epatch "${FILESDIR}/sabayon-background.patch"
+	epatch "${FILESDIR}/kogaion-background.patch"
 }
 
 src_configure() {

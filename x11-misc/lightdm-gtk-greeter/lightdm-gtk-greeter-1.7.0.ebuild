@@ -15,16 +15,15 @@ SLOT="0"
 KEYWORDS="amd64 ~arm ~ppc x86"
 IUSE=""
 
-# This ebuild needs custom RogentOS themes, thus it must depend on rogentos-artwork-core
-DEPEND="x11-libs/gtk+:3
-	>=x11-misc/lightdm-1.2.2"
+# This ebuild needs custom RogentOS themes, thus it must depend on kogaion-artwork-core
+DEPEND="x11-libs/gtk+:3"
 RDEPEND="!!<x11-misc/lightdm-1.1.1
-	app-admin/eselect-lightdm
+	app-eselect/eselect-lightdm
 	x11-libs/gtk+:3
 	>=x11-misc/lightdm-1.2.2
 	x11-themes/gnome-themes-standard
 	x11-themes/gnome-icon-theme
-	x11-themes/rogentos-artwork-core"
+	x11-themes/kogaion-artwork-core"
 
 src_prepare() {
 	# Apply custom RogentOS theme

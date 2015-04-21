@@ -18,7 +18,7 @@ IUSE="alsa aqua athena dbus games gconf gif gnutls gpm gsettings gtk gtk3 gzip-e
 REQUIRED_USE="aqua? ( !X )"
 
 RDEPEND="sys-libs/ncurses
-	>=app-admin/eselect-emacs-1.2
+	>=app-eselect/eselect-emacs-1.2
 	>=app-emacs/emacs-common-gentoo-1.3-r3[games?,X?]
 	net-libs/liblockfile
 	hesiod? ( net-dns/hesiod )

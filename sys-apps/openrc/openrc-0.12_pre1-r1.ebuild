@@ -50,8 +50,8 @@ src_prepare() {
 	# Allow user patches to be applied without modifying the ebuild
 	epatch_user
 
-	# RogentOS custom config
-	epatch "${FILESDIR}/${PN}-sabayon-config-2.patch"
+	# Argent custom config
+	epatch "${FILESDIR}/${PN}-kogaion-config-2.patch"
 	epatch "${FILESDIR}"/${PN}-0.5.3-disable_warns_until_migrated.patch
 	epatch "${FILESDIR}/${PN}-netmount-fix.patch"
 	epatch "${FILESDIR}/${PN}-0.6.1-fix-clockskew-error-handling.patch"
@@ -81,7 +81,7 @@ src_compile() {
 	if use selinux; then
 			MAKE_ARGS="${MAKE_ARGS} MKSELINUX=yes"
 	fi
-	export BRANDING="RogentOS ${brand}"
+	export BRANDING="Argent ${brand}"
 	if ! use static-libs; then
 			MAKE_ARGS="${MAKE_ARGS} MKSTATICLIBS=no"
 	fi
@@ -147,7 +147,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/openrc.logrotate openrc
 
-	# RogentOS customization, do not bug user with annoying updates (for now)
+	# Argent customization, do not bug user with annoying updates (for now)
 	mv "${ED}"/etc/conf.d/keymaps "${ED}"/etc/conf.d/keymaps.example || \
 		die "cannot move keymaps"
 	mv "${ED}"/etc/conf.d/hwclock "${ED}"/etc/conf.d/hwclock.example || \
@@ -187,7 +187,7 @@ add_boot_init_mit_config() {
 
 pkg_preinst() {
 	local conf_file
-	# RogentOS customization, still protect conf files from being removed
+	# Argent customization, still protect conf files from being removed
 	# as no longer owned by package
 	for conf_file in "${EROOT}/etc/conf.d/keymaps" "${EROOT}/etc/conf.d/hwclock"; do
 		if [ -e "${conf_file}" ]; then
@@ -202,7 +202,7 @@ pkg_preinst() {
 	# manager doesnt go throwing etc-update crap at us -- postinst is
 	# too late to prevent that.  this behavior also lets us keep the
 	# file in the CONTENTS for binary packages.
-	# RogentOS, use cp -d as per Gentoo bug #462674
+	# Argent, use cp -d as per Gentoo bug #462674
 	[[ -e "${EROOT}"etc/conf.d/net ]] && \
 		cp -d "${EROOT}"etc/conf.d/net "${ED}"/etc/conf.d/
 
@@ -392,7 +392,7 @@ migrate_from_baselayout_1() {
 
 pkg_postinst() {
 	local conf_file
-	# RogentOS customization, do not bug user with tedious, useless config file updates
+	# Argent customization, do not bug user with tedious, useless config file updates
 	for conf_file in "${EROOT}/etc/conf.d/keymaps" "${EROOT}/etc/conf.d/hwclock"; do
 		if [ -e "${conf_file}.ebuild_preserved" ]; then
 			cp -p "${conf_file}.ebuild_preserved" "${conf_file}" # don't die
