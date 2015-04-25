@@ -18,6 +18,8 @@ src_unpack() {
 	unpacker_src_unpack
 	cd "${S}" || die
 	epatch "${FILESDIR}/${PN}-kogaion-base-gcc-support-2.patch"
+	# systemd-only systems (Kogaion/Sabayon) support
+	epatch "${FILESDIR}/${PN}-systemd.patch"
 }
 
 src_compile() {
