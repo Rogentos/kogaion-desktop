@@ -5,7 +5,7 @@
 EAPI=5
 
 #inherit eutils multilib toolchain-funcs
-inherit toolchain-funcs
+inherit toolchain-funcs eutils
 
 DESCRIPTION="Utility to detect other OSs on a set of drives"
 HOMEPAGE="http://packages.debian.org/source/sid/os-prober"

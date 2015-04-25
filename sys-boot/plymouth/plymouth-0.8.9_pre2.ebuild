@@ -41,7 +41,7 @@ DOC_CONTENTS="
 "
 
 src_prepare() {
-	# RogentOS: setup our default settings
+	# Kogaion: setup our default settings
 	epatch "${FILESDIR}/${PN}-kogaion-defaults.patch"
 
 	epatch_user
@@ -67,7 +67,7 @@ src_configure() {
 src_install() {
 	autotools-utils_src_install
 
-	# RogentOS: provided by kogaion-artwork-core
+	# Kogaion: provided by kogaion-artwork-core
 	rm "${D}/usr/share/plymouth/bizcom.png"
 
 	# Install compatibility symlinks as some rdeps hardcode the paths
