@@ -230,7 +230,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-2.00-genkernel-initramfs-single.patch
 
 	# Rogentos patch for customization
-	epatch "${FILESDIR}"/${P}-rogentos-patch.patch	
+	epatch "${FILESDIR}"/${P}-kogaion-patch.patch	
 
 	if [[ ${PV} != 9999 ]]; then
 		epatch "${FILESDIR}/${P}-parallel-make.patch" #424231

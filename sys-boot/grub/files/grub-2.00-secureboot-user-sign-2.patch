@@ -45,7 +45,7 @@ diff -Nurp grub-2.00.orig/util/grub-install.in grub-2.00/util/grub-install.in
 +	    fi
 +	else
 +	    echo "Cannot sign ${_image} for SecureBoot" 1>&2
-+	    echo "RogentOS keypair at $(basename ${_private}) not found" 1>&2
++	    echo "Kogaion keypair at $(basename ${_private}) not found" 1>&2
 +	fi
 +    }
 +

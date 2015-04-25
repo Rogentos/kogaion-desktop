@@ -23,7 +23,7 @@
 +                mv "${_image}.signed" "${_image}"
 +	else
 +	    echo "Cannot sign ${_image} for SecureBoot" 1>&2
-+	    echo "RogentOS keypair at $(basename ${_private}) not found" 1>&2
++	    echo "Kogaion keypair at $(basename ${_private}) not found" 1>&2
 +	fi
 +    }
 +

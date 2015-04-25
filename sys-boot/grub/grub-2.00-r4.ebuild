@@ -72,7 +72,7 @@ REQUIRED_USE="grub_platforms_qemu? ( truetype )
 
 # os-prober: Used on runtime to detect other OSes
 # xorriso (dev-libs/libisoburn): Used on runtime for mkrescue
-# sbsigntool is RogentOS specific
+# sbsigntool is Kogaion specific
 RDEPEND="
 	app-crypt/sbsigntool
 	x11-themes/kogaion-artwork-grub
@@ -187,7 +187,7 @@ grub_configure() {
 		*)	platform=${MULTIBUILD_VARIANT} ;;
 	esac
 
-	# RogentOS: backward compatibility, do not change --with-grubdir
+	# Kogaion: backward compatibility, do not change --with-grubdir
 	local myeconfargs=(
 		--disable-werror
 		--program-prefix=
