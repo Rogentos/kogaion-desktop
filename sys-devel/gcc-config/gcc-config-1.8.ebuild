@@ -13,9 +13,8 @@ SRC_URI="mirror://gentoo/${P}.tar.xz
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
-IUSE="openrc +systemd"
+IUSE="+systemd"
 DEPEND="
-	openrc? ( >=sys-apps/openrc-0.12.4 )
 	systemd? ( >=sys-apps/gentoo-functions-0.7 )"
 
 src_unpack() {
