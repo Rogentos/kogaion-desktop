@@ -1,6 +1,7 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+
+EAPI=5
 
 inherit eutils unpacker toolchain-funcs multilib
 
@@ -12,14 +13,19 @@ SRC_URI="mirror://gentoo/${P}.tar.xz
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~amd64-fbsd ~sparc-fbsd ~x86-fbsd"
-IUSE=""
+IUSE="openrc +systemd"
+DEPEND="
+	openrc? ( >=sys-apps/openrc-0.12.4 )
+	systemd? ( >=sys-apps/gentoo-functions-0.7 )"
 
 src_unpack() {
 	unpacker_src_unpack
 	cd "${S}" || die
 	epatch "${FILESDIR}/${PN}-kogaion-base-gcc-support-2.patch"
 	# systemd-only systems (Kogaion/Sabayon) support
-	epatch "${FILESDIR}/${PN}-systemd.patch"
+	if use systemd; then
+		epatch "${FILESDIR}/${PN}-systemd.patch"
+	fi
 }
 
 src_compile() {
