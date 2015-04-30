@@ -198,7 +198,6 @@ if [ "${K_ROGKERNEL_PATCH_UPSTREAM_TARBALL}" = "1" ]; then
 	UNIPATCH_LIST="${UNIPATCH_LIST} ${DISTDIR}/${_patch_name}"
 	unset _patch_name
 elif [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
-	#SRC_URI="mirror://kogaion/${CATEGORY}/linux-${PVR}+${K_ROGKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
 	SRC_URI="http://bpr.bluepink.ro/~rogentos/distro/${CATEGORY}/linux-${PVR}+${K_ROGKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
 else
 	SRC_URI="${KERNEL_URI}"

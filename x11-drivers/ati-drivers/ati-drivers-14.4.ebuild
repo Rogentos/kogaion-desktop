@@ -154,11 +154,16 @@ src_prepare() {
 	# Fix #483400
 	epatch "${FILESDIR}/fgl_glxgears-do-not-include-glATI.patch"
 
-	# Sabayon 3.9 kernels are versioned 3.9.0
+	# Kogaion 3.9 kernels are versioned 3.9.0
 	epatch "${FILESDIR}/ati-drivers-14.4-acpi.patch"
 
 	# Compile fix, https://bugs.gentoo.org/show_bug.cgi?id=454870
 	use pax_kernel && epatch "${FILESDIR}/const-notifier-block.patch"
+
+        # Linux 4.0 support
+        if kernel_is ge 4 0; then
+                epatch "${FILESDIR}/${PN}-linux-4.0.patch"
+        fi
 
 	cd "${MODULE_DIR}"
 	# bugged fglrx build system, this file should be copied by hand
