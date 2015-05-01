@@ -45,7 +45,7 @@ src_install () {
 
 	# Bug 3459 - reduce the risk of fork bombs
 	insinto /etc/security/limits.d
-	doins "${FILESDIR}/00-kogaion-anti-fork-bomb.conf"
+	doins "${FILESDIR}/00-sabayon-anti-fork-bomb.conf"
 }
 
 pkg_postinst() {
