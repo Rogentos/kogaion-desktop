@@ -219,7 +219,7 @@ fi
 _get_real_kv_full() {
 	if [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
 		echo "${ORIGINAL_KV_FULL}"
-	elif [[ "${OKV/.*}" = "3" ]]; then
+	elif [[ "${OKV/.*}" -ge "3" ]]; then
 		# Linux 3.x support, KV_FULL is set to: 3.0-kogaion
 		# need to add another final .0 to the version part
 		echo "${ORIGINAL_KV_FULL/-/.0-}"
@@ -359,7 +359,7 @@ else
 		sys-apps/sed
 		sys-devel/autoconf
 		sys-devel/make
-		|| ( >=sys-kernel/genkernel-next-5 >=sys-kernel/genkernel-3.4.45-r2 )
+		|| ( >=sys-kernel/genkernel-next-5[dmraid(+)?,mdadm(+)?] >=sys-kernel/genkernel-3.4.45-r2 )
 		arm? ( dev-embedded/u-boot-tools )
 		amd64? ( sys-apps/v86d )
 		x86? ( sys-apps/v86d )
@@ -433,11 +433,6 @@ kogaion-kernel_src_unpack() {
 		sed -i "s/^EXTRAVERSION :=.*//" "${S}/Makefile" || die
 	fi
 	OKV="${okv}"
-
-	# Let's handle EAPIs 0 and 1...
-	case ${EAPI:-0} in
-		0|1) kogaion-kernel_src_prepare ;;
-	esac
 }
 
 kogaion-kernel_src_prepare() {
@@ -770,7 +765,7 @@ _get_release_level() {
 		echo "${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}$(_get_real_extraversion)"
 	elif [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
 		echo "${KV_FULL}"
-	elif [[ "${OKV/.*}" = "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
+	elif [[ "${OKV/.*}" -ge "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
 		# Linux 3.x support, KV_FULL is set to: 3.0-kogaion
 		# need to add another final .0 to the version part
 		echo "${KV_FULL/-/.0-}"
@@ -959,9 +954,9 @@ kogaion-kernel_pkg_postrm() {
 
 # export all the available functions here
 case ${EAPI:-0} in
-	0|1) extra_export_funcs= ;;
-	*) extra_export_funcs=src_prepare ;;
+	[01234])
+			die "EAPI ${EAPI:-0} is not supported"
 esac
 
-EXPORT_FUNCTIONS pkg_setup src_unpack ${extra_export_funcs} \
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare \
 	src_compile src_install pkg_preinst pkg_postinst pkg_prerm pkg_postrm

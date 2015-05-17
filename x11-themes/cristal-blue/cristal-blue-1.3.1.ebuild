@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="Cristal-Blue Rogentos theme"
 HOMEPAGE="http://rogentos.ro"
-SRC_URI="http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/${PN}-${PV}.tar.gz
+SRC_URI="http://bpr.buepink.ro/~rogentos/distro/${CATEGORY}/${PN}-${PV}.tar.gz
 	http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}-${PV}.tar.gz
 	emerald? ( http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/cristal-oxigen-${PV}.emerald )
 	cursor? ( http://pkg3.rogentos.ro/~noxis/distro/${CATEGORY}/cristal-cursor.gz ) "
