@@ -1,0 +1,12 @@
+diff -Nur a/system-generators/gentoo-local-generator b/system-generators/gentoo-local-generator
+--- a/system-generators/gentoo-local-generator	2014-02-20 05:28:14.000000000 +0000
++++ b/system-generators/gentoo-local-generator	2015-05-25 16:20:26.847675246 +0100
+@@ -1,5 +1,8 @@
+ #!/bin/sh
+ 
++# we don't need those from below being systemd only so exit gracefully
++exit 0
++
+ locald_dir=/etc/local.d
+ cd "${locald_dir}" || exit 1
+ 

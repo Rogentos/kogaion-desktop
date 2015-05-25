@@ -18,6 +18,10 @@ RDEPEND=">=sys-apps/systemd-207
 	!sys-fs/eudev
 	!sys-fs/udev"
 
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-pure-systemd.patch"
+}
+
 src_configure() {
 	local myeconfargs=(
 		"$(systemd_with_unitdir)"
