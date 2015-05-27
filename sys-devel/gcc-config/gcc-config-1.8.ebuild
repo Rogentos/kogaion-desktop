@@ -17,7 +17,7 @@ IUSE="+systemd"
 DEPEND="
 	systemd? ( >=sys-apps/gentoo-functions-0.7 )"
 
-src_unpack() {
+src_prepare() {
 	unpacker_src_unpack
 	cd "${S}" || die
 	epatch "${FILESDIR}/${PN}-kogaion-base-gcc-support-2.patch"
