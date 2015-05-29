@@ -19,8 +19,30 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+DEPEND="dev-vcs/git
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtsvg:5
+	>=dev-cpp/yaml-cpp-0.5.1
+	dev-lang/python:3.3
+	dev-libs/boost[python_targets_python3_3]
+	>=kde-frameworks/extra-cmake-modules-5.10.0"
+
+RDEPEND="dev-qt/qtcore:5
+	dev-qt/qtsvg:5
+	dev-qt/qtgui:5
+	>=dev-cpp/yaml-cpp-0.5.1
+	>=dev-libs/libatasmart-0.19
+	dev-lang/python:3.3
+	dev-libs/boost[python_targets_python3_3]
+	>=kde-frameworks/kconfig-5.10.0
+	>=kde-frameworks/ki18n-5.10.0
+	>=kde-frameworks/kcoreaddons-5.10.0
+	>=kde-frameworks/solid-5.10.0
+	>=sys-block/parted-3.0
+	>=sys-apps/gptfdisk-0.8.10
+	sys-auth/polkit-qt[qt5]
+	sys-fs/udisks:2"
 
 src_prepare() {
 	einfo "work in progress"
