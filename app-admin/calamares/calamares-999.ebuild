@@ -9,7 +9,7 @@ inherit eutils git-2
 EGIT_BRANCH="kogaion"
 EGIT_COMMIT="5805b67793b6fb2c38da66d7bb9c88e35bb528a2"
 EGIT_REPO_URI="https://gitlab.com/rogentos/calamares.git
-	https://github.com/Rogentos/calamares.git"
+		https://github.com/Rogentos/calamares.git"
 
 DESCRIPTION="Distribution-independent installer framework ( with Kogaionn/Sabayon support)"
 HOMEPAGE="http://calamares.io"
