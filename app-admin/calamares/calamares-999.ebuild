@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils cmake-utils qt5-build git-2
+inherit eutils cmake-utils git-2
 
 EGIT_BRANCH="kogaion"
 EGIT_COMMIT="5805b67793b6fb2c38da66d7bb9c88e35bb528a2"
@@ -18,6 +18,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+S="${WORKDIR}/${PN}-${PV}"
 
 DEPEND="dev-vcs/git
 	>=dev-qt/qtcore-5.4.0:5
@@ -49,7 +51,8 @@ RDEPEND=">=dev-qt/qtcore-5.4.0:5
 	sys-fs/udisks:2"
 
 src_prepare() {
-	einfo "work in progress"
+	git submodule init
+	git submodule update
 }
 
 src_compile() {
