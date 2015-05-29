@@ -25,8 +25,8 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 }
 
-src_compile {
+src_compile() {
 }
 
-src_install {
+src_install() {
 }
