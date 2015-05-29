@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils git-2
+inherit eutils cmake-utils qt5-build git-2
 
 EGIT_BRANCH="kogaion"
 EGIT_COMMIT="5805b67793b6fb2c38da66d7bb9c88e35bb528a2"
@@ -20,17 +20,21 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="dev-vcs/git
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtsvg:5
+	>=dev-qt/qtcore-5.4.0:5
+	>=dev-qt/qtdbus-5.4.0:5
+	>=dev-qt/qtgui-5.4.0:5
+	>=dev-qt/qtsvg-5.4.0:5
+	>=dev-qt/qtwidgets-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
 	dev-lang/python:3.3
 	dev-libs/boost[python_targets_python3_3]
 	>=kde-frameworks/extra-cmake-modules-5.10.0"
 
-RDEPEND="dev-qt/qtcore:5
-	dev-qt/qtsvg:5
-	dev-qt/qtgui:5
+RDEPEND=">=dev-qt/qtcore-5.4.0:5
+	>=dev-qt/qtdbus-5.4.0:5
+	>=dev-qt/qtgui-5.4.0:5
+	>=dev-qt/qtsvg-5.4.0:5
+	>=dev-qt/qtwidgets-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
 	>=dev-libs/libatasmart-0.19
 	dev-lang/python:3.3
