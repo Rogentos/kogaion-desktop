@@ -23,10 +23,13 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	einfo "work in progress"
 }
 
 src_compile() {
+	einfo "more work in progress"
 }
 
 src_install() {
+	einfo "much more work in progress"
 }
