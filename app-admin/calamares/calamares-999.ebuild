@@ -48,7 +48,8 @@ RDEPEND=">=dev-qt/qtcore-5.4.0:5
 	>=sys-block/parted-3.0
 	>=sys-apps/gptfdisk-0.8.10
 	sys-auth/polkit-qt[qt5]
-	sys-fs/udisks:2"
+	sys-fs/udisks:2[systemd]
+	virtual/udev[systemd]"
 
 src_prepare() {
 	git submodule init
