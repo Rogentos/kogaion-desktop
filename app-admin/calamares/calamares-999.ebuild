@@ -29,6 +29,7 @@ DEPEND="dev-vcs/git
 	>=dev-qt/qtsvg-5.4.0:5
 	>=dev-qt/qtwidgets-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
+	>=dev-libs/libatasmart-0.19
 	>=kde-frameworks/extra-cmake-modules-5.10.0"
 
 RDEPEND=">=dev-qt/qtcore-5.4.0:5
