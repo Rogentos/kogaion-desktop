@@ -52,6 +52,10 @@ RDEPEND=">=dev-qt/qtcore-5.4.0:5
 	virtual/udev[systemd]"
 
 src_prepare() {
+	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
+	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
+	export QT_SELECT=qt5
+	
 	git submodule init
 	git submodule update
 }
