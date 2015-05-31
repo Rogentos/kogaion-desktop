@@ -8,11 +8,11 @@ PYTHON_COMPAT=( python3_3 )
 inherit eutils cmake-utils python-r1 git-2
 
 EGIT_BRANCH="kogaion"
-EGIT_COMMIT="5805b67793b6fb2c38da66d7bb9c88e35bb528a2"
+EGIT_COMMIT="d27bbed1d2168b9c96d14d4a2a4c3612fddf7325"
 EGIT_REPO_URI="https://gitlab.com/rogentos/calamares.git
 		https://github.com/Rogentos/calamares.git"
 
-DESCRIPTION="Distribution-independent installer framework ( with Kogaionn/Sabayon support)"
+DESCRIPTION="Distribution-independent installer framework ( with Kogaion/Sabayon support)"
 HOMEPAGE="http://calamares.io"
 
 LICENSE="GPL-3"
@@ -80,4 +80,11 @@ src_prepare() {
 	
 	git submodule init
 	git submodule update
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_PARTITIONMANAGER=1
+	)
+	cmake-utils_src_configure
 }
