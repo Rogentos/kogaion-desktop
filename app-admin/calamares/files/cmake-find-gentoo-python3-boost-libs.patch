@@ -1,0 +1,44 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 774d301..afd4f80 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -33,34 +33,13 @@ find_package( Qt5 ${QT_VERSION} CONFIG REQUIRED Core Gui Widgets LinguistTools S
+ find_package( YamlCpp 0.5.1 REQUIRED )
+ find_package( PolkitQt5-1 REQUIRED )
+ 
+-option( WITH_PYTHON "Enable Python modules support." ON )
+-
+-macro_optional_find_package( PythonLibs 3.3 )
+-macro_log_feature(
+-    PYTHONLIBS_FOUND
+-    "Python"
+-    "C interface libraries for the Python 3 interpreter."
+-    "http://python.org"
+-    FALSE "3.3"
+-    "Python 3 is used for some Calamares job modules."
+-)
++find_package( PythonLibs 3.3 REQUIRED )
++include_directories( ${PYTHON_INCLUDE_DIRS} )
+ 
+-if ( PYTHONLIBS_FOUND )
+-    include( BoostPython3 )
+-    find_boost_python3( 1.54.0 ${PYTHONLIBS_VERSION_STRING} CALAMARES_BOOST_PYTHON3_FOUND )
+-    macro_log_feature(
+-        CALAMARES_BOOST_PYTHON3_FOUND
+-        "Boost.Python"
+-        "A C++ library which enables seamless interoperability between C++ and Python 3."
+-        "http://www.boost.org"
+-        FALSE "1.54.0"
+-        "Boost.Python is used for interfacing with Calamares job modules written in Python 3."
+-    )
+-endif()
++find_package( Boost COMPONENTS python REQUIRED )
++include_directories( ${Boost_INCLUDE_DIR})
+ 
+-if ( PYTHONLIBS_NOTFOUND OR NOT CALAMARES_BOOST_PYTHON3_FOUND )
+-    set( WITH_PYTHON OFF )
+-endif()
++option( WITH_PYTHON "Enable Python modules support." ON )
+ 
+ ###
+ ### Calamares application info

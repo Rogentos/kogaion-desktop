@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python{3_3,3_4} )
+PYTHON_COMPAT=( python3_3 )
 
 inherit eutils cmake-utils python-r1 git-2
 
@@ -23,30 +23,41 @@ IUSE=""
 S="${WORKDIR}/${PN}-${PV}"
 
 DEPEND="dev-vcs/git
+	>=dev-qt/designer-5.4.0:5
+	>=dev-qt/linguist-tools-5.4.0:5
+	>=dev-qt/qtconcurrent-5.4.0:5
 	>=dev-qt/qtcore-5.4.0:5
 	>=dev-qt/qtdbus-5.4.0:5
+	>=dev-qt/qtdeclarative-5.4.0:5
 	>=dev-qt/qtgui-5.4.0:5
-	>=dev-qt/qtsvg-5.4.0:5
-	>=dev-qt/designer-5.4.0:5
+	>=dev-qt/qtnetwork-5.4.0:5
 	>=dev-qt/qtopengl-5.4.0:5
-	>=dev-qt/qtwebkit-5.4.0:5
-	>=dev-qt/qtscript-5.4.0:5
 	>=dev-qt/qtprintsupport-5.4.0:5
+	>=dev-qt/qtscript-5.4.0:5
+	>=dev-qt/qtsvg-5.4.0:5
+	>=dev-qt/qttest-5.4.0:5
 	>=dev-qt/qtwidgets-5.4.0:5
+	>=dev-qt/qtxml-5.4.0:5
+	>=dev-qt/qtxmlpatterns-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
-	>=dev-libs/libatasmart-0.19
 	>=kde-frameworks/extra-cmake-modules-5.10.0"
 
-RDEPEND=">=dev-qt/qtcore-5.4.0:5
+RDEPEND=">=dev-qt/designer-5.4.0:5
+	>=dev-qt/linguist-tools-5.4.0:5
+	>=dev-qt/qtconcurrent-5.4.0:5
+	>=dev-qt/qtcore-5.4.0:5
 	>=dev-qt/qtdbus-5.4.0:5
+	>=dev-qt/qtdeclarative-5.4.0:5
 	>=dev-qt/qtgui-5.4.0:5
-	>=dev-qt/qtsvg-5.4.0:5
-	>=dev-qt/designer-5.4.0:5
+	>=dev-qt/qtnetwork-5.4.0:5
 	>=dev-qt/qtopengl-5.4.0:5
-	>=dev-qt/qtwebkit-5.4.0:5
-	>=dev-qt/qtscript-5.4.0:5
 	>=dev-qt/qtprintsupport-5.4.0:5
+	>=dev-qt/qtscript-5.4.0:5
+	>=dev-qt/qtsvg-5.4.0:5
+	>=dev-qt/qttest-5.4.0:5
 	>=dev-qt/qtwidgets-5.4.0:5
+	>=dev-qt/qtxml-5.4.0:5
+	>=dev-qt/qtxmlpatterns-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
 	>=dev-libs/libatasmart-0.19
 	>=kde-frameworks/kconfig-5.10.0
@@ -60,18 +71,13 @@ RDEPEND=">=dev-qt/qtcore-5.4.0:5
 	virtual/udev[systemd]"
 
 src_prepare() {
+	# cmake cannot find python3 boost libs on gentoo, but with a little help it will
+	epatch "${FILESDIR}/cmake-find-gentoo-python3-boost-libs.patch"
+
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
 	export QT_SELECT=qt5
 	
 	git submodule init
 	git submodule update
-}
-
-src_compile() {
-	einfo "more work in progress"
-}
-
-src_install() {
-	einfo "much more work in progress"
 }
