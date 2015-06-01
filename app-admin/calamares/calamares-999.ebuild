@@ -3,15 +3,16 @@
 # $Header: $
 
 EAPI=5
+PYTHON_COMPAT=( python3_3 )
 
-inherit eutils cmake-utils git-2
+inherit eutils cmake-utils python-r1 git-2
 
 EGIT_BRANCH="kogaion"
-EGIT_COMMIT="5805b67793b6fb2c38da66d7bb9c88e35bb528a2"
+EGIT_COMMIT="9dfd57bb217514e696bb00715effac1a390f38ff"
 EGIT_REPO_URI="https://gitlab.com/rogentos/calamares.git
 		https://github.com/Rogentos/calamares.git"
 
-DESCRIPTION="Distribution-independent installer framework ( with Kogaionn/Sabayon support)"
+DESCRIPTION="Distribution-independent installer framework ( with Kogaion/Sabayon support)"
 HOMEPAGE="http://calamares.io"
 
 LICENSE="GPL-3"
@@ -22,25 +23,43 @@ IUSE=""
 S="${WORKDIR}/${PN}-${PV}"
 
 DEPEND="dev-vcs/git
+	>=dev-qt/designer-5.4.0:5
+	>=dev-qt/linguist-tools-5.4.0:5
+	>=dev-qt/qtconcurrent-5.4.0:5
 	>=dev-qt/qtcore-5.4.0:5
 	>=dev-qt/qtdbus-5.4.0:5
+	>=dev-qt/qtdeclarative-5.4.0:5
 	>=dev-qt/qtgui-5.4.0:5
+	>=dev-qt/qtnetwork-5.4.0:5
+	>=dev-qt/qtopengl-5.4.0:5
+	>=dev-qt/qtprintsupport-5.4.0:5
+	>=dev-qt/qtscript-5.4.0:5
 	>=dev-qt/qtsvg-5.4.0:5
+	>=dev-qt/qttest-5.4.0:5
 	>=dev-qt/qtwidgets-5.4.0:5
+	>=dev-qt/qtxml-5.4.0:5
+	>=dev-qt/qtxmlpatterns-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
-	dev-lang/python:3.3
-	dev-libs/boost[python_targets_python3_3]
 	>=kde-frameworks/extra-cmake-modules-5.10.0"
 
-RDEPEND=">=dev-qt/qtcore-5.4.0:5
+RDEPEND=">=dev-qt/designer-5.4.0:5
+	>=dev-qt/linguist-tools-5.4.0:5
+	>=dev-qt/qtconcurrent-5.4.0:5
+	>=dev-qt/qtcore-5.4.0:5
 	>=dev-qt/qtdbus-5.4.0:5
+	>=dev-qt/qtdeclarative-5.4.0:5
 	>=dev-qt/qtgui-5.4.0:5
+	>=dev-qt/qtnetwork-5.4.0:5
+	>=dev-qt/qtopengl-5.4.0:5
+	>=dev-qt/qtprintsupport-5.4.0:5
+	>=dev-qt/qtscript-5.4.0:5
 	>=dev-qt/qtsvg-5.4.0:5
+	>=dev-qt/qttest-5.4.0:5
 	>=dev-qt/qtwidgets-5.4.0:5
+	>=dev-qt/qtxml-5.4.0:5
+	>=dev-qt/qtxmlpatterns-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
 	>=dev-libs/libatasmart-0.19
-	dev-lang/python:3.3
-	dev-libs/boost[python_targets_python3_3]
 	>=kde-frameworks/kconfig-5.10.0
 	>=kde-frameworks/ki18n-5.10.0
 	>=kde-frameworks/kcoreaddons-5.10.0
@@ -52,6 +71,9 @@ RDEPEND=">=dev-qt/qtcore-5.4.0:5
 	virtual/udev[systemd]"
 
 src_prepare() {
+	# cmake cannot find python3 boost libs on gentoo, but with a little help it will
+	epatch "${FILESDIR}/cmake-find-gentoo-python3-boost-libs.patch"
+
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
 	export QT_SELECT=qt5
@@ -60,10 +82,9 @@ src_prepare() {
 	git submodule update
 }
 
-src_compile() {
-	einfo "more work in progress"
-}
-
-src_install() {
-	einfo "much more work in progress"
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_PARTITIONMANAGER=1
+	)
+	cmake-utils_src_configure
 }
