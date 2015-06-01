@@ -9,7 +9,8 @@ inherit gnome2-utils
 DESCRIPTION="SVG and PNG icon theme from the Tango project"
 HOMEPAGE="http://tango.freedesktop.org"
 SRC_URI="http://tango.freedesktop.org/releases/${P}.tar.gz
-	branding? ( http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/fdo-icons-rogentos${SLREV}.tar.gz )"
+	branding? ( http://pkg2.rogentos.ro/~noxis/distro/${CATEGORY}/fdo-icons-rogentos${SLREV}.tar.gz 
+	http://pkg2.rogentos.ro/~rogentos/distro/${CATEGORY}/fdo-icons-rogentos${SLREV}.tar.gz )"
 
 LICENSE="public-domain"
 SLOT="0"
