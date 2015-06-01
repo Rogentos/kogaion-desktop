@@ -15,8 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 RDEPEND=""
-DEPEND="!>=app-misc/rogentos-skel-1
-	!app-misc/sabayon-skel"
+DEPEND="!>=app-misc/rogentos-skel-1"
 
 src_install () {
 	dodir /etc/xdg/menus
