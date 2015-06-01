@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_3 )
 inherit eutils cmake-utils python-r1 git-2
 
 EGIT_BRANCH="kogaion"
-EGIT_COMMIT="78c94b4ac9ed926c5558c3efe9b21762e10357bd"
+EGIT_COMMIT="5ea749b20f0a41b286d6ade6e9fc1b7b48f62632"
 EGIT_REPO_URI="https://gitlab.com/rogentos/calamares.git
 		https://github.com/Rogentos/calamares.git"
 
@@ -64,8 +64,10 @@ RDEPEND=">=dev-qt/designer-5.4.0:5
 	>=kde-frameworks/ki18n-5.10.0
 	>=kde-frameworks/kcoreaddons-5.10.0
 	>=kde-frameworks/solid-5.10.0
+	>=net-misc/rsync-3.1[xattr]
 	>=sys-block/parted-3.0
 	>=sys-apps/gptfdisk-0.8.10
+	>=sys-fs/squashfs-tools-4.3:0[xattr]
 	sys-auth/polkit-qt[qt5]
 	sys-fs/udisks:2[systemd]
 	virtual/udev[systemd]"
