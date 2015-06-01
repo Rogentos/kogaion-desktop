@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_3 )
 inherit eutils cmake-utils python-r1 git-2
 
 EGIT_BRANCH="kogaion"
-EGIT_COMMIT="9dfd57bb217514e696bb00715effac1a390f38ff"
+EGIT_COMMIT="9db8369ef94a862a62fd9b5fd222d05cffc4ee72"
 EGIT_REPO_URI="https://gitlab.com/rogentos/calamares.git
 		https://github.com/Rogentos/calamares.git"
 
