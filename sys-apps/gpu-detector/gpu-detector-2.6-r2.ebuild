@@ -1,15 +1,16 @@
 # Copyright 2004-2010 Sabayon
+# Copyright 2015 Kogaion Team
 # Distributed under the terms of the GNU General Public License v2
 
-DESCRIPTION="Sabayon live tool for X.Org video driver configuration"
-HOMEPAGE="http://www.sabayon.org"
+DESCRIPTION="Sabayon-based live tool for X.Org video driver configuration"
+HOMEPAGE="http://www.rogentos.ro"
 SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64 ppc"
 IUSE=""
 
-RDEPEND=">=app-misc/rogentoslive-tools-1.0
+RDEPEND=">=app-misc/kogaion-live-1.0
 	!>sys-apps/gpu-detector-2.6"
 DEPEND=""
 
