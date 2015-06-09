@@ -8,9 +8,8 @@ PYTHON_COMPAT=( python3_3 )
 inherit eutils cmake-utils python-r1 git-2
 
 EGIT_BRANCH="kogaion"
-EGIT_COMMIT="5ea749b20f0a41b286d6ade6e9fc1b7b48f62632"
-EGIT_REPO_URI="https://gitlab.com/rogentos/calamares.git
-		https://github.com/Rogentos/calamares.git"
+EGIT_COMMIT="76c10c285c626737ce8c1a47d8116f1e78f8eec9"
+EGIT_REPO_URI="https://github.com/Rogentos/calamares.git"
 
 DESCRIPTION="Distribution-independent installer framework ( with Kogaion/Sabayon support)"
 HOMEPAGE="http://calamares.io"
@@ -73,8 +72,8 @@ RDEPEND=">=dev-qt/designer-5.4.0:5
 	virtual/udev[systemd]"
 
 src_prepare() {
-	# cmake cannot find python3 boost libs on gentoo, but with a little help it will
-	epatch "${FILESDIR}/cmake-find-gentoo-python3-boost-libs.patch"
+	# cmake cannot find python3 boost libs on gentoo, but with a little help it will (fixes landed upstream, disable this for now)
+	# epatch "${FILESDIR}/cmake-find-gentoo-python3-boost-libs.patch" 
 
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
