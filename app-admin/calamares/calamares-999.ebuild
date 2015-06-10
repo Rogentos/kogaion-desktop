@@ -22,6 +22,7 @@ IUSE=""
 S="${WORKDIR}/${PN}-${PV}"
 
 DEPEND="dev-vcs/git
+	>=dev-libs/boost-1.55.0-r2[python_targets_python3_3]
 	>=dev-qt/designer-5.4.0:5
 	>=dev-qt/linguist-tools-5.4.0:5
 	>=dev-qt/qtconcurrent-5.4.0:5
@@ -41,7 +42,8 @@ DEPEND="dev-vcs/git
 	>=dev-cpp/yaml-cpp-0.5.1
 	>=kde-frameworks/extra-cmake-modules-5.10.0"
 
-RDEPEND=">=dev-qt/designer-5.4.0:5
+RDEPEND=">=dev-libs/boost-1.55.0-r2[python_targets_python3_3]
+	>=dev-qt/designer-5.4.0:5
 	>=dev-qt/linguist-tools-5.4.0:5
 	>=dev-qt/qtconcurrent-5.4.0:5
 	>=dev-qt/qtcore-5.4.0:5
@@ -78,7 +80,11 @@ src_prepare() {
 	# on gentoo finding python && boost libs is sometimes problematic, and we really really
 	# want python support in our package
 	# this patch helps calamares to find python && boost libs and force-enables python
-	epatch "${FILESDIR}/${PN}-find-gentoo-python3-boost-libs.patch"
+	#
+	# epatch "${FILESDIR}/${PN}-find-gentoo-python3-boost-libs.patch"
+	#
+	# no longer needed, but keep it around, just in case
+	# default interpretor must be set to python3.3 for calamares to find required libs
 
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
