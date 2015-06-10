@@ -8,10 +8,10 @@ PYTHON_COMPAT=( python3_3 )
 inherit eutils cmake-utils python-r1 git-2
 
 EGIT_BRANCH="kogaion"
-EGIT_COMMIT="388e3db73f0b783c3f0f7ce376004f959d25fe39"
+EGIT_COMMIT="61da2df0de3a00d6b8cfcfdcd7e1c674c2b3aa21"
 EGIT_REPO_URI="https://github.com/Rogentos/calamares.git"
 
-DESCRIPTION="Distribution-independent installer framework ( with Kogaion/Sabayon support)"
+DESCRIPTION="Distribution-independent installer framework"
 HOMEPAGE="http://calamares.io"
 
 LICENSE="GPL-3"
@@ -66,7 +66,9 @@ RDEPEND=">=dev-qt/designer-5.4.0:5
 	>=net-misc/rsync-3.1[xattr]
 	>=sys-block/parted-3.0
 	>=sys-apps/gptfdisk-0.8.10
+	>=sys-apps/dmidecode-2.12-r1
 	>=sys-fs/squashfs-tools-4.3:0[xattr]
+	>=sys-power/upower-0.99.0-r1
 	sys-auth/polkit-qt[qt5]
 	sys-fs/udisks:2[systemd]
 	virtual/udev[systemd]"
