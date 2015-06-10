@@ -74,8 +74,11 @@ RDEPEND=">=dev-qt/designer-5.4.0:5
 	virtual/udev[systemd]"
 
 src_prepare() {
-	# cmake cannot find python3 boost libs on gentoo, but with a little help it will (fixes landed upstream, disable this for now)
-	# epatch "${FILESDIR}/cmake-find-gentoo-python3-boost-libs.patch" 
+	# by default, python support is optional and calamares builds fine if is not found
+	# on gentoo finding python && boost libs is sometimes problematic, and we really really
+	# want python support in our package
+	# this patch helps calamares to find python && boost libs and force-enables python
+	epatch "${FILESDIR}/${PN}-find-gentoo-python3-boost-libs.patch"
 
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
