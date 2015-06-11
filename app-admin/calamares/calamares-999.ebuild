@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_3 )
 inherit eutils cmake-utils python-r1 git-2
 
 EGIT_BRANCH="master"
-EGIT_COMMIT="01cf42c2f9112687bc3928eeabbb426e7de84877"
+EGIT_COMMIT="9e59374bfe0a088c47433bbf209810f89065601b"
 EGIT_REPO_URI="https://github.com/Rogentos/calamares.git"
 
 DESCRIPTION="Distribution-independent installer framework"
@@ -48,19 +48,6 @@ DEPEND="dev-vcs/git
 RDEPEND=">=app-misc/calamares-runtime-2.0[branding]"
 
 src_prepare() {
-	# by default, python support is optional and calamares builds fine if is not found
-	# on gentoo finding python && boost libs is sometimes problematic, and we really really
-	# want python support in our package
-	# this patch helps calamares to find python && boost libs and force-enables python
-	#
-	# epatch "${FILESDIR}/${PN}-find-gentoo-python3-boost-libs.patch"
-	#
-	# no longer needed, but keep it around, just in case
-	# default interpretor must be set to python3.3 for calamares to find required libs
-
-	# debug window causes a build failure with GCC 4.8.4 so disable it
-	epatch "${FILESDIR}/${PN}-disable-debug-window.patch"
-
 	# configure calamares with Kogaion specific paths, binary names && system defaults
 	epatch "${FILESDIR}/${PN}-kogaion-system-defaults.patch"
 
