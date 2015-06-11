@@ -1,0 +1,126 @@
+diff -Nur a/calamares.desktop b/calamares.desktop
+--- a/calamares.desktop	2015-06-11 14:31:51.840916810 +0100
++++ b/calamares.desktop	2015-06-11 14:35:11.936914561 +0100
+@@ -2,10 +2,10 @@
+ Type=Application
+ Version=1.0
+ Name=Calamares
+-GenericName=System Installer
++GenericName=Kogaion Linux System Installer
+ TryExec=calamares
+ Exec=pkexec /usr/bin/calamares
+-Comment=Calamares — System Installer
++Comment=Calamares — Kogaion Linux System Installer
+ Icon=calamares
+ Terminal=false
+ StartupNotify=false
+diff -Nur a/settings.conf b/settings.conf
+--- a/settings.conf	2015-06-11 14:31:51.855916810 +0100
++++ b/settings.conf	2015-06-11 14:35:52.658914103 +0100
+@@ -4,7 +4,7 @@
+ # Modules can be job modules (with different interfaces) and QtWidgets view modules.
+ # They could all be placed in a number of different paths.
+ # "local" is LIBDIR/calamares/modules with settings in SHARE/calamares/modules
+-modules-search: [ local, /path/to/dir/with/more/modules ]
++modules-search: [ local ]
+ 
+ # We define the module names in the order they should show up (QtWidget view modules,
+ # with one or more pages) OR be executed if enqueued (all other modules).
+@@ -38,8 +38,6 @@
+ - locale
+ - keyboard
+ - localecfg
+-- initcpiocfg
+-- initcpio
+ - users
+ - displaymanager
+ - networkcfg
+@@ -65,7 +63,7 @@
+ # paths relative to the current directory.
+ # Only the name of the branding component (directory) should be specified here, Calamares
+ # then takes care of finding it and loading the contents.
+-branding: default
++branding: kogaion_branding
+ 
+ # If this is set to true, Calamares will show an "are you sure?" prompt right before the
+ # install phase, i.e. at the point of no return. If it's false, no prompt is shown.
+diff -Nur a/src/modules/bootloader/bootloader.conf b/src/modules/bootloader/bootloader.conf
+--- a/src/modules/bootloader/bootloader.conf	2015-06-11 14:31:51.861916810 +0100
++++ b/src/modules/bootloader/bootloader.conf	2015-06-11 14:37:03.310913309 +0100
+@@ -5,9 +5,8 @@
+ 
+ # systemd-boot configuration files settings, set kernel and initramfs file names
+ # and amount of time before default selection boots
+-kernel: "/vmlinuz-linux"
+-img: "/initramfs-linux.img"
+-fallback: "/initramfs-linux-fallback.img"
++kernel: "/bzImage"
++img: "/Initrd"
+ timeout: "10"
+ # Optionally set the menu entry name and kernel name to use in systemd-boot.
+ # If not specified here, these settings will be taken from branding.desc.
+@@ -17,8 +16,8 @@
+ 
+ # GRUB 2 binary names and boot directory
+ # Some distributions (e.g. Fedora) use grub2-* (resp. /boot/grub2/) names.
+-grubInstall: "grub-install"
+-grubMkconfig: "grub-mkconfig"
++grubInstall: "grub2-install"
++grubMkconfig: "grub2-mkconfig"
+ grubCfg: "/boot/grub/grub.cfg"
+ # Optionally set the --bootloader-id to use for EFI. If not set, this defaults
+ # to the bootloaderEntryName from branding.desc with problematic characters
+diff -Nur a/src/modules/keyboard/keyboard.conf b/src/modules/keyboard/keyboard.conf
+--- a/src/modules/keyboard/keyboard.conf	2015-06-11 14:31:51.863916810 +0100
++++ b/src/modules/keyboard/keyboard.conf	2015-06-11 14:37:41.437912881 +0100
+@@ -2,7 +2,7 @@
+ # The name of the file to write X11 keyboard settings to
+ # The default value is the name used by upstream systemd-localed.
+ # Relative paths are assumed to be relative to /etc/X11/xorg.conf.d
+-xOrgConfFileName: "/etc/X11/xorg.conf.d/00-keyboard.conf"
++xOrgConfFileName: "/usr/share/X11/xorg.conf.d/00-keyboard.conf"
+ # The path to search for keymaps converted from X11 to kbd format
+ # Leave this empty if the setting does not make sense on your distribution.
+-convertedKeymapPath: "/lib/kbd/keymaps/xkb"
++convertedKeymapPath: "/usr/share/keymaps"
+diff -Nur a/src/modules/packages/packages.conf b/src/modules/packages/packages.conf
+--- a/src/modules/packages/packages.conf	2015-06-11 14:31:51.871916810 +0100
++++ b/src/modules/packages/packages.conf	2015-06-11 14:38:00.537912666 +0100
+@@ -11,7 +11,7 @@
+ #  - portage	 - Gentoo package manager
+ #  - entropy	 - Sabayon package manager
+ #
+-backend: packagekit
++backend: entropy
+ #
+ # List of maps with package operations such as install or remove.
+ # Distro developers can provide a list of packages to remove
+diff -Nur a/src/modules/removeuser/removeuser.conf b/src/modules/removeuser/removeuser.conf
+--- a/src/modules/removeuser/removeuser.conf	2015-06-11 14:31:51.875916810 +0100
++++ b/src/modules/removeuser/removeuser.conf	2015-06-11 14:38:13.451912521 +0100
+@@ -1,2 +1,2 @@
+ ---
+-username: live
++username: kogaionuser
+diff -Nur a/src/modules/unpackfs/unpackfs.conf b/src/modules/unpackfs/unpackfs.conf
+--- a/src/modules/unpackfs/unpackfs.conf	2015-06-11 14:31:51.876916810 +0100
++++ b/src/modules/unpackfs/unpackfs.conf	2015-06-11 14:38:46.549912149 +0100
+@@ -1,8 +1,5 @@
+ ---
+ unpack:
+-    -   source: "/path/to/filesystem.img"
+-        sourcefs: "ext4"
+-        destination: ""
+-    -   source: "/path/to/another/filesystem.sqfs"
++    -   source: "/livecd.squashfs"
+         sourcefs: "squashfs"
+         destination: ""
+diff -Nur a/src/modules/users/users.conf b/src/modules/users/users.conf
+--- a/src/modules/users/users.conf	2015-06-11 14:31:51.892916809 +0100
++++ b/src/modules/users/users.conf	2015-06-11 14:39:01.648911979 +0100
+@@ -8,5 +8,4 @@
+     - wheel
+     - audio
+ autologinGroup:  autologin
+-sudoersGroup:    wheel
+ setRootPassword: true
