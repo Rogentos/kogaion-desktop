@@ -33,7 +33,7 @@ DEPEND="app-text/asciidoc
 RDEPEND="${DEPEND}
 	!sys-kernel/genkernel
 	cryptsetup? ( sys-fs/cryptsetup )
-	dmraid? ( >=sys-fs/dmraid-1.0.0_rc16 )
+	dmraid? ( >=sys-fs/dmraid-1.0.0_rc14 )
 	gpg? ( app-crypt/gnupg )
 	iscsi? ( sys-block/open-iscsi )
 	plymouth? ( sys-boot/plymouth )
