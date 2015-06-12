@@ -9,7 +9,7 @@ diff -Nur a/gen_compile.sh b/gen_compile.sh
 -        MAKEOPTS="${MAKEOPTS} -j1" compile_generic "firmware_install" kernel
 -    else
 -        print_info 1 "        >> Not installing firmware as it's included in the kernel already (CONFIG_FIRMWARE_IN_KERNEL=y)..."
-+        print_info 1 "        >> Not installing firmware due to CONFIG_FIRMWARE_IN_KERNEL != y...Make sure you linux-firmware package installed"
++        print_info 1 "        >> Not installing firmware due to CONFIG_FIRMWARE_IN_KERNEL != y...Make sure you have linux-firmware package installed"
      fi
  
      local tmp_kernel_binary=$(find_kernel_binary ${KERNEL_BINARY_OVERRIDE:-${KERNEL_BINARY}})
