@@ -48,8 +48,13 @@ RDEPEND="${DEPEND}
 src_prepare() {
 	sed -i "/^GK_V=/ s:GK_V=.*:GK_V=${PV}:g" "${S}/genkernel" || \
 		die "Could not setup release"
-
-	epatch_user
+	
+	# our new buildsystem revealed that genkernel installs firmware files, even
+	# if we use external linux-firmware package, thus creating conflicts during
+	# kernel building process ... this patch prevents this behaviour, and relies
+	# on linux-firmware being installed ... and since linux-firmware is a dep of
+	# our kernel anyway ... you get the point
+	epatch "${FILESDIR}/${PN}-dont-install-firmware-due-to-linux-firmware.patch"
 }
 
 src_install() {
