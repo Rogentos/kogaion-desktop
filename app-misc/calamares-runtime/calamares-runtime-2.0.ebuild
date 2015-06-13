@@ -19,6 +19,7 @@ RDEPEND="
 		>=dev-libs/boost-1.55.0-r2[python_targets_python3_3]
 	)
 	branding? ( >=x11-themes/kogaion-artwork-calamares-2.0 )
+	>=app-misc/calamares-config-kogaion-2.0
 	>=dev-qt/designer-5.4.0:5
 	>=dev-qt/linguist-tools-5.4.0:5	
 	>=dev-qt/qtconcurrent-5.4.0:5

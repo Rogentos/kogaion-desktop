@@ -46,9 +46,7 @@ DEPEND="
 	>=dev-cpp/yaml-cpp-0.5.1
 	>=kde-frameworks/extra-cmake-modules-5.10.0"
 
-RDEPEND="
-	>=app-misc/calamares-runtime-2.0[branding]
-	>=app-misc/calamares-config-kogaion-2.0"
+RDEPEND=">=app-misc/calamares-runtime-2.0[branding]"
 
 src_prepare() {
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
