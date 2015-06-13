@@ -21,7 +21,8 @@ IUSE="+python"
 
 S="${WORKDIR}/${PN}-${PV}"
 
-DEPEND="dev-vcs/git
+DEPEND="
+	dev-vcs/git
 	python? (
 		>=dev-lang/python-3.3.5-r1:3.3
 		>=dev-libs/boost-1.55.0-r2[python_targets_python3_3]
@@ -48,9 +49,6 @@ DEPEND="dev-vcs/git
 RDEPEND=">=app-misc/calamares-runtime-2.0[branding]"
 
 src_prepare() {
-	# configure calamares with Kogaion specific paths, binary names && system defaults
-	epatch "${FILESDIR}/${PN}-kogaion-system-defaults.patch"
-
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
 	export QT_SELECT=qt5
