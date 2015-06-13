@@ -54,7 +54,7 @@ src_prepare() {
 	# kernel building process ... this patch prevents this behaviour, and relies
 	# on linux-firmware already being installed ... and since linux-firmware 
 	# is a dep of our kernel anyway ... you get the point
-	epatch "${FILESDIR}/${PN}-dont-install-firmware-due-to-linux-firmware.patch"
+	# epatch "${FILESDIR}/${PN}-dont-install-firmware-due-to-linux-firmware.patch"
 }
 
 src_install() {
