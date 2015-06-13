@@ -48,6 +48,6 @@ RDEPEND="
 	>=sys-apps/dmidecode-2.12-r1
 	>=sys-fs/squashfs-tools-4.3:0[xattr]
 	>=sys-power/upower-0.99.0-r1
-	sys-auth/polkit-qt[qt5]
+	sys-auth/polkit-qt5
 	sys-fs/udisks:2[systemd]
 	virtual/udev[systemd]"
