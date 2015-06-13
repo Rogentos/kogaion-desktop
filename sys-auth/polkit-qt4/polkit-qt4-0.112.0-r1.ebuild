@@ -14,10 +14,8 @@ SRC_URI="mirror://kde/stable/apps/KDE4.x/admin/${MY_P}.tar.bz2"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 x86 ~x86-fbsd"
-IUSE="+qt4"
-
-REQUIRED_USE="|| ( qt4 )"
+KEYWORDS="amd64 x86"
+IUSE="+qt4 examples"
 
 RDEPEND="
 	dev-libs/glib:2
