@@ -20,7 +20,7 @@ RDEPEND="app-admin/calamares"
 S="${WORKDIR}/${PN}-${PV}"
 
 src_install() {
-	dodir /usr/share/calamares/branding/kogaion_branding || die
-	insinto /usr/share/calamares/branding/kogaion_branding || die
+	dodir /etc/calamares/branding/kogaion_branding || die
+	insinto /etc/calamares/branding/kogaion_branding || die
 	doins -r "${S}"/* || die
 }
