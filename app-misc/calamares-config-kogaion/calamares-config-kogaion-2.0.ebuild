@@ -13,8 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="app-admin/calamares"
-RDEPEND="${DEPEND}"
+RDEPEND="app-admin/calamares"
 
 S="${FILESDIR}"
 
