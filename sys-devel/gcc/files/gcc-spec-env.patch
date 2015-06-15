@@ -2,12 +2,11 @@
     allows us to easily control pie/ssp defaults with gcc-config profiles.
 
     Original patch by Rob Holland
-    Modified for Gentoo-based distros 'cuz of archive name by Stefan Cristian B.
     Extended to support multiple entries separated by ':' by Kevin F. Quinn
     Modified to use getenv instead of poisoned GET_ENVIRONMENT by Ryan Hill
 
---- a/gcc/gcc.c
-+++ b/gcc/gcc.c
+--- gcc-4/gcc/gcc.c
++++ gcc-4/gcc/gcc.c
 @@ -6482,6 +6482,32 @@
  
    /* Process any user specified specs in the order given on the command
