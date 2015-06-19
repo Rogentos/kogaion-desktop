@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/genkernel-next/genkernel-next-60.ebuild,v 1.1 2015/01/20 08:25:58 lxnay Exp $
+# $Header: /var/cvsroot/gentoo-x86/sys-kernel/genkernel-next/genkernel-next-63.ebuild,v 1.3 2015/05/24 20:51:45 zlogene Exp $
 
 EAPI=5
 
@@ -15,7 +15,7 @@ inherit bash-completion-r1 eutils
 if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
 else
-	KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~x86"
+	KEYWORDS="~alpha amd64 ~arm ~ia64 x86"
 fi
 
 DESCRIPTION="Gentoo automatic kernel building scripts, reloaded"
@@ -24,7 +24,7 @@ HOMEPAGE="http://www.gentoo.org"
 LICENSE="GPL-2"
 SLOT="0"
 RESTRICT=""
-IUSE="cryptsetup dmraid gpg iscsi plymouth selinux"
+IUSE="cryptsetup dmraid gpg iscsi mdadm plymouth selinux"
 
 DEPEND="app-text/asciidoc
 	sys-fs/e2fsprogs
@@ -36,7 +36,8 @@ RDEPEND="${DEPEND}
 	dmraid? ( >=sys-fs/dmraid-1.0.0_rc16 )
 	gpg? ( app-crypt/gnupg )
 	iscsi? ( sys-block/open-iscsi )
-	plymouth? ( sys-boot/plymouth )
+	mdadm? ( sys-fs/mdadm )
+	plymouth? ( sys-boot/plymouth[libkms] )
 	app-portage/portage-utils
 	app-arch/cpio
 	>=app-misc/pax-utils-0.6
