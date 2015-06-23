@@ -1,0 +1,9 @@
+--- ksuperkey.desktop.orig	2014-09-20 02:47:18.006202520 +0300
++++ ksuperkey.desktop	2014-09-20 02:49:39.237793168 +0300
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Exec=ksuperkey
++Exec=ksuperkey -e 'Super_L=Alt_L|F2'
+ X-DBUS-StartupType=none
+ Name=ksuperkey
+ Type=Service
