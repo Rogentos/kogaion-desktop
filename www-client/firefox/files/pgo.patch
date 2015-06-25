@@ -1,0 +1,13 @@
+diff -Nur a/Makefile.in b/Makefile.in
+--- a/Makefile.in	2015-01-06 07:07:53.000000000 +0200
++++ b/Makefile.in	2015-02-22 02:54:01.523914597 +0200
+@@ -301,6 +301,9 @@
+ 	@relcount=`find $(DIST)/bin -name '*.so' | xargs objdump -R | grep R_386_PC32 | wc -l` && if test $$relcount -gt 0; then echo 'FAILED: R_386_PC32 relocations detected in a shared library.  Did you use a system header without adding it to config/system-headers?'; exit 1; else echo 'PASSED'; fi
+ endif
+ 
++pgo-profile-run:
++	$(PYTHON) $(topsrcdir)/build/pgo/profileserver.py $(EXTRA_TEST_ARGS)
++
+ ifdef JS_STANDALONE
+ # Delegate js-specific rules to js
+ check-%:
