@@ -54,8 +54,8 @@ src_install() {
 	rm "${D}"/etc/report.d/dropbox.redhat.com.ini
 	rm "${D}"/etc/report.d/bugzilla.redhat.com.ini
 
-	# XXX: {not yet implemented} install Sabayon configuration
-	# cp "${FILESDIR}"/bugs.sabayon.org.ini "${D}/etc/report.d/"
+	# XXX: {not yet implemented} install Kogaion configuration
+	# cp "${FILESDIR}"/bugs.rogentos.ro.ini "${D}/etc/report.d/"
 	find "${D}"/ -name "bugzilla-template" -type d | xargs rm -rf
 	find "${D}"/ -name "RHEL-template" -type d | xargs rm -rf
 	find "${D}"/ -name "strata-template" -type d | xargs rm -rf
