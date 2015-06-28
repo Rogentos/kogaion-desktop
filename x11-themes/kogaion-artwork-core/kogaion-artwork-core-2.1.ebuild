@@ -53,6 +53,7 @@ src_install() {
 	insinto /usr/share/cursors/xorg-x11
 	dosym RezoBlue /usr/share/cursors/xorg-x11/default || "RezoBlue not found"
 	dosym /usr/share/backgrounds/Kogaion_flame.png /usr/share/backgrounds/kgdm.png || "Failed to copy"
+	dosym /usr/share/backgrounds/Circles_wide.png /usr/share/backgrounds/kogaionlinux.png || "Failed to copy"
 }
 
 pkg_postinst() {
