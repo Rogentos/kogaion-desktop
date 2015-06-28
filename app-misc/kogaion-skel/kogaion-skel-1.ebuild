@@ -44,6 +44,6 @@ pkg_postinst() {
 
 pkg_prerm() {
 	if [ -x "/usr/bin/xdg-desktop-menu" ]; then
-		xdg-desktop-menu uninstall /usr/share/kogaion/xdg/kogaion-argetn.directory /usr/share/kogaion/xdg/*.desktop
+		xdg-desktop-menu uninstall /usr/share/kogaion/xdg/kogaion-kogaion.directory /usr/share/kogaion/xdg/*.desktop
 	fi
 }
