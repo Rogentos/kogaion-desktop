@@ -14,7 +14,7 @@ PYTHON_COMPAT=( python{2_6,2_7} )
 PYTHON_REQ_USE="gdbm"
 
 inherit autotools eutils flag-o-matic multilib multilib-minimal \
-	python-r1 systemd user
+	python-r1 systemd user mono-env
 
 DESCRIPTION="System which facilitates service discovery on a local network (mono pkg)"
 HOMEPAGE="http://avahi.org/"
