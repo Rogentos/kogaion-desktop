@@ -13,12 +13,12 @@ KERN_INITRAMFS_SEARCH_NAME="${KERN_INITRAMFS_SEARCH_NAME:-initramfs-genkernel*}"
 # @ECLASS-VARIABLE: GFX_SPLASH_NAME
 # @DESCRIPTION:
 # Default splash theme name to use
-GFX_SPLASH_NAME="${GFX_SPLASH_NAME:-sabayon}"
+GFX_SPLASH_NAME="${GFX_SPLASH_NAME:-argent}"
 
 # @ECLASS-VARIABLE: PLYMOUTH_THEME
 # @DESCRIPTION:
 # Default plymouth theme name to use
-PLYMOUTH_THEME="${PLYMOUTH_THEME:-sabayon}"
+PLYMOUTH_THEME="${PLYMOUTH_THEME:-argent}"
 
 # @FUNCTION: update_kernel_initramfs_splash
 # @USAGE: update_kernel_initramfs_splash [splash_theme] [splash_file]
@@ -39,12 +39,12 @@ update_kernel_initramfs_splash() {
 
 }
 
-# @FUNCTION: update_sabayon_kernel_initramfs_splash
-# @USAGE: update_sabayon_kernel_initramfs_splash
+# @FUNCTION: update_argent_kernel_initramfs_splash
+# @USAGE: update_argent_kernel_initramfs_splash
 #
 # @MAINTAINER:
 # Fabio Erculiani
-update_sabayon_kernel_initramfs_splash() {
+update_argent_kernel_initramfs_splash() {
 	local splash_name="${GFX_SPLASH_NAME}"
 	local override_splash_file="${ROOT}etc/oem/splash_name"
 	if [ -f "${override_splash_file}" ]; then

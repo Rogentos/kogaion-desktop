@@ -105,4 +105,10 @@ src_install() {
 	readme.gentoo_create_doc
 
 	systemd_dounit "${FILESDIR}/${REAL_PN}.service"
+
+        if [[ -d ${D}/etc/lightdm-base ]] ; then
+                ewarn "The directory exists."
+        else
+                dosym /etc/lightdm /etc/"${PN}"
+        fi
 }
