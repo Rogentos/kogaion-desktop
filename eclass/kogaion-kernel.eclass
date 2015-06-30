@@ -512,6 +512,7 @@ _kernel_src_compile() {
 	local GKARGS=()
 	GKARGS+=( "--no-menuconfig" "--no-save-config" "--e2fsprogs" "--udev" )
 	# use splash && GKARGS+=( "--splash=kogaion" ) #NO MORE fbsplash!!!
+	use btrfs && GKARGS+=( "--btrfs" )
 	use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=${PLYMOUTH_THEME}" ) #reverted to use variable (check the eclass)
 	use dmraid && GKARGS+=( "--dmraid" )
 	use iscsi && GKARGS+=( "--iscsi" )
