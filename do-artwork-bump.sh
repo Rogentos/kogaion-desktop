@@ -7,10 +7,10 @@ fi
 
 OLD=$1
 NEW=$2
-PACKAGES="x11-themes/rogentos-artwork-core x11-themes/rogentos-artwork-extra \
-		x11-themes/rogentos-artwork-kde x11-themes/rogentos-artwork-gnome \
-			x11-themes/rogentos-artwork-loo x11-themes/rogentos-artwork-lxde\
-			x11-themes/rogentos-artwork-grub x11-themes/rogentos-artwork-isolinux"
+PACKAGES="x11-themes/kogaion-artwork-core x11-themes/kogaion-artwork-extra \
+		x11-themes/kogaion-artwork-kde x11-themes/kogaion-artwork-gnome \
+			x11-themes/kogaion-artwork-loo x11-themes/kogaion-artwork-lxde\
+			x11-themes/kogaion-artwork-grub x11-themes/kogaion-artwork-isolinux"
 
 for package in ${PACKAGES}; do
 	name=$(echo ${package} | cut -d/ -f2)
