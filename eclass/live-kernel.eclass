@@ -2,46 +2,46 @@
 # Distributed under the terms of the GNU General Public License v2
 # $
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_NAME
+# @ECLASS-VARIABLE: K_ROGKERNEL_NAME
 # @DESCRIPTION:
 # The kernel name used by the ebuild, it should be the ending ${PN} part
 # for example, of linux-argent it is "${PN/${PN/-*}-}" (argent)
-K_ARGKERNEL_NAME="${K_ARGKERNEL_NAME:-${PN/${PN/-*}-}}"
+K_ROGKERNEL_NAME="${K_ROGKERNEL_NAME:-${PN/${PN/-*}-}}"
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_SELF_TARBALL_NAME
+# @ECLASS-VARIABLE: K_ROGKERNEL_SELF_TARBALL_NAME
 # @DESCRIPTION:
 # If the main kernel sources tarball is generated in-house and available
 # on the "argent" mirror, set this variable to the extension name (see example
 # below). This will disable ALL the extra/local patches (since they have to
-# be applied inside the tarball). Moreover, K_ARGKERNEL_NAME,
+# be applied inside the tarball). Moreover, K_ROGKERNEL_NAME,
 # K_KERNEL_PATCH_VER will be ignored.
 # Example:
-#   K_ARGKERNEL_SELF_TARBALL_NAME="argent"
+#   K_ROGKERNEL_SELF_TARBALL_NAME="argent"
 #   This would generate:
 #   SRC_URI="mirror://argent/sys-kernel/linux-${PV}+argent.tar.${K_TARBALL_EXT}"
-K_ARGKERNEL_SELF_TARBALL_NAME="${K_ARGKERNEL_SELF_TARBALL_NAME:-}"
+K_ROGKERNEL_SELF_TARBALL_NAME="${K_ROGKERNEL_SELF_TARBALL_NAME:-}"
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_PATCH_UPSTREAM_TARBALL
+# @ECLASS-VARIABLE: K_ROGKERNEL_PATCH_UPSTREAM_TARBALL
 # @DESCRIPTION:
 # If set to 1, the ebuild will fetch the upstream kernel tarball and
 # apply the RogentOS patch against it. This strategy avoids the need of
 # creating complete kernel source tarballs. The default value is 0.
-K_ARGKERNEL_PATCH_UPSTREAM_TARBALL="${K_ARGKERNEL_PATCH_UPSTREAM_TARBALL:-0}"
+K_ROGKERNEL_PATCH_UPSTREAM_TARBALL="${K_ROGKERNEL_PATCH_UPSTREAM_TARBALL:-0}"
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_FORCE_SUBLEVEL
+# @ECLASS-VARIABLE: K_ROGKERNEL_FORCE_SUBLEVEL
 # @DESCRIPTION:
 # Force the rewrite of SUBLEVEL in kernel sources Makefile
-K_ARGKERNEL_FORCE_SUBLEVEL="${K_ARGKERNEL_FORCE_SUBLEVEL:-}"
+K_ROGKERNEL_FORCE_SUBLEVEL="${K_ROGKERNEL_FORCE_SUBLEVEL:-}"
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_RESET_EXTRAVERSION
+# @ECLASS-VARIABLE: K_ROGKERNEL_RESET_EXTRAVERSION
 # @DESCRIPTION:
 # Force the rewrite of EXTRAVERSION in kernel sources Makefile (setting it to "")
-K_ARGKERNEL_RESET_EXTRAVERSION="${K_ARGKERNEL_RESET_EXTRAVERSION:-}"
+K_ROGKERNEL_RESET_EXTRAVERSION="${K_ROGKERNEL_RESET_EXTRAVERSION:-}"
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_LONGTERM
+# @ECLASS-VARIABLE: K_ROGKERNEL_LONGTERM
 # @DESCRIPTION:
 # Consider Kernel stable patchset as longterm (changing URL)
-K_ARGKERNEL_LONGTERM="${K_ARGKERNEL_LONGTERM:-}"
+K_ROGKERNEL_LONGTERM="${K_ROGKERNEL_LONGTERM:-}"
 
 # @ECLASS-VARIABLE: K_KERNEL_SOURCES_PKG
 # @DESCRIPTION:
@@ -82,7 +82,7 @@ K_KERNEL_SLOT_USEPVR="${K_KERNEL_SLOT_USEPVR:-0}"
 # Set this to "1" if your kernel ebuild uses the new Linux kernel upstream
 # versioning and ${PV} contains the stable revision, like 3.7.1.
 # In the example above, this makes the SLOT variable contain only "3.7".
-# The sublevel version can be forced using K_ARGKERNEL_FORCE_SUBLEVEL
+# The sublevel version can be forced using K_ROGKERNEL_FORCE_SUBLEVEL
 K_KERNEL_NEW_VERSIONING="${K_KERNEL_NEW_VERSIONING:-0}"
 
 # @ECLASS-VARIABLE: K_KERNEL_IMAGE_NAME
@@ -105,7 +105,7 @@ K_KERNEL_LTS="${K_KERNEL_LTS:-}"
 # --kernel-binary= flag.
 K_KERNEL_IMAGE_PATH="${K_KERNEL_IMAGE_PATH:-}"
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_FIRMWARE
+# @ECLASS-VARIABLE: K_ROGKERNEL_FIRMWARE
 # @DESCRIPTION:
 # Set this to "1" if your ebuild is a kernel firmware package
 K_FIRMWARE_PACKAGE="${K_FIRMWARE_PACKAGE:-}"
@@ -135,10 +135,10 @@ K_WORKAROUND_SOURCES_COLLISION="${K_WORKAROUND_SOURCES_COLLISION:-}"
 # this variable and depmod will work correctly.
 K_WORKAROUND_USE_REAL_EXTRAVERSION="${K_WORKAROUND_USE_REAL_EXTRAVERSION:-}"
 
-# @ECLASS-VARIABLE: K_ARGKERNEL_ZFS
+# @ECLASS-VARIABLE: K_ROGKERNEL_ZFS
 # @DESCRIPTION:
 # If set, this kernel features ZFS.
-K_ARGKERNEL_ZFS="${K_ARGKERNEL_ZFS:-}"
+K_ROGKERNEL_ZFS="${K_ROGKERNEL_ZFS:-}"
 
 # @ECLASS-VARIABLE: K_GENKERNEL_ARGS
 # @DESCRIPTION:
@@ -165,7 +165,7 @@ K_MKIMAGE_WRAP_INITRAMFS="${K_MKIMAGE_WRAP_INITRAMFS:-1}"
 # [ARM ONLY] Provide the kernel load address to be used with mkimage
 K_MKIMAGE_KERNEL_ADDRESS="${K_MKIMAGE_KERNEL_ADDRESS:-}"
 
-KERN_INITRAMFS_SEARCH_NAME="${KERN_INITRAMFS_SEARCH_NAME:-initramfs-genkernel*${K_ARGKERNEL_NAME}}"
+KERN_INITRAMFS_SEARCH_NAME="${KERN_INITRAMFS_SEARCH_NAME:-initramfs-genkernel*${K_ROGKERNEL_NAME}}"
 
 # Disable deblobbing feature
 K_DEBLOB_AVAILABLE=0
@@ -177,33 +177,33 @@ if [ "${K_KERNEL_NEW_VERSIONING}" = "1" ]; then
 	CKV="$(get_version_component_range 1-2)"
 fi
 
-inherit eutils multilib kernel-2 argent-artwork mount-boot linux-info
+inherit eutils multilib kernel-2 live-artwork mount-boot linux-info
 
 # from kernel-2 eclass
 detect_version
 detect_arch
 
-DESCRIPTION="Argent linux kernel functions and phases"
+DESCRIPTION="Argent and Kogaion linux kernel functions and phases"
 
 
 K_LONGTERM_URL_STR=""
-if [ -n "${K_ARGKERNEL_LONGTERM}" ]; then
+if [ -n "${K_ROGKERNEL_LONGTERM}" ]; then
 	K_LONGTERM_URL_STR="/longterm/v${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}"
 fi
 
 ## kernel-2 eclass settings
-if [ "${K_ARGKERNEL_PATCH_UPSTREAM_TARBALL}" = "1" ]; then
-	_patch_name="$(get_version_component_range 1-2)-${K_ARGKERNEL_SELF_TARBALL_NAME}-${PVR}.patch.xz"
+if [ "${K_ROGKERNEL_PATCH_UPSTREAM_TARBALL}" = "1" ]; then
+	_patch_name="$(get_version_component_range 1-2)-${K_ROGKERNEL_SELF_TARBALL_NAME}-${PVR}.patch.xz"
 	SRC_URI="${KERNEL_URI}"
 	UNIPATCH_LIST="${UNIPATCH_LIST} ${DISTDIR}/${_patch_name}"
 	unset _patch_name
-elif [ -n "${K_ARGKERNEL_SELF_TARBALL_NAME}" ]; then
-	SRC_URI="http://bpr.bluepink.ro/~rogentos/argent/${CATEGORY}/linux-${PVR}+${K_ARGKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
+elif [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
+	SRC_URI="http://bpr.bluepink.ro/~rogentos/argent/${CATEGORY}/linux-${PVR}+${K_ROGKERNEL_SELF_TARBALL_NAME}.tar.${K_TARBALL_EXT}"
 else
 	SRC_URI="${KERNEL_URI}"
 fi
 
-if [ -z "${K_ARGKERNEL_SELF_TARBALL_NAME}" ]; then
+if [ -z "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
 	if [ -n "${K_KERNEL_PATCH_VER}" ]; then
 		K_PATCH_NAME="patch-${KV_MAJOR}.${KV_MINOR}.${KV_PATCH}.${K_KERNEL_PATCH_VER}.${K_TARBALL_EXT}"
 		SRC_URI="${SRC_URI}
@@ -228,10 +228,10 @@ _get_real_kv_full() {
 	fi
 }
 
-# replace "linux" with K_ARGKERNEL_NAME, usually replaces
+# replace "linux" with K_ROGKERNEL_NAME, usually replaces
 # "linux" with "argent" or "server" or "openvz"
-KV_FULL="${KV_FULL/${PN/-*}/${K_ARGKERNEL_NAME}}"
-EXTRAVERSION="${EXTRAVERSION/${PN/-*}/${K_ARGKERNEL_NAME}}"
+KV_FULL="${KV_FULL/${PN/-*}/${K_ROGKERNEL_NAME}}"
+EXTRAVERSION="${EXTRAVERSION/${PN/-*}/${K_ROGKERNEL_NAME}}"
 # drop -rX if exists
 if [[ -n "${PR//r0}" ]] && [[ "${K_KERNEL_DISABLE_PR_EXTRAVERSION}" = "1" ]] \
 		&& [[ -z "${K_NOSETEXTRAVERSION}" ]]; then
@@ -292,10 +292,10 @@ if _is_kernel_binary; then
 	fi
 fi
 
-if [ -n "${K_ARGKERNEL_SELF_TARBALL_NAME}" ]; then
+if [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
 	HOMEPAGE="https://github.com/Rogentos/kernel"
 else
-	HOMEPAGE="http://www.argent.ro"
+	HOMEPAGE="http://www.rogentos.ro"
 fi
 
 # Returns success if _set_config_file_vars was called.
@@ -338,10 +338,10 @@ _set_config_file_vars() {
 		fi
 	fi
 
-	K_ARGKERNEL_CONFIG_FILES=()
-	K_ARGKERNEL_CONFIG_FILES+=( "${K_ARGKERNEL_NAME}-${pvr}-$(_get_arch).config" )
-	K_ARGKERNEL_CONFIG_FILES+=( "${K_ARGKERNEL_NAME}-${pv}-$(_get_arch).config" )
-	K_ARGKERNEL_CONFIG_FILES+=( "${K_ARGKERNEL_NAME}-$(_get_arch).config" )
+	K_ROGKERNEL_CONFIG_FILES=()
+	K_ROGKERNEL_CONFIG_FILES+=( "${K_ROGKERNEL_NAME}-${pvr}-$(_get_arch).config" )
+	K_ROGKERNEL_CONFIG_FILES+=( "${K_ROGKERNEL_NAME}-${pv}-$(_get_arch).config" )
+	K_ROGKERNEL_CONFIG_FILES+=( "${K_ROGKERNEL_NAME}-$(_get_arch).config" )
 
 	_config_file_set=1
 }
@@ -352,7 +352,7 @@ if [ -n "${K_ONLY_SOURCES}" ] || [ -n "${K_FIRMWARE_PACKAGE}" ]; then
 	RDEPEND="${RDEPEND}"
 else
 	IUSE="dmraid dracut iscsi luks lvm mdadm plymouth splash"
-	if [ -n "${K_ARGKERNEL_ZFS}" ]; then
+	if [ -n "${K_ROGKERNEL_ZFS}" ]; then
 		IUSE="${IUSE} zfs"
 	fi
 	DEPEND="app-arch/xz-utils
@@ -363,7 +363,7 @@ else
 		arm? ( dev-embedded/u-boot-tools )
 		amd64? ( sys-apps/v86d )
 		x86? ( sys-apps/v86d )
-		splash? ( x11-themes/argent-artwork-core )
+		splash? ( x11-themes/${PLYMOUTH_THEME}-artwork-core )
 		lvm? ( sys-fs/lvm2 sys-block/thin-provisioning-tools )
 		plymouth? (
 			|| ( >=sys-kernel/genkernel-next-5 >=sys-kernel/genkernel-5 )
@@ -403,7 +403,7 @@ _update_depmod() {
 	fi
 }
 
-argent-kernel_pkg_setup() {
+live-kernel_pkg_setup() {
 	if [ -n "${K_FIRMWARE_PACKAGE}" ]; then
 		einfo "Preparing kernel firmwares"
 	else
@@ -411,10 +411,10 @@ argent-kernel_pkg_setup() {
 	fi
 }
 
-argent-kernel_src_unpack() {
+live-kernel_src_unpack() {
 	local okv="${OKV}"
-	if [ -n "${K_ARGKERNEL_SELF_TARBALL_NAME}" ] && [ "${K_ARGKERNEL_PATCH_UPSTREAM_TARBALL}" != "1" ]; then
-		OKV="${PVR}+${K_ARGKERNEL_SELF_TARBALL_NAME}"
+	if [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ] && [ "${K_ROGKERNEL_PATCH_UPSTREAM_TARBALL}" != "1" ]; then
+		OKV="${PVR}+${K_ROGKERNEL_SELF_TARBALL_NAME}"
 	fi
 	if [ "${K_KERNEL_NEW_VERSIONING}" = "1" ]; then
 		# workaround for kernel-2's universal_unpack assumptions
@@ -422,12 +422,12 @@ argent-kernel_src_unpack() {
 	else
 		kernel-2_src_unpack
 	fi
-	if [ -n "${K_ARGKERNEL_FORCE_SUBLEVEL}" ]; then
+	if [ -n "${K_ROGKERNEL_FORCE_SUBLEVEL}" ]; then
 		# patch out Makefile with proper sublevel
-		sed -i "s:^SUBLEVEL = .*:SUBLEVEL = ${K_ARGKERNEL_FORCE_SUBLEVEL}:" \
+		sed -i "s:^SUBLEVEL = .*:SUBLEVEL = ${K_ROGKERNEL_FORCE_SUBLEVEL}:" \
 			"${S}/Makefile" || die
 	fi
-	if [ -n "${K_ARGKERNEL_RESET_EXTRAVERSION}" ]; then
+	if [ -n "${K_ROGKERNEL_RESET_EXTRAVERSION}" ]; then
 		sed -i "s:^EXTRAVERSION =.*:EXTRAVERSION = :" "${S}/Makefile" || die
 		# some sources could have multiple append-based EXTRAVERSIONs
 		sed -i "s/^EXTRAVERSION :=.*//" "${S}/Makefile" || die
@@ -436,15 +436,15 @@ argent-kernel_src_unpack() {
 
 	# Let's handle EAPIs 0 and 1...
 	case ${EAPI:-0} in
-		0|1) argent-kernel_src_prepare ;;
+		0|1) live-kernel_src_prepare ;;
 	esac
 }
 
-argent-kernel_src_prepare() {
+live-kernel_src_prepare() {
 	_set_config_file_vars
 }
 
-argent-kernel_src_compile() {
+live-kernel_src_compile() {
 	if [ -n "${K_FIRMWARE_PACKAGE}" ]; then
 		_firmwares_src_compile
 	elif [ -n "${K_ONLY_SOURCES}" ]; then
@@ -468,15 +468,15 @@ _firmwares_src_compile() {
 
 _kernel_copy_config() {
 	_is_config_file_set \
-		|| die "Kernel configuration file not set. Was argent-kernel_src_prepare() called?"
+		|| die "Kernel configuration file not set. Was live-kernel_src_prepare() called?"
 
 	local base_path="${DISTDIR}"
-	if [ -n "${K_ARGKERNEL_SELF_TARBALL_NAME}" ]; then
-		base_path="${S}/argent/config"
+	if [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
+		base_path="${S}/${PLYMOUTH_THEME}/config"
 	fi
 
 	local found= cfg=
-	for cfg in "${K_ARGKERNEL_CONFIG_FILES[@]}"; do
+	for cfg in "${K_ROGKERNEL_CONFIG_FILES[@]}"; do
 		cfg="${base_path}/${cfg}"
 		if [ -f "${cfg}" ]; then
 			cp "${cfg}" "${1}" || die "cannot copy kernel config ${cfg} -> ${1}"
@@ -485,7 +485,7 @@ _kernel_copy_config() {
 			break
 		fi
 	done
-	[[ -z "${found}" ]] && die "cannot find kernel configs among: ${K_ARGKERNEL_CONFIG_FILES[*]}"
+	[[ -z "${found}" ]] && die "cannot find kernel configs among: ${K_ROGKERNEL_CONFIG_FILES[*]}"
 }
 
 _kernel_src_compile() {
@@ -523,7 +523,7 @@ _kernel_src_compile() {
 	use mdadm && GKARGS+=( "--mdadm" )
 	use luks && GKARGS+=( "--luks" )
 	use lvm && GKARGS+=( "--lvm" )
-	if [ -n "${K_ARGKERNEL_ZFS}" ]; then
+	if [ -n "${K_ROGKERNEL_ZFS}" ]; then
 		use zfs && GKARGS+=( "--zfs" )
 	fi
 
@@ -605,7 +605,7 @@ _setup_mkimage_ramdisk() {
 	return 0
 }
 
-argent-kernel_src_install() {
+live-kernel_src_install() {
 	if [ -n "${K_FIRMWARE_PACKAGE}" ]; then
 		_firmwares_src_install
 	elif [ -n "${K_ONLY_SOURCES}" ]; then
@@ -737,12 +737,12 @@ _kernel_src_install() {
 		_dracut_initramfs_create "${KV_FULL}"
 }
 
-argent-kernel_pkg_preinst() {
+live-kernel_pkg_preinst() {
 	if _is_kernel_binary; then
 		mount-boot_pkg_preinst
 	fi
 }
-argent-kernel_grub2_mkconfig() {
+live-kernel_grub2_mkconfig() {
 	if [ -x "${ROOT}usr/sbin/grub2-mkconfig" ]; then
 		# Grub 2.00
 		"${ROOT}usr/sbin/grub2-mkconfig" -o "${ROOT}boot/grub/grub.cfg"
@@ -779,7 +779,7 @@ _get_release_level() {
 	fi
 }
 
-argent-kernel_uimage_config() {
+live-kernel_uimage_config() {
 	# Two cases here:
 	# 1. /boot/uImage symlink is broken (pkg_postrm)
 	# 2. /boot/uImage symlink doesn't exist (pkg_postinst)
@@ -811,7 +811,7 @@ argent-kernel_uimage_config() {
 	fi
 }
 
-argent-kernel_bzimage_config() {
+live-kernel_bzimage_config() {
 	# Two cases here:
 	# 1. /boot/bzImage symlink is broken (pkg_postrm)
 	# 2. /boot/bzImage symlink doesn't exist (pkg_postinst)
@@ -862,7 +862,7 @@ _dracut_initramfs_create() {
 	dracut -q -N -f --kver="${kver}" "${D}/boot/initramfs-dracut-${kver}"
 }
 
-argent-kernel_pkg_postinst() {
+live-kernel_pkg_postinst() {
 	if _is_kernel_binary; then
 		fstab_file="${ROOT}etc/fstab"
 		einfo "Removing extents option for ext4 drives from ${fstab_file}"
@@ -872,7 +872,7 @@ argent-kernel_pkg_postinst() {
 		fi
 
 		# Update kernel initramfs to match user customizations
-		use splash && update_argent_kernel_initramfs_splash
+		use splash && update_${PLYMOUTH_THEME}_kernel_initramfs_splash
 
 		# Add kernel to grub.conf
 		if use amd64 || use x86; then
@@ -888,18 +888,18 @@ argent-kernel_pkg_postinst() {
 					"/boot/initramfs-genkernel-${kern_arch}-${KV_FULL}"
 			fi
 
-			argent-kernel_grub2_mkconfig
+			live-kernel_grub2_mkconfig
 		fi
 
 		# Setup newly installed kernel on ARM
 		if use arm; then
-			argent-kernel_uimage_config
+			live-kernel_uimage_config
 		fi
 		# Setup newly installed kernel on x86/amd64
 		# This is quite handy for static grub1/grub2
 		# configurations (like on Amazon EC2)
 		if use x86 || use amd64; then
-			argent-kernel_bzimage_config
+			live-kernel_bzimage_config
 		fi
 
 		kernel-2_pkg_postinst
@@ -907,7 +907,7 @@ argent-kernel_pkg_postinst() {
 		_update_depmod "${depmod_r}"
 
 		elog "Please report kernel bugs at:"
-		elog "http://bugs.argent.ro"
+		elog "http://bugs.rogentos.ro"
 
 		elog "The source code of this kernel is located at"
 		elog "=${K_KERNEL_SOURCES_PKG}."
@@ -920,13 +920,13 @@ argent-kernel_pkg_postinst() {
 	fi
 }
 
-argent-kernel_pkg_prerm() {
+live-kernel_pkg_prerm() {
 	if _is_kernel_binary; then
 		mount-boot_pkg_prerm
 	fi
 }
 
-argent-kernel_pkg_postrm() {
+live-kernel_pkg_postrm() {
 	if _is_kernel_binary; then
 		# Remove kernel from grub.conf
 		if use amd64 || use x86; then
@@ -941,18 +941,18 @@ argent-kernel_pkg_postrm() {
 					"/boot/initramfs-genkernel-${kern_arch}-${KV_FULL}"
 			fi
 
-			argent-kernel_grub2_mkconfig
+			live-kernel_grub2_mkconfig
 		fi
 
 		# Setup newly installed kernel on ARM
 		if use arm; then
-			argent-kernel_uimage_config
+			live-kernel_uimage_config
 		fi
 		# Setup newly installed kernel on x86/amd64
 		# This is quite handy for static grub1/grub2
 		# configurations (like on Amazon EC2)
 		if use x86 || use amd64; then
-			argent-kernel_bzimage_config
+			live-kernel_bzimage_config
 		fi
 	fi
 }
