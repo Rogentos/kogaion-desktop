@@ -365,6 +365,7 @@ else
 		x86? ( sys-apps/v86d )
 		splash? ( x11-themes/kogaion-artwork-core )
 		lvm? ( sys-fs/lvm2 sys-block/thin-provisioning-tools )
+		btrfs? ( sys-fs/btrfs-progs )
 		plymouth? (
 			|| ( >=sys-kernel/genkernel-next-5 >=sys-kernel/genkernel-5 )
 			sys-boot/plymouth

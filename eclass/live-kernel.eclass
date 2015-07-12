@@ -351,7 +351,7 @@ if [ -n "${K_ONLY_SOURCES}" ] || [ -n "${K_FIRMWARE_PACKAGE}" ]; then
 	DEPEND="sys-apps/sed"
 	RDEPEND="${RDEPEND}"
 else
-	IUSE="dmraid dracut iscsi luks lvm mdadm plymouth splash"
+	IUSE="btrfs dmraid dracut iscsi luks lvm mdadm plymouth splash"
 	if [ -n "${K_ROGKERNEL_ZFS}" ]; then
 		IUSE="${IUSE} zfs"
 	fi
@@ -365,6 +365,7 @@ else
 		x86? ( sys-apps/v86d )
 		splash? ( x11-themes/${PLYMOUTH_THEME}-artwork-core )
 		lvm? ( sys-fs/lvm2 sys-block/thin-provisioning-tools )
+		btrfs? ( sys-fs/btrfs-progs )
 		plymouth? (
 			|| ( >=sys-kernel/genkernel-next-5 >=sys-kernel/genkernel-5 )
 			sys-boot/plymouth
@@ -517,6 +518,7 @@ _kernel_src_compile() {
 	local GKARGS=()
 	GKARGS+=( "--no-menuconfig" "--no-save-config" "--e2fsprogs" "--udev" )
 	# use splash && GKARGS+=( "--splash=argent" ) #NO MORE fbsplash!!!
+	use btrfs && GKARGS+=( "--btrfs" )
 	use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=${PLYMOUTH_THEME}" ) #reverted to use variable (check the eclass)
 	use dmraid && GKARGS+=( "--dmraid" )
 	use iscsi && GKARGS+=( "--iscsi" )
