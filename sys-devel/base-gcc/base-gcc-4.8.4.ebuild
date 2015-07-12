@@ -47,62 +47,24 @@ src_prepare() {
 }
 
 src_install() {
-	cd "${WORKDIR}/build"
-	emake -j1 -C "${CTARGET}/libgcc" DESTDIR="${D}" install-shared || die
+	# first, install full gcc
+	toolchain_src_install
+	
+	# define folders to be dropped, as they are provided by sys-devel/gcc-${PV}
+	export local bindir="${D}usr/bin"
+	export local libexecdir="${D}usr/libexec"
+	export local usrdir="${D}usr/$(uname -m)-pc-linux-gnu"
+	export local sharedir="${D}usr/share"
+	export local debugdir="${D}usr/lib/debug"
+	export local libdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}"
 	if use multilib ; then
-		emake -j1 -C "${CTARGET}/32/libgcc" DESTDIR="${D}" install-shared || die
+		export local multilibdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}/32"
 	fi
 	
-	if use mudlap ; then
-		emake -j1 -C "${CTARGET}/libmudflap" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		if use multilib ; then
-			emake -j1 -C "${CTARGET}/32/libmudflap" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		fi		
-	fi
-	
-	if use openmp ; then
-		emake -j1 -C "${CTARGET}/libgomp" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		if use multilib ; then
-			emake -j1 -C "${CTARGET}/32/libgomp" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		fi
-	fi
-	
-	for lib in "libatomic" "libitm" "libsanitizer/asan" "libstdc++-v3/src" ; do
-		emake -j1 -C "${CTARGET}/$lib" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
+	# drop binaries, debug symbols && headers, they're provided by sys-devel/gcc-${PV}
+	for extra in "$bindir" "$libexecdir" "$usrdir" "$sharedir" "$debugdir" "$libdir/include" "$libdir/finclude" "$libdir/include-fixed" "$libdir/plugin"; do
+		rm -rf "$extra"
 	done
-	if use multilib ; then
-		for lib in "libatomic" "libitm" "libsanitizer/asan" "libstdc++-v3/src" ; do
-			emake -j1 -C "${CTARGET}/32/$lib" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		done
-	fi
-
-	if use quadmath ; then
-		emake -j1 -C "${CTARGET}/libquadmath" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		if use multilib ; then
-			emake -j1 -C "${CTARGET}/32/libquadmath" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		fi
-	fi
-	
-	if use fortran ; then
-		emake -j1 -C "${CTARGET}/libgfortran" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		if use multilib ; then
-			emake -j1 -C "${CTARGET}/32/libgfortran" DESTDIR="${D}" install-toolexeclibLTLIBRARIES || die
-		fi
-	fi
-	
-	if use objc ; then
-		emake -j1 -C "${CTARGET}/libobjc" DESTDIR="${D}" install-libs || die
-		if use multilib ; then	
-			emake -j1 -C "${CTARGET}/32/libobjc" DESDIR="${D}" install-libs || die
-		fi
-	fi
-	
-	dodit /etc/env.d/gcc
-	create_gcc_ent_entry
-	
-	if want_minispecs ; then
-		copy_minispecs_gcc_specs
-	fi
 }
 
 pkg_preinst() {
@@ -110,5 +72,24 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	:
+	# RogentOS specific bits to always force the latest gcc profile
+	export local gcc_atom=$(best_version sys-devel/base-gcc)
+	export local gcc_ver=
+	if [[ -n "${gcc_atom}" ]] ; then
+		elog "Found latest base-gcc to be: ${gcc_atom}, forcing this profile"
+		gcc_ver=$(portageq metadata "${ROOT}" installed "${gcc_atom}" PV)
+	else
+		eerror "No sys-devel/base-gcc installed"
+	fi
+
+	if [[ -n "${gcc_ver}" ]] ; then
+		export local target="${CTARGET:${CHOST}}-${gcc_ver}"
+		export local env_target="${ROOT}/etc/env.d/gcc/${target}"
+		if [[ -e "${env_target}-vanilla" ]] ; then
+			elog "Setting: ${target} GCC profile"
+			gcc-config "${target}"
+		fi
+	else
+		eerror "No sys-devel/base-gcc version installed? Cannot set a proper GCC profile"
+	fi
 }

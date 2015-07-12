@@ -1,6 +1,5 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-devel/gcc/gcc-4.8.4.ebuild,v 1.15 2015/05/27 16:01:17 vapier Exp $
 
 EAPI="4"
 
@@ -22,7 +21,7 @@ SSP_UCLIBC_STABLE="x86 amd64 mips ppc ppc64 arm"
 
 inherit eutils toolchain
 
-KEYWORDS="alpha amd64 arm arm64 hppa ~ia64 m68k ~mips ppc ppc64 s390 sh sparc x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
@@ -45,4 +44,70 @@ src_prepare() {
 	use vanilla && return 0
 	#Use -r1 for newer piepatchet that use DRIVER_SELF_SPECS for the hardened specs.
 	[[ ${CHOST} == ${CTARGET} ]] && epatch "${FILESDIR}"/gcc-spec-env-r1.patch
+}
+
+src_install() {
+		toolchain_src_install
+		# drop base gcc libraries, they're provided by sys-devel/base-gcc-${PV}
+		#
+		# TODO , prevent dropping of headers
+		#
+		export local libdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}"
+		if use multilib ; then
+			export local multilibdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}/32"
+		fi
+
+		rm -rf "$libdir"
+		if use multilib ; then
+			rm -rf "$multilibdir"
+		fi
+		
+		# drop golibs, they're provided by sys-devel/base-gcc-{PV}
+		if [[ "$(uname -m)" = "x86_64" ]] ; then
+			export local golibdir="${D}usr/lib64/go/${PV}"
+			if use multilib ; then
+				export local gomultilibdir="${D}usr/lib32/go/${PV}"
+			fi
+		elif [[ "$(uname -m)" = "i686" ]] ; then
+			export local golibdir="${D}/usr/lib/go/${PV}"
+		fi
+
+		rm -rf "$golibdir"
+		if use multilib ; then
+			rm -rf "$gomultilibdir"
+		fi
+		
+		# drop gcjlibs, they're provided by sys-devel/base-gcc-${PV}
+		if [[ "$(uname -m)" = "x86_64" ]] ; then
+			export local gcjlibdir="${D}usr/lib64/gcj-${PV}-14"
+			if use multilib ; then
+				export local gcjmultilibdir="${D}usr/lib32/gcj-${PV}-14"
+			fi
+		elif [[ "$(uname -m)" = "i686" ]] ; then
+			export local gcjlibdir="${D}usr/lib/gcj-${PV}-14"
+		fi
+
+		rm -rf "$gcjlibdir"
+		if use multilib ; then
+			rm -rf "$gcjmultilibdir"
+		fi
+
+		# drop pkgconfig files, they're provided by sys-devel/base-gcc-${PV}
+		if [[ "$(uname -m)" = "x86_64" ]] ; then
+			export local pkgconfigdir="${D}usr/lib64/pkgconfig"
+			if use multilib ; then
+				export local pkgconfigmultilibdir="${D}usr/lib32/pkgconfig"
+			fi
+		elif [[ "$(uname -m)" = "i686" ]] ; then
+			export local pkgconfigdir="${D}usr/lib/pkgconfig"
+		fi
+
+		rm -rf "$pkgconfigdir"
+		if use multilib ; then
+			rm -rf "$pkgconfigmultilibdir"
+		fi
+		
+		# drop gcc profiles, they're provided by sys-devel/base-gcc-${PV}
+		export local envdir="${D}etc"
+		rm -rf "$envdir"
 }
