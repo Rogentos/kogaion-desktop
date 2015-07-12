@@ -49,9 +49,9 @@ src_prepare() {
 src_install() {
 		toolchain_src_install
 		# drop base gcc libraries, they're provided by sys-devel/base-gcc-${PV}
-		export local libdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}"
+		export local libdir="${D}usr/lib/gcc/${CHOST}/${PV}"
 		if use multilib ; then
-			export local multilibdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}/32"
+			export local multilibdir="${D}usr/lib/gcc/${CHOST}/${PV}/32"
 		fi
 		
 		# if we remove whole libdir, headers are gone, so remove only libs and their symlinks
@@ -110,4 +110,12 @@ src_install() {
 		# drop gcc profiles, they're provided by sys-devel/base-gcc-${PV}
 		export local envdir="${D}etc"
 		rm -rf "$envdir"
+}
+
+pkg_preinst() {
+	:
+}
+
+pkg_postinst() {
+	:
 }
