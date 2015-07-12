@@ -23,7 +23,7 @@ K_MKIMAGE_RAMDISK_ADDRESS="0x81000000"
 K_MKIMAGE_RAMDISK_ENTRYPOINT="0x00000000"
 K_MKIMAGE_KERNEL_ADDRESS="0x80008000"
 
-inherit kogaion-kernel
+inherit live-kernel
 
 KEYWORDS="~amd64 ~x86"
 DESCRIPTION="Official Kogaion Linux Standard kernel image"
