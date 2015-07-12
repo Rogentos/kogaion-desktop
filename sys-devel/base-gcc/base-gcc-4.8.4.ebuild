@@ -21,7 +21,7 @@ SSP_UCLIBC_STABLE="x86 amd64"
 
 inherit eutils toolchain
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
@@ -53,12 +53,12 @@ src_install() {
 	# define folders to be dropped, as they are provided by sys-devel/gcc-${PV}
 	export local bindir="${D}usr/bin"
 	export local libexecdir="${D}usr/libexec"
-	export local usrdir="${D}usr/$(uname -m)-pc-linux-gnu"
+	export local usrdir="${D}usr/${CHOST}"
 	export local sharedir="${D}usr/share"
 	export local debugdir="${D}usr/lib/debug"
-	export local libdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}"
+	export local libdir="${D}usr/lib/gcc/${CHOST}/${PV}"
 	if use multilib ; then
-		export local multilibdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}/32"
+		export local multilibdir="${D}usr/lib/gcc/${CHOST}/${PV}/32"
 	fi
 	
 	# drop binaries, debug symbols && headers, they're provided by sys-devel/gcc-${PV}
@@ -73,22 +73,10 @@ pkg_preinst() {
 
 pkg_postinst() {
 	# RogentOS specific bits to always force the latest gcc profile
-	export local gcc_atom=$(best_version sys-devel/base-gcc)
-	export local gcc_ver=
-	if [[ -n "${gcc_atom}" ]] ; then
-		elog "Found latest base-gcc to be: ${gcc_atom}, forcing this profile"
-		gcc_ver=$(portageq metadata "${ROOT}" installed "${gcc_atom}" PV)
-	else
-		eerror "No sys-devel/base-gcc installed"
-	fi
-
-	if [[ -n "${gcc_ver}" ]] ; then
-		export local target="${CTARGET:${CHOST}}-${gcc_ver}"
-		export local env_target="${ROOT}/etc/env.d/gcc/${target}"
-		if [[ -e "${env_target}-vanilla" ]] ; then
-			elog "Setting: ${target} GCC profile"
-			gcc-config "${target}"
-		fi
+	export local target="${ROOT}etc/env.d/gcc/${CHOST}-${PV}-vanilla"
+	if [[ -f "$target" ]] ; then
+		elog "Setting: ${target} GCC profile"
+		gcc-config "${target}"
 	else
 		eerror "No sys-devel/base-gcc version installed? Cannot set a proper GCC profile"
 	fi
