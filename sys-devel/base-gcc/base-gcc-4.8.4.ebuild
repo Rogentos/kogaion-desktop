@@ -11,12 +11,12 @@ PIE_VER="0.6.1"
 SPECS_VER="0.2.0"
 SPECS_GCC_VER="4.4.3"
 # arch/libc configurations known to be stable with {PIE,SSP}-by-default
-PIE_GLIBC_STABLE="x86 amd64 mips ppc ppc64 arm ia64"
-PIE_UCLIBC_STABLE="x86 arm amd64 mips ppc ppc64"
-SSP_STABLE="amd64 x86 mips ppc ppc64 arm"
+PIE_GLIBC_STABLE="x86 amd64"
+PIE_UCLIBC_STABLE="x86 amd64"
+SSP_STABLE="amd64 x86"
 # uclibc need tls and nptl support for SSP support
 # uclibc need to be >= 0.9.33
-SSP_UCLIBC_STABLE="x86 amd64 mips ppc ppc64 arm"
+SSP_UCLIBC_STABLE="x86 amd64"
 #end Hardened stuff
 
 inherit eutils toolchain
@@ -62,7 +62,7 @@ src_install() {
 	fi
 	
 	# drop binaries, debug symbols && headers, they're provided by sys-devel/gcc-${PV}
-	for extra in "$bindir" "$libexecdir" "$usrdir" "$sharedir" "$debugdir" "$libdir/include" "$libdir/finclude" "$libdir/include-fixed" "$libdir/plugin"; do
+	for extra in "$bindir" "$libexecdir" "$usrdir" "$sharedir" "$debugdir" "$libdir/include" "$libdir/finclude" "$libdir/include-fixed" "$libdir/plugin" "$libdir/security" ; do
 		rm -rf "$extra"
 	done
 }
