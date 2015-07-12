@@ -49,15 +49,15 @@ src_prepare() {
 src_install() {
 		toolchain_src_install
 		# drop base gcc libraries, they're provided by sys-devel/base-gcc-${PV}
-		#
-		# TODO , prevent dropping of headers
-		#
 		export local libdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}"
 		if use multilib ; then
 			export local multilibdir="${D}usr/lib/gcc/$(uname -m)-pc-linux-gnu/${PV}/32"
 		fi
-
-		rm -rf "$libdir"
+		
+		# if we remove whole libdir, headers are gone, so remove only libs and their symlinks
+		find "$libdir" -maxdepth 1 -type f -delete
+		find "$libdir" -maxdepth 1 -type l -delete
+		# however, removing multilibdir as a whole doesn't cause any problems
 		if use multilib ; then
 			rm -rf "$multilibdir"
 		fi
