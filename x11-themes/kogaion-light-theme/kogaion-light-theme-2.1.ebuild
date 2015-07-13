@@ -14,7 +14,7 @@ SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PVR}.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~arm ~amd64 ~x86"
-IUSE="gtk3 gtk2 gnome-shell unity cinnamon xfwm4"
+IUSE="gtk3 gtk2 gnome-shell xfwm4" #unity cinnamon"
 
 RDEPEND="gtk3? ( x11-themes/gtk-engines-unico )
 	x11-themes/gtk-engines-murrine
@@ -52,17 +52,17 @@ src_install() {
 	ewarn "Gnome-shell Files were not copied"
 	fi
 
-	if use cinnamon; then
-		doins -r "${S}"/cinnamon || die "Cannot copy cinnamon"
-	else
-	ewarn "Cinnamon Files were not copied"
-	fi
+	#if use cinnamon; then
+	#	doins -r "${S}"/cinnamon || die "Cannot copy cinnamon"
+	#else
+	#ewarn "Cinnamon Files were not copied"
+	#fi
 
-	if use unity; then
-		doins -r "${S}"/unity || die "Cannot copy unity"
-	else
-	ewarn "Unity Files were not copied"
-	fi
+	#if use unity; then
+	#	doins -r "${S}"/unity || die "Cannot copy unity"
+	#else
+	#ewarn "Unity Files were not copied"
+	#fi
 
 	if use xfwm4; then
 		doins -r "${S}"/xfwm4 || die "Cannot copy xfwm"
