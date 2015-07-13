@@ -36,6 +36,11 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
+MULTILIB_WRAPPED_HEADERS=(
+        # necessary until the UI libraries are ported
+        /usr/include/avahi-ui/avahi-ui.h
+)
+
 src_prepare() {
 	# Make gtk utils optional
 	epatch "${FILESDIR}"/${MY_PN}-0.6.30-optional-gtk-utils.patch
@@ -106,6 +111,7 @@ multilib_src_configure() {
 		--with-distro=gentoo \
 		--disable-python-dbus \
 		--disable-xmltoman \
+		--disable-mono \
 		--disable-monodoc \
 		--disable-pygtk \
 		--enable-glib \

@@ -39,6 +39,11 @@ DEPEND="${COMMON_DEPEND}
 	doc? ( >=virtual/monodoc-1.1.8 )"
 RDEPEND="${COMMON_DEPEND}"
 
+MULTILIB_WRAPPED_HEADERS=(
+        # necessary until the UI libraries are ported
+        /usr/include/avahi-ui/avahi-ui.h
+)
+
 pkg_setup() {
 	mono-env_pkg_setup
 }
