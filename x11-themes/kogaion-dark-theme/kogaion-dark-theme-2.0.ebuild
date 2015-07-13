@@ -7,7 +7,7 @@ EAPI=4
 DESCRIPTION="Kogaion dark theme"
 HOMEPAGE="http://rogentos.ro"
 SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz
-	https://buildserver.rogentos.ro/~kogaion/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
+	http://bpr.bluepink.ro/~rogentos/kogaion/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
