@@ -23,16 +23,12 @@ SRC_URI="http://avahi.org/download/${MY_P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 x86 ~x86-linux"
+KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86 ~amd64-fbsd ~x86-fbsd ~x86-linux"
 IUSE="bookmarks dbus gdbm introspection nls python utils"
 
 S="${WORKDIR}/${MY_P}"
 
-COMMON_DEPEND="
-        ~net-dns/avahi-base-${PV}[bookmarks=,dbus=,gdbm=,introspection=,nls=,python=,${MULTILIB_USEDEP}]
-        x11-libs/gtk+:3
-"
-
+COMMON_DEPEND=""
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
@@ -71,8 +67,6 @@ src_prepare() {
 	# Prevent .pyc files in DESTDIR
 	>py-compile
 
-	eautoreconf
-
 	# bundled manpages
 	multilib_copy_sources
 }
@@ -83,77 +77,6 @@ src_configure() {
 
 	# We need to unset DISPLAY, else the configure script might have problems detecting the pygtk module
 	unset DISPLAY
-
-	multilib-minimal_src_configure
-}
-
-multilib_src_configure() {
-	local myconf=( --disable-static )
-
-	if ! multilib_is_native_abi; then
-		myconf+=(
-			# used by daemons only
-			--disable-libdaemon
-			--with-xml=none
-		)
-	fi
-
-	if use python; then
-		myconf+=(
-			$(multilib_native_use_enable dbus python-dbus)
-		)
-	fi
-
-	econf \
-		--localstatedir="${EPREFIX}/var" \
-		--with-distro=gentoo \
-		--disable-python-dbus \
-		--disable-xmltoman \
-		--disable-mono \
-		--disable-monodoc \
-		--disable-pygtk \
-		--enable-glib \
-		--enable-gobject \
-		$(use_enable dbus) \
-		$(multilib_native_use_enable python) \
-		$(use_enable nls) \
-		$(multilib_native_use_enable introspection) \
-		--disable-qt3 \
-		--disable-qt4 \
-		--disable-gtk \
-		$(multilib_is_native_abi && echo -n --enable-gtk3 --enable-utils || echo -n --disable-gtk3 --disable-utils) \
-		$(use_enable gdbm) \
-		$(systemd_with_unitdir) \
-		"${myconf[@]}"
-}
-
-multilib_src_compile() {
-	if multilib_is_native_abi; then
-		for target in avahi-common avahi-client avahi-glib avahi-ui; do
-			cd "${BUILD_DIR}"/${target} || die
-			emake || die
-		done
-		cd "${BUILD_DIR}" || die
-		emake avahi-ui-gtk3.pc || die
-	fi
-}
-
-multilib_src_install() {
-	if multilib_is_native_abi; then
-		mkdir -p "${D}/usr/bin" || die
-		cd "${BUILD_DIR}"/avahi-ui || die
-		emake DESTDIR="${D}" install || die
-		cd "${BUILD_DIR}" || die
-		dodir /usr/$(get_libdir)/pkgconfig
-		insinto /usr/$(get_libdir)/pkgconfig
-		doins avahi-ui-gtk3.pc
-	fi
-}
-
-multilib_src_install_all() {
-	prune_libtool_files --all
-	use bookmarks && use python && use dbus || \
-		rm -f "${D}"/usr/bin/avahi-bookmarks
 }
 
 src_install() {
