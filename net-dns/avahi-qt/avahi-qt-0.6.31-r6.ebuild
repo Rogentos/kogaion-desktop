@@ -149,6 +149,10 @@ multilib_src_install() {
 		insinto /usr/$(get_libdir)/pkgconfig
 		doins avahi-qt4.pc
 	fi
+        if [ -e "${root_avahi_ui}" ]; then
+                rm -f "${ED}/usr/include/avahi-ui/avahi-ui.h"
+                rm -f "${D}/usr/include/avahi-ui/avahi-ui.h"
+        fi
 }
 
 multilib_src_install_all() {

@@ -169,6 +169,11 @@ multilib_src_install() {
 		rm "${D}"usr/share/applications/bssh.desktop || die
 		rm "${D}"usr/share/applications/bvnc.desktop || die
 	fi
+
+        if [ -e "${root_avahi_ui}" ]; then
+                rm -f "${ED}/usr/include/avahi-ui/avahi-ui.h"
+                rm -f "${D}/usr/include/avahi-ui/avahi-ui.h"
+        fi
 }
 
 multilib_src_install_all() {

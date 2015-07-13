@@ -197,6 +197,8 @@ multilib_src_install() {
 		dohtml -r doxygen/html/. || die
 		insinto /usr/share/devhelp/books/avahi
 		doins avahi.devhelp || die
+		insinto /usr/include
+		doins avahi-ui/avahi-ui.h
 	fi
 }
 
