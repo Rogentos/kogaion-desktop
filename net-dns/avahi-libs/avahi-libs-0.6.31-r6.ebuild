@@ -28,7 +28,11 @@ IUSE="bookmarks dbus gdbm introspection nls python utils"
 
 S="${WORKDIR}/${MY_P}"
 
-COMMON_DEPEND=""
+COMMON_DEPEND="
+        ~net-dns/avahi-base-${PV}[bookmarks=,dbus=,gdbm=,introspection=,nls=,python=,${MULTILIB_USEDEP}]
+        x11-libs/gtk+:3
+"
+
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
