@@ -159,7 +159,8 @@ multilib_src_install() {
 		# Workaround for avahi-ui.h collision between avahi-gtk and avahi-gtk3
 		root_avahi_ui="${ROOT}usr/include/avahi-ui/avahi-ui.h"
 		if [ -e "${root_avahi_ui}" ]; then
-			rm -f "${D}usr/include/avahi-ui/avahi-ui.h"
+			rm -f "${D}/usr/include/avahi-ui/avahi-ui.h"
+			rm -f "${ED}/usr/include/avahi-ui/avahi-ui.h"
 		fi
 
 		# provided by avahi-gtk3
@@ -169,6 +170,11 @@ multilib_src_install() {
 		rm "${D}"usr/share/applications/bssh.desktop || die
 		rm "${D}"usr/share/applications/bvnc.desktop || die
 	fi
+
+        if [ -e "${root_avahi_ui}" ]; then
+                rm -f "${ED}/usr/include/avahi-ui/avahi-ui.h"
+                rm -f "${D}/usr/include/avahi-ui/avahi-ui.h"
+        fi
 }
 
 multilib_src_install_all() {
