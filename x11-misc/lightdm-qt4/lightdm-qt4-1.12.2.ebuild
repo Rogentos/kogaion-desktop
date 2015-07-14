@@ -43,6 +43,7 @@ src_configure() {
 		--disable-static \
 		--disable-tests \
 		--disable-introspection \
+		--enable-liblightdm-gobject \
 		--enable-liblightdm-qt \
 		--disable-liblightdm-qt5
 }
