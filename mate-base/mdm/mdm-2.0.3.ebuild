@@ -114,8 +114,8 @@ src_install() {
 	doenvd 99xdg-mdm
 
 	# add a custom sound playing script (#248253)
-	mv "${gentoodir}/gdmplay" mdmplay
-	dobin mdmplay
+	#mv "${gentoodir}/gdmplay" mdmplay
+	#dobin mdmplay
 
 	# avoid file collision, bug #213118
 	rm -f "${D}/usr/share/xsessions/gnome.desktop"
