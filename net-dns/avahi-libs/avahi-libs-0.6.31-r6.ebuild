@@ -80,15 +80,6 @@ src_configure() {
 }
 
 src_install() {
-	if use abi_x86_32 ; then
 		insinto /usr/include/
 		doins avahi-ui/avahi-ui.h
-		insinto /usr/include/${CHOST}/avahi-ui/
-		doins "${WORKDIR}"/avahi-0.6.31-abi_x86_32.x86/avahi-ui/avahi-ui.h
-	elif use abi_x86_64 ; then
-		insinto /usr/include/
-		doins avahi-ui/avahi-ui.h
-		insinto /usr/include/${CHOST}/avahi-ui/
-		doins "${WORKDIR}"/avahi-0.6.31-abi_x86_64.amd64/avahi-ui/avahi-ui.h
-	fi
 }

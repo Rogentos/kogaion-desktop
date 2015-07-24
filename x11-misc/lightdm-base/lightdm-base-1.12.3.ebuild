@@ -8,6 +8,7 @@ inherit autotools eutils pam readme.gentoo systemd versionator
 TRUNK_VERSION="$(get_version_component_range 1-2)"
 REAL_PN="${PN/-base}"
 REAL_P="${P/-base}"
+MY_PN="lightdm"
 DESCRIPTION="A lightweight display manager, base libraries and programs"
 HOMEPAGE="http://www.freedesktop.org/wiki/Software/LightDM"
 SRC_URI="http://launchpad.net/${REAL_PN}/${TRUNK_VERSION}/${PV}/+download/${REAL_P}.tar.xz
@@ -44,7 +45,7 @@ src_prepare() {
 
 	einfo "Fixing the session-wrapper variable in lightdm.conf"
 	sed -i -e \
-		"/session-wrapper/s@^.*@session-wrapper=/etc/${PN}/Xsession@" \
+		"/session-wrapper/s@^.*@session-wrapper=/etc/${MY_PN}/Xsession@" \
 		data/lightdm.conf || die "Failed to fix lightdm.conf"
 
 	epatch_user

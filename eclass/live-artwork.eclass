@@ -18,10 +18,10 @@ GFX_SPLASH_NAME="${GFX_SPLASH_NAME:-live}"
 # @ECLASS-VARIABLE: PLYMOUTH_THEME
 # @DESCRIPTION:
 # Default plymouth theme name to use
-if [ $(cat /etc/hostname) == "kogaion" ] ; then
-	PLYMOUTH_THEME="${PLYMOUTH_THEME:-kogaion}"
-elif [ $(cat /etc/hostname) == "argent" ] ; then
-	PLYMOUTH_THEME="${PLYMOUTH_THEME:-argent}"
+if [ -d "/etc/kogaion" ] ; then
+        PLYMOUTH_THEME="${PLYMOUTH_THEME:-kogaion}"
+elif [ -d "/etc/argent" ] ; then
+        PLYMOUTH_THEME="${PLYMOUTH_THEME:-argent}"
 fi
 
 # @FUNCTION: update_kernel_initramfs_splash

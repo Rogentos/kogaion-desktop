@@ -34,7 +34,7 @@ if [[ ${PV} != *9999 ]]; then
 			${SRC_URI_KORG}/${MY_PN}-htmldocs-${DOC_VER}.tar.${SRC_URI_SUFFIX}
 			${SRC_URI_GOOG}/${MY_PN}-htmldocs-${DOC_VER}.tar.${SRC_URI_SUFFIX}
 			)"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 fi
 
 sab-patches_update_SRC_URI

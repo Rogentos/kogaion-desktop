@@ -4,76 +4,77 @@
 
 EAPI=5
 
+# split ebuild providing only ->>> gitk, gitview, git-gui, git-citool
+
 GENTOO_DEPEND_ON_PERL=no
 
+# bug #329479: git-remote-testgit is not multiple-version aware
 PYTHON_COMPAT=( python2_7 )
 [[ ${PV} == *9999 ]] && SCM="git-2"
 EGIT_REPO_URI="git://git.kernel.org/pub/scm/git/git.git"
 EGIT_MASTER=pu
 
 SAB_PATCHES_SRC=( "http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/git/git-2.2.2-Gentoo-patches.tar.gz" )
-inherit sab-patches toolchain-funcs eutils multilib python-single-r1 ${SCM}
+inherit sab-patches toolchain-funcs eutils python-single-r1 ${SCM}
 
 MY_PV="${PV/_rc/.rc}"
-MY_PN="${PN/-cvs}"
-MY_P="${MY_PN}-${MY_PV}"
+MY_PV="${MY_PV/-gui-tools}"
+MY_P="${PN}-${MY_PV}"
+MY_P="${MY_P/-gui-tools}"
 
-DOC_VER=${MY_PV}
-
-DESCRIPTION="CVS module for GIT, the stupid content tracker"
+DESCRIPTION="GUI tools derived from git: gitk, git-gui and gitview"
 HOMEPAGE="http://www.git-scm.com/"
 if [[ ${PV} != *9999 ]]; then
 	SRC_URI_SUFFIX="xz"
 	SRC_URI_GOOG="http://git-core.googlecode.com/files"
 	SRC_URI_KORG="mirror://kernel/software/scm/git"
 	SRC_URI="${SRC_URI_GOOG}/${MY_P}.tar.${SRC_URI_SUFFIX}
-			${SRC_URI_KORG}/${MY_P}.tar.${SRC_URI_SUFFIX}
-			${SRC_URI_GOOG}/${MY_PN}-manpages-${DOC_VER}.tar.${SRC_URI_SUFFIX}
-			${SRC_URI_KORG}/${MY_PN}-manpages-${DOC_VER}.tar.${SRC_URI_SUFFIX}
-			doc? (
-			${SRC_URI_KORG}/${MY_PN}-htmldocs-${DOC_VER}.tar.${SRC_URI_SUFFIX}
-			${SRC_URI_GOOG}/${MY_PN}-htmldocs-${DOC_VER}.tar.${SRC_URI_SUFFIX}
-			)"
-	KEYWORDS="~amd64 ~x86"
+			${SRC_URI_KORG}/${MY_P}.tar.${SRC_URI_SUFFIX}"
+	KEYWORDS="amd64 x86"
 fi
 
 sab-patches_update_SRC_URI
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="doc"
+IUSE=""
 
-RDEPEND="~dev-vcs/git-${PV}[-cvs,perl]
-	dev-perl/Error
-	dev-perl/Net-SMTP-SSL
-	dev-perl/Authen-SASL
-	>=dev-vcs/cvsps-2.1:0 dev-perl/DBI dev-perl/DBD-SQLite
+# Common to both DEPEND and RDEPEND
+CDEPEND="
+	sys-libs/zlib
+	dev-lang/tk:="
+
+RDEPEND="${CDEPEND}
+	~dev-vcs/git-${PV}
+	dev-vcs/git[-gtk]
+	dev-vcs/git[-tk]
+	dev-vcs/git[python]
+	>=dev-python/pygtk-2.8[${PYTHON_USEDEP}]
+	>=dev-python/pygtksourceview-2.10.1-r1:2[${PYTHON_USEDEP}]
 	${PYTHON_DEPS}"
-DEPEND="dev-lang/perl:=[-build(-)]
-	doc? (
-		app-text/asciidoc
-		app-text/docbook2X
-		sys-apps/texinfo
-		app-text/xmlto
-	)"
 
-# Live ebuild builds man pages and HTML docs, additionally
-if [[ ${PV} == *9999 ]]; then
-	DEPEND="${DEPEND}
-		app-text/asciidoc"
-fi
+DEPEND="${CDEPEND}"
 
+SITEFILE=50${PN}-gentoo.el
 S="${WORKDIR}/${MY_P}"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 "
 
+pkg_setup() {
+	#if use python ; then
+	python-single-r1_pkg_setup
+	#fi
+}
+
 # This is needed because for some obscure reasons future calls to make don't
 # pick up these exports if we export them in src_unpack()
 exportmakeopts() {
 	local myopts
 
+	myopts+=" NO_EXPAT=YesPlease"
+	myopts+=" NO_CURL=YesPlease"
 	# broken assumptions, because of broken build system ...
 	myopts+=" NO_FINK=YesPlease NO_DARWIN_PORTS=YesPlease"
 	myopts+=" INSTALL=install TAR=tar"
@@ -88,12 +89,7 @@ exportmakeopts() {
 	# can't define this to null, since the entire makefile depends on it
 	sed -i -e '/\/usr\/local/s/BASIC_/#BASIC_/' Makefile
 
-	myopts+=" INSTALLDIRS=vendor"
-	myopts+=" NO_SVN_TESTS=YesPlease"
-
-	has_version '>=app-text/asciidoc-8.0' \
-		&& myopts+=" ASCIIDOC8=YesPlease"
-	myopts+=" ASCIIDOC_NO_ROFF=YesPlease"
+	myopts+=" NO_PERL=YesPlease"
 
 	# Bug 290465:
 	# builtin-fetch-pack.c:816: error: 'struct stat' has no member named 'st_mtim'
@@ -107,13 +103,10 @@ src_unpack() {
 	if [[ ${PV} != *9999 ]]; then
 		unpack ${MY_P}.tar.${SRC_URI_SUFFIX}
 		cd "${S}"
-		unpack ${MY_PN}-manpages-${DOC_VER}.tar.${SRC_URI_SUFFIX}
-		use doc && \
-			cd "${S}"/Documentation && \
-			unpack ${MY_PN}-htmldocs-${DOC_VER}.tar.${SRC_URI_SUFFIX}
-		cd "${S}"
 	else
 		git-2_src_unpack
+		cd "${S}"
+		#cp "${FILESDIR}"/GIT-VERSION-GEN .
 	fi
 
 	sab-patches_unpack
@@ -134,10 +127,6 @@ src_prepare() {
 		-e "s:\(PERL_PATH[[:space:]]\+=[[:space:]]\+\)\(.*\)$:\1${EPREFIX}\2:" \
 		Makefile contrib/svn-fe/Makefile || die "sed failed"
 
-	# Fix docbook2texi command
-	sed -r -i 's/DOCBOOK2X_TEXI[[:space:]]*=[[:space:]]*docbook2x-texi/DOCBOOK2X_TEXI = docbook2texi.pl/' \
-		Documentation/Makefile || die "sed failed"
-
 	# Never install the private copy of Error.pm (bug #296310)
 	sed -i \
 		-e '/private-Error.pm/s,^,#,' \
@@ -145,8 +134,6 @@ src_prepare() {
 }
 
 git_emake() {
-	# bug #326625: PERL_PATH, PERL_MM_OPT
-	# bug #320647: PYTHON_PATH
 	PYTHON_PATH="${PYTHON}"
 	emake ${MY_MAKEOPTS} \
 		DESTDIR="${D}" \
@@ -162,9 +149,6 @@ git_emake() {
 		GIT_TEST_OPTS="--no-color" \
 		V=1 \
 		"$@"
-	# This is the fix for bug #326625, but it also causes breakage, see bug
-	# #352693.
-	# PERL_PATH="${EPREFIX}/usr/bin/env perl" \
 }
 
 src_configure() {
@@ -172,61 +156,50 @@ src_configure() {
 }
 
 src_compile() {
-	#if use perl ; then
-	git_emake perl/PM.stamp || die "emake perl/PM.stamp failed"
-	git_emake perl/perl.mak || die "emake perl/perl.mak failed"
-	#fi
 	git_emake || die "emake failed"
-
-	cd "${S}"/Documentation
-	if [[ ${PV} == *9999 ]] ; then
-		git_emake man \
-			|| die "emake man failed"
-		if use doc ; then
-			git_emake info html \
-				|| die "emake info html failed"
-		fi
-	else
-		if use doc ; then
-			git_emake info \
-				|| die "emake info html failed"
-		fi
-	fi
 }
 
 src_install() {
-	git_emake install || die "make install failed"
+	git_emake \
+		install || \
+		die "make install failed"
 
-	rm -rf "${ED}"usr/share/gitweb || die
-	rm -rf "${ED}"usr/share/git-core/templates || die
-	rm -rf "${ED}"usr/share/git-gui || die
-	rm -rf "${ED}"usr/share/gitk || die
+	#if use python && use gtk ; then
+	python_doscript "${S}"/contrib/gitview/gitview
+	dodoc "${S}"/contrib/gitview/gitview.txt
+	#fi
 
-	local myrelfile=""
-	for myfile in "${ED}"usr/libexec/git-core/* "${ED}"usr/$(get_libdir)/* "${ED}"usr/share/man/*/* "${ED}"usr/bin/* ; do
-		# image dir contains the keyword "cvs"
-		myrelfile="${myfile/${ED}}"
-		case "${myrelfile}" in
-			*cvs*)
+	#find "${ED}"/usr/lib64/perl5/ \
+	#	-name .packlist \
+	#	-exec rm \{\} \;
+
+	rm -r "${ED}"usr/share/git-core || die
+	rm -r "${ED}"usr/libexec/git-core/mergetools || die
+
+	local myfile
+
+	# be sure not to remove tools' lib/python-exec/*
+	for myfile in "${ED}"usr/lib*/python*; do
+		if [[ ! ${myfile} = */python-exec ]]; then
+			rm -r "${myfile}" || die "rm ${myfile} failed"
+		fi
+	done
+
+	for myfile in "${ED}"usr/bin/*; do
+		case "$myfile" in
+			*/gitview*|*/gitk*)
 				true ;;
 			*)
-				rm -rf "${myfile}" || die ;;
+				rm -f "$myfile" ;;
 		esac
 	done
 
-	local libdir="${ED}"usr/$(get_libdir)
-	if [ -d "${libdir}" ]; then
-		# must be empty
-		rmdir "${libdir}" || die
-	fi
-
-	doman man*/*cvs* || die
-	if use doc; then
-		docinto /
-		dodoc Documentation/*cvs*.txt
-		dohtml -p / Documentation/*cvs*.html
-	fi
-
-	# kill empty dirs from ${ED}
-	find "${ED}" -type d -empty -delete || die
+	for myfile in "${ED}"usr/libexec/git-core/*; do
+		case "$myfile" in
+		*/git-gui|*/git-gui--askpass|*/git-citool)
+			true ;;
+		*)
+			rm -f "$myfile" ;;
+		esac
+	done
 }

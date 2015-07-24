@@ -363,7 +363,7 @@ else
 		arm? ( dev-embedded/u-boot-tools )
 		amd64? ( sys-apps/v86d )
 		x86? ( sys-apps/v86d )
-		splash? ( x11-themes/${PLYMOUTH_THEME}-artwork-core )
+		splash? ( x11-themes/kogaion-artwork-core )
 		lvm? ( sys-fs/lvm2 sys-block/thin-provisioning-tools )
 		btrfs? ( sys-fs/btrfs-progs )
 		plymouth? (

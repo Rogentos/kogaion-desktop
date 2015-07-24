@@ -8,14 +8,16 @@ DISTUTILS_OPTIONAL=1
 WANT_AUTOMAKE="none"
 GENTOO_DEPEND_ON_PERL="no"
 
-SAB_PATCHES_SRC=( mirror://kogaion/dev-vcs/${PN}-1.8.9-Gentoo-patches.tar.gz )
+SAB_PATCHES_SRC=( mirror://sabayon/dev-vcs/${PN}-1.8.9-Gentoo-patches.tar.gz )
 inherit sab-patches autotools bash-completion-r1 db-use depend.apache distutils-r1 elisp-common flag-o-matic libtool multilib perl-module eutils
 
 MY_P="${P/_/-}"
 DESCRIPTION="Advanced version control system"
 HOMEPAGE="http://subversion.apache.org/"
-SRC_URI+=" mirror://apache/${PN}/${MY_P}.tar.bz2"
+SRC_URI="mirror://apache/${PN}/${MY_P}.tar.bz2"
 S="${WORKDIR}/${MY_P}"
+
+sab-patches_update_SRC_URI
 
 LICENSE="Subversion GPL-2"
 SLOT="0"
