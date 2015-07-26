@@ -47,6 +47,10 @@ DEPEND="
 RDEPEND=">=app-misc/calamares-runtime-2.0[branding]"
 
 src_prepare() {
+	# insert disable kogaionlive services module into src tree
+	epatch -p1 "${FILESDIR}"/${PN}-disable-kogaionlive-services-module.patch
+	# replace calamares installer desktop icon
+	sed -i "s/Icon=calamares/Icon=start-here/g" "${S}/calamares.desktop"
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
 	export QT_SELECT=qt5
