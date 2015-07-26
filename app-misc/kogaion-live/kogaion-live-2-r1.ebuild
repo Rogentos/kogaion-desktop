@@ -30,3 +30,9 @@ src_install() {
 	emake DESTDIR="${D}" SYSTEMD_UNITDIR="$(systemd_get_unitdir)" \
 		install || die
 }
+
+pkg_postrm() {
+	for service in "x-setup.service" "cdeject.service" "installer-text.service" "installer-gui.service" "graphical_start.service" "kogaionlive.service" ; do
+		find "${ROOT}etc/systemd/system" -name "$service" -delete
+	done
+}
