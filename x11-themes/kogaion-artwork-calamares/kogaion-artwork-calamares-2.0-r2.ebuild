@@ -20,6 +20,10 @@ RDEPEND="app-admin/calamares"
 
 S="${WORKDIR}/${PN}-${PV}"
 
+src_prepare() {
+	sed -i "s/5000/50000/g" "${S}"/show.qml
+}
+
 src_install() {
 	dodir /etc/calamares/branding/kogaion_branding || die
 	insinto /etc/calamares/branding/kogaion_branding || die
