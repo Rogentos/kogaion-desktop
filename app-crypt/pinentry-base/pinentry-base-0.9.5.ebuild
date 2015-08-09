@@ -32,7 +32,6 @@ DOCS=( AUTHORS ChangeLog NEWS README THANKS TODO )
 
 src_prepare() {
 	epatch "${FILESDIR}/${MY_PN}-0.8.2-ncurses.patch"
-	epatch "${FILESDIR}/${MY_PN}-0.8.2-texi.patch"
 	eautoreconf
 }
 
