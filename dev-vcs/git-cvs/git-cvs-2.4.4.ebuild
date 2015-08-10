@@ -11,8 +11,8 @@ PYTHON_COMPAT=( python2_7 )
 EGIT_REPO_URI="git://git.kernel.org/pub/scm/git/git.git"
 EGIT_MASTER=pu
 
-SAB_PATCHES_SRC=( "http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/git/git-2.2.2-Gentoo-patches.tar.gz" )
-inherit sab-patches toolchain-funcs eutils multilib python-single-r1 ${SCM}
+KOG_PATCHES_SRC=( "http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/git/git-2.2.2-Gentoo-patches.tar.gz" )
+inherit kog-patches toolchain-funcs eutils multilib python-single-r1 ${SCM}
 
 MY_PV="${PV/_rc/.rc}"
 MY_PN="${PN/-cvs}"
@@ -37,7 +37,7 @@ if [[ ${PV} != *9999 ]]; then
 	KEYWORDS="amd64 x86"
 fi
 
-sab-patches_update_SRC_URI
+kog-patches_update_SRC_URI
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -116,12 +116,12 @@ src_unpack() {
 		git-2_src_unpack
 	fi
 
-	sab-patches_unpack
+	kog-patches_unpack
 }
 
 src_prepare() {
 	# see the git ebuild for the list of patches
-	sab-patches_apply_all
+	kog-patches_apply_all
 
 	epatch_user
 

@@ -12,8 +12,8 @@ MY_SVN_PF="${MY_SVN_PN}-${PVR}"
 MY_SVN_CATEGORY="${CATEGORY}"
 
 # note: java-pkg-2, not java-pkt-opt-2
-SAB_PATCHES_SRC=( http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/${MY_SVN_PN}-1.8.9-Gentoo-patches.tar.gz )
-inherit sab-patches autotools eutils flag-o-matic java-pkg-2 libtool multilib
+KOG_PATCHES_SRC=( http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/${MY_SVN_PN}-1.8.9-Gentoo-patches.tar.gz )
+inherit kog-patches autotools eutils flag-o-matic java-pkg-2 libtool multilib
 
 DESCRIPTION="Java bindings for Subversion"
 HOMEPAGE="http://subversion.apache.org/"
@@ -47,7 +47,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	sab-patches_apply_all
+	kog-patches_apply_all
 	epatch_user
 
 	fperms +x build/transform_libtool_scripts.sh

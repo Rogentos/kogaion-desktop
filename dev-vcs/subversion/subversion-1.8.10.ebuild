@@ -8,8 +8,8 @@ DISTUTILS_OPTIONAL=1
 WANT_AUTOMAKE="none"
 GENTOO_DEPEND_ON_PERL="no"
 
-SAB_PATCHES_SRC=( http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/${PN}-1.8.9-Gentoo-patches.tar.gz )
-inherit sab-patches autotools bash-completion-r1 db-use depend.apache distutils-r1 elisp-common flag-o-matic libtool multilib perl-module eutils
+KOG_PATCHES_SRC=( http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/${PN}-1.8.9-Gentoo-patches.tar.gz )
+inherit kog-patches autotools bash-completion-r1 db-use depend.apache distutils-r1 elisp-common flag-o-matic libtool multilib perl-module eutils
 
 MY_P="${P/_/-}"
 DESCRIPTION="Advanced version control system"
@@ -113,7 +113,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	sab-patches_apply_all
+	kog-patches_apply_all
 	epatch_user
 
 	fperms +x build/transform_libtool_scripts.sh
