@@ -12,8 +12,8 @@ PYTHON_COMPAT=( python2_7 )
 EGIT_REPO_URI="git://git.kernel.org/pub/scm/git/git.git"
 EGIT_MASTER=pu
 
-SAB_PATCHES_SRC=( "http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/git/git-2.2.2-Gentoo-patches.tar.gz" )
-inherit sab-patches toolchain-funcs eutils elisp-common perl-module bash-completion-r1 python-single-r1 systemd ${SCM}
+KOG_PATCHES_SRC=( "http://bpr.bluepink.ro/~rogentos/distro/dev-vcs/git/git-2.2.2-Gentoo-patches.tar.gz" )
+inherit kog-patches toolchain-funcs eutils elisp-common perl-module bash-completion-r1 python-single-r1 systemd ${SCM}
 
 MY_PV="${PV/_rc/.rc}"
 MY_P="${PN}-${MY_PV}"
@@ -37,7 +37,7 @@ if [[ ${PV} != *9999 ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-sab-patches_update_SRC_URI
+kog-patches_update_SRC_URI
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -220,7 +220,7 @@ src_unpack() {
 		#cp "${FILESDIR}"/GIT-VERSION-GEN .
 	fi
 
-	sab-patches_unpack
+	kog-patches_unpack
 }
 
 src_prepare() {
@@ -229,7 +229,7 @@ src_prepare() {
 
 	# git-...-mw-vendor.patch
 	# git-...-svn-fe-linking.patch
-	sab-patches_apply_all
+	kog-patches_apply_all
 
 	epatch_user
 

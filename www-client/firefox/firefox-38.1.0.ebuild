@@ -276,7 +276,6 @@ src_compile() {
 			fi
 		fi
 		shopt -u nullglob
-		addpredict "${cards}"
 
 		CC="$(tc-getCC)" CXX="$(tc-getCXX)" LD="$(tc-getLD)" \
 		MOZ_MAKE_FLAGS="${MAKEOPTS}" SHELL="${SHELL}" \
