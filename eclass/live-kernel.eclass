@@ -473,7 +473,7 @@ _kernel_copy_config() {
 
 	local base_path="${DISTDIR}"
 	if [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
-		base_path="${S}/${PLYMOUTH_THEME}/config"
+		base_path="${S}/${SYSTEM_DISTRO}/config"
 	fi
 
 	local found= cfg=
@@ -874,7 +874,11 @@ live-kernel_pkg_postinst() {
 		fi
 
 		# Update kernel initramfs to match user customizations
-		use splash && update_${PLYMOUTH_THEME}_kernel_initramfs_splash
+		if [[ ${SYSTEM_DISTRO} == "kogaion" ]] ; then
+			use splash && update_kogaion_kernel_initramfs_splash
+		else
+			use splash && update_argent_kernel_initramfs_splash
+		fi
 
 		# Add kernel to grub.conf
 		if use amd64 || use x86; then

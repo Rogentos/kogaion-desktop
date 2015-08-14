@@ -20,8 +20,10 @@ GFX_SPLASH_NAME="${GFX_SPLASH_NAME:-live}"
 # Default plymouth theme name to use
 if [ -d "/etc/kogaion" ] ; then
         PLYMOUTH_THEME="${PLYMOUTH_THEME:-kogaion}"
+		SYSTEM_DISTRO="${SYSTEM_DISTRO:-kogaion}"
 elif [ -d "/etc/argent" ] ; then
         PLYMOUTH_THEME="${PLYMOUTH_THEME:-argent}"
+		SYSTEM_DISTRO="${SYSTEM_DISTRO:-argent}"
 fi
 
 # @FUNCTION: update_kernel_initramfs_splash
