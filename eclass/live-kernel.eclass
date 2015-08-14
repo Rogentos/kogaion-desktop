@@ -874,7 +874,7 @@ live-kernel_pkg_postinst() {
 		fi
 
 		# Update kernel initramfs to match user customizations
-		if [[ ${SYSTEM_DISTRO} == "kogaion" ]] ; then
+		if [[ "${SYSTEM_DISTRO}" == "kogaion" ]] ; then
 			use splash && update_kogaion_kernel_initramfs_splash
 		else
 			use splash && update_argent_kernel_initramfs_splash
