@@ -41,6 +41,8 @@ DOC_CONTENTS="
 "
 
 src_prepare() {
+	epatch "${FILESDIR}/${PN}-kogaion-defaults.patch"
+
 	sed -i 's:/bin/systemd-tty-ask-password-agent:/usr/bin/systemd-tty-ask-password-agent:g' \
 		systemd-units/systemd-ask-password-plymouth.service.in || die \
 		'ask-password sed failed'
