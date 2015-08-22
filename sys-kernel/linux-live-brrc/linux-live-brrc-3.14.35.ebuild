@@ -1,5 +1,5 @@
 # Copyright 2004-2013 Sabayon Linux
-# Copyright 2015 Kogaion
+# Copyright 2015 Rogentos Team
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
