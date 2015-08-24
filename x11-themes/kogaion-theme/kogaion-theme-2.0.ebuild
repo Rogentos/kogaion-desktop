@@ -19,7 +19,7 @@ RDEPEND="sys-apps/findutils
 	!<sys-boot/grub-0.97-r22
 	!x11-themes/rogentos-artwork-core"
 
-S="${WORKDIR}"/"${PN}"
+S="${WORKDIR}"/"${P}"
 
 src_install() {
 	rm README.md
