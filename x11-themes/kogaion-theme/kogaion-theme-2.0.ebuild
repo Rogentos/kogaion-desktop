@@ -1,7 +1,6 @@
-# Copyright 2015 Kogaion Linux
+# Copyright 2015 Gentoo
 # Distributed under the terms of the GNU General Public License v2
-# Original Authors Sabayon Team
-# Maintainer BlackNoxis <stefan.cristian at rogentos.ro>
+# Maintainer bionel <bionel @ rogentos.ro >
 
 EAPI=5
 inherit eutils mount-boot kogaion-artwork
