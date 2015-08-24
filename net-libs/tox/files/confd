@@ -1,2 +1,7 @@
-TOX_GROUP=tox
-TOX_USER=tox
+# [--ipv4|--ipv6]
+cmdline=""
+
+# open node
+ip=""
+port=""
+key=""

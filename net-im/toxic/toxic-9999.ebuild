@@ -4,28 +4,26 @@
 
 EAPI=5
 
-inherit autotools eutils git-2 toolchain-funcs
+inherit autotools git-2 toolchain-funcs
 
 DESCRIPTION="CLI Frontend for Tox"
-HOMEPAGE="https://wiki.tox.chat/clients/toxic"
+HOMEPAGE="http://wiki.tox.im/Toxic"
 SRC_URI=""
 EGIT_REPO_URI="git://github.com/Tox/toxic
 	https://github.com/Tox/toxic"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+av +libnotify +sound-notify +X"
+IUSE="+libnotify +sound-notify"
 
 RDEPEND="
-	av? (
-		media-libs/openal
-		net-libs/tox[av] )
-	!av? ( net-libs/tox )
-	libnotify? ( x11-libs/libnotify )
-	sound-notify? ( media-libs/freealut )
-	X? ( x11-libs/libX11 )
+	dev-libs/libconfig
+	net-libs/tox[av]
+	media-libs/openal
 	sys-libs/ncurses
-	dev-libs/libconfig"
+	x11-libs/libX11
+	libnotify? ( x11-libs/libnotify )
+	sound-notify? ( media-libs/freealut )"
 DEPEND="${RDEPEND}
 	app-text/asciidoc
 	virtual/pkgconfig"
@@ -34,34 +32,23 @@ src_prepare() {
 	# verbose build
 	sed -i \
 		-e 's/@$(CC)/$(CC)/' \
-		Makefile || die
+		build/Makefile || die
 	epatch_user
 }
 
 src_compile() {
-	use av || export AV="DISABLE_AV=1"
 	use libnotify || export NOTIFY="DISABLE_DESKTOP_NOTIFY=1"
 	use sound-notify || export SOUND_NOTIFY="DISABLE_SOUND_NOTIFY=1"
-	use X || export X="DISABLE_X11=1"
 	emake \
 		CC="$(tc-getCC)" \
 		USER_CFLAGS="${CFLAGS}" \
 		USER_LDFLAGS="${LDFLAGS}" \
-		PREFIX="/usr" ${NOTIFY} ${SOUND_NOTIFY} ${X} ${AV}
+		PREFIX="/usr" ${NOTIFY} ${SOUND_NOTIFY} \
+		-C build
 }
 
 src_install() {
-	use av || export AV="DISABLE_AV=1"
-	use libnotify || export NOTIFY="DISABLE_DESKTOP_NOTIFY=1"
-	use sound-notify || export SOUND_NOTIFY="DISABLE_SOUND_NOTIFY=1"
-	use X || export X="DISABLE_X11=1"
-
-	# ↑ needed workaround, without it "missing" things may compile again in install() –.–"
-
-	emake \
-		install PREFIX="/usr" DESTDIR="${D}" \
-		${NOTIFY} ${SOUND_NOTIFY} ${X} ${AV} # part of workaround
-
+	emake install PREFIX="/usr" DESTDIR="${D}" -C build
 }
 
 pkg_postinst() {
