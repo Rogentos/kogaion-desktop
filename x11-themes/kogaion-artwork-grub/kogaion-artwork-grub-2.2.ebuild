@@ -15,7 +15,7 @@ SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 RDEPEND="!x11-themes/rogentos-artwork-grub" #avoid file colision
 
