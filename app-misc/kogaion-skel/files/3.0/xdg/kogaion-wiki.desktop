@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://packages.rogentos.ro
+Exec=xdg-open http://wiki.rogentos.ro/wiki/Pagina_principal%C4%83
 Icon=kogaion-weblink
 
-Name=Kogaion Packages
+Name=Kogaion Documentation
 
