@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/numixproject/numix-icon-theme"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="amd64 x86"
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
