@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://www.rogentos.ro/chat
+Exec=xdg-open http://webchat.freenode.net/?channels=rogentos-dezvoltare
 Icon=kogaion-weblink
 
 Name=Get Live Help
