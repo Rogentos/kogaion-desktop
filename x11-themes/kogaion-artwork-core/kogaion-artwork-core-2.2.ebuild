@@ -14,7 +14,7 @@ SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}
 
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
-KEYWORDS="~arm ~x86 ~amd64"
+KEYWORDS="~arm x86 amd64"
 IUSE=""
 RDEPEND="sys-apps/findutils
 	!<sys-boot/grub-0.97-r22
@@ -51,6 +51,8 @@ src_install() {
 	#doins "${S}"/plymouth/bizcom.png # dropped with new script to avoid collision
 	insinto /usr/share/plymouth/themes
 	doins -r "${S}"/plymouth/themes/kogaion
+	insinto /usr/share/plymouth/
+	newins "${S}"/plymouth/themes/kogaion/kogaion-logo.png bizcom.png
 
 	# Apply our tricks
 
