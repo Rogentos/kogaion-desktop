@@ -12,7 +12,7 @@ SRC_URI="http://launchpad.net/lightdm-gtk-greeter/$(get_version_component_range 
 
 LICENSE="GPL-3 LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~x86"
+KEYWORDS="amd64 ~arm ~ppc x86"
 IUSE=""
 
 # This ebuild needs custom Kogaion themes, thus it must depend on kogaion-artwork-core
