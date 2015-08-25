@@ -28,7 +28,7 @@ RDEPEND="!!<x11-misc/lightdm-1.1.1
 src_prepare() {
 	# Apply custom Kogaion settings
 	sed -i \
-		-e 's:#background=.*:background=/usr/share/backgrounds/kogaion-logo.png:' \
+		-e 's:#background=.*:background=/usr/share/pixmaps/kogaion-logo.png:' \
 		-e 's:#xft-hintstyle=.*:xft-hintstyle=hintfull:' \
 		-e 's:#xft-antialias=.*:xft-antialias=true:' \
 		-e 's:#position=.*:position=5% 50%:' \
