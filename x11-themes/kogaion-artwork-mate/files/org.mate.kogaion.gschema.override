@@ -2,15 +2,15 @@
 font='Bitstream Vera Sans 10'
 
 [org.mate.background]
-picture-filename='/usr/share/backgrounds/Kogaion_tri_flame_wide.png'
+picture-filename='/usr/share/backgrounds/nature/Sea 1.jpg'
 picture-options='stretched'
 
 [org.mate.interface]
 document-font-name='Bitstream Vera Sans 10'
 font-name='Bitstream Vera Sans 10'
-gtk-theme='Kogaion-light'
-icon-theme='Faenza-Kupertino-Light'
+gtk-theme='Kogaion-daylight'
+icon-theme='Numix-Circle'
 
 [org.mate.Marco.general]
-theme='Kogaion-light'
+theme='Kogaion-daylight'
 titlebar-font='Bitstream Vera Sans Bold 10'
