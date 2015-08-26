@@ -1,0 +1,7 @@
+--- data.old/lightdm-gtk-greeter.conf	2015-02-16 02:34:19.000000000 +0200
++++ data/lightdm-gtk-greeter.conf	2015-08-26 17:19:05.871029323 +0300
+@@ -60,3 +60,4 @@
+ #reader=
+ #position=
+ #screensaver-timeout=
++default-user-image=/usr/share/pixmaps/kogaion-logo.png

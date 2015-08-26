@@ -26,10 +26,10 @@ RDEPEND="!!<x11-misc/lightdm-1.1.1
 	x11-themes/kogaion-artwork-core"
 
 src_prepare() {
+	epatch "${FILESDIR}"/kogaion-greeter.patch
 	# Apply custom Kogaion settings
 	sed -i \
-		-e 's:#background=.*:background=/usr/share/backgrounds/kgdm.png \
-	default-user-image=/usr/share/pixmaps/kogaion-logo.png:' \
+		-e 's:#background=.*:background=/usr/share/backgrounds/kgdm.png:' \
 		-e 's:#xft-hintstyle=.*:xft-hintstyle=hintfull:' \
 		-e 's:#xft-antialias=.*:xft-antialias=true:' \
 		-e 's:#position=.*:position=5% 50%:' \
