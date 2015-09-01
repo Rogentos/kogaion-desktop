@@ -25,6 +25,6 @@ K_MKIMAGE_KERNEL_ADDRESS="0x80008000"
 
 inherit kogaion-kernel
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 DESCRIPTION="Official Kogaion Linux Standard kernel image"
 RESTRICT="mirror"
