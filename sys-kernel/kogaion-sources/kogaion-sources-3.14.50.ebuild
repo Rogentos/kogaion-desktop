@@ -13,7 +13,7 @@ K_KERNEL_NEW_VERSIONING="1"
 
 inherit kogaion-kernel
 
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 ~arm x86"
 DESCRIPTION="Official Kogaion Linux Standard kernel sources"
 RESTRICT="mirror"
 IUSE="sources_standalone"
