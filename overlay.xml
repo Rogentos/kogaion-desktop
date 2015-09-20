@@ -4,12 +4,11 @@
   <repo quality="experimental" status="unofficial">
     <name>kogaion-desktop</name>
     <description>Kogaion Desktop oriented overlay of ebuilds</description>
-    <homepage>https://github.com/Rogentos/kogaion-desktop</homepage>
+    <homepage>https://gitlab.com/kogaion/kogaion-desktop</homepage>
     <owner type="project">
       <email>stefan.cristian at rogentos.ro</email>
       <name>Steven Cristian</name>
     </owner>
-    <source type="git">git://github.com/Rogentos/kogaion-desktop.git</source>
-    <feed>https://github.com/Rogentos/kogaion-desktop/commits/master.atom</feed>
+    <source type="git">https://gitlab.com/kogaion/kogaion-desktop.git</source>
   </repo>
 </repositories>
