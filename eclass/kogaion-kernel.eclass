@@ -511,7 +511,7 @@ _kernel_src_compile() {
 
 	cd "${S}" || die
 	local GKARGS=()
-	GKARGS+=( "--no-menuconfig" "--no-save-config" "--e2fsprogs" "--udev" )
+	GKARGS+=( "--no-menuconfig" "--all-ramdisk-modules" "--no-save-config" "--e2fsprogs" "--udev" )
 	# use splash && GKARGS+=( "--splash=kogaion" ) #NO MORE fbsplash!!!
 	use btrfs && GKARGS+=( "--btrfs" )
 	use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=${PLYMOUTH_THEME}" ) #reverted to use variable (check the eclass)
