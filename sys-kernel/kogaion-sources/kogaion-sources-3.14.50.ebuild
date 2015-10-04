@@ -4,6 +4,8 @@
 
 EAPI=5
 
+inherit versionator
+
 K_ROGKERNEL_NAME="kogaion"
 K_ROGKERNEL_URI_CONFIG="yes"
 K_ROGKERNEL_SELF_TARBALL_NAME="kogaion"
