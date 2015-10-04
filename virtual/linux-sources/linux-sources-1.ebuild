@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="firmware"
 
 DEPEND="firmware? ( sys-kernel/linux-firmware )"
