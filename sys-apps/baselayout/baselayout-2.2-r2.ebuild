@@ -145,7 +145,7 @@ pkg_preinst() {
 	fi
 	rm -f "${D}"/usr/share/${PN}/Makefile
 
-	# Sabayon customization, protect /etc/hosts from removal (from older ebuilds)
+	# Kogaion customization, protect /etc/hosts from removal (from older ebuilds)
 	local etc_hosts="${ROOT}/etc/hosts"
 	if [ -e "${etc_hosts}" ]; then
 		cp -p "${etc_hosts}" "${etc_hosts}.baselayout_ebuild_backup" # don't die
@@ -156,7 +156,7 @@ src_unpack() {
 	unpack ${A}
 
 	cd "${S}"
-	# We are Sabayon!
+	# Set Kogaion output here
 	epatch "${FILESDIR}/${PN}-kogaion-os-release.patch"
 }
 
@@ -187,7 +187,7 @@ src_install() {
 	echo "LDPATH='${ldpaths#:}'" >> "${D}"/etc/env.d/00basic
 
 	# rc-scripts version for testing of features that *should* be present
-	echo "Gentoo Base System release ${PV}" > "${D}"/etc/gentoo-release
+	echo "Kogaion Gentoo-based system release ${PV}" > "${D}"/etc/gentoo-release
 
 	# Sabayon customization, install /etc/hosts separately (to .example)
 	mv "${D}"/etc/hosts "${D}"/etc/hosts.example || die "cannot move /etc/hosts"
