@@ -18,7 +18,10 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="
-	sys-fs/squashfs-tools"
+	sys-fs/squashfs-tools
+	sys-boot/grub:2
+	dev-libs/libisoburn
+	sys-fs/mtools"
 RDEPEND="${DEPEND}"
 
 src_install() {
@@ -31,5 +34,6 @@ src_install() {
 	dodir /usr/share/${PN}
 	insinto /usr/share/${PN}
 	doins ${S}/build*
+	doins ${S}/iso*
 }
 
