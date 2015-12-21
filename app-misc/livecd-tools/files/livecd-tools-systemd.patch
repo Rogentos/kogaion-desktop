@@ -1,0 +1,12 @@
+diff -Nur a/livecd-functions.sh b/livecd-functions.sh
+--- a/livecd-functions.sh	2015-12-11 17:49:28.000000000 +0000
++++ b/livecd-functions.sh	2015-12-21 12:59:58.548466484 +0000
+@@ -8,7 +8,7 @@
+ #    LIVECD_CONSOLE_PARITY   -- console parity specified
+ #    LIVECD_CONSOLE_DATABITS -- console databits specified
+ 
+-[[ ${RC_GOT_FUNCTIONS} != "yes" ]] && [[ -e /etc/init.d/functions.sh ]] && source /etc/init.d/functions.sh
++[[ ${RC_GOT_FUNCTIONS} != "yes" ]] && [[ -e /lib/gentoo/functions.sh ]] && source /lib/gentoo/functions.sh
+ 
+ livecd_parse_opt() {
+ 	case "$1" in
