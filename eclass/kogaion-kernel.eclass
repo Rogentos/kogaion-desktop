@@ -576,7 +576,7 @@ _kernel_src_compile() {
 		--bootdir="${WORKDIR}"/boot \
 		--mountboot \
 		--module-prefix="${WORKDIR}"/lib \
-		all || die "genkernel failed"
+		kernel || die "genkernel failed"
 
 	if [ -n "${K_MKIMAGE_KERNEL_ADDRESS}" ]; then
 		unset LOADADDR
