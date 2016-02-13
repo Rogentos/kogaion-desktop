@@ -83,7 +83,7 @@ K_KERNEL_SLOT_USEPVR="${K_KERNEL_SLOT_USEPVR:-0}"
 # versioning and ${PV} contains the stable revision, like 3.7.1.
 # In the example above, this makes the SLOT variable contain only "3.7".
 # The sublevel version can be forced using K_ROGKERNEL_FORCE_SUBLEVEL
-K_KERNEL_NEW_VERSIONING="${K_KERNEL_NEW_VERSIONING:-0}"
+K_KERNEL_NEW_VERSIONING="${K_KERNEL_NEW_VERSIONING:-1}"
 
 # @ECLASS-VARIABLE: K_KERNEL_IMAGE_NAME
 # @DESCRIPTION:
@@ -222,7 +222,13 @@ _get_real_kv_full() {
 	elif [[ "${OKV/.*}" -ge "3" ]]; then
 		# Linux 3.x support, KV_FULL is set to: 3.0-kogaion
 		# need to add another final .0 to the version part
-		echo "${ORIGINAL_KV_FULL/-/.0-}"
+		#echo "${ORIGINAL_KV_FULL/-/.0-}"
+		echo "${ORIGINAL_KV_FULL}"
+    elif [[ "${OKV/.*}" = "4" ]]; then
+	    # Linux 4.x support, KV_FULL is set to: 4.0-kogaion
+		# need to add another final .0 to the version part
+		#echo "${ORIGINAL_KV_FULL/-/.0-}"
+		echo "${ORIGINAL_KV_FULL}"
 	else
 		echo "${ORIGINAL_KV_FULL}"
 	fi
@@ -231,6 +237,7 @@ _get_real_kv_full() {
 # replace "linux" with K_ROGKERNEL_NAME, usually replaces
 # "linux" with "kogaion" or "server" or "openvz"
 KV_FULL="${KV_FULL/${PN/-*}/${K_ROGKERNEL_NAME}}"
+KV_FULL="${PV}-${K_ROGKERNEL_NAME}"
 EXTRAVERSION="${EXTRAVERSION/${PN/-*}/${K_ROGKERNEL_NAME}}"
 # drop -rX if exists
 if [[ -n "${PR//r0}" ]] && [[ "${K_KERNEL_DISABLE_PR_EXTRAVERSION}" = "1" ]] \
@@ -273,13 +280,15 @@ _is_kernel_binary() {
 }
 
 _is_kernel_lts() {
-	local _ver="$(get_version_component_range 1-2)"
+	local _ver="$(get_version_component_range 1-3)"
 	[ "${_ver}" = "3.0" ] && return 0
 	[ "${_ver}" = "3.2" ] && return 0
 	[ "${_ver}" = "3.4" ] && return 0
 	[ "${_ver}" = "3.10" ] && return 0
 	[ "${_ver}" = "3.12" ] && return 0
 	[ "${_ver}" = "3.14" ] && return 0
+	[ "${_ver}" = "4.1"  ] && return 0
+	[ "${_ver}" = "4.4"  ] && return 0
 	return 1
 }
 
@@ -293,9 +302,9 @@ if _is_kernel_binary; then
 fi
 
 if [ -n "${K_ROGKERNEL_SELF_TARBALL_NAME}" ]; then
-	HOMEPAGE="https://github.com/Rogentos/kernel"
+	HOMEPAGE="https://gitlab.com/rogentos/kernel"
 else
-	HOMEPAGE="http://www.kogaion.ro"
+	HOMEPAGE="http://www.rogentos.ro"
 fi
 
 # Returns success if _set_config_file_vars was called.
@@ -770,7 +779,13 @@ _get_release_level() {
 	elif [[ "${OKV/.*}" -ge "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
 		# Linux 3.x support, KV_FULL is set to: 3.0-kogaion
 		# need to add another final .0 to the version part
-		echo "${KV_FULL/-/.0-}"
+		#echo "${KV_FULL/-/.0-}"
+		echo "${KV_FULL}"
+    elif [[ "${OKV/.*}" = "4" ]] && [[ "${KV_PATCH}" = "0" ]]; then
+	    # Linux 4.x support, KV_FULL is set to: 4.0-kogaion
+		# need to add another final .0 to the version part
+		#echo "${KV_FULL/-/.0-}"
+		echo "${KV_FULL}"
 	else
 		echo "${KV_FULL}"
 	fi
@@ -904,7 +919,7 @@ kogaion-kernel_pkg_postinst() {
 		_update_depmod "${depmod_r}"
 
 		elog "Please report kernel bugs at:"
-		elog "http://bugs.kogaion.ro"
+		elog "http://bugs.rogentos.ro"
 
 		elog "The source code of this kernel is located at"
 		elog "=${K_KERNEL_SOURCES_PKG}."
