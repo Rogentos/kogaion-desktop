@@ -1,5 +1,0 @@
-sys-devel/autoconf
-sys-devel/automake
-sys-devel/gcc
-virtual/os-headers
-virtual/pkgconfig
