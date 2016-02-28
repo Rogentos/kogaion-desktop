@@ -1,0 +1,12 @@
+diff -Nur a/src/radeon_kms.c b/src/radeon_kms.c
+--- a/src/radeon_kms.c	2015-11-12 02:57:33.000000000 +0000
++++ b/src/radeon_kms.c	2015-12-28 16:50:05.403313307 +0000
+@@ -1630,7 +1630,7 @@
+     }
+ #endif
+ 
+-    value = FALSE;
++    value = TRUE;
+     from = X_DEFAULT;
+     if (xf86GetOptValBool(info->Options, OPTION_DRI3, &value))
+ 	from = X_CONFIG;
