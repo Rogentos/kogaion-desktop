@@ -7,16 +7,13 @@ inherit eutils mount-boot kogaion-artwork
 
 DESCRIPTION="Offical Kogaion-Linux Core Artwork"
 HOMEPAGE="http://www.rogentos.ro"
-SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz
-	mirror://kogaion/${CATEGORY}/"${PN}"/${P}.tar.gz"
+SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz"
 
 LICENSE="CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
 KEYWORDS="~arm x86 amd64"
 IUSE=""
-RDEPEND="sys-apps/findutils
-	!<sys-boot/grub-0.97-r22
-	!x11-themes/rogentos-artwork-core"
+RDEPEND="sys-apps/findutils"
 
 S="${WORKDIR}"/"${P}"
 
