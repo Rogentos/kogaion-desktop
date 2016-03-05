@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: Exp $
 
-EAPI=4
+EAPI=5
 
 inherit kde4-base
 
@@ -11,8 +11,7 @@ HOMEPAGE="http://tiheum.deviantart.com/"
 
 MY_PN="Faenza"
 
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/x11-themes/${PN}/${MY_PN}.tar.gz
-	http://pkg3.rogentos.ro/~noxis/distro/x11-themes/${PN}/${MY_PN}.tar.gz"
+SRC_URI="http://pkg.rogentos.ro/distfiles/x11-themes/${PN}/${MY_PN}.tar.gz"
 
 LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~x86 ~arm"
