@@ -16,7 +16,7 @@ SRC_URI="https://launchpad.net/~numix/+archive/ubuntu/ppa/+files/${MY_P}_${PV}.o
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="+gtk3 metacity openbox unity xfwm4"
+IUSE="+gtk3 metacity openbox unity +xfwm4"
 
 DEPEND=""
 RDEPEND="x11-themes/gtk-engines-murrine
