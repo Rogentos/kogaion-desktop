@@ -13,10 +13,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
-RDEPEND=">=x11-themes/kogaion-artwork-core-2.2
-	x11-themes/kogaion-theme
-	x11-themes/numix-icon-theme
-	x11-themes/numix-icon-theme-circle"
+DEPEND=""
+RDEPEND=""
 
 S="${WORKDIR}/"
 
