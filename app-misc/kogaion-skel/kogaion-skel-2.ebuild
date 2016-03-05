@@ -14,8 +14,12 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~arm x86"
 IUSE=""
-RDEPEND=""
 DEPEND=""
+RDEPEND="
+	x11-themes/kogaion-theme
+	x11-themes/numix-icon-theme
+	x11-themes/numix-icon-theme-circle
+	x11-themes/kogaion-artwork-core"
 
 src_install () {
 	dodir /etc/xdg/menus
