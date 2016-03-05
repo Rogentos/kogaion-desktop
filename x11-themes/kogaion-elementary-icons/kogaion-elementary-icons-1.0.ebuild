@@ -10,7 +10,7 @@ SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~arm ~amd64 ~x86"
+KEYWORDS="~arm amd64 x86"
 IUSE=""
 
 RDEPEND=""
