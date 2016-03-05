@@ -31,9 +31,6 @@ src_install () {
 	dodir /usr/share/kogaion
 	cp -a "${FILESDIR}"/3.0/* "${D}"/usr/share/kogaion/
 	doicon "${FILESDIR}"/3.0/img/kogaion-weblink.png
-
-	insinto /etc/bash/ || die "Failed to insinto"
-	doins "${S}"/skel/.bash/bashrc /etc/bash/ || die "Cannot copy bashrc"
 }
 
 pkg_postinst() {
