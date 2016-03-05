@@ -4,7 +4,7 @@
 # $Header: $
 
 EAPI=4
-EGIT_REPO_URI="git://github.com/Rogentos/roskel.git"
+EGIT_REPO_URI="https://gitlab.com/kogaion/kogaion-skel.git"
 
 inherit eutils git-2 fdo-mime
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 ~arm x86"
 IUSE=""
 RDEPEND=""
-DEPEND="!>=app-misc/rogentos-skel-1"
+DEPEND=""
 
 src_install () {
 	dodir /etc/xdg/menus
