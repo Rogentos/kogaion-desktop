@@ -7,7 +7,7 @@ inherit eutils mount-boot kogaion-artwork
 
 DESCRIPTION="Offical Kogaion-Linux Core Artwork"
 HOMEPAGE="http://www.rogentos.ro"
-SRC_URI="http://pkg.rogentos.ro/~rogentos/distro/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz
+SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/"${PN}"-${PV}.tar.gz
 	mirror://kogaion/${CATEGORY}/"${PN}"/${P}.tar.gz"
 
 LICENSE="CCPL-Attribution-ShareAlike-3.0"

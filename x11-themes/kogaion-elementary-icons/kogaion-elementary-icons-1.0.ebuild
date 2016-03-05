@@ -6,8 +6,7 @@ EAPI=5
 
 DESCRIPTION="Kogaion elementary icons"
 HOMEPAGE="https://github.com/bionel/kogaion-src"
-SRC_URI="http://bpr.bluepink.ro/~rogentos/distro/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
-	#mirror://kogaion/${CATEGORY}/"${PN}"/${PN}-${PVR}.tar.gz
+SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/${PN}-${PVR}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
