@@ -187,7 +187,7 @@ src_install() {
 	echo "LDPATH='${ldpaths#:}'" >> "${D}"/etc/env.d/00basic
 
 	# rc-scripts version for testing of features that *should* be present
-	echo "Kogaion Gentoo Linux 3.0" > "${D}"/etc/gentoo-release
+	echo "Kogaion Linux 3.0" > "${D}"/etc/gentoo-release
 
 	# Sabayon customization, install /etc/hosts separately (to .example)
 	mv "${D}"/etc/hosts "${D}"/etc/hosts.example || die "cannot move /etc/hosts"
