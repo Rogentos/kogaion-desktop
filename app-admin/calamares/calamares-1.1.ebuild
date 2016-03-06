@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python3_3 )
+PYTHON_COMPAT=( python3_4 )
 
 inherit eutils cmake-utils python-r1
 
@@ -22,8 +22,7 @@ S="${WORKDIR}/${PN}-${PV}"
 DEPEND="
 	dev-vcs/git
 	python? (
-		>=dev-lang/python-3.3.5-r1:3.3
-		>=dev-libs/boost-1.55.0-r2[python_targets_python3_3]
+		>=dev-libs/boost-1.55:=[${PYTHON_USEDEP}]
 	)
 	>=dev-qt/designer-5.4.0:5
 	>=dev-qt/linguist-tools-5.4.0:5

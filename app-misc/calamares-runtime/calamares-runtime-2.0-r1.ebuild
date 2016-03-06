@@ -4,6 +4,8 @@
 
 EAPI=5
 
+PYTHON_COMPAT=( python3_4 )
+
 DESCRIPTION="Calamares distribution-independent installer framework runtime meta-package (containing all the runtime dependencies)"
 SRC_URI=""
 
@@ -15,13 +17,12 @@ IUSE="+branding +python"
 DEPEND=""
 RDEPEND="
 	python? (
-		>=dev-lang/python-3.3.5-r1:3.3
-		>=dev-libs/boost-1.55.0-r2[python_targets_python3_3]
+		>=dev-libs/boost-1.55:=[${PYTHON_USEDEP}]
 	)
 	branding? ( >=x11-themes/kogaion-artwork-calamares-2.0 )
 	>=app-misc/calamares-config-kogaion-2.0
 	>=dev-qt/designer-5.4.0:5
-	>=dev-qt/linguist-tools-5.4.0:5	
+	>=dev-qt/linguist-tools-5.4.0:5
 	>=dev-qt/qtconcurrent-5.4.0:5
 	>=dev-qt/qtcore-5.4.0:5
 	>=dev-qt/qtdbus-5.4.0:5
