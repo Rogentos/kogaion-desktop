@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cd /opt/kogaion-build ; git pull ; cd
