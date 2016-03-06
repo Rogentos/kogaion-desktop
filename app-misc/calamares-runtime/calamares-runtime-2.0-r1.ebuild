@@ -17,7 +17,7 @@ IUSE="+branding +python"
 DEPEND=""
 RDEPEND="
 	python? (
-		>=dev-libs/boost-1.55:=[${PYTHON_USEDEP}]
+		>=dev-libs/boost-1.55.0-r2[python_targets_python3_4]
 	)
 	branding? ( >=x11-themes/kogaion-artwork-calamares-2.0 )
 	>=app-misc/calamares-config-kogaion-2.0

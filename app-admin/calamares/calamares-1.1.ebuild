@@ -22,7 +22,7 @@ S="${WORKDIR}/${PN}-${PV}"
 DEPEND="
 	dev-vcs/git
 	python? (
-		>=dev-libs/boost-1.55:=[${PYTHON_USEDEP}]
+		>=dev-libs/boost-1.55.0-r2[python_targets_python3_4]
 	)
 	>=dev-qt/designer-5.4.0:5
 	>=dev-qt/linguist-tools-5.4.0:5
