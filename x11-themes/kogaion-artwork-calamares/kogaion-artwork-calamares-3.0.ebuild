@@ -6,7 +6,7 @@ EAPI=5
 
 inherit eutils
 
-DESCRIPTION="Kogaion Linux 2.0 branding component for Calamares"
+DESCRIPTION="Kogaion Linux 3.0 branding component for Calamares"
 HOMEPAGE="http://rogentos.ro"
 SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/${PN}-${PV}.tar.bz2"
 
