@@ -26,4 +26,5 @@ DEPEND="${DEPEND}
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-disable-xhci-enable-user-ns.patch"
+	kogaion-kernel_src_prepare
 }
