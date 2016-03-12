@@ -28,8 +28,3 @@ inherit kogaion-kernel
 KEYWORDS="amd64 x86"
 DESCRIPTION="Official Kogaion Linux Standard kernel image"
 RESTRICT="mirror"
-
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-disable-xhci-enable-user-ns.patch"
-	kogaion-kernel_src_prepare
-}
