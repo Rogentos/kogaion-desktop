@@ -23,3 +23,7 @@ IUSE="sources_standalone"
 DEPEND="${DEPEND}
 	sources_standalone? ( !=sys-kernel/linux-kogaion-${PVR} )
 	!sources_standalone? ( =sys-kernel/linux-kogaion-${PVR} )"
+
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-disable-xhci-enable-user-ns.patch"
+}
