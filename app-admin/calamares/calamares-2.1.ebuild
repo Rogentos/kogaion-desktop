@@ -44,7 +44,7 @@ DEPEND="
 	>=kde-frameworks/extra-cmake-modules-5.10.0
 	>=sys-libs/kpmcore-2.1.0"
 
-RDEPEND=">=app-misc/calamares-runtime-2.0[branding]"
+RDEPEND=">=app-misc/calamares-runtime-3.0[branding]"
 
 src_prepare() {
 	# replace calamares installer desktop icon
