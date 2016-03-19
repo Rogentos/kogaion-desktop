@@ -193,6 +193,8 @@ multilib_src_configure() {
 		--enable-efi
 		--enable-ima
 		--without-python
+		# disable ldconfig service (gentoo based distros don't need it)
+		--disable-ldconfig
 
 		# Optional components/dependencies
 		$(multilib_native_use_enable acl)
