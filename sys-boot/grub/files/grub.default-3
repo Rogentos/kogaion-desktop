@@ -9,7 +9,7 @@
 # See the grub info page for documentation on possible variables and
 # their associated values.
 
-GRUB_DISTRIBUTOR="Gentoo"
+GRUB_DISTRIBUTOR="Kogaion"
 
 # Default menu entry
 #GRUB_DEFAULT=0
@@ -18,19 +18,8 @@ GRUB_DISTRIBUTOR="Gentoo"
 #GRUB_TIMEOUT=5
 #GRUB_TIMEOUT_STYLE=menu
 
-# Append parameters to the linux kernel command line
-#GRUB_CMDLINE_LINUX=""
-#
-# Examples:
-#
-# Boot with network interface renaming disabled
-# GRUB_CMDLINE_LINUX="net.ifnames=0"
-#
-# Boot with systemd instead of sysvinit (openrc)
-# GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd"
-
 # Append parameters to the linux kernel command line for non-recovery entries
-#GRUB_CMDLINE_LINUX_DEFAULT=""
+GRUB_CMDLINE_LINUX_DEFAULT="splash quiet"
 
 # Uncomment to disable graphical terminal (grub-pc only)
 #GRUB_TERMINAL=console
@@ -38,23 +27,23 @@ GRUB_DISTRIBUTOR="Gentoo"
 # The resolution used on graphical terminal.
 # Note that you can use only modes which your graphic card supports via VBE.
 # You can see them in real GRUB with the command `vbeinfo'.
-#GRUB_GFXMODE=640x480
+GRUB_GFXMODE="1366x768,1024x768,auto"
 
 # Set to 'text' to force the Linux kernel to boot in normal text
 # mode, 'keep' to preserve the graphics mode set using
 # 'GRUB_GFXMODE', 'WIDTHxHEIGHT'['xDEPTH'] to set a particular
 # graphics mode, or a sequence of these separated by commas or
 # semicolons to try several modes in sequence.
-#GRUB_GFXPAYLOAD_LINUX=
+GRUB_GFXPAYLOAD_LINUX="keep"
 
 # Path to theme spec txt file.
 # The starfield is by default provided with use truetype.
 # NOTE: when enabling custom theme, ensure you have required font/etc.
-#GRUB_THEME="/boot/grub/themes/starfield/theme.txt"
+GRUB_THEME="/usr/share/grub/themes/kogaion/theme.txt"
 
 # Background image used on graphical terminal.
 # Can be in various bitmap formats.
-#GRUB_BACKGROUND="/boot/grub/mybackground.png"
+GRUB_BACKGROUND="/usr/share/grub/themes/kogaion/terminal_bg.png"
 
 # Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to kernel
 #GRUB_DISABLE_LINUX_UUID=true
