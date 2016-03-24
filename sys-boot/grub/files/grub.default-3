@@ -15,7 +15,7 @@ GRUB_DISTRIBUTOR="Kogaion"
 #GRUB_DEFAULT=0
 
 # Boot the default entry this many seconds after the menu is displayed
-#GRUB_TIMEOUT=5
+GRUB_TIMEOUT="5"
 #GRUB_TIMEOUT_STYLE=menu
 
 # Append parameters to the linux kernel command line for non-recovery entries
