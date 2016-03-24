@@ -1,5 +1,3 @@
-# Copyright 1999-2014 Sabayon Linux
-# Copyright 2014 Kogaion
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
