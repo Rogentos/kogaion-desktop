@@ -1,5 +1,3 @@
-# Copyright 2004-2012 Sabayon
-# Copyright 2012-2015 Kogaion
 # Distributed under the terms of the GNU General Public License v2
 # Maintainer BlackNoxis <stefan.cristian at rogentos.ro>
 
