@@ -16,7 +16,7 @@ DESCRIPTION="Version of go compiler used for bootstrapping"
 HOMEPAGE="http://www.golang.org"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="1.4"
 IUSE=""
 
 DEPEND=""

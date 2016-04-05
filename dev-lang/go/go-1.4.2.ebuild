@@ -21,7 +21,7 @@ DESCRIPTION="A concurrent garbage collected and typesafe programming language"
 HOMEPAGE="http://www.golang.org"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="1.4"
 IUSE=""
 
 DEPEND=""
