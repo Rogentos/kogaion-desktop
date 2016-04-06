@@ -18,11 +18,11 @@ IUSE=""
 S="${WORKDIR}/${PN}-${P}"
 DEPEND=""
 RDEPEND="app-portage/eix
-		app-portage/gentoolkit
+		app-portage/portage-utils
 		sys-apps/portage"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-sync-kogaion-portage-config.patch
+	epatch "${FILESDIR}"/${PN}-kogaion.patch
 }
 
 src_install() {
