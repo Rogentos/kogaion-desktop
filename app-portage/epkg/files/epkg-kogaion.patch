@@ -32,7 +32,7 @@ diff -Nur a/epkg b/epkg
  		;;
  	provides)
 -		equery belongs "$@"
-+		qfile "$@"
++		qfile -Cv "$@"
  		;;
  	verify)
 -		equery check -o "$@"
