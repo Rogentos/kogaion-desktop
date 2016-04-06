@@ -39,7 +39,7 @@ CDEPEND="
 
 DEPEND="
 	${CDEPEND}
-	>=dev-lang/go-1.4:0 
+	=dev-lang/go-1.4.2::kogaion-desktop 
 	btrfs? (
 		>=sys-fs/btrfs-progs-3.8
 	)
