@@ -40,7 +40,6 @@ CDEPEND="
 DEPEND="
 	${CDEPEND}
 	>=dev-lang/go-1.4:0 
-	<dev-lang/go-1.5
 	btrfs? (
 		>=sys-fs/btrfs-progs-3.8
 	)
