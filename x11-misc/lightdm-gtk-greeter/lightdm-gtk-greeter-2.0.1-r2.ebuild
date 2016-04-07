@@ -15,9 +15,10 @@ LICENSE="GPL-3 LGPL-3
 	branding? ( CC-BY-3.0 )"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="ayatana branding"
+IUSE="ayatana +branding"
 
 COMMON_DEPEND="ayatana? ( dev-libs/libindicator:3 )
+	branding? ( >=x11-themes/kogaion-artwork-core-3 )
 	x11-libs/gtk+:3
 	>=x11-misc/lightdm-1.2.2"
 
@@ -28,16 +29,10 @@ RDEPEND="${COMMON_DEPEND}
 	x11-themes/gnome-themes-standard
 	|| ( >=x11-themes/adwaita-icon-theme-3.14.1 x11-themes/gnome-icon-theme )"
 
-GENTOO_BG="gentoo-bg_65.jpg"
 
 src_prepare() {
-	# Ok, this has to be fixed in the tarball but I am too lazy to do it.
-	# I will fix this once I decide to update the tarball with a new gentoo
-	# background
-	# Bug #404467
 	if use branding; then
-		sed -i -e "/xft-hintstyle/s:slight:hintslight:" \
-			"${WORKDIR}"/${PN}.conf || die
+		epatch "${FILESDIR}/${PN}-kogaion.patch"
 	fi
 }
 
@@ -48,15 +43,4 @@ src_configure() {
 
 src_install() {
 	default
-
-	if use branding; then
-		insinto /etc/lightdm/
-		doins "${WORKDIR}"/${PN}.conf
-		insinto /usr/share/lightdm/backgrounds/
-		doins "${WORKDIR}"/${GENTOO_BG}
-		sed -i -e \
-			"/background/s:=.*:=/usr/share/lightdm/backgrounds/${GENTOO_BG}:" \
-			"${D}"/etc/lightdm/${PN}.conf || die
-		newdoc "${WORKDIR}"/README.txt README-background.txt
-	fi
 }
