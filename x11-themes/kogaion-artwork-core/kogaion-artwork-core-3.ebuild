@@ -32,7 +32,7 @@ src_install() {
 
 	# Plymouth theme
 
-	#insinto /usr/share/plymouth
+	insinto /usr/share/plymouth
 	doins "${S}"/plymouth/bizcom.png # back to our bizcom
 	insinto /usr/share/plymouth/themes
 	doins -r "${S}"/plymouth/themes/kogaion
