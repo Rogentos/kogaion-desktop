@@ -49,15 +49,11 @@ src_install() {
 
 	exeinto /etc/X11
 	doexe "${FILESDIR}"/chooser.sh "${FILESDIR}"/startDM.sh
-	exeinto /etc/X11/Sessions
-	doexe "${FILESDIR}"/Xsession
 	exeinto /etc/X11/xinit
 	doexe "${FILESDIR}"/xserverrc
 	exeinto /etc/X11/xinit/xinitrc.d/
 	doexe "${FILESDIR}/00-xhost"
 
-	insinto /usr/share/xsessions
-	doins "${FILESDIR}/Xsession.desktop"
 }
 
 pkg_postinst() {
