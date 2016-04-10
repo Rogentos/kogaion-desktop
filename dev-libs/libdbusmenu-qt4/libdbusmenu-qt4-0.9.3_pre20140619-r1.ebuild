@@ -52,7 +52,7 @@ multilib_src_configure() {
 src_configure() {
 	myconfigure() {
 		local QT_MULTIBUILD_VARIANT=${MULTIBUILD_VARIANT}
-		cmake-multilib_src_configure
+		multilib_src_configure
 	}
 
 	multibuild_foreach_variant myconfigure
@@ -60,7 +60,7 @@ src_configure() {
 
 src_compile() {
 	mycompile() {
-		cmake-multilib_src_compile
+		cmake-utils_src_compile
 	}
 
 	multibuild_foreach_variant mycompile
@@ -68,7 +68,7 @@ src_compile() {
 
 src_install() {
 	myinstall() {
-		cmake-multilib_src_install
+		cmake-utils_src_install
 	}
 
 	multibuild_foreach_variant myinstall
@@ -76,7 +76,7 @@ src_install() {
 
 src_test() {
 	mytest() {
-		cmake-multilib_src_test
+		multilib_src_test
 	}
 
 	multibuild_foreach_variant mytest
