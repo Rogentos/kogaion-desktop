@@ -1,3 +1,7 @@
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+
 EAPI=5
 
 inherit eutils
@@ -8,9 +12,7 @@ SRC_URI="http://repo.steampowered.com/${PN}/pool/${PN}/s/${PN}/${PN}_${PV}.tar.g
 
 LICENSE="custom"
 SLOT="0"
-KEYWORDS="amd64 x86"
-
-EMUL_X86_VER=20120520
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 		virtual/ttf-fonts
@@ -22,9 +24,9 @@ RDEPEND="
 		x11-libs/gdk-pixbuf
 		gnome-extra/zenity
 		amd64?	(
-					>=app-emulation/emul-linux-x86-xlibs-${EMUL_X86_VER}
-					>=app-emulation/emul-linux-x86-soundlibs-${EMUL_X86_VER}
-					>=app-emulation/emul-linux-x86-opengl-${EMUL_X86_VER}
+					>=media-libs/alsa-lib-1.0.28[abi_x86_32(-)]
+					>=media-libs/mesa-10.0.4[abi_x86_32(-)]
+					>=x11-libs/libX11-1.6.2[abi_x86_32(-)]
 		)
 		x86?	(
 					media-libs/alsa-lib
@@ -34,8 +36,14 @@ RDEPEND="
 
 S=${WORKDIR}/${PN}
 
+src_prepare() {
+	epatch "${FILESDIR}"/kogaion-${PN}.patch
+}
+
 src_install() {
 	emake DESTDIR="${D}" install || die "make install failed"
-	rm -rf "${D}"/usr/bin/steamdeps || die # we don't use apt-get
-	dosym /bin/true /usr/bin/steamdeps || die # create blank steamdeps
+	exeinto /usr/bin || die
+	doexe ${FILESDIR}/kogaion-steam || die
+	rm -rf "${D}"/usr/bin/steamdeps || die
+	dosym /bin/true /usr/bin/steamdeps || die
 }
