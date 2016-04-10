@@ -52,7 +52,7 @@ multilib_src_configure() {
 src_configure() {
 	myconfigure() {
 		local QT_MULTIBUILD_VARIANT=${MULTIBUILD_VARIANT}
-		multilib_src_configure
+		cmake-utils__src_configure
 	}
 
 	multibuild_foreach_variant myconfigure
@@ -72,21 +72,4 @@ src_install() {
 	}
 
 	multibuild_foreach_variant myinstall
-}
-
-src_test() {
-	mytest() {
-		multilib_src_test
-	}
-
-	multibuild_foreach_variant mytest
-}
-
-multilib_src_test() {
-	local builddir=${BUILD_DIR}
-
-	BUILD_DIR=${BUILD_DIR}/tests \
-		VIRTUALX_COMMAND=cmake-utils_src_test virtualmake
-
-	BUILD_DIR=${builddir}
 }
