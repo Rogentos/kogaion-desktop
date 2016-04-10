@@ -12,7 +12,7 @@ inherit multibuild multilib virtualx cmake-multilib
 DESCRIPTION="A library providing Qt implementation of DBusMenu specification"
 HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
 SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${MY_PN}_${MY_PV}.orig.tar.gz"
-KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86"
 PATCHES=( "${FILESDIR}/${P}-optionaltests.patch" )
 
 LICENSE="LGPL-2"

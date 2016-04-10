@@ -7,6 +7,7 @@ EAPI=5
 DESCRIPTION="A library providing Qt implementation of DBusMenu specification (meta mackage)"
 HOMEPAGE="https://launchpad.net/libdbusmenu-qt/"
 LICENSE="LGPL-2"
+KEYWORDS="amd64 x86"
 SLOT="0"
 IUSE="debug doc +qt4 qt5"
 
