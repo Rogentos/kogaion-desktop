@@ -34,6 +34,8 @@ RDEPEND="
 					x11-libs/libX11
 		)"
 
+S=${WORKDIR}/${PN}
+
 src_install() {
 	emake DESTDIR="${D}" install || die "make install failed"
 	rm -rf "${D}"/usr/bin/steamdeps || die
