@@ -28,5 +28,5 @@ src_install() {
 	insinto /usr/$(get_libdir)/${PN}
 	doins kogaionsync
 	doins kogaionuser
-	doins kogaindev
+	doins kogaiondev
 }
