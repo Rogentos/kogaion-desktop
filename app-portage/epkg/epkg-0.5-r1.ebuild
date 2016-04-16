@@ -24,7 +24,9 @@ RDEPEND="app-portage/gentoolkit
 
 src_install() {
 	dobin epkg
-	dobin kogaiondev
-	dobin kogaionuser
-	dobin "${FILESDIR}"/kogaionsync
+	dobin kogaionsync
+	dodir /usr/$(get_libdir)/${PN}
+	insinto /usr/$(get_libdir)/${PN}
+	doins kogaionuser
+	doins kogaindev
 }
