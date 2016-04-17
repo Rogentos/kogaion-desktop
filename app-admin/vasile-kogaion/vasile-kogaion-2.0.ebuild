@@ -34,10 +34,9 @@ src_install() {
 	dodir /usr/share/${PN}
 	insinto /usr/share/${PN}
 	insopts -m 755
-	doins ${S}/build
-	doins ${S}/iso
-	doins ${S}/devmode
-	doins ${S}/usermode
-	doins ${S}/resetmode
+	doins ${S}/build*
+	doins ${S}/devmodeset
+	doins ${S}/usermodeset
+	doins ${S}/modereset
 }
 
