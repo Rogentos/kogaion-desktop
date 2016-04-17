@@ -33,7 +33,10 @@ src_install() {
 	doins ${S}/libvasile-kogaion
 	dodir /usr/share/${PN}
 	insinto /usr/share/${PN}
+	insopts -m 755
 	doins ${S}/build
 	doins ${S}/iso
+	doins ${S}/devmod
+	doins ${S}/usermod
 }
 
