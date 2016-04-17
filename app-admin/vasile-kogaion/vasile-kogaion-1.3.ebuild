@@ -9,7 +9,7 @@ inherit eutils git-2
 DESCRIPTION="RogentOS Development Group buildbot, a safer alternative to Sabayons app-admin/matter"
 HOMEPAGE="http://rogentos.ro"
 
-EGIT_BRANCH="master"
+EGIT_BRANCH="kogaion"
 EGIT_REPO_URI="https://gitlab.com/rogentos/vasile.git"
 
 LICENSE="GPL-2"
@@ -30,10 +30,10 @@ src_install() {
 	doexe ${S}/${PN}
 	dodir /usr/$(get_libdir)/${PN}
 	insinto /usr/$(get_libdir)/${PN}
-	doins ${S}/libvasile
+	doins ${S}/libvasile-kogaion
 	dodir /usr/share/${PN}
 	insinto /usr/share/${PN}
-	doins ${S}/build*
-	doins ${S}/iso*
+	doins ${S}/build
+	doins ${S}/iso
 }
 
