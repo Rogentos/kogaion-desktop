@@ -28,6 +28,4 @@ src_install() {
 	insinto /usr/share/${PN}
 	insopts -m 755
 	doins kogaionsync
-	doins kogaionuser
-	doins kogaiondev
 }
