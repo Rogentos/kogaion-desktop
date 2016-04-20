@@ -11,6 +11,7 @@ HOMEPAGE="http://rogentos.ro"
 
 EGIT_BRANCH="kogaion"
 EGIT_REPO_URI="https://gitlab.com/rogentos/vasile.git"
+EGIT_COMMIT="7f0f70126a79ee23c2c7eaf2cc07a85e44714f9a"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -30,7 +31,7 @@ src_install() {
 	doexe ${S}/${PN}
 	dodir /usr/$(get_libdir)/${PN}
 	insinto /usr/$(get_libdir)/${PN}
-	doins ${S}/libvasile-kogaion
+	doins ${S}/libkvasile
 	dodir /usr/share/${PN}
 	insinto /usr/share/${PN}
 	insopts -m 755
