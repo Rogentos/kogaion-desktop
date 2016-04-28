@@ -1,6 +1,6 @@
 diff -Nur a/data/lightdm-gtk-greeter.conf b/data/lightdm-gtk-greeter.conf
 --- a/data/lightdm-gtk-greeter.conf	2015-05-21 03:40:39.000000000 +0100
-+++ b/data/lightdm-gtk-greeter.conf	2016-04-07 18:20:55.438130124 +0100
++++ b/data/lightdm-gtk-greeter.conf	2016-04-28 16:39:15.844142626 +0100
 @@ -45,18 +45,19 @@
  #  transition-duration = overrides default value
  #
@@ -8,7 +8,8 @@ diff -Nur a/data/lightdm-gtk-greeter.conf b/data/lightdm-gtk-greeter.conf
 -#background=
 +background=#005fce
  #user-background=
- #theme-name=
+-#theme-name=
++theme-name=Kogaion-daylight
  #icon-theme-name=
  #font-name=
 -#xft-antialias=
@@ -24,4 +25,4 @@ diff -Nur a/data/lightdm-gtk-greeter.conf b/data/lightdm-gtk-greeter.conf
  #reader=
  #position=
  #screensaver-timeout=
-+default-user-image=/usr/share/pixmaps/kogaion-logo.png
++default-user-image=/usr/share/pixmaps/kogaion-symbolic.png
