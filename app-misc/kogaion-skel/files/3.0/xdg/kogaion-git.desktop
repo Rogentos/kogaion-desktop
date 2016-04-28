@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://gitlab.com/kogaion/kogaion-desktop
+Exec=xdg-open https://gitlab.com/groups/kogaion
 Icon=kogaion-weblink
 
 Name=Kogaion Git Repos
