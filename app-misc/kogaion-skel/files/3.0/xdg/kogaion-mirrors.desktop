@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open http://rogentos.ro/#download
+Exec=xdg-open http://bpr.bluepink.ro/~rogentos/iso/kogaion/
 Icon=kogaion-weblink
 
-Name=Download Locations
-
+Name=Download
+Name[ro]=Descarcare

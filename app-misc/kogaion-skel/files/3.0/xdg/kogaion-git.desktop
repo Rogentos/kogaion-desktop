@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=xdg-open https://github.com/Rogentos
+Exec=xdg-open https://gitlab.com/kogaion/kogaion-desktop
 Icon=kogaion-weblink
 
 Name=Kogaion Git Repos
-
+Name[ro]=Depozite Kogaion

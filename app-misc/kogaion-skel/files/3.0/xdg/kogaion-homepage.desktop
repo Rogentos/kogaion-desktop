@@ -6,4 +6,5 @@ Exec=xdg-open http://rogentos.ro/
 Icon=kogaion-weblink
 
 Name=Kogaion Homepage
+Name[ro]=Pagina Web Kogaion
 
