@@ -2,8 +2,8 @@
 font='Bitstream Vera Sans 10'
 
 [org.mate.background]
-picture-filename='/usr/share/backgrounds/nature/Sea 1.jpg'
-picture-options='stretched'
+picture-filename='/usr/share/backgrounds/kogaion-community/0.png'
+picture-options='scaled'
 
 [org.mate.interface]
 document-font-name='Bitstream Vera Sans 10'
