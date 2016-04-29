@@ -17,6 +17,7 @@ RDEPEND="
 	x11-themes/kogaion-theme
 	x11-themes/numix-icon-theme
 	x11-themes/numix-icon-theme-circle
+	x11-themes/kogaion-artwork-community
 	x11-themes/kogaion-artwork-core"
 
 src_install () {
