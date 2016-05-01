@@ -4,6 +4,7 @@ main () {
 	export LD_PRELOAD='/usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6'
 	if  [[ "$(lsmod|grep nvidia)" ]] ; then 
 		export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/usr/lib32/opengl/nvidia/lib:/usr/lib64/opengl/nvidia/lib'
+		export __GLVND_DISALLOW_PATCHING=1
 	fi
 	export DISPLAY=:0
 	steam
