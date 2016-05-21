@@ -11,11 +11,11 @@ HOMEPAGE="http://rogentos.ro"
 
 EGIT_BRANCH="kogaion"
 EGIT_REPO_URI="https://gitlab.com/rogentos/vasile.git"
-EGIT_COMMIT="af26936d648563d8003a1d19fb170b90992fd3bf"
+EGIT_COMMIT="34b4ee0f3bdf46ef2d9a9151cf17add400a0a6c8"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64"
 IUSE=""
 
 DEPEND="
@@ -35,7 +35,7 @@ src_install() {
 	dodir /usr/share/${PN}
 	insinto /usr/share/${PN}
 	insopts -m 755
-	doins ${S}/build*
+	doins ${S}/make*
 	doins ${S}/devmodeset
 	doins ${S}/usermodeset
 	doins ${S}/modereset
