@@ -10,7 +10,7 @@ HOMEPAGE="http://www.viber.com"
 SRC_URI="http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb"
 
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="amd64"
 IUSE=""
 RESTRICT="strip"
 S="${WORKDIR}"
