@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_4 )
 
 inherit eutils cmake-utils python-r1
 
-SRC_URI="https://github.com/calamares/calamares/releases/download/v1.1/calamares-1.1.tar.gz"
+SRC_URI="https://github.com/calamares/calamares/releases/download/v2.2.3/calamares-2.2.3.tar.gz"
 
 DESCRIPTION="Distribution-independent installer framework"
 HOMEPAGE="http://calamares.io"
@@ -42,7 +42,7 @@ DEPEND="
 	>=dev-qt/qtxmlpatterns-5.4.0:5
 	>=dev-cpp/yaml-cpp-0.5.1
 	>=kde-frameworks/extra-cmake-modules-5.10.0
-	>=sys-libs/kpmcore-2.1.0"
+	>=sys-libs/kpmcore-2.2.0"
 
 RDEPEND=">=app-misc/calamares-runtime-3.0[branding]"
 
