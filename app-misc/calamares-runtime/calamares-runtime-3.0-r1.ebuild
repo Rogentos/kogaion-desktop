@@ -34,6 +34,7 @@ RDEPEND="
 	>=dev-qt/qtscript-5.4.0:5
 	>=dev-qt/qtsvg-5.4.0:5
 	>=dev-qt/qttest-5.4.0:5
+	>=dev-qt/qtwebkit-5.4.0:5
 	>=dev-qt/qtwidgets-5.4.0:5
 	>=dev-qt/qtxml-5.4.0:5
 	>=dev-qt/qtxmlpatterns-5.4.0:5
@@ -42,6 +43,7 @@ RDEPEND="
 	>=kde-frameworks/kconfig-5.10.0
 	>=kde-frameworks/ki18n-5.10.0
 	>=kde-frameworks/kcoreaddons-5.10.0
+	>=kde-frameworkds/kparts-5.10.0
 	>=kde-frameworks/solid-5.10.0
 	>=net-misc/rsync-3.1[xattr]
 	>=sys-block/parted-3.0
@@ -49,7 +51,7 @@ RDEPEND="
 	>=sys-apps/dmidecode-2.12-r1
 	>=sys-fs/squashfs-tools-4.3:0[xattr]
 	>=sys-power/upower-0.99.0-r1
-	>=sys-libs/kpmcore-2.1.0
+	>=sys-libs/kpmcore-2.2.0
 	sys-boot/os-prober
 	sys-auth/polkit-qt5
 	sys-fs/udisks:2[systemd]

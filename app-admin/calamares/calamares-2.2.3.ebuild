@@ -37,6 +37,7 @@ DEPEND="
 	>=dev-qt/qtscript-5.4.0:5
 	>=dev-qt/qtsvg-5.4.0:5
 	>=dev-qt/qttest-5.4.0:5
+	>=dev-qt/qtwebkit-5.4.0:5
 	>=dev-qt/qtwidgets-5.4.0:5
 	>=dev-qt/qtxml-5.4.0:5
 	>=dev-qt/qtxmlpatterns-5.4.0:5
