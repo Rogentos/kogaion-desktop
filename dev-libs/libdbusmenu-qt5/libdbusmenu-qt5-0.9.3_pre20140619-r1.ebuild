@@ -27,7 +27,6 @@ RDEPEND="dev-qt/qtcore:5
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? (
-		dev-libs/qjson[${MULTILIB_USEDEP}]
 		dev-qt/qttest:5
 	)
 "
