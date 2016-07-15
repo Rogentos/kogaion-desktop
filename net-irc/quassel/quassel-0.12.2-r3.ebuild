@@ -39,7 +39,7 @@ GUI_RDEPEND="
 		dev-qt/qtgui:5
 		dev-qt/qtwidgets:5
 		dbus? (
-			>=dev-libs/libdbusmenu-qt5-0.9.3_pre20140619
+			>=dev-libs/libdbusmenu-qt-0.9.3_pre20140619
 			dev-qt/qtdbus:5
 		)
 		kde? (
@@ -59,7 +59,7 @@ GUI_RDEPEND="
 		dev-qt/qtgui:4
 		ayatana? ( dev-libs/libindicate-qt )
 		dbus? (
-			>=dev-libs/libdbusmenu-qt4-0.9.3_pre20140619
+			>=dev-libs/libdbusmenu-qt-0.9.3_pre20140619
 			dev-qt/qtdbus:4
 			kde? (
 				kde-base/kdelibs:4
