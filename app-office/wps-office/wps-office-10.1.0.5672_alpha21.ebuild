@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=6
-inherit eutils unpacker versionator
+inherit eutils fdo-mime gnome2-utils unpacker versionator
 
 MY_PV="$(get_version_component_range 1-4)"
 MY_V="$(get_version_component_range 5)"
@@ -92,4 +92,19 @@ src_install() {
 	for i in wps-office-wps.desktop wps-office-wpp.desktop wps-office-et.desktop ; do
 		dosym /opt/kingsoft/wps-office/resource/applications/$i /usr/share/applications/$i
 	done
+	dodir /usr/share/mime/packages
+	for i in wps-office-wps.xml wps-office-wpp.xml wps-office-et.xml ; do
+		dosym /opt/kingsoft/wps-office/resource/mime/packages/$i /usr/share/mime/packages/$i
+	done
+}
+
+pkg_postinst() {
+	fdo-mime_desktop_database_update
+	fdo-mime_mime_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	fdo-mime_desktop_database_update
+	gnome2_icon_cache_update
 }
