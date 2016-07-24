@@ -19,6 +19,7 @@ RDEPEND="
 	>=lxde-base/lxappearance-0.5.5
 	=lxqt-base/lxqt-common-0.10*
 	~lxqt-base/lxqt-config-${PV}
+	~lxqt-base/lxqt-notificationd-${PV}
 	~lxqt-base/lxqt-globalkeys-${PV}
 	~lxqt-base/lxqt-panel-${PV}
 	~lxqt-base/lxqt-qtplugin-${PV}
