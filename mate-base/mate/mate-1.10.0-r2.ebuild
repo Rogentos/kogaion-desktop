@@ -45,7 +45,7 @@ RDEPEND="
 		=app-arch/engrampa-${MATE_MV}*:0
 		=app-editors/pluma-${MATE_MV}*:0
 		=app-text/atril-${MATE_MV}*:0
-		gnome-extra/gnome-calculator:0
+		sci-calculators/galculator
 		=mate-extra/caja-extensions-${MATE_MV}*:0
 		=mate-extra/mate-netbook-${MATE_MV}*:0
 		=mate-extra/mate-power-manager-${MATE_MV}*:0
@@ -54,7 +54,6 @@ RDEPEND="
 		=mate-extra/mate-utils-${MATE_MV}*:0
 		=media-gfx/eom-${MATE_MV}*:0
 		=net-analyzer/mate-netspeed-${MATE_MV}*:0
-		sys-apps/gnome-disk-utility:0
 	)
 "
 
