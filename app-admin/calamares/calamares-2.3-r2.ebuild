@@ -38,6 +38,7 @@ DEPEND="
 	>=dev-qt/qtsvg-5.6.0:5
 	>=dev-qt/qttest-5.6.0:5
 	>=dev-qt/qtwebengine-5.6.0:5
+	>=dev-qt/qtwebchannel-5.6.0:5
 	>=dev-qt/qtwidgets-5.6.0:5
 	>=dev-qt/qtxml-5.6.0:5
 	>=dev-qt/qtxmlpatterns-5.6.0:5
