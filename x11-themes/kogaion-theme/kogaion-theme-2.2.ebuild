@@ -11,8 +11,6 @@ HOMEPAGE="http://www.rogentos.ro"
 
 EGIT_BRANCH="master"
 EGIT_REPO_URI="https://gitlab.com/kogaion/kogaion-theme.git"
-EGIT_COMMIT="c682cce4ed7db2ff2bc4bd95a3355a318fb72825"
-
 
 LICENSE="GPLv3"
 SLOT="0"
