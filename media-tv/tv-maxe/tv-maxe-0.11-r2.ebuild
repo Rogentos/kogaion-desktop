@@ -13,7 +13,7 @@ SRC_URI="https://launchpad.net/~venerix/+archive/ubuntu/pkg/+files/${PN}_${PV}-0
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+sqlite vlc mplayer +gstreamer"
+IUSE="+sqlite +vlc mplayer gstreamer"
 
 DEPEND="dev-lang/python:2.7[sqlite]"
 RDEPEND="dev-python/pillow
