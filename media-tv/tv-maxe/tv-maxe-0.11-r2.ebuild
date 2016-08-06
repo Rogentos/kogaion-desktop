@@ -13,7 +13,7 @@ SRC_URI="https://launchpad.net/~venerix/+archive/ubuntu/pkg/+files/${PN}_${PV}-0
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+sqlite +vlc mplayer gstreamer"
+IUSE="+sqlite +vlc mplayer"
 
 DEPEND="dev-lang/python:2.7[sqlite]"
 RDEPEND="dev-python/pillow
@@ -27,11 +27,7 @@ RDEPEND="dev-python/pillow
 	dev-python/pygtk
 	dev-lang/python:2.7[sqlite]
 	media-tv/sopcast
-	media-video/rtmpdump
-	gstreamer? ( 
-		>=dev-python/gst-python-0.10.22-r1:0.10
-		>=media-libs/gst-plugins-good-0.10.31-r1:0.10
-	)"
+	media-video/rtmpdump"
 
 S="${WORKDIR}/${PN}-${PV}"
 
