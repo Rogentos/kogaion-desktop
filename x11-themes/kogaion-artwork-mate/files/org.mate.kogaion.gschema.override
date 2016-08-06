@@ -3,7 +3,7 @@ font='Bitstream Vera Sans 10'
 
 [org.mate.background]
 picture-filename='/usr/share/backgrounds/kogaion-community/0.png'
-picture-options='scaled'
+picture-options='zoom'
 
 [org.mate.interface]
 document-font-name='Bitstream Vera Sans 10'
@@ -14,3 +14,6 @@ icon-theme='Numix-Circle'
 [org.mate.Marco.general]
 theme='Kogaion-daylight'
 titlebar-font='Bitstream Vera Sans Bold 10'
+
+[org.mate.panel.menubar]
+icon-name='kogaion-symbolic'
