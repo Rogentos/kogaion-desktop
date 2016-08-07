@@ -11,7 +11,7 @@ HOMEPAGE="http://rogentos.ro"
 
 EGIT_BRANCH="kogaion"
 EGIT_REPO_URI="https://gitlab.com/rogentos/vasile.git"
-EGIT_COMMIT="42db0af4dfac231d1d011e830e5451a1236580a7"
+EGIT_COMMIT="6b098dc017a69cac78a4f56c497c717cb72e4508"
 
 LICENSE="GPL-2"
 SLOT="0"
