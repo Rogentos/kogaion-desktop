@@ -1,0 +1,12 @@
+diff -Nur a/src/modules/dracut/main.py b/src/modules/dracut/main.py
+--- a/src/modules/dracut/main.py	2016-04-12 10:23:47.000000000 +0100
++++ b/src/modules/dracut/main.py	2016-08-06 13:21:38.055554294 +0100
+@@ -28,7 +28,7 @@
+ 
+     :return:
+     """
+-    return target_env_call(['dracut', '-f'])
++    return target_env_call(['dracut', '-N', '-f', '-o', 'systemd', '-o', 'systemd-initrd', '-o', 'systemd-networkd', '-o', 'dracut-systemd', '--no-hostonly-cmdline', '--kver', '4.4.4-kogaion', '/boot/initramfs-genkernel-x86_64-4.4.4-kogaion'])
+ 
+ 
+ def run():

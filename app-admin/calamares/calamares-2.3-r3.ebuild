@@ -49,6 +49,7 @@ DEPEND="
 RDEPEND=">=app-misc/calamares-runtime-3.1[branding]"
 
 src_prepare() {
+	epatch ${FILESDIR}/${PN}-kogaion-dracut-call.patch
 	# replace calamares installer desktop icon
 	sed -i "s/Icon=calamares/Icon=start-here/g" "${S}/calamares.desktop"
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
