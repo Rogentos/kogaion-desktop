@@ -6,7 +6,7 @@ diff -Nur a/src/modules/dracut/main.py b/src/modules/dracut/main.py
      :return:
      """
 -    return target_env_call(['dracut', '-f'])
-+    return target_env_call(['dracut', '-N', '-f', '-o', 'systemd', '-o', 'systemd-initrd', '-o', 'systemd-networkd', '-o', 'dracut-systemd', '--no-hostonly-cmdline', '--kver', '4.4.4-kogaion', '/boot/initramfs-genkernel-x86_64-4.4.4-kogaion'])
++    return target_env_call(['dracut', '-N', '-f', '-o', 'systemd', '-o', 'systemd-initrd', '-o', 'systemd-networkd', '-o', 'dracut-systemd', '--kver', '4.4.4-kogaion', '/boot/initramfs-genkernel-x86_64-4.4.4-kogaion'])
  
  
  def run():
