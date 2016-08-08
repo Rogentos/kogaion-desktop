@@ -40,6 +40,7 @@ PDEPEND="
 	gtk? ( || (
 		>=mate-extra/mate-polkit-1.8.0
 		>=gnome-extra/polkit-gnome-0.105
+		>=lxqt-base/lxqt-policykit-0.10.0
 		lxde-base/lxpolkit
 		) )
 	kde? ( || (
