@@ -52,6 +52,9 @@ src_prepare() {
 	epatch ${FILESDIR}/${PN}-kogaion-dracut-call.patch
 	# replace calamares installer desktop icon
 	sed -i "s/Icon=calamares/Icon=start-here/g" "${S}/calamares.desktop"
+	# fix installer doesn't start from desktop launcher (IMPROVE THIS UGLY THINGY)
+	sed -i "s/pkexec //g" "${S}/calamares.desktop"
+	sed -i "s/calamares/calamares-pkexec/g" "${S}/calamares.desktop"
 	# If qtchooser is installed, it may break the build, because moc,rcc and uic binaries for wrong qt version may be used.
 	# Setting QT_SELECT environment variable will enforce correct binaries (fix taken from vlc ebuild)
 	export QT_SELECT=qt5
@@ -62,4 +65,11 @@ src_configure() {
 		-DWITH_PARTITIONMANAGER=1
 	)
 	cmake-utils_src_configure
+}
+
+src_install() {
+	cmake-utils_src_install
+	insinto /usr/bin
+	insopts -m 755
+	doins ${FILESDIR}/calamares-pkexec
 }
