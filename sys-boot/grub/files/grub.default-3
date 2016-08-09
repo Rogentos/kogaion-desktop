@@ -19,7 +19,7 @@ GRUB_TIMEOUT="5"
 #GRUB_TIMEOUT_STYLE=menu
 
 # Append parameters to the linux kernel command line for non-recovery entries
-GRUB_CMDLINE_LINUX_DEFAULT="splash quiet"
+GRUB_CMDLINE_LINUX_DEFAULT="splash modprobe.blacklist=vboxvideo quiet"
 
 # Uncomment to disable graphical terminal (grub-pc only)
 #GRUB_TERMINAL=console
