@@ -49,7 +49,10 @@ DEPEND="
 RDEPEND=">=app-misc/calamares-runtime-3.1[branding]"
 
 src_prepare() {
+	# patch dracut module to be called the way we want it, until the module becomes configurable
 	epatch ${FILESDIR}/${PN}-kogaion-dracut-call.patch
+	# patch portage backend to properly remove reverse dependencies (submitted by Kogaion, merged upstream in commit 9dfaca175dfdc8bc5d64a258af26a142c184b29e)
+	epatch ${FILESDIR}/${PN}-portage-backend-properly-remove-revdeps.patch
 	# replace calamares installer desktop icon
 	sed -i "s/Icon=calamares/Icon=start-here/g" "${S}/calamares.desktop"
 	# fix installer doesn't start from desktop launcher (IMPROVE THIS UGLY THINGY)
