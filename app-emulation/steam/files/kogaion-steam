@@ -1,12 +1,35 @@
 #!/usr/bin/env bash
 
-main () {
-	export LD_PRELOAD='/usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6'
+# steam-runtime is a mess with old libraries from Ubuntu 12.04
+# so native drivers compiled on anything newer may not load
+# if we remove some bundled libs, like gcclibs, native drivers
+# will be able to load, because system libs will be used instead
+#
+# but we have to do this everytime when we launch steam, because
+# steam-runtime is being fixed right away by steam client
+
+
+remove_some_bundled_libs () {
+	# force steam to use some system libraries
+	find /home/$USER/.local/share/Steam -name 'libxcb*' -type f | grep -v installed | xargs rm -rf
+	find /home/$USER/.local/share/Steam -name 'libstdc++.so.6*' -type f | grep -v installed | xargs rm -rf
+	find /home/$USER/.local/share/Steam -name 'libgcc_s*' -type f | grep -v installed | xargs rm -rf
+}
+
+
+preload_some_system_libs () {
+	export LD_PRELOAD='/usr/lib32/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6 /usr/lib32/gcc/x86_64-pc-linux-gnu/4.9.3/32/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6'
 	if  [[ "$(lsmod|grep nvidia)" ]] ; then 
 		export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/usr/lib32/opengl/nvidia/lib:/usr/lib64/opengl/nvidia/lib'
 		export __GLVND_DISALLOW_PATCHING=1
 	fi
+}
+
+launch_steam () {
+	remove_some_bundled_libs
+	preload_some_system_libs
 	export DISPLAY=:0
 	steam
 }
-main
+
+launch_steam
