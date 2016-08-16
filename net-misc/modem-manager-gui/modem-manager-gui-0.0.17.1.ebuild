@@ -12,7 +12,7 @@ SRC_URI="http://download.tuxfamily.org/gsf/source/${PN}-${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+networkmanager +ofono -connman"
 
 RDEPEND="
