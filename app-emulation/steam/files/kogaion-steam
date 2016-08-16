@@ -18,13 +18,23 @@ remove_some_bundled_libs () {
 
 preload_some_system_libs () {
 	export LD_PRELOAD='/usr/lib32/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6 /usr/lib32/gcc/x86_64-pc-linux-gnu/4.9.3/32/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/libgcc_s.so.1 /usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/32/libstdc++.so.6'
-	if  [[ "$(lsmod|grep nvidia)" ]] ; then
-		if [[ "$(lsmod|grep bbswitch)" ]] ; then
-			echo ""
-		else
-			export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/usr/lib32/opengl/nvidia/lib:/usr/lib64/opengl/nvidia/lib'
-			export __GLVND_DISALLOW_PATCHING=1
-		fi
+	# steam must be told where nvidia opengl libs live on gentoo systems
+	# but this will break optimus, so check if we detect bbswitch in here
+	# if we do, we do not preload nvidia opengl, as it will break steam
+	if  [[ "$(lsmod|grep nvidia)" &&  "$(lsmod|grep bbswitch)" ]] ; then
+		echo ""
+		echo "nvidia optimus detected, we will not preload nvidia libs"
+		echo ""
+	elif [[ "$(lsmod|grep nvidia)" && ! "$(lsmod|grep bbswitch)" ]] ; then
+		echo ""
+		echo "nvidia optimus not detected, we will preload nvidia libs"
+		echo ""
+		export LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/usr/lib32/opengl/nvidia/lib:/usr/lib64/opengl/nvidia/lib'
+		export __GLVND_DISALLOW_PATCHING=1
+	else
+		echo ""
+		echo "no nvidia card detected, moving on"
+		echo ""
 	fi
 }
 
