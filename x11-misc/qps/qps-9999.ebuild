@@ -20,6 +20,7 @@ IUSE=""
 DEPEND="dev-qt/qtcore:5
 		dev-qt/qtdbus:5
 		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5"
+		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5"
 RDEPEND="${DEPEND}"
 
