@@ -1,0 +1,28 @@
+diff -Nur a/branding.desc b/branding.desc
+--- a/branding.desc	2016-03-06 10:28:28.000000000 +0000
++++ b/branding.desc	2016-08-21 19:06:34.280155216 +0100
+@@ -10,9 +10,9 @@
+     shortVersionedName:  Kogaion 3.0
+     bootloaderEntryName: Kogaion
+     productUrl:          http://rogentos.ro/
+-    supportUrl:          http://rogentos.ro/bugs/
+-    knownIssuesUrl:      http://rogentos.ro/#about/
+-    releaseNotesUrl:     http://rogentos.ro/#about/
++    supportUrl:          http://forum.rogentos.ro/
++    knownIssuesUrl:      http://rogentos.ro/bugs/
++    releaseNotesUrl:     http://rogentos.ro/
+ 
+ images:
+     productLogo:         "kogaion.png"
+diff -Nur a/show.qml b/show.qml
+--- a/show.qml	2016-03-06 10:29:56.000000000 +0000
++++ b/show.qml	2016-08-21 19:06:55.288153721 +0100
+@@ -24,7 +24,7 @@
+     id: presentation
+ 
+     Timer {
+-        interval: 5000
++        interval: 50000
+         running: true
+         repeat: true
+         onTriggered: presentation.goToNextSlide()

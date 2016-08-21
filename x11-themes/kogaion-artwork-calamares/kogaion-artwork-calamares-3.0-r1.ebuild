@@ -20,7 +20,7 @@ RDEPEND="app-admin/calamares"
 S="${WORKDIR}/${PN}-${PV}"
 
 src_prepare() {
-	sed -i "s/5000/50000/g" "${S}"/show.qml
+	epatch "${FILESDIR}"/"adjust-calamares-urls.patch"
 }
 
 src_install() {
