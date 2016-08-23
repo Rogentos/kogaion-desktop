@@ -3,7 +3,7 @@ Encoding=UTF-8
 Type=Application
 
 Exec=xdg-open http://www.gentoo.org/doc/en/index.xml
-Icon=kogaion-weblink
+Icon=/usr/share/pixmaps/kogaion-weblink.png
 
 Name=Gentoo Documentation
 Name[ro]=Documentație Gentoo

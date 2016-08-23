@@ -3,7 +3,7 @@ Encoding=UTF-8
 Type=Application
 
 Exec=xdg-open http://rogentos.ro/
-Icon=kogaion-weblink
+Icon=/usr/share/pixmaps/kogaion-weblink.png
 
 Name=Kogaion Homepage
 Name[ro]=Pagina Web Kogaion
