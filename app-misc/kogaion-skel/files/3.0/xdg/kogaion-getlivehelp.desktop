@@ -3,7 +3,7 @@ Encoding=UTF-8
 Type=Application
 
 Exec=xdg-open http://webchat.freenode.net/?channels=rogentos-dezvoltare
-Icon=kogaion-weblink
+Icon=/usr/share/pixmaps/kogaion-weblink.png
 
 Name=Get Live Help
 Name[ro]=Cere Ajutor Online
