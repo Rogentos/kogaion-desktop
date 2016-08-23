@@ -29,7 +29,7 @@ inherit eutils flag-o-matic autotools multilib
 
 DESCRIPTION="Canon InkJet Scanner Driver and ScanGear MP for Linux (Pixus/Pixma-Series)."
 HOMEPAGE="http://support-au.canon.com.au/contents/AU/EN/0100518402.html"
-RESTRICT="nomirror confcache" 
+RESTRICT="nomirror confcache"
 
 SRC_URI="http://gdlp01.c-wss.com/gds/4/0100005184/01/scangearmp-source-2.10-1.tar.gz"
 LICENSE="UNKNOWN" # GPL-2 source and proprietary binaries
@@ -101,7 +101,6 @@ pkg_setup() {
         einfo ""
         einfo "Press Ctrl+C to abort"
         echo
-        ebeep
 
         n=15 
         while [[ $n -gt 0 ]]; do
@@ -118,10 +117,6 @@ src_prepare(){
 
 	sed -i 's/Z_BEST_SPEED/\ 1\ /g' src/scanfile.c
 
-
-#	( cd src && epatch "${FILESDIR}/fixcompile.patch" )
-
-	libtoolize -cfi
 	eautoreconf
 }
 
