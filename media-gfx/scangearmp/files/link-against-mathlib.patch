@@ -1,0 +1,12 @@
+diff -Nur a/scangearmp/src/Makefile.am b/scangearmp/src/Makefile.am
+--- a/scangearmp/src/Makefile.am	2012-08-29 02:24:08.000000000 +0100
++++ b/scangearmp/src/Makefile.am	2016-08-23 20:37:39.287104385 +0100
+@@ -44,7 +44,7 @@
+ 	cnmsnetwork.c cnmsnetwork.h
+ 
+ 
+-scangearmp_LDADD = @PACKAGE_LIBS@ -lcncpmsui -lsane-canon_mfp -lcncpnet $(INTLLIBS)
++scangearmp_LDADD = @PACKAGE_LIBS@ -lcncpmsui -lsane-canon_mfp -lm -lcncpnet $(INTLLIBS)
+ 
+ scangearmp_CFLAGS = -DV_MAJOR=1 -DV_MINOR=0
+ 

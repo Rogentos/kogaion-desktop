@@ -113,6 +113,7 @@ pkg_setup() {
 }
 
 src_prepare(){
+	epatch ${FILESDIR}/link-against-mathlib.patch
 	cd scangearmp
 
 	sed -i 's/Z_BEST_SPEED/\ 1\ /g' src/scanfile.c
