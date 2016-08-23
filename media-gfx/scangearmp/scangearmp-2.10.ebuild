@@ -49,6 +49,7 @@ DEPEND=">=media-libs/libpng-1.2.44
 	>=x11-libs/gtk+-2.20.1-r1
 	>=media-gfx/sane-backends-1.0.19-r2
 	dev-libs/libusb-compat"
+RDEPEND="${DEPEND}"
 
 # Arrays of supported Printers, there IDs and compatible models
 _pruse=("mx720" "mx920" "mx390" "mx450" "mx520" "e610")
