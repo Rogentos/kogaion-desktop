@@ -738,9 +738,6 @@ _kernel_src_install() {
 	echo "${KV_FULL}" > "RELEASE_LEVEL"
 	doins "RELEASE_LEVEL"
 	einfo "Installing ${base_dir}/RELEASE_LEVEL file: ${KV_FULL}"
-
-	use dracut && \
-		_dracut_initramfs_create "${KV_FULL}"
 }
 
 kogaion-kernel_pkg_preinst() {
@@ -867,11 +864,18 @@ kogaion-kernel_bzimage_config() {
 }
 
 _dracut_initramfs_create() {
+	if use amd64 || use x86; then
+		if use amd64; then
+			local kern_arch="x86_64"
+		else
+			local kern_arch="x86"
+		fi
+	fi
 	local kver="${1}"
 
 	elog "Creating dracut initramfs for ${kver}"
 	addpredict /etc/ld.so.cache~
-	dracut -N -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --no-hostonly-cmdline --kver="${kver}" "${D}/boot/initramfs-genkernel-x86_64-${kver}"
+	dracut -N -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --no-hostonly-cmdline --kver="${kver}" "${D}/boot/initramfs-genkernel-${kern_arch}-${kver}"
 }
 
 kogaion-kernel_pkg_postinst() {
@@ -906,6 +910,10 @@ kogaion-kernel_pkg_postinst() {
 		# Setup newly installed kernel on ARM
 		if use arm; then
 			kogaion-kernel_uimage_config
+		fi
+		# generate ramfs with dracut
+		if use dracut ; then
+			_dracut_initramfs_create
 		fi
 		# Setup newly installed kernel on x86/amd64
 		# This is quite handy for static grub1/grub2
