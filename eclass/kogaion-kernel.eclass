@@ -871,7 +871,7 @@ _dracut_initramfs_create() {
 
 	elog "Creating dracut initramfs for ${kver}"
 	addpredict /etc/ld.so.cache~
-	dracut -q -N -f --kver="${kver}" "${D}/boot/initramfs-dracut-${kver}"
+	dracut -N -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --no-hostonly-cmdline --kver="${kver}" "${D}/boot/initramfs-genkernel-x86_64-${kver}"
 }
 
 kogaion-kernel_pkg_postinst() {
