@@ -402,7 +402,7 @@ _update_depmod() {
 
 	ebegin "Updating module dependencies for ${KV_FULL}"
 	if [ -r "${KV_OUT_DIR}"/System.map ]; then
-		depmod -ae -F "${KV_OUT_DIR}"/System.map -b "${ROOT}" -r "${1}"
+		depmod -ae -F "${KV_OUT_DIR}"/System.map -b "${ROOT}" "${1}"
 		eend $?
 	else
 		ewarn
@@ -745,21 +745,6 @@ kogaion-kernel_pkg_preinst() {
 		mount-boot_pkg_preinst
 	fi
 }
-kogaion-kernel_grub2_mkconfig() {
-	if [ -x "${ROOT}usr/sbin/grub2-mkconfig" ]; then
-		# Grub 2.00
-		"${ROOT}usr/sbin/grub2-mkconfig" -o "${ROOT}boot/grub/grub.cfg"
-	elif [ -x "${ROOT}sbin/grub-mkconfig" ]; then
-		# Grub 1.99
-		"${ROOT}sbin/grub-mkdevicemap" --device-map="${ROOT}boot/grub/device.map"
-		"${ROOT}sbin/grub-mkconfig" -o "${ROOT}boot/grub/grub.cfg"
-	else
-		echo
-		ewarn "Attention, Grub2 is not installed !!!"
-		ewarn "Grub2 bootloader configuration won't be updated"
-		echo
-	fi
-}
 
 _get_real_extraversion() {
 	make_file="${ROOT}${KV_OUT_DIR}/Makefile"
@@ -820,49 +805,6 @@ kogaion-kernel_uimage_config() {
 	fi
 }
 
-kogaion-kernel_bzimage_config() {
-	# Two cases here:
-	# 1. /boot/bzImage symlink is broken (pkg_postrm)
-	# 2. /boot/bzImage symlink doesn't exist (pkg_postinst)
-	local kern_arch
-	use x86 && kern_arch="x86"
-	use amd64 && kern_arch="x86_64"
-
-	if ! has_version app-eselect/eselect-bzimage; then
-		ewarn "app-eselect/eselect-bzimage not installed"
-		ewarn "If you are using this tool, please install it"
-		return 0
-	fi
-
-	local bzimage_file=$(eselect bzimage show --quiet 2> /dev/null)
-	if [ -z "${bzimage_file}" ]; then
-		# try to pic what's being installed
-		local eselect_list=$(eselect bzimage list --quiet 2> /dev/null)
-		if [ -n "${eselect_list}" ]; then
-			eselect bzimage set "kernel-genkernel-${kern_arch}-${KV_FULL}"
-			if [ "${?}" != "0" ]; then
-				# pick the first available, sorry!
-				echo
-				eselect bzimage set 1
-				ewarn "Unable to select the right kernel, falling back"
-				ewarn "to the first available entry. You have been warned"
-				echo
-			fi
-		else
-			echo
-			ewarn "No more kernels available, you might not be able to boot"
-			echo
-		fi
-	else
-		echo
-		ewarn "You are currently booting with kernel:"
-		ewarn "${bzimage_file}"
-		ewarn
-		ewarn "Use 'eselect bzimage' in order to switch between the available ones"
-		echo
-	fi
-}
-
 _dracut_initramfs_create() {
 	if use amd64 || use x86; then
 		if use amd64; then
@@ -873,53 +815,25 @@ _dracut_initramfs_create() {
 	fi
 	local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}"
 
-	elog "Creating dracut initramfs for ${kver}"
+	elog ""
+	elog "Generating initramfs for ${kver}, please wait"
+	elog ""
 	addpredict /etc/ld.so.cache~
-	dracut -N -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --kver=${kver} "${D}/boot/initramfs-genkernel-${kern_arch}-${kver}"
+	dracut -N -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --kver="${kver}" "${ROOT}boot/initramfs-genkernel-${kern_arch}-${kver}"
 }
 
 kogaion-kernel_pkg_postinst() {
 	if _is_kernel_binary; then
-		fstab_file="${ROOT}etc/fstab"
-		einfo "Removing extents option for ext4 drives from ${fstab_file}"
-		# Remove "extents" from /etc/fstab
-		if [ -f "${fstab_file}" ]; then
-			sed -i '/ext4/ s/extents//g' "${fstab_file}"
-		fi
-
 		# Update kernel initramfs to match user customizations
 		use splash && update_kogaion_kernel_initramfs_splash
-
-		# Add kernel to grub.conf
-		if use amd64 || use x86; then
-			if use amd64; then
-				local kern_arch="x86_64"
-			else
-				local kern_arch="x86"
-			fi
-			# grub-legacy
-			if [ -x "${ROOT}usr/sbin/grub-handler" ]; then
-				"${ROOT}usr/sbin/grub-handler" add \
-					"/boot/kernel-genkernel-${kern_arch}-${KV_FULL}" \
-					"/boot/initramfs-genkernel-${kern_arch}-${KV_FULL}"
-			fi
-
-			kogaion-kernel_grub2_mkconfig
-		fi
 
 		# Setup newly installed kernel on ARM
 		if use arm; then
 			kogaion-kernel_uimage_config
 		fi
-		# generate ramfs with dracut
+		# generate initramfs with dracut
 		if use dracut ; then
 			_dracut_initramfs_create
-		fi
-		# Setup newly installed kernel on x86/amd64
-		# This is quite handy for static grub1/grub2
-		# configurations (like on Amazon EC2)
-		if use x86 || use amd64; then
-			kogaion-kernel_bzimage_config
 		fi
 
 		kernel-2_pkg_postinst
@@ -948,31 +862,9 @@ kogaion-kernel_pkg_prerm() {
 
 kogaion-kernel_pkg_postrm() {
 	if _is_kernel_binary; then
-		# Remove kernel from grub.conf
-		if use amd64 || use x86; then
-			if use amd64; then
-				local kern_arch="x86_64"
-			else
-				local kern_arch="x86"
-			fi
-			if [ -x "${ROOT}usr/sbin/grub-handler" ]; then
-				"${ROOT}usr/sbin/grub-handler" remove \
-					"/boot/kernel-genkernel-${kern_arch}-${KV_FULL}" \
-					"/boot/initramfs-genkernel-${kern_arch}-${KV_FULL}"
-			fi
-
-			kogaion-kernel_grub2_mkconfig
-		fi
-
 		# Setup newly installed kernel on ARM
 		if use arm; then
 			kogaion-kernel_uimage_config
-		fi
-		# Setup newly installed kernel on x86/amd64
-		# This is quite handy for static grub1/grub2
-		# configurations (like on Amazon EC2)
-		if use x86 || use amd64; then
-			kogaion-kernel_bzimage_config
 		fi
 	fi
 }
