@@ -871,11 +871,11 @@ _dracut_initramfs_create() {
 			local kern_arch="x86"
 		fi
 	fi
-	local kver="${1}"
+	local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}"
 
 	elog "Creating dracut initramfs for ${kver}"
 	addpredict /etc/ld.so.cache~
-	dracut -N -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --no-hostonly-cmdline --kver="${kver}" "${D}/boot/initramfs-genkernel-${kern_arch}-${kver}"
+	dracut -N -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --kver=${kver} "${D}/boot/initramfs-genkernel-${kern_arch}-${kver}"
 }
 
 kogaion-kernel_pkg_postinst() {
