@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/mhogomchungu/lxqt_wallet"
 EGIT_REPO_URI="https://github.com/mhogomchungu/lxqt_wallet.git"
 EGIT_COMMIT="1ad0c22c169c6fa43b767ae8bdbc972af376b8d1"
 
-LICENSE=""
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="kwallet +libsecret"
