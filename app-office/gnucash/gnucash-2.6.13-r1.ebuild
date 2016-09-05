@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="chipcard debug +doc gnome-keyring hbci mysql ofx postgres python quotes sqlite"
 
 # FIXME: rdepend on dev-libs/qof when upstream fix their mess (see configure.ac)
@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-libs/popt-1.5
 	>=dev-libs/libxml2-2.5.10:2
 	dev-libs/libxslt
-	dev-scheme/guile[deprecated,regex]
+	>=dev-scheme/guile-2[deprecated,regex]
 	dev-scheme/guile-www
 	gnome-base/libgnomecanvas
 	>=net-libs/webkit-gtk-1.2:2
@@ -62,6 +62,7 @@ pkg_setup() {
 src_prepare() {
 	# Skip test that needs some locales to be present
 	sed -i -e '/test_suite_gnc_date/d' src/libqof/qof/test/test-qof.c || die
+	epatch "${FILESDIR}/guile2.patch"
 	gnome2_src_prepare
 }
 
@@ -83,7 +84,7 @@ src_configure() {
 		$(use_enable ofx) \
 		$(use_enable hbci aqbanking) \
 		$(use_enable python) \
-		--with-guile=auto \
+		--with-guile=2.0 \
 		--disable-doxygen \
 		--disable-gtkmm \
 		--enable-locale-specific-tax \
@@ -104,9 +105,4 @@ src_install() {
 	rm -rf "${ED}"/usr/share/doc/${PF}/{examples/,COPYING,INSTALL,*win32-bin.txt,projects.html}
 	mv "${ED}"/usr/share/doc/${PF} "${T}"/cantuseprepalldocs || die
 	dodoc "${T}"/cantuseprepalldocs/*
-
-	# https://bugzilla.gnome.org/show_bug.cgi?id=766960
-	sed -i 's/exec gnucash-env [^[:space:]]*/exec gnucash-env guile/g' \
-		"${ED}/usr/libexec/gnucash/overrides/gnucash-make-guids" || die
-	rm -f "${ED}/usr/libexec/gnucash/overrides/guile" || die
 }
