@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-libs/popt-1.5
 	>=dev-libs/libxml2-2.5.10:2
 	dev-libs/libxslt
-	>=dev-scheme/guile-1.8.3:12[deprecated,regex]
+	dev-scheme/guile[deprecated,regex]
 	dev-scheme/guile-www
 	gnome-base/libgnomecanvas
 	>=net-libs/webkit-gtk-1.2:2
@@ -83,7 +83,7 @@ src_configure() {
 		$(use_enable ofx) \
 		$(use_enable hbci aqbanking) \
 		$(use_enable python) \
-		--with-guile=1.8 \
+		--with-guile=auto \
 		--disable-doxygen \
 		--disable-gtkmm \
 		--enable-locale-specific-tax \
