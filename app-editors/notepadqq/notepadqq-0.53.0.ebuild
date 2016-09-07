@@ -31,5 +31,5 @@ src_configure() {
 }
 
 src_install() { 
-   emake INSTALL_ROOT=${D} install || die 
+   make INSTALL_ROOT=${D} install || die 
 }
