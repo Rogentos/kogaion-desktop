@@ -17,3 +17,9 @@ titlebar-font='Bitstream Vera Sans Bold 10'
 
 [org.mate.panel.menubar]
 icon-name='kogaion-symbolic'
+
+[org.mate.terminal.profile]
+foreground-color='#00ff00'
+background-color='#000000'
+bold-color='#00ff00'
+use-theme-colors=false
