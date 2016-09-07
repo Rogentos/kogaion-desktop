@@ -3,13 +3,11 @@
 # $Header: /dev-util/notepadqq-9999.ebuild,v 0.1 frostwork $ 
 
 EAPI=5
-inherit qmake-utils git-r3
-
-MY_PN=""
+inherit eutils qmake-utils git-r3
 
 DESCRIPTION="Notepad++-like editor for Linux"
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-EGIT_COMMIT="c4edf363ce12da2fb5ec707b7d6f6589d43bd5c9"
+EGIT_COMMIT="3b0751277fb268ec72b466b37d0f0977c536bc1b"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -33,5 +31,5 @@ src_configure() {
 }
 
 src_install() { 
-   make INSTALL_ROOT=${D} install || die 
+   emake INSTALL_ROOT=${D} install || die 
 }
