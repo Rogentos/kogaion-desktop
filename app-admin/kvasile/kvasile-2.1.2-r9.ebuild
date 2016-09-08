@@ -6,7 +6,7 @@ EAPI=5
 
 inherit eutils git-2
 
-DESCRIPTION="RogentOS Development Group buildbot, a safer alternative to Sabayons app-admin/matter"
+DESCRIPTION="Versatile Advanced Script for ISO and Latest Enchantments"
 HOMEPAGE="http://rogentos.ro"
 
 EGIT_BRANCH="kogaion"
