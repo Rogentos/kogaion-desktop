@@ -1,0 +1,12 @@
+diff -Nur a/pastebinit b/pastebinit
+--- a/pastebinit	2016-03-01 05:52:32.000000000 +0000
++++ b/pastebinit	2016-09-08 11:19:48.617003007 +0100
+@@ -34,7 +34,7 @@
+     from urllib.request import FancyURLopener
+ 
+ # Set the default pastebin
+-defaultPB = "pastebin.com"
++defaultPB = "paste.debian.net"
+ 
+ # Now try to override it with a distributor pastebin
+ try:
