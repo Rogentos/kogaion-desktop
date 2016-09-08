@@ -61,6 +61,8 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	./configure --prefix=/usr \
+		--qmake=/usr/$(get_libdir)/qt5/bin/qmake \
+		--lrelease=/usr/$(get_libdir)/qt5/bin/lrelease \
 		$(use_enable cdda) \
 		$(use_enable jack) \
 		$(use_enable pulseaudio) \
