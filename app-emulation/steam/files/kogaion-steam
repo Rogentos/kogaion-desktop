@@ -25,6 +25,7 @@ preload_some_system_libs () {
 		echo ""
 		echo "nvidia optimus detected, we will not preload nvidia libs"
 		echo ""
+		export __GLVND_DISALLOW_PATCHING=1
 	elif [[ "$(lsmod|grep nvidia)" && ! "$(lsmod|grep bbswitch)" ]] ; then
 		echo ""
 		echo "nvidia optimus not detected, we will preload nvidia libs"
