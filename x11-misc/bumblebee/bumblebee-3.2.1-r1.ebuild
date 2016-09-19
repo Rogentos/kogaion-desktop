@@ -1,44 +1,43 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/bumblebee/bumblebee-3.0.1-r2.ebuild,v 1.1 2013/01/21 21:19:16 pacho Exp $
+# $Header: /var/cvsroot/gentoo-x86/x11-misc/bumblebee/bumblebee-3.2.1.ebuild,v 1.1 2013/05/26 18:55:23 pacho Exp $
 
 EAPI=5
-inherit eutils multilib systemd udev user
+inherit eutils multilib readme.gentoo systemd user
 
 DESCRIPTION="Service providing elegant and stable means of managing Optimus graphics chipsets"
-HOMEPAGE="https://github.com/Bumblebee-Project/Bumblebee"
-SRC_URI="mirror://github/Bumblebee-Project/${PN/bu/Bu}/${P}.tar.gz"
+HOMEPAGE="http://bumblebee-project.org https://github.com/Bumblebee-Project/Bumblebee"
+SRC_URI="http://bumblebee-project.org/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 IUSE="+bbswitch video_cards_nouveau video_cards_nvidia"
 
-RDEPEND="x11-misc/virtualgl:=
+RDEPEND="
+	virtual/opengl
+	x11-misc/virtualgl:=
 	bbswitch? ( sys-power/bbswitch )
-	virtual/opengl"
-DEPEND=">=sys-devel/autoconf-2.68
-	sys-devel/automake
-	sys-devel/gcc
-	virtual/pkgconfig
+"
+DEPEND="${RDEPEND}
 	dev-libs/glib:2
-	x11-libs/libX11
 	dev-libs/libbsd
-	sys-apps/help2man"
-
-REQUIRED_USE="|| ( video_cards_nouveau video_cards_nvidia )"
+	sys-apps/help2man
+	virtual/pkgconfig
+	x11-libs/libX11
+"
 
 src_prepare() {
-	DOC_CONTENTS="In order to use Bumblebee, add your user to 'bumblebee' group.
-		You may need to setup your /etc/bumblebee/bumblebee.conf"
-
-	# --wait option for rmmod is deprecated:
-	# https://github.com/Bumblebee-Project/Bumblebee/issues/283
-	epatch "${FILESDIR}/${P}-remove-wait.patch"
+		# Dirty fix for issue https://github.com/Bumblebee-Project/Bumblebee/issues/699
+		# cherry picked from https://github.com/arafey/Bumblebee/commit/5636b24fa86a005a5d2e30bd794516db13ccba56
+		epatch "${FILESDIR}/${P}-handle-nvidia-modeset.patch"
 }
 
 src_configure() {
+	DOC_CONTENTS="In order to use Bumblebee, add your user to 'bumblebee' group.
+		You may need to setup your /etc/bumblebee/bumblebee.conf"
+
 	if use video_cards_nvidia ; then
 		# Get paths to GL libs for all ABIs
 		local nvlib=""
@@ -68,23 +67,22 @@ src_install() {
 	sed -i "s:TurnCardOffAtExit=.*:TurnCardOffAtExit=true:g" \
 		"${S}/conf/bumblebee.conf" || die
 
+	readme.gentoo_create_doc
+
+	default
+
 	if use bbswitch; then
 		# This is much better than the udev rule below
 		doinitd "${FILESDIR}/bbswitch-setup"
 		sed -i "s:need xdm:need bbswitch-setup xdm:" \
 			"${ED}/etc/init.d/bumblebee" || die
 	fi
-
 	# Downstream says: this is just plain wrong, how about
 	# the situation in where the user has bumblebee installed
 	# but they are not actually on an Optimus system? This
 	# disables the nvidia driver forever.
 	##
-	# Install udev rule to handle nvidia card switching,
-	# https://github.com/Bumblebee-Project/Bumblebee/issues/283
-	# udev_dorules "${FILESDIR}"/99-remove-nvidia-dev.rules
-
-	default
+	rm "${ED}/lib/udev/rules.d/99-bumblebee-nvidia-dev.rules" || die
 }
 
 pkg_preinst() {

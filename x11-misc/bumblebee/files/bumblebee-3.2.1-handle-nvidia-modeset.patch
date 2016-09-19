@@ -1,0 +1,14 @@
+diff -Nur a/src/module.c b/src/module.c
+--- a/src/module.c	2013-04-26 16:49:03.022174178 +0100
++++ b/src/module.c	2016-09-19 18:50:43.080311387 +0100
+@@ -96,7 +96,9 @@
+     int retries = 30;
+     bb_log(LOG_INFO, "Unloading %s driver\n", driver);
+     char *mod_argv[] = {
+-      "rmmod",
++      "modprobe",
++      "-r",
++      "nvidia_modeset",
+       driver,
+       NULL
+     };
