@@ -13,11 +13,12 @@ SLOT="0"
 LICENSE="GPL-3"
 KEYWORDS="amd64 x86"
 
-IUSE="+bbswitch video_cards_nouveau video_cards_nvidia"
+IUSE="+bbswitch +primus video_cards_nouveau video_cards_nvidia"
 
 RDEPEND="
 	virtual/opengl
 	x11-misc/virtualgl:=
+	primus? ( x11-misc/primus )
 	bbswitch? ( sys-power/bbswitch )
 "
 DEPEND="${RDEPEND}
