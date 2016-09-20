@@ -15,6 +15,7 @@ LICENSE="ISC"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="x11-misc/bumblebee[video_cards_nvidia]
 "
