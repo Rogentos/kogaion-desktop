@@ -21,7 +21,7 @@ preload_some_system_libs () {
 	# steam must be told where nvidia opengl libs live on gentoo systems
 	# but this will break optimus, so check if we detect bbswitch in here
 	# if we do, we do not preload nvidia opengl, as it will break steam
-	if  [[ "$(lsmod|grep nvidia)" &&  "$(lsmod|grep bbswitch)" ]] ; then
+	if  [[ "$(lsmod|grep bbswitch)" ]] ; then
 		echo ""
 		echo "nvidia optimus detected, we will not preload nvidia libs"
 		echo ""
