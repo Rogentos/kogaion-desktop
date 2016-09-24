@@ -1,0 +1,11 @@
+diff -Nur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2016-09-24 20:03:23.878743418 +0100
++++ b/CMakeLists.txt	2016-09-24 20:03:37.416310552 +0100
+@@ -16,7 +16,6 @@
+ find_package(Qt5LinguistTools REQUIRED QUIET)
+ 
+ find_package(lxqt REQUIRED QUIET)
+-find_package(XdgUserDirs REQUIRED QUIET)
+ 
+ include(LXQtCompilerSettings NO_POLICY_SCOPE)
+ include(LXQtTranslate)
