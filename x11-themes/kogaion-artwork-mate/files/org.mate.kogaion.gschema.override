@@ -1,5 +1,9 @@
 [org.mate.caja.desktop]
+computer-icon-visible=false
 font='Bitstream Vera Sans 10'
+home-icon-visible=false
+trash-icon-visible=false
+volumes-visible=false
 
 [org.mate.background]
 picture-filename='/usr/share/backgrounds/kogaion-community/0.png'
