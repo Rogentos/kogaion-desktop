@@ -18,6 +18,7 @@ KEYWORDS="amd64"
 IUSE=""
 
 DEPEND="
+	sys-apps/gentoo-functions
 	sys-fs/squashfs-tools
 	sys-boot/grub:2
 	dev-libs/libisoburn
