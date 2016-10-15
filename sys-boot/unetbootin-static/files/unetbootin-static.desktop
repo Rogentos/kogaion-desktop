@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Unetbootin Static
+Type=Application
+Comment=Universal Netboot Installer creates Live USB systems for various OS distributions
+Exec=unetbootin-static-pkexec
+Icon=unetbootin
+Categories=System;

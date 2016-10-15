@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+main() {
+	pkexec /usr/bin/unetbootin-static-625
+}
+main

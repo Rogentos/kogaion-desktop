@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="Universal Netboot Installer creates Live USB systems for various OS distributions"
 HOMEPAGE="http://unetbootin.sourceforge.net"
-SRC_URI="http://downloads.sourceforge.net/project/unetbootin/UNetbootin/625/unetbootin-linux-${PV}.bin"
+SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,3 +17,12 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}"
+
+src_install() {
+	insopts -m 755
+	dobin ${P}
+	dobin ${FILESDIR}/${PN}-pkexec
+	dodir /usr/share/applications
+	insinto /usr/share/applications
+	doins ${FILESDIR}/${PN}.desktop
+}
