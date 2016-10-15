@@ -1,8 +1,6 @@
-Romanian Kogaion desktop-oriented ebuilds. For the moment it's in pre-alpha stage. :)
+Kogaion Desktop ebuilds. Mostly stable and safe to use :)
 
 To install it as an overlay in a Gentoo planet distro, use the command: 
 
 layman -f -a kogaion-desktop -o https://gitlab.com/kogaion/kogaion-desktop/raw/master/overlay.xml
 
-== Atention ==
-In order to have this repo stable enough, we propose adding the 'kogaion' overlay also!
