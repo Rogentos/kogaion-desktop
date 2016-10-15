@@ -26,5 +26,6 @@ src_install() {
 	insinto /usr/share/applications
 	doins ${FILESDIR}/${PN}.desktop
 	dodir /usr/share/polkit-1/actions
+	insinto /usr/share/polkit-1/actions
 	doins ${FILESDIR}/ro.kogaion.${PN}.policy
 }
