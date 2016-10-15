@@ -7,8 +7,8 @@
  <vendor>Kogaion</vendor>
  <vendor_url>http://rogentos.ro</vendor_url>
 
- <action id="ro.kogaion.sisyphus.pkexec.run">
-    <description>Run Sisyphus</description>
+ <action id="ro.kogaion.unetbootin-static.pkexec.run">
+    <description>Run Unetbootin</description>
     <message>Authentication is required to run Unetbootin</message>
     <icon_name>drive-harddisk</icon_name>
     <defaults>
