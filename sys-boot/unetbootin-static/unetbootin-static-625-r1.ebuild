@@ -17,7 +17,8 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	app-arch/p7zip"
+	app-arch/p7zip
+	media-libs/libpng:1.2"
 
 src_install() {
 	insopts -m 755
