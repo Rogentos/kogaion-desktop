@@ -12,11 +12,12 @@ SRC_URI="http://pkg.rogentos.ro/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	app-arch/p7zip"
 
 src_install() {
 	insopts -m 755
