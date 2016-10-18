@@ -45,9 +45,6 @@ GRUB_THEME="/usr/share/grub/themes/kogaion/theme.txt"
 # Can be in various bitmap formats.
 GRUB_BACKGROUND="/usr/share/grub/themes/kogaion/terminal_bg.png"
 
-# Enable encryption support
-GRUB_ENABLE_CRYPTODISK=y
-
 # Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to kernel
 #GRUB_DISABLE_LINUX_UUID=true
 
