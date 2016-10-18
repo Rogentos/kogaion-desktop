@@ -50,7 +50,7 @@ RDEPEND=">=app-misc/calamares-runtime-3.1[branding]"
 
 src_prepare() {
 	# patch dracut module to be called the way we want it, until the module becomes configurable
-	epatch ${FILESDIR}/${PN}-kogaion-dracut-call.patch
+	epatch ${FILESDIR}/${P}-dracut-kogaion.patch
 	# calamares dracut luks patch
 	epatch ${FILESDIR}/${P}-dracut-luks-fde.patch
 	# replace calamares installer desktop icon
