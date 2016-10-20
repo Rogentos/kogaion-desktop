@@ -1,6 +1,6 @@
 diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
 --- a/src/modules/grubcfg/main.py	2016-10-14 15:11:26.000000000 +0100
-+++ b/src/modules/grubcfg/main.py	2016-10-20 16:19:17.574463144 +0100
++++ b/src/modules/grubcfg/main.py	2016-10-20 16:57:05.788610597 +0100
 @@ -36,8 +36,11 @@
      default_grub = os.path.join(default_dir, "grub")
      distributor_replace = distributor.replace("'", "'\\''")
@@ -13,7 +13,7 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
  
      libcalamares.utils.debug("which plymouth exit code: {!s}".format(plymouth_bin))
  
-@@ -46,27 +49,48 @@
+@@ -46,28 +49,49 @@
  
      cryptdevice_params = []
  
@@ -27,8 +27,6 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
 -                                                    partition["luksMapperName"]),
 -                "root=/dev/mapper/{!s}".format(partition["luksMapperName"])
 -            ]
--
--    kernel_params = ["quiet"]
 +    if dracut_bin == "0":
 +        for partition in partitions:
 +            if partition["fs"] == "linuxswap":
@@ -55,24 +53,26 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
 +                    "root=/dev/mapper/{!s}".format(partition["luksMapperName"])
 +                ]
  
+     kernel_params = ["quiet"]
+ 
      if cryptdevice_params:
          kernel_params.extend(cryptdevice_params)
  
-+    if swap_uuid:
-+        kernel_params.append("resume=UUID={!s}".format(swap_uuid))
-+
+-    if use_splash:
+-        kernel_params.append(use_splash)
+-
+     if swap_uuid:
+         kernel_params.append("resume=UUID={!s}".format(swap_uuid))
+ 
 +    if swap_outer_uuid:
 +        kernel_params.append("rd.luks.uuid={!s}".format(swap_outer_uuid))
 +
 +    if home_outer_uuid:
 +        kernel_params.append("rd.luks.uuid={!s}".format(home_outer_uuid))
 +
-     if use_splash:
-         kernel_params.append(use_splash)
- 
--    if swap_uuid:
--        kernel_params.append("resume=UUID={!s}".format(swap_uuid))
-+    kernel_params = ["quiet"]
- 
++    if use_splash:
++        kernel_params.append(use_splash)
++
      distributor_line = "GRUB_DISTRIBUTOR=\"{!s}\"".format(distributor_replace)
  
+     if not os.path.exists(default_dir):
