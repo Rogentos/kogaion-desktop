@@ -5,7 +5,7 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
      default_grub = os.path.join(default_dir, "grub")
      distributor_replace = distributor.replace("'", "'\\''")
      plymouth_bin = libcalamares.utils.target_env_call(["sh", "-c", "which plymouth"])
-+    dracut_bin = libcalamares.utils.target_env_call(["sh", "-c", "which plymouth"])
++    dracut_bin = libcalamares.utils.target_env_call(["sh", "-c", "which dracut"])
      use_splash = ""
      swap_uuid = ""
 +    swap_outer_uuid = ""
