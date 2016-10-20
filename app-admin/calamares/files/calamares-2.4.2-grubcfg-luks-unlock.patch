@@ -27,7 +27,7 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
 -                                                    partition["luksMapperName"]),
 -                "root=/dev/mapper/{!s}".format(partition["luksMapperName"])
 -            ]
-+    if dracut_bin == "0":
++    if dracut_bin == 0:
 +        for partition in partitions:
 +            if partition["fs"] == "linuxswap":
 +                swap_uuid = partition["uuid"]
