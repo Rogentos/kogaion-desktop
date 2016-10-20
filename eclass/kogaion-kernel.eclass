@@ -236,19 +236,26 @@ _get_real_kv_full() {
 
 # replace "linux" with K_ROGKERNEL_NAME, usually replaces
 # "linux" with "kogaion" or "server" or "openvz"
-KV_FULL="${KV_FULL/${PN/-*}/${K_ROGKERNEL_NAME}}"
-KV_FULL="${PV}-${K_ROGKERNEL_NAME}"
+#KV_FULL="${KV_FULL/${PN/-*}/${K_ROGKERNEL_NAME}}"
+#KV_FULL="${PV}-${K_ROGKERNEL_NAME}"
 EXTRAVERSION="${EXTRAVERSION/${PN/-*}/${K_ROGKERNEL_NAME}}"
 # drop -rX if exists
-if [[ -n "${PR//r0}" ]] && [[ "${K_KERNEL_DISABLE_PR_EXTRAVERSION}" = "1" ]] \
-		&& [[ -z "${K_NOSETEXTRAVERSION}" ]]; then
-	EXTRAVERSION="${EXTRAVERSION%-r*}"
-	KV_FULL="${KV_FULL%-r*}"
-	KV="${KV%-r*}"
-fi
+#if [[ -n "${PR//r0}" ]] && [[ "${K_KERNEL_DISABLE_PR_EXTRAVERSION}" = "1" ]] \
+#		&& [[ -z "${K_NOSETEXTRAVERSION}" ]]; then
+#	EXTRAVERSION="${EXTRAVERSION%-r*}"
+#	KV_FULL="${KV_FULL%-r*}"
+#	KV="${KV%-r*}"
+#fi
 # rewrite it
+#ORIGINAL_KV_FULL="${KV_FULL}"
+#KV_FULL="$(_get_real_kv_full)"
+
+if [ "${PR}" == "r0" ] ; then
+	KV_FULL="${PV}-${K_ROGKERNEL_NAME}"
+	else
+	KV_FULL="${PV}-${K_ROGKERNEL_NAME}-${PR}"
+fi
 ORIGINAL_KV_FULL="${KV_FULL}"
-KV_FULL="$(_get_real_kv_full)"
 
 # Starting from linux-3.0, we still have to install
 # sources stuff into /usr/src/linux-3.0.0-kogaion (example)
@@ -813,7 +820,11 @@ _dracut_initramfs_create() {
 			local kern_arch="x86"
 		fi
 	fi
-	local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}"
+	if [ "${PR}" == "r0" ] ; then
+		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}"
+		else
+		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}-${PR}"
+	fi
 
 	elog ""
 	elog "Generating initramfs for ${kver}, please wait"
