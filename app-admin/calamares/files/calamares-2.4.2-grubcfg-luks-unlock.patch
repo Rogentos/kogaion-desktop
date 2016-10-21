@@ -1,7 +1,7 @@
 diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
 --- a/src/modules/grubcfg/main.py	2016-10-14 15:11:26.000000000 +0100
-+++ b/src/modules/grubcfg/main.py	2016-10-20 16:57:05.788610597 +0100
-@@ -36,8 +36,11 @@
++++ b/src/modules/grubcfg/main.py	2016-10-22 00:26:06.065978639 +0100
+@@ -36,8 +36,10 @@
      default_grub = os.path.join(default_dir, "grub")
      distributor_replace = distributor.replace("'", "'\\''")
      plymouth_bin = libcalamares.utils.target_env_call(["sh", "-c", "which plymouth"])
@@ -9,11 +9,10 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
      use_splash = ""
      swap_uuid = ""
 +    swap_outer_uuid = ""
-+    home_outer_uuid = ""
  
      libcalamares.utils.debug("which plymouth exit code: {!s}".format(plymouth_bin))
  
-@@ -46,28 +49,49 @@
+@@ -46,28 +48,43 @@
  
      cryptdevice_params = []
  
@@ -34,9 +33,6 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
 +
 +            if partition["fs"] == "linuxswap" and "luksMapperName" in partition:
 +                swap_outer_uuid = partition["luksUuid"]
-+
-+            if partition["mountPoint"] == "/home" and "luksMapperName" in partition:
-+                home_outer_uuid = partition["luksUuid"]
 +
 +            if partition["mountPoint"] == "/" and "luksMapperName" in partition:
 +                cryptdevice_params = ["rd.luks.uuid={!s}".format(partition["luksUuid"])]
@@ -64,11 +60,8 @@ diff -Nur a/src/modules/grubcfg/main.py b/src/modules/grubcfg/main.py
      if swap_uuid:
          kernel_params.append("resume=UUID={!s}".format(swap_uuid))
  
-+    if swap_outer_uuid:
++    if dracut_bin == 0 and swap_outer_uuid:
 +        kernel_params.append("rd.luks.uuid={!s}".format(swap_outer_uuid))
-+
-+    if home_outer_uuid:
-+        kernel_params.append("rd.luks.uuid={!s}".format(home_outer_uuid))
 +
 +    if use_splash:
 +        kernel_params.append(use_splash)
