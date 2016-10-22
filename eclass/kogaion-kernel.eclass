@@ -701,6 +701,23 @@ _dracut_initramfs_create() {
 	dracut -H -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --kver="${kver}" "${ROOT}boot/initramfs-genkernel-${kern_arch}-${kver}"
 }
 
+_dracut_initramfs_delete() {
+	if use amd64 || use x86; then
+		if use amd64; then
+			local kern_arch="x86_64"
+		else
+			local kern_arch="x86"
+		fi
+	fi
+	if [ "${PR}" == "r0" ]; then
+		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}"
+		else
+		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}-${PR}"
+	fi
+	rm -rf "${ROOT}boot/initramfs-genkernel-${kern_arch}-${kver}"
+
+}
+
 _grub2_update_grubcfg() {
 	if [[ -x $(which grub2-mkconfig) ]]; then
 		elog ""
@@ -750,7 +767,7 @@ kogaion-kernel_pkg_prerm() {
 
 kogaion-kernel_pkg_postrm() {
 	if _is_kernel_binary; then
-		elog ""
+		_dracut_initramfs_delete
 	fi
 }
 
