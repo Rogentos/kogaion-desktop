@@ -652,10 +652,6 @@ _kernel_src_install() {
 	doins "${WORKDIR}"/boot/* || die "cannot copy /boot over"
 	cp -Rp "${WORKDIR}"/lib/* "${D}/" || die "cannot copy /lib over"
 
-	# This doesn't always work because KV_FULL (when K_NOSETEXTRAVERSION=1) doesn't
-	# reflect the real value used in Makefile
-	#dosym "../../..${KV_OUT_DIR}" "/lib/modules/${KV_FULL}/source" || die "cannot install source symlink"
-	#dosym "../../..${KV_OUT_DIR}" "/lib/modules/${KV_FULL}/build" || die "cannot install build symlink"
 	cd "${D}"/lib/modules/* || die "cannot enter /lib/modules directory, more than one element?"
 	# cleanup previous
 	rm -f build source || die
@@ -774,14 +770,12 @@ kogaion-kernel_pkg_postinst() {
 		_update_depmod "${depmod_r}"
 
 		elog "Please report kernel bugs at:"
-		elog "http://bugs.rogentos.ro"
+		elog "http://forum.rogentos.ro"
 
-		elog "The source code of this kernel is located at"
-		elog "=${K_KERNEL_SOURCES_PKG}."
-		elog "RogentOS Team recommends that portage users install"
-		elog "${K_KERNEL_SOURCES_PKG} if you want"
-		elog "to build any packages that install kernel modules"
-		elog "(such as ati-drivers, nvidia-drivers, virtualbox, etc...)."
+		elog "The kernel source code is located at =${K_KERNEL_SOURCES_PKG}."
+		elog "RogentOS Team recommends portage users to install it"
+		elog "if you want to build any 3rd party kernel modules"
+		elog "(e.g. nvidia-drivers, virtualbox, etc...)."
 	else
 		kernel-2_pkg_postinst
 	fi
