@@ -833,6 +833,19 @@ _dracut_initramfs_create() {
 	dracut -H -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --kver="${kver}" "${ROOT}boot/initramfs-genkernel-${kern_arch}-${kver}"
 }
 
+_grub2_update_grubcfg() {
+	if [[ -x $(which grub2-mkconfig) ]]; then
+		elog ""
+		elog "Updating GRUB-2 bootloader configuration, please wait"
+		elog ""
+		$(which grub2-mkconfig) -o "${ROOT}boot/grub/grub.cfg"
+	else
+		elog ""
+		elog "It looks like you're not using GRUB-2, you must update bootloader configuration by hand"
+		elog ""
+	fi
+}
+
 kogaion-kernel_pkg_postinst() {
 	if _is_kernel_binary; then
 		# Update kernel initramfs to match user customizations
@@ -846,6 +859,8 @@ kogaion-kernel_pkg_postinst() {
 		if use dracut ; then
 			_dracut_initramfs_create
 		fi
+
+		_grub2_update_grubcfg
 
 		kernel-2_pkg_postinst
 		local depmod_r=$(_get_release_level)
