@@ -32,7 +32,7 @@ DEPEND="${RDEPEND}
 src_prepare() {
 		# Dirty fix for issue https://github.com/Bumblebee-Project/Bumblebee/issues/699
 		# cherry picked from https://github.com/arafey/Bumblebee/commit/5636b24fa86a005a5d2e30bd794516db13ccba56
-		epatch "${FILESDIR}/${P}-handle-nvidia-modeset.patch"
+		epatch "${FILESDIR}/${P}-handle-nvidia-modeset-and-nvidia-drm.patch"
 }
 
 src_configure() {
