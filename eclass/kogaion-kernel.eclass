@@ -220,14 +220,8 @@ _get_real_kv_full() {
 	if [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
 		echo "${ORIGINAL_KV_FULL}"
 	elif [[ "${OKV/.*}" -ge "3" ]]; then
-		# Linux 3.x support, KV_FULL is set to: 3.0-kogaion
-		# need to add another final .0 to the version part
-		#echo "${ORIGINAL_KV_FULL/-/.0-}"
 		echo "${ORIGINAL_KV_FULL}"
     elif [[ "${OKV/.*}" = "4" ]]; then
-	    # Linux 4.x support, KV_FULL is set to: 4.0-kogaion
-		# need to add another final .0 to the version part
-		#echo "${ORIGINAL_KV_FULL/-/.0-}"
 		echo "${ORIGINAL_KV_FULL}"
 	else
 		echo "${ORIGINAL_KV_FULL}"
@@ -236,19 +230,7 @@ _get_real_kv_full() {
 
 # replace "linux" with K_ROGKERNEL_NAME, usually replaces
 # "linux" with "kogaion" or "server" or "openvz"
-#KV_FULL="${KV_FULL/${PN/-*}/${K_ROGKERNEL_NAME}}"
-#KV_FULL="${PV}-${K_ROGKERNEL_NAME}"
 EXTRAVERSION="${EXTRAVERSION/${PN/-*}/${K_ROGKERNEL_NAME}}"
-# drop -rX if exists
-#if [[ -n "${PR//r0}" ]] && [[ "${K_KERNEL_DISABLE_PR_EXTRAVERSION}" = "1" ]] \
-#		&& [[ -z "${K_NOSETEXTRAVERSION}" ]]; then
-#	EXTRAVERSION="${EXTRAVERSION%-r*}"
-#	KV_FULL="${KV_FULL%-r*}"
-#	KV="${KV%-r*}"
-#fi
-# rewrite it
-#ORIGINAL_KV_FULL="${KV_FULL}"
-#KV_FULL="$(_get_real_kv_full)"
 
 if [ "${PR}" == "r0" ] ; then
 	KV_FULL="${PV}-${K_ROGKERNEL_NAME}"
@@ -512,7 +494,6 @@ _kernel_src_compile() {
 	cd "${S}" || die
 	local GKARGS=()
 	GKARGS+=( "--no-menuconfig" "--all-ramdisk-modules" "--no-save-config" "--e2fsprogs" "--udev" )
-	# use splash && GKARGS+=( "--splash=kogaion" ) #NO MORE fbsplash!!!
 	use btrfs && GKARGS+=( "--btrfs" )
 	use plymouth && GKARGS+=( "--plymouth" "--plymouth-theme=${PLYMOUTH_THEME}" ) #reverted to use variable (check the eclass)
 	use dmraid && GKARGS+=( "--dmraid" )
@@ -705,14 +686,8 @@ _get_release_level() {
 	elif [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
 		echo "${KV_FULL}"
 	elif [[ "${OKV/.*}" -ge "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
-		# Linux 3.x support, KV_FULL is set to: 3.0-kogaion
-		# need to add another final .0 to the version part
-		#echo "${KV_FULL/-/.0-}"
 		echo "${KV_FULL}"
     elif [[ "${OKV/.*}" = "4" ]] && [[ "${KV_PATCH}" = "0" ]]; then
-	    # Linux 4.x support, KV_FULL is set to: 4.0-kogaion
-		# need to add another final .0 to the version part
-		#echo "${KV_FULL/-/.0-}"
 		echo "${KV_FULL}"
 	else
 		echo "${KV_FULL}"
