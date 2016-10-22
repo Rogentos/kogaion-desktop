@@ -653,16 +653,6 @@ _kernel_src_install() {
 			rm -f "${D}/${make_file}"
 		fi
 	fi
-
-	# Install kernel configuration information
-	# useful for Entropy kernel-switcher
-	# release level is enough for now
-	base_dir="/etc/kernels/${P}"
-	dodir "${base_dir}"
-	insinto "${base_dir}"
-	echo "${KV_FULL}" > "RELEASE_LEVEL"
-	doins "RELEASE_LEVEL"
-	einfo "Installing ${base_dir}/RELEASE_LEVEL file: ${KV_FULL}"
 }
 
 kogaion-kernel_pkg_preinst() {
