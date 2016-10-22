@@ -221,8 +221,6 @@ _get_real_kv_full() {
 		echo "${ORIGINAL_KV_FULL}"
 	elif [[ "${OKV/.*}" -ge "3" ]]; then
 		echo "${ORIGINAL_KV_FULL}"
-    elif [[ "${OKV/.*}" = "4" ]]; then
-		echo "${ORIGINAL_KV_FULL}"
 	else
 		echo "${ORIGINAL_KV_FULL}"
 	fi
@@ -686,8 +684,6 @@ _get_release_level() {
 	elif [[ "${KV_MAJOR}${KV_MINOR}" -eq 26 ]]; then
 		echo "${KV_FULL}"
 	elif [[ "${OKV/.*}" -ge "3" ]] && [[ "${KV_PATCH}" = "0" ]]; then
-		echo "${KV_FULL}"
-    elif [[ "${OKV/.*}" = "4" ]] && [[ "${KV_PATCH}" = "0" ]]; then
 		echo "${KV_FULL}"
 	else
 		echo "${KV_FULL}"
