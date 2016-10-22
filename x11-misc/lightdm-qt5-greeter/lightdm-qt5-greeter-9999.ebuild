@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://gitlab.com/kogaion/lightdm-qt5-greeter.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64"
 
 RDEPEND="dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
