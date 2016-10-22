@@ -45,6 +45,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/gettext
 	virtual/pkgconfig"
 PDEPEND="gtk? ( x11-misc/lightdm-gtk-greeter )
+	qt5? ( x11-misc/lightdm-qt5-greeter )
 	kde? ( x11-misc/lightdm-kde )"
 
 DOCS=( NEWS )
@@ -73,7 +74,7 @@ src_prepare() {
 src_configure() {
 	# Set default values if global vars unset
 	local _greeter _session _user
-	_greeter=${LIGHTDM_GREETER:=lightdm-gtk-greeter}
+	_greeter=${LIGHTDM_GREETER:=qt-lightdm-greeter}
 	_session=${LIGHTDM_SESSION:=gnome}
 	_user=${LIGHTDM_USER:=root}
 	# Let user know how lightdm is configured
