@@ -20,5 +20,5 @@ src_prepare() {
 }
 
 src_install() {
-	make DESTDIR="$D" install
+	emake DESTDIR=${D} install
 }

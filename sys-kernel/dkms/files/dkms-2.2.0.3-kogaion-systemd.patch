@@ -1,6 +1,6 @@
 diff -Nur a/dkms.service b/dkms.service
 --- a/dkms.service	1970-01-01 01:00:00.000000000 +0100
-+++ b/dkms.service	2016-10-23 13:12:58.789994401 +0100
++++ b/dkms.service	2016-10-23 13:29:05.291059287 +0100
 @@ -0,0 +1,11 @@
 +[Unit]
 +Description=DKMS Autoinstall service
@@ -15,19 +15,32 @@ diff -Nur a/dkms.service b/dkms.service
 +WantedBy=multi-user.target
 diff -Nur a/Makefile b/Makefile
 --- a/Makefile	2011-12-07 18:23:51.000000000 +0000
-+++ b/Makefile	2016-10-23 13:14:39.627001171 +0100
-@@ -13,27 +13,17 @@
- ETC = $(DESTDIR)/etc/dkms
- VAR = $(DESTDIR)/var/lib/dkms
- MAN = $(DESTDIR)/usr/share/man/man8
++++ b/Makefile	2016-10-23 13:41:56.807111082 +0100
+@@ -9,131 +9,45 @@
+ DIST := unstable
+ SHELL=bash
+ 
+-SBIN = $(DESTDIR)/usr/sbin
+-ETC = $(DESTDIR)/etc/dkms
+-VAR = $(DESTDIR)/var/lib/dkms
+-MAN = $(DESTDIR)/usr/share/man/man8
 -INITD = $(DESTDIR)/etc/init.d
 -INITD_RH = $(DESTDIR)/etc/rc.d/init.d 
- LIBDIR = $(DESTDIR)/usr/lib/dkms
- BASHDIR = $(DESTDIR)/etc/bash_completion.d
- KCONF = $(DESTDIR)/etc/kernel
+-LIBDIR = $(DESTDIR)/usr/lib/dkms
+-BASHDIR = $(DESTDIR)/etc/bash_completion.d
+-KCONF = $(DESTDIR)/etc/kernel
 -SHAREDIR = $(DESTDIR)/usr/share
 -DOCDIR = $(SHAREDIR)/doc/dkms
-+SYSTEMD_UNITDIR=$(DESTDIR)/usr/lib/systemd/system
++SUBDIRS =
++DESTDIR =
++SBIN ?= /usr/sbin
++ETC ?= /etc/dkms
++VAR ?= /var/lib/dkms
++MAN ?= /usr/share/man/man8
++LIBDIR ?= /usr/lib/dkms
++BASHDIR ?= /etc/bash_completion.d
++KCONF ?= /etc/kernel
++SYSTEMD_UNITDIR ?= /usr/lib/systemd/system
  
  #Define the top-level build directory
  BUILDDIR := $(shell pwd)
@@ -36,28 +49,41 @@ diff -Nur a/Makefile b/Makefile
 -.PHONY = tarball
 -
 -all: clean tarball rpm debs
--
--clean:
++all:
++	for d in $(SUBDIRS); do $(MAKE) -C $$d; done
+ 
+ clean:
 -	-rm -rf *~ dist/ dkms-freshmeat.txt
--
++	for d in $(SUBDIRS); do $(MAKE) -C $$d clean; done
+ 
  install:
 -	mkdir -m 0755 -p $(VAR) $(SBIN) $(MAN) $(ETC) $(BASHDIR) $(SHAREDIR) $(LIBDIR)
-+	mkdir -m 0755 -p $(VAR) $(SBIN) $(MAN) $(ETC) $(BASHDIR) $(LIBDIR) $(SYSTEMD_UNITDIR)
++	for d in $(SUBDIRS); do $(MAKE) -C $$d install; done
++
++	mkdir -m 0755 -p $(DESTDIR)/$(VAR) $(DESTDIR)/$(SBIN) $(DESTDIR)/$(MAN) $(DESTDIR)/$(ETC) $(DESTDIR)/$(BASHDIR) $(DESTDIR)/$(LIBDIR) $(DESTDIR)/$(SYSTEMD_UNITDIR)
  	sed -e "s/\[INSERT_VERSION_HERE\]/$(RELEASE_VERSION)/" dkms > dkms.versioned
  	mv -f dkms.versioned dkms
- 	install -p -m 0755 dkms_common.postinst $(LIBDIR)/common.postinst
-@@ -42,6 +32,7 @@
- 	install -p -m 0644 dkms_framework.conf $(ETC)/framework.conf
- 	install -p -m 0644 dkms_dbversion $(VAR)
- 	install -p -m 0644 dkms.bash-completion $(BASHDIR)/dkms
-+	install -p -m 0644 dkms.service $(SYSTEMD_UNITDIR)
+-	install -p -m 0755 dkms_common.postinst $(LIBDIR)/common.postinst
+-	install -p -m 0755 dkms $(SBIN)
+-	install -p -m 0755 dkms_autoinstaller $(LIBDIR)
+-	install -p -m 0644 dkms_framework.conf $(ETC)/framework.conf
+-	install -p -m 0644 dkms_dbversion $(VAR)
+-	install -p -m 0644 dkms.bash-completion $(BASHDIR)/dkms
++	install -p -m 0755 dkms_common.postinst $(DESTDIR)/$(LIBDIR)/common.postinst
++	install -p -m 0755 dkms $(DESTDIR)/$(SBIN)
++	install -p -m 0755 dkms_autoinstaller $(DESTDIR)/$(LIBDIR)
++	install -p -m 0644 dkms_framework.conf $(DESTDIR)/$(ETC)/framework.conf
++	install -p -m 0644 dkms_dbversion $(DESTDIR)/$(VAR)
++	install -p -m 0644 dkms.bash-completion $(DESTDIR)/$(BASHDIR)/dkms
++	install -p -m 0644 dkms.service $(DESTDIR)/$(SYSTEMD_UNITDIR)
  	# install compressed manpage with proper timestamp and permissions
- 	gzip -c -9 dkms.8 > $(MAN)/dkms.8.gz
- 	chmod 0644 $(MAN)/dkms.8.gz
-@@ -50,90 +41,3 @@
- 	install -p -m 0755 kernel_prerm.d_dkms  $(KCONF)/prerm.d/dkms
- 	install -p -m 0755 kernel_postinst.d_dkms $(KCONF)/postinst.d/dkms
- 
+-	gzip -c -9 dkms.8 > $(MAN)/dkms.8.gz
+-	chmod 0644 $(MAN)/dkms.8.gz
+-	touch --reference=dkms.8 $(MAN)/dkms.8.gz
+-	mkdir   -p -m 0755 $(KCONF)/prerm.d $(KCONF)/postinst.d
+-	install -p -m 0755 kernel_prerm.d_dkms  $(KCONF)/prerm.d/dkms
+-	install -p -m 0755 kernel_postinst.d_dkms $(KCONF)/postinst.d/dkms
+-
 -DOCFILES=sample.spec sample.conf AUTHORS COPYING README.dkms sample-suse-9-mkkmp.spec sample-suse-10-mkkmp.spec
 -
 -doc-perms:
@@ -142,6 +168,12 @@ diff -Nur a/Makefile b/Makefile
 -	tmp_dir=`mktemp -d --tmpdir dkms.XXXXXXXX` ; \
 -	make debmagic DEB_TMP_BUILDDIR=$${tmp_dir} DIST=$(DIST); \
 -	rm -rf $${tmp_dir}
--
++	gzip -c -9 dkms.8 > $(DESTDIR)/$(MAN)/dkms.8.gz
++	chmod 0644 $(DESTDIR)/$(MAN)/dkms.8.gz
++	touch --reference=dkms.8 $(DESTDIR)/$(MAN)/dkms.8.gz
++	mkdir   -p -m 0755 $(DESTDIR)/$(KCONF)/prerm.d $(DESTDIR)/$(KCONF)/postinst.d
++	install -p -m 0755 kernel_prerm.d_dkms  $(DESTDIR)/$(KCONF)/prerm.d/dkms
++	install -p -m 0755 kernel_postinst.d_dkms $(DESTDIR)/$(KCONF)/postinst.d/dkms
+ 
 -fm:
 -	sed -e "s/\[INSERT_VERSION_HERE\]/$(RELEASE_VERSION)/" dkms-freshmeat.txt.in > dkms-freshmeat.txt
