@@ -1,0 +1,52 @@
+diff -Nur a/dkms/dkms.conf b/dkms/dkms.conf
+--- a/dkms/dkms.conf	2013-12-04 23:22:06.000000000 +0000
++++ b/dkms/dkms.conf	1970-01-01 01:00:00.000000000 +0100
+@@ -1,7 +0,0 @@
+-PACKAGE_NAME="bbswitch"
+-PACKAGE_VERSION="#MODULE_VERSION#"
+-MAKE[0]="make KVERSION=$kernelver"
+-CLEAN="make clean"
+-BUILT_MODULE_NAME[0]="bbswitch"
+-DEST_MODULE_LOCATION[0]="/kernel/drivers/acpi"
+-AUTOINSTALL="yes"
+diff -Nur a/dkms.conf b/dkms.conf
+--- a/dkms.conf	1970-01-01 01:00:00.000000000 +0100
++++ b/dkms.conf	2016-10-23 20:00:47.965369366 +0100
+@@ -0,0 +1,9 @@
++PACKAGE_NAME="bbswitch"
++PACKAGE_VERSION="0.8"
++AUTOINSTALL="yes"
++
++MAKE[0]="make KVERSION=$kernelver"
++CLEAN="make clean"
++
++BUILT_MODULE_NAME[0]="bbswitch"
++DEST_MODULE_LOCATION[0]="/kernel/drivers/acpi"
+diff -Nur a/Makefile.dkms b/Makefile.dkms
+--- a/Makefile.dkms	2013-12-04 23:22:06.000000000 +0000
++++ b/Makefile.dkms	1970-01-01 01:00:00.000000000 +0100
+@@ -1,24 +0,0 @@
+-modname := bbswitch
+-DKMS := dkms
+-modver := $(shell awk -F'"' '/define *BBSWITCH_VERSION/{print $$2}' < bbswitch.c)
+-
+-# directory in which generated files are stored
+-DKMS_DEST := /usr/src/$(modname)-$(modver)
+-
+-all: install
+-
+-src_install:
+-	mkdir -p '$(DKMS_DEST)'
+-	cp Makefile bbswitch.c '$(DKMS_DEST)'
+-	sed 's/#MODULE_VERSION#/$(modver)/' dkms/dkms.conf > '$(DKMS_DEST)/dkms.conf'
+-
+-build: src_install
+-	$(DKMS) build -m bbswitch -v $(modver)
+-
+-install: build
+-	$(DKMS) install -m bbswitch -v $(modver)
+-
+-uninstall:
+-	$(DKMS) remove -m bbswitch -v $(modver) --all
+-
+-.PHONY: all src_install build install uninstall
