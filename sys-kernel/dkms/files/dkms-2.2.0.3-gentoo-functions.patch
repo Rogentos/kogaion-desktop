@@ -57,7 +57,7 @@ diff -Nur a/dkms_autoinstaller b/dkms_autoinstaller
 -    echo "Usage: $0 {start}"
 +	start)
 +		einfo "dkms: running auto installation service for kernel $kernel"
-+		dkms autoinstall --kernelver $kernel
++		dkms autoinstall --force --kernelver $kernel
 +		;;
 +	status)
 +		dkms status
