@@ -9,8 +9,8 @@ SRC_URI="http://linux.dell.com/dkms/permalink/${P}.tar.gz"
 HOMEPAGE="http://linux.dell.com/dkms"
 LICENSE="GPL-2"
 DEPEND=""
-RDEPEND="app-arch/rpm"
-KEYWORDS="*"
+RDEPEND="sys-apps/gentoo-functions"
+KEYWORDS="amd64"
 SLOT="0"
 
 src_prepare() {
