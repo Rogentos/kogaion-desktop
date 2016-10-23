@@ -1,21 +1,25 @@
 diff -Nur a/dkms.service b/dkms.service
 --- a/dkms.service	1970-01-01 01:00:00.000000000 +0100
-+++ b/dkms.service	2016-10-23 13:29:05.291059287 +0100
-@@ -0,0 +1,11 @@
++++ b/dkms.service	2016-10-23 16:03:08.368647918 +0100
+@@ -0,0 +1,15 @@
 +[Unit]
 +Description=DKMS Autoinstall service
-+Before=display-manager.service getty.target
++DefaultDependencies=no
++After=local-fs.target
++Conflicts=shutdown.target
++Before=basic.target shutdown.target
 +
 +[Service]
-+Type=oneshot
-+RemainAfterExit=true
 +ExecStart=/usr/lib/dkms/dkms_autoinstaller start
++Type=oneshot
++TimeoutSec=0
++StandardInput=tty
 +
 +[Install]
 +WantedBy=multi-user.target
 diff -Nur a/Makefile b/Makefile
 --- a/Makefile	2011-12-07 18:23:51.000000000 +0000
-+++ b/Makefile	2016-10-23 13:41:56.807111082 +0100
++++ b/Makefile	2016-10-23 16:00:10.019649543 +0100
 @@ -9,131 +9,45 @@
  DIST := unstable
  SHELL=bash

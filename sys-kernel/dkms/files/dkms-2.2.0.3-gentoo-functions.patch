@@ -1,7 +1,7 @@
 diff -Nur a/dkms_autoinstaller b/dkms_autoinstaller
 --- a/dkms_autoinstaller	2011-07-22 00:06:55.000000000 +0100
-+++ b/dkms_autoinstaller	2016-10-23 12:49:18.363899043 +0100
-@@ -1,52 +1,30 @@
++++ b/dkms_autoinstaller	2016-10-23 16:05:33.751646593 +0100
+@@ -1,52 +1,29 @@
  #!/bin/sh
 -#
 -# dkms_autoinstaller        A service to automatically install DKMS modules
@@ -56,7 +56,6 @@ diff -Nur a/dkms_autoinstaller b/dkms_autoinstaller
 -  *)
 -    echo "Usage: $0 {start}"
 +	start)
-+		einfo "dkms: running auto installation service for kernel $kernel"
 +		dkms autoinstall --force --kernelver $kernel
 +		;;
 +	status)
