@@ -1,0 +1,26 @@
+diff -Nur a/dkms b/dkms
+--- a/dkms	2011-12-07 18:23:58.000000000 +0000
++++ b/dkms	2016-10-23 12:35:35.863843825 +0100
+@@ -756,22 +756,6 @@
+ 	    sa_sck_o[${#sa_sck_o[@]}]="s/\(INITRD_MODULES.*\)$obsolete_module\b\(.*\)/\1${dest_module_name[$index]}\2/"
+ 	done
+     done
+-
+-    # do all the changes at once, record the diffs for posterity
+-    for file in "$@"; do
+-	[[ $file && -w $file ]] || continue
+-	if [[ $file = /etc/sysconfig/kernel ]]; then
+-	    sed "${sa_sck_o[@]}" "$file" > "$temp_dir_name/${file##*/}.new"
+-	else
+-	    sed "${sa_mc_o[@]}" "$file" > "$temp_dir_name/${file##*/}.new"
+-	fi
+-	if ! mod_diff=$(diff -u "$temp_dir_name/${file##*/}.new" "$file"); then
+-	    echo $"$file updated to replace obsoleted module references:"
+-	    echo "$mod_diff"
+-	    cp -fp "$temp_dir_name/${file##*/}.new" "$file"
+-	    rm -f "$temp_dir_name/${file##*/}.new"
+-	fi
+-    done
+ }
+ 
+ moduleconfig_add()
