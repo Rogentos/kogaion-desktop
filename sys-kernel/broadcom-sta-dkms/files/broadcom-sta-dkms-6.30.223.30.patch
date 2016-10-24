@@ -1,0 +1,16 @@
+--- a/kernel/dkms.conf	2016-10-24 01:00:27.259770140 +0300
++++ b/kernel/dkms.conf	2016-10-24 01:00:30.057770215 +0300
+@@ -1,10 +1,10 @@
+-PACKAGE_NAME="bcmwl"
+-PACKAGE_VERSION="6.30.223.30+bdcom"
++PACKAGE_NAME="broadcom-sta-dkms"
++PACKAGE_VERSION="6.30.223.30"
+ CLEAN="rm -f *.*o"
+ 
+ BUILT_MODULE_NAME[0]="wl"
+ MAKE[0]="make -C $kernel_source_dir M=$dkms_tree/$PACKAGE_NAME/$PACKAGE_VERSION/build"
+-DEST_MODULE_LOCATION[0]="/updates"
++DEST_MODULE_LOCATION[0]="/kernel/net/wireless"
+ PATCH[0]="0001-MODULE_LICENSE.patch"
+ PATCH[1]="0002-Makefile.patch"
+ PATCH[2]="0003-Make-up-for-missing-init_MUTEX.patch"
