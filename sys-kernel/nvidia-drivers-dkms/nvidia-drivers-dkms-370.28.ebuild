@@ -41,6 +41,6 @@ pkg_postinst() {
 	dkms add ${PN}/${PV}
 }
 
-pkg_postrm() {
+pkg_prerm() {
 	dkms remove ${PN}/${PV} --all
 }
