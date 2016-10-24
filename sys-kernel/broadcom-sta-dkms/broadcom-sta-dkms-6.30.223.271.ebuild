@@ -18,7 +18,7 @@ SLOT="0"
 RESTRICT="mirror"
 
 DEPEND="sys-kernel/dkms"
-RDEPEND=""
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
 

@@ -16,7 +16,7 @@ LICENSE="GPL-3+"
 KEYWORDS="amd64"
 IUSE=""
 DEPEND="sys-kernel/dkms"
-RDEPEND=""
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
