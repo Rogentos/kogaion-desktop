@@ -17,7 +17,7 @@ RESTRICT="mirror"
 SLOT="0"
 
 DEPEND="=sys-kernel/${PN}-dkms-${PV}"
-RDEPEND=""
+RDEPEND="${DEPEND}"
 
 S=${WORKDIR}
 
