@@ -23,6 +23,8 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}"
 
 src_prepare() {
+	cp "${FILESDIR}"/dkms.conf "${S}" || die
+	
 	epatch \
 		"${FILESDIR}/broadcom-sta-6.30.223.141-makefile.patch" \
 		"${FILESDIR}/broadcom-sta-6.30.223.141-eth-to-wlan.patch" \
@@ -33,9 +35,6 @@ src_prepare() {
 		"${FILESDIR}/broadcom-sta-6.30.223.271-r3-linux-4.7.patch"
 
 	epatch_user
-	
-	cd "${S}" || die
-	cp "${FILESDIR}"/dkms.conf "${S}" || die
 }
 
 src_compile(){
