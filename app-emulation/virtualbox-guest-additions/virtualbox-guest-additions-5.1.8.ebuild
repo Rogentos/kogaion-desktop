@@ -4,18 +4,18 @@
 
 EAPI=6
 
-inherit eutils linux-mod systemd user toolchain-funcs
+inherit eutils systemd user toolchain-funcs
 
 MY_PV="${PV/beta/BETA}"
 MY_PV="${MY_PV/rc/RC}"
 MY_P=VirtualBox-${MY_PV}
-DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
+DESCRIPTION="VirtualBox user-space tools for Gentoo guests"
 HOMEPAGE="http://www.virtualbox.org/"
 SRC_URI="http://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="X"
 
 RDEPEND="X? ( ~x11-drivers/xf86-video-virtualbox-${PV}
@@ -31,6 +31,7 @@ RDEPEND="X? ( ~x11-drivers/xf86-video-virtualbox-${PV}
 		x11-libs/libICE
 		x11-proto/glproto )
 	sys-apps/dbus
+	=sys-kernel/virtualbox-guest-dkms-${PV}
 	!!x11-drivers/xf86-input-virtualbox"
 DEPEND="${RDEPEND}
 	>=dev-util/kbuild-0.1.9998_pre20131130
@@ -41,46 +42,32 @@ DEPEND="${RDEPEND}
 	X? ( x11-proto/renderproto )
 	!X? ( x11-proto/xproto )"
 
-BUILD_TARGETS="all"
-BUILD_TARGET_ARCH="${ARCH}"
-MODULE_NAMES="vboxguest(misc:${WORKDIR}/vboxguest:${WORKDIR}/vboxguest)
-		vboxsf(misc:${WORKDIR}/vboxsf:${WORKDIR}/vboxsf)"
-
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
-	linux-mod_pkg_setup
-	BUILD_PARAMS="KERN_DIR=${KV_OUT_DIR} KERNOUT=${KV_OUT_DIR}"
 	enewgroup vboxguest
 	enewuser vboxguest -1 /bin/sh /dev/null vboxguest
-	# automount Error: VBoxServiceAutoMountWorker: Group "vboxsf" does not exist
 	enewgroup vboxsf
 }
 
 src_unpack() {
 	unpack ${A}
 
-	# Create and unpack a tarball with the sources of the Linux guest
-	# kernel modules, to include all the needed files
 	"${S}"/src/VBox/Additions/linux/export_modules "${WORKDIR}/vbox-kmod.tar.gz"
 	unpack ./vbox-kmod.tar.gz
 
-	# Remove shipped binaries (kBuild,yasm), see bug #232775
 	cd "${S}"
 	rm -rf kBuild/bin tools
 }
 
 src_prepare() {
-	# PaX fixes (see bug #298988)
 	pushd "${WORKDIR}" &>/dev/null || die
 	eapply "${FILESDIR}"/vboxguest-4.1.0-log-use-c99.patch
 	popd &>/dev/null || die
 
-	# Disable things unused or splitted into separate ebuilds
 	cp "${FILESDIR}/${PN}-5-localconfig" LocalConfig.kmk || die
 	use X || echo "VBOX_WITH_X11_ADDITIONS :=" >> LocalConfig.kmk
 
-	# stupid new header references...
 	for vboxheader in {product,revision,version}-generated.h ; do
 		for mdir in vbox{guest,sf} ; do
 			ln -sf "${S}"/out/linux.${ARCH}/release/${vboxheader} \
@@ -88,7 +75,6 @@ src_prepare() {
 		done
 	done
 
-	# Remove pointless GCC version limitations in check_gcc()
 	sed -e "/\s*-o\s*\\\(\s*\$cc_maj\s*-eq\s*[5-9]\s*-a\s*\$cc_min\s*-gt\s*[0-5]\s*\\\)\s*\\\/d" \
 		-i configure || die
 
@@ -96,7 +82,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# build the user-space tools, warnings are harmless
 	local cmd=(
 		./configure
 		--nofatal
@@ -120,17 +105,9 @@ src_compile() {
 	MAKE="kmk" \
 	emake TOOL_YASM_AS=yasm \
 	VBOX_ONLY_ADDITIONS=1 \
-	KBUILD_VERBOSE=2
-
-	# Now creating the kernel modules. We must do this _after_
-	# we compiled the user-space tools as we need two of the
-	# automatically generated header files. (>=3.2.0)
-	linux-mod_src_compile
 }
 
 src_install() {
-	linux-mod_src_install
-
 	cd "${S}"/out/linux.${ARCH}/release/bin/additions || die
 
 	insinto /sbin
@@ -147,7 +124,6 @@ src_install() {
 	doins VBoxControl
 	fperms 0755 /usr/bin/VBoxControl
 
-	# VBoxClient user service and xrandr wrapper
 	if use X ; then
 		doins VBoxClient
 		fperms 0755 /usr/bin/VBoxClient
@@ -159,7 +135,6 @@ src_install() {
 		popd &>/dev/null || die
 	fi
 
-	# udev rule for vboxdrv
 	local udev_rules_dir="/lib/udev/rules.d"
 	dodir ${udev_rules_dir}
 	echo 'KERNEL=="vboxguest", OWNER="vboxguest", GROUP="vboxguest", MODE="0660"' \
@@ -169,11 +144,9 @@ src_install() {
 		>> "${D}/${udev_rules_dir}/60-virtualbox-guest-additions.rules" \
 		|| die
 
-	# VBoxClient autostart file
 	insinto /etc/xdg/autostart
 	doins "${FILESDIR}"/vboxclient.desktop
 
-	# sample xorg.conf
 	insinto /usr/share/doc/${PF}
 	doins "${FILESDIR}"/xorg.conf.vbox
 
@@ -181,7 +154,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	linux-mod_pkg_postinst
 	if ! use X ; then
 		elog "use flag X is off, enable it to install the"
 		elog "X Window System video driver."
