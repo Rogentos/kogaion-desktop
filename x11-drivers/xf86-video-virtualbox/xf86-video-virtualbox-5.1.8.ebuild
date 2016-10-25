@@ -133,8 +133,7 @@ src_compile() {
 			out/linux.${ARCH}/release/{product,version,revision}-generated.h
 		)
 		for each in ${targets[@]} ; do
-			ln -s "${S}"/${each} \
-				"${MODULES_SRC_DIR}"/${each##*/} || die
+			:
 		done
 		targets=(
 			dt/dt/common/VBoxVideo/HGSMIBase.o
@@ -145,10 +144,7 @@ src_compile() {
 			dt/dt/dt/Runtime/common/alloc/heapoffset.o
 		)
 		for each in ${targets[@]} ; do
-			ln -s "${S}"/${objdir}/${each} \
-				"${MODULES_SRC_DIR}" || die
-			ln -s "${S}"/${objdir}/${each}.dep \
-				"${MODULES_SRC_DIR}" || die
+			:
 		done
 
 	fi
