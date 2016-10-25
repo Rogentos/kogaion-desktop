@@ -157,9 +157,7 @@ src_compile() {
 
 src_install() {
 	if use dri; then
-		pushd "${MODULES_SRC_DIR}" &>/dev/null || die
-		linux-mod_src_install
-		popd &>/dev/null || die
+		:
 	fi
 
 	cd "${S}/out/linux.${ARCH}/release/bin/additions" || die
