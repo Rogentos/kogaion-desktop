@@ -126,7 +126,6 @@ src_compile() {
 
 	if use dri; then
 		local objdir="out/linux.${ARCH}/release/obj/vboxvideo_drm"
-		ln -s Makefile.module.kms "${MODULES_SRC_DIR}"/Makefile || die
 		targets=(
 			include
 			src/VBox/Runtime/r0drv
