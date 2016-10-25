@@ -1,0 +1,14 @@
+diff -Nur a/dkms.conf b/dkms.conf
+--- a/dkms.conf	2016-10-25 17:45:45.245376701 +0100
++++ b/dkms.conf	2016-10-25 17:46:28.523379606 +0100
+@@ -14,8 +14,8 @@
+ # hope that it will be useful, but WITHOUT ANY WARRANTY of any kind.
+ #
+ 
+-PACKAGE_NAME="vboxguest"
+-PACKAGE_VERSION=5.1.8_OSE
++PACKAGE_NAME="virtualbox-guest-dkms"
++PACKAGE_VERSION=5.1.8
+ AUTOINSTALL=yes
+ 
+ BUILT_MODULE_NAME[0]="vboxguest"
