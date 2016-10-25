@@ -5,7 +5,7 @@
 EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
-inherit eutils linux-mod multilib python-single-r1 versionator toolchain-funcs
+inherit eutils multilib python-single-r1 versionator toolchain-funcs
 
 MY_PV="${PV/beta/BETA}"
 MY_PV="${MY_PV/rc/RC}"
@@ -16,10 +16,11 @@ SRC_URI="http://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="dri"
 
-RDEPEND=">=x11-base/xorg-server-1.7:=[-minimal]
+RDEPEND="=sys-kernel/virtualbox-guest-dkms-${PV}
+	>=x11-base/xorg-server-1.7:=[-minimal]
 	x11-libs/libXcomposite"
 DEPEND="${RDEPEND}
 	>=dev-util/kbuild-0.1.9998_pre20131130
@@ -45,11 +46,7 @@ DEPEND="${RDEPEND}
 
 REQUIRED_USE=( "${PYTHON_REQUIRED_USE}" )
 
-BUILD_TARGETS="all"
-BUILD_TARGET_ARCH="${ARCH}"
 S="${WORKDIR}/${MY_P}"
-MODULES_SRC_DIR="${S}/src/VBox/Additions/linux/drm"
-MODULE_NAMES="vboxvideo(misc:${MODULES_SRC_DIR}:${MODULES_SRC_DIR})"
 
 PATCHES=(
 	# Ugly hack to build the opengl part of the video driver
@@ -66,36 +63,26 @@ pkg_setup() {
 		version_is_at_least 4.9 $(gcc-version) || die "Please set gcc 4.9 or higher as active in gcc-config to build ${PN}"
 	fi
 
-	CONFIG_CHECK="~DRM ~DRM_TTM"
-	linux-mod_pkg_setup
-	BUILD_PARAMS="KERN_DIR=${KV_OUT_DIR} KERNOUT=${KV_OUT_DIR}"
-
 	python-single-r1_pkg_setup
 }
 
 src_prepare() {
-	# Prepare the vboxvideo_drm Makefiles and build dir
 	eapply "${FILESDIR}"/${PN}-5.1.4-Makefile.module.kms.patch
 
-	# Remove shipped binaries (kBuild,yasm), see bug #232775
 	rm -r kBuild/bin tools || die
 
-	# Disable things unused or splitted into separate ebuilds
 	cp "${FILESDIR}/${PN}-5-localconfig" LocalConfig.kmk || die
 
-	# Remove pointless GCC version limitations in check_gcc()
 	sed -e "/\s*-o\s*\\\(\s*\$cc_maj\s*-eq\s*[5-9]\s*-a\s*\$cc_min\s*-gt\s*[0-5]\s*\\\)\s*\\\/d" \
 		-i configure || die
 
 	default
 
-	# link with lazy on hardened #394757
 	sed '/^TEMPLATE_VBOXR3EXE_LDFLAGS.linux/s/$/ -Wl,-z,lazy/' \
 		-i Config.kmk || die
 }
 
 src_configure() {
-	# build the user-space tools, warnings are harmless
 	local cmd=(
 		./configure
 		--nofatal
@@ -125,7 +112,6 @@ src_compile() {
 		Additions/x11/vboxvideo
 	)
 
-	# need to use the upstream build system to create necessary objects properly
 	use dri && targets+=( Additions/linux/drm )
 
 	for each in ${targets[@]} ; do
@@ -140,9 +126,7 @@ src_compile() {
 
 	if use dri; then
 		local objdir="out/linux.${ARCH}/release/obj/vboxvideo_drm"
-		# We need a Makefile, so use Makefile.module.kms
 		ln -s Makefile.module.kms "${MODULES_SRC_DIR}"/Makefile || die
-		# All of these are expected to be in $(KBUILD_EXTMOD)/ so symlink them into place
 		targets=(
 			include
 			src/VBox/Runtime/r0drv
@@ -153,8 +137,6 @@ src_compile() {
 			ln -s "${S}"/${each} \
 				"${MODULES_SRC_DIR}"/${each##*/} || die
 		done
-		# see the vboxvideo_drm_SOURCES list in Makefile.kmk for the below,
-		# and replace '..' with 'dt'
 		targets=(
 			dt/dt/common/VBoxVideo/HGSMIBase.o
 			dt/dt/common/VBoxVideo/Modesetting.o
@@ -170,12 +152,6 @@ src_compile() {
 				"${MODULES_SRC_DIR}" || die
 		done
 
-		# Now creating the kernel modules. We must do this _after_
-		# we compiled the user-space tools as we need two of the
-		# automatically generated header files. (>=3.2.0)
-		pushd "${MODULES_SRC_DIR}" &>/dev/null || die
-		linux-mod_src_compile
-		popd &>/dev/null || die
 	fi
 }
 
@@ -190,7 +166,6 @@ src_install() {
 	insinto /usr/$(get_libdir)/xorg/modules/drivers
 	newins vboxvideo_drv_system.so vboxvideo_drv.so
 
-	# Guest OpenGL driver
 	insinto /usr/$(get_libdir)
 	doins -r VBoxOGL*
 
