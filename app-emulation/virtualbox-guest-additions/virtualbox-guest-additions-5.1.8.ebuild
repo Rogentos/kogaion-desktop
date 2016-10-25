@@ -104,7 +104,7 @@ src_configure() {
 src_compile() {
 	MAKE="kmk" \
 	emake TOOL_YASM_AS=yasm \
-	VBOX_ONLY_ADDITIONS=1 \
+	VBOX_ONLY_ADDITIONS=1
 }
 
 src_install() {
