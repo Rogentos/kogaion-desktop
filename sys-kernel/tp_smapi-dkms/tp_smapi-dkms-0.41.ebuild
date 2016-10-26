@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -33,15 +33,15 @@ src_compile(){
 
 src_install() {
 	cp "${FILESDIR}/dkms.conf" "${S}" || die
-    dodir /usr/src/${P}
-    insinto /usr/src/${P}
-    doins -r "${S}"/*
+	dodir /usr/src/${P}
+	insinto /usr/src/${P}
+	doins -r "${S}"/*
 }
 
 pkg_postinst() {
-    dkms add ${PN}/${PV}
+	dkms add ${PN}/${PV}
 }
 
 pkg_prerm() {
-    dkms remove ${PN}/${PV} --all
+	dkms remove ${PN}/${PV} --all
 }
