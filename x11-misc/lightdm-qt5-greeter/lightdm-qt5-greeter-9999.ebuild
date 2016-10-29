@@ -15,6 +15,7 @@ SLOT="0"
 KEYWORDS="amd64"
 
 RDEPEND="dev-qt/qtgui:5
+	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	x11-misc/lightdm[qt5]
 "
