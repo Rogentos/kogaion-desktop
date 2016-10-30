@@ -693,10 +693,7 @@ _dracut_initramfs_create() {
 		else
 		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}-${PR}"
 	fi
-
-	elog ""
 	elog "Generating initramfs for ${kver}, please wait"
-	elog ""
 	addpredict /etc/ld.so.cache~
 	dracut -H -f -o systemd -o systemd-initrd -o systemd-networkd -o dracut-systemd --kver="${kver}" "${ROOT}boot/initramfs-genkernel-${kern_arch}-${kver}"
 }
@@ -720,14 +717,10 @@ _dracut_initramfs_delete() {
 
 _grub2_update_grubcfg() {
 	if [[ -x $(which grub2-mkconfig) ]]; then
-		elog ""
 		elog "Updating GRUB-2 bootloader configuration, please wait"
-		elog ""
 		$(which grub2-mkconfig) -o "${ROOT}boot/grub/grub.cfg"
 	else
-		elog ""
 		elog "It looks like you're not using GRUB-2, you must update bootloader configuration by hand"
-		elog ""
 	fi
 }
 
@@ -749,7 +742,6 @@ kogaion-kernel_pkg_postinst() {
 
 		elog "Please report kernel bugs at:"
 		elog "http://forum.rogentos.ro"
-
 		elog "The kernel source code is located at =${K_KERNEL_SOURCES_PKG}."
 		elog "RogentOS Team recommends portage users to install it"
 		elog "if you want to build any 3rd party kernel modules"
@@ -769,6 +761,8 @@ kogaion-kernel_pkg_postrm() {
 	if _is_kernel_binary; then
 		_dracut_initramfs_delete
 	fi
+
+	_grub2_update_grubcfg
 }
 
 # export all the available functions here
