@@ -708,7 +708,7 @@ _dracut_initramfs_delete() {
 	fi
 	if [ "${PR}" == "r0" ]; then
 		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}"
-		else
+	else
 		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}-${PR}"
 	fi
 	rm -rf "${ROOT}boot/initramfs-genkernel-${kern_arch}-${kver}"
@@ -721,6 +721,19 @@ _grub2_update_grubcfg() {
 		$(which grub2-mkconfig) -o "${ROOT}boot/grub/grub.cfg"
 	else
 		elog "It looks like you're not using GRUB-2, you must update bootloader configuration by hand"
+	fi
+}
+
+_remove_dkms_modules() {
+	if [ "${PR}" == "r0" ] ; then
+		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}"
+	else
+		local kver="${PV}-${K_ROGKERNEL_SELF_TARBALL_NAME}-${PR}"
+	fi
+	if [[ -x $(which dkms) ]] ; then
+		for i in $(dkms status | cut -d , -f1,2 | sed -e 's/, /\//' | uniq) ; do
+			dkms remove $i -k "${kver}"
+		done
 	fi
 }
 
@@ -761,7 +774,7 @@ kogaion-kernel_pkg_postrm() {
 	if _is_kernel_binary; then
 		_dracut_initramfs_delete
 	fi
-
+	_remove_dkms_modules
 	_grub2_update_grubcfg
 }
 
